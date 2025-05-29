@@ -3,9 +3,8 @@
 .scroll-transition-container {
   position: relative;
   width: 100%;
-  min-height: 200vh; /* Pour permettre le scroll */
-  perspective: 1200px; /* Perspective 3D pour l'effet de profondeur */
-  transform-style: preserve-3d;
+  min-height: 200vh;
+  overflow: hidden; /* Évite les barres de défilement indésirables */
 }
 
 .home-section {
@@ -14,59 +13,128 @@
   width: 100%;
   height: 100vh;
   z-index: 1;
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transition: opacity 0.1s ease-out, filter 0.2s ease-out, transform 0.1s ease-out;
+  will-change: opacity, filter, transform;
 }
 
-.home-section.fading {
-  opacity: var(--fade-opacity, 1);
-  transform: scale(var(--fade-scale, 1));
+.home-section.transitioning {
+  opacity: var(--home-opacity, 1);
+  filter: blur(var(--home-blur, 0px));
+  transform: scale(var(--home-scale, 1));
+  /* Préserve les animations existantes de la page d'accueil */
+  pointer-events: auto;
+}
+
+.transition-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.3) 70%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  opacity: var(--overlay-opacity, 0);
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+  will-change: opacity;
 }
 
 .no-project-section {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  z-index: 2;
-  transform: translateZ(var(--slide-z, -200px)) scale(var(--slide-scale, 0.8));
-  opacity: var(--slide-opacity, 0);
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-  will-change: transform, opacity;
-  perspective: 1000px;
+  z-index: 3;
+  opacity: var(--nog-opacity, 0);
+  transform: translateY(var(--nog-y, 60px)) scale(var(--nog-scale, 0.9));
+  filter: blur(var(--nog-blur, 10px));
+  transition: opacity 0.3s ease-out, transform 0.4s ease-out, filter 0.3s ease-out;
+  will-change: opacity, transform, filter;
+  background: #ffffff;
+  /* Assure une transition douce depuis le contenu précédent */
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .no-project-section.visible {
-  transform: translateZ(0) scale(1);
   opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
 }
 
-/* Amélioration des performances */
+/* Optimisation des performances */
 .scroll-transition-container * {
-  backface-visibility: hidden;
-  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pour les écrans haute résolution */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .home-section.transitioning {
+    transform: scale(var(--home-scale, 1)) translateZ(0);
+  }
 }
 
 /* Media queries pour les animations réduites */
 @media (prefers-reduced-motion: reduce) {
   .home-section,
-  .no-project-section {
-    transition: none;
-    perspective: none;
-    transform-style: flat;
+  .no-project-section,
+  .transition-overlay {
+    transition: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+  
+  .home-section.transitioning {
+    opacity: var(--home-opacity, 1);
   }
   
   .no-project-section {
-    transform: none;
     opacity: 1;
+    transform: none;
+    filter: none;
   }
   
-  .scroll-transition-container {
-    perspective: none;
-    transform-style: flat;
+  .transition-overlay {
+    display: none;
   }
 }
 
-/* Respect du design existant de la section NOG */
-.no-project-section .nog-project-section {
-  /* Le background est déjà défini dans NOGProjectSection.css */
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+/* Amélioration pour mobile */
+@media (max-width: 768px) {
+  .scroll-transition-container {
+    min-height: 180vh; /* Réduit légèrement pour mobile */
+  }
+  
+  .transition-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.4) 100%
+    );
+  }
+}
+
+/* Support pour les navigateurs qui ne supportent pas les custom properties */
+@supports not (--custom: property) {
+  .home-section.transitioning {
+    opacity: 0.5;
+    filter: blur(4px);
+    transform: scale(0.99);
+  }
+  
+  .no-project-section.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: none;
+  }
+  
+  .transition-overlay {
+    opacity: 0.3;
+  }
 }
