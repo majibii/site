@@ -76,7 +76,7 @@
   -webkit-mask: none;
 }
 
-/* Animation de scroll fluide */
+/* Animation de scroll fluide avec texte 100% opaque à la fin */
 @keyframes smoothReveal {
   from {
     opacity: 0;
@@ -92,6 +92,25 @@
   animation: smoothReveal 1.2s ease-out forwards;
   animation-delay: 0.3s;
   opacity: 0;
+}
+
+.nog-content-wrapper {
+  opacity: var(--nog-text-opacity, 1);
+  transition: opacity 0.4s ease-out;
+}
+
+/* Force l'opacité complète des textes NOG quand la section est visible */
+.nog-content-wrapper * {
+  opacity: 1 !important;
+  color: inherit !important;
+}
+
+.nog-content-wrapper .nog-title,
+.nog-content-wrapper .nog-description,
+.nog-content-wrapper h1,
+.nog-content-wrapper p {
+  opacity: 1 !important;
+  color: #000000 !important;
 }
 
 /* Optimisations de performance */
