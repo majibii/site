@@ -20,7 +20,7 @@ const ScrollTransition = ({
         homeOpacity: isVisible ? 0 : 1,
         homeTextOpacity: isVisible ? 0 : 1,
         nogOpacity: isVisible ? 1 : 0,
-        nogTextOpacity: isVisible ? 1 : 0,
+        nogTextOpacity: isVisible ? 1 : 1,
         blendOffset: 0,
         animationIntensity: isVisible ? 0 : 1
       };
@@ -39,8 +39,8 @@ const ScrollTransition = ({
     // Phase 3: Apparition complète de NOG (finit tard et atteint 100%)
     const nogRevealProgress = Math.max(0, Math.min(1, (progress - 0.1) * 1.25));
     
-    // Phase 4: Texte NOG apparaît progressivement et atteint 100% à la fin
-    const nogTextProgress = Math.max(0, Math.min(1, (progress - 0.3) * 1.43));
+    // Phase 4: Texte NOG reste visible et devient complètement opaque à la fin
+    const nogTextProgress = Math.max(0.7, Math.min(1, 0.7 + (progress - 0.3) * 0.75));
     
     return {
       // Textes de la page d'accueil disparaissent complètement
