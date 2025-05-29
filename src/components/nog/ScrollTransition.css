@@ -95,20 +95,31 @@
 }
 
 .nog-content-wrapper {
-  opacity: var(--nog-text-opacity, 1);
+  opacity: 1; /* Container toujours opaque */
   transition: opacity 0.4s ease-out;
 }
 
-/* Force l'opacité complète des textes NOG quand la section est visible */
+/* Force l'opacité complète et indépendante des textes NOG */
 .nog-content-wrapper * {
-  opacity: 1 !important;
-  color: inherit !important;
+  opacity: var(--nog-text-opacity, 1) !important;
+  color: #000000 !important;
+  filter: none !important;
 }
 
 .nog-content-wrapper .nog-title,
+.nog-content-wrapper .highlight,
 .nog-content-wrapper .nog-description,
 .nog-content-wrapper h1,
 .nog-content-wrapper p {
+  opacity: var(--nog-text-opacity, 1) !important;
+  color: #000000 !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* S'assurer que le texte soit complètement visible à la fin */
+.nog-layer[style*="--nog-text-opacity: 1"] .nog-content-wrapper *,
+.nog-layer.text-fully-visible .nog-content-wrapper * {
   opacity: 1 !important;
   color: #000000 !important;
 }
