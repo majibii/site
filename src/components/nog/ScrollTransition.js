@@ -47,6 +47,8 @@ const ScrollTransition = ({
       animationIntensity: 1 - smoothProgress,
       // NOG apparaît complètement opaque à la fin
       nogOpacity: nogRevealProgress,
+      // TEXTE NOG à 100% dès 70% du scroll
+      nogTextOpacity: progress > 0.7 ? 1 : nogRevealProgress * 1.5,
       // Décalage pour créer un effet de fusion
       blendOffset: smoothProgress * 100
     };
@@ -81,7 +83,7 @@ const ScrollTransition = ({
         <div 
           className="nog-content-wrapper"
           style={{
-            '--nog-text-opacity': Math.min(1, animationValues.nogOpacity * 1.3) // Boost l'opacité du texte
+            '--nog-text-opacity': animationValues.nogTextOpacity
           }}
         >
           {noProjectContent}
