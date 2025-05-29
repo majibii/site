@@ -112,7 +112,7 @@
 
 /* Gestion progressive de l'opacité des textes NOG */
 .nog-content-wrapper * {
-  opacity: var(--nog-text-opacity, 0) !important;
+  opacity: var(--nog-text-opacity, 1) !important;
   color: #000000 !important;
   filter: none !important;
   transition: opacity 0.6s ease-out;
@@ -123,7 +123,7 @@
 .nog-content-wrapper .nog-description,
 .nog-content-wrapper h1,
 .nog-content-wrapper p {
-  opacity: var(--nog-text-opacity, 0) !important;
+  opacity: var(--nog-text-opacity, 1) !important;
   color: #000000 !important;
   text-shadow: none !important;
   filter: none !important;
