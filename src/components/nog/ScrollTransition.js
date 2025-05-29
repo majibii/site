@@ -1,4 +1,5 @@
 // src/components/nog/ScrollTransition.js
+
 import React, { useMemo } from 'react';
 import { useScrollTransition } from '../../hooks/useScrollTransition';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
