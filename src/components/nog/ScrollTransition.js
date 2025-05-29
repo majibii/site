@@ -35,8 +35,8 @@ const ScrollTransition = ({
     // Phase 2: Estompage général de la page d'accueil
     const homeFadeProgress = Math.max(0, Math.min(1, (progress - 0.2) * 1.25));
     
-    // Phase 3: Apparition complète de NOG (finit tard)
-    const nogRevealProgress = Math.max(0, Math.min(1, (progress - 0.1) * 1.1));
+    // Phase 3: Apparition complète de NOG (finit tard et atteint 100%)
+    const nogRevealProgress = Math.max(0, Math.min(1, (progress - 0.1) * 1.25));
     
     return {
       // Textes disparaissent en premier
@@ -78,7 +78,14 @@ const ScrollTransition = ({
           '--blend-offset': `${animationValues.blendOffset}%`
         }}
       >
-        {noProjectContent}
+        <div 
+          className="nog-content-wrapper"
+          style={{
+            '--nog-text-opacity': Math.min(1, animationValues.nogOpacity * 1.3) // Boost l'opacité du texte
+          }}
+        >
+          {noProjectContent}
+        </div>
       </div>
     </div>
   );
