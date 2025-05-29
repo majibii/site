@@ -1,4 +1,3 @@
-// src/hooks/useScrollTransition.js
 import { useState, useEffect, useRef } from 'react';
 
 export const useScrollTransition = (threshold = 0.3, rootMargin = '0px') => {
