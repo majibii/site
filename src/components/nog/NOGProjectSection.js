@@ -12,9 +12,6 @@ const NOGProjectSection = () => {
       className={`nog-project-section ${isVisible ? 'visible' : ''}`}
     >
       <div className="nog-content">
-        <div className="nog-background-text">
-          N.O.G
-        </div>
         <div className="nog-main-content">
           <h1 className="nog-title">
             <span className="highlight">N.O.G PROJECT</span>
