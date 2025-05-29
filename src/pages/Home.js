@@ -46,7 +46,7 @@ export const Home = () => {
     </div>
   );
 
-  // Contenu de la section NOG Project avec un wrapper pour l'intégration
+  // Contenu de la section NOG Project avec un wrapper
   const noProjectContent = (
     <div style={{ 
       minHeight: '100vh',
