@@ -23,29 +23,57 @@
   filter: var(--layer-filter, none);
 }
 
+/* Contrôle spécifique des textes et animations de la page d'accueil */
+.home-layer * {
+  opacity: var(--text-opacity, 1);
+  transition: opacity 0.8s ease-out;
+}
+
+/* Réduction progressive de l'intensité des animations */
+.home-layer [data-animation],
+.home-layer .animated-element,
+.home-layer .hero-animation {
+  transform: scale(var(--animation-intensity, 1));
+  opacity: calc(var(--text-opacity, 1) * var(--animation-intensity, 1));
+  filter: blur(calc((1 - var(--animation-intensity, 1)) * 3px));
+  transition: transform 1s ease-out, opacity 0.8s ease-out, filter 1s ease-out;
+}
+
 .nog-layer {
   z-index: 2;
   position: absolute;
   top: 100vh; /* Positionnée juste en dessous */
+  /* Transition finale vers opacité complète */
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.95) 10%,
-    #ffffff 20%
+    rgba(255, 255, 255, 0.7) 5%,
+    rgba(255, 255, 255, 0.95) 15%,
+    #ffffff 25%
   );
-  /* Mélange progressif avec la section précédente */
+  /* Mélange progressif avec transition vers opacité totale */
   mask: linear-gradient(
     to bottom, 
-    transparent calc(var(--blend-offset, 0%) - 20%),
-    rgba(255, 255, 255, 0.3) calc(var(--blend-offset, 0%) - 10%),
-    white calc(var(--blend-offset, 0%) + 10%)
+    transparent calc(var(--blend-offset, 0%) - 30%),
+    rgba(255, 255, 255, 0.2) calc(var(--blend-offset, 0%) - 15%),
+    rgba(255, 255, 255, 0.8) calc(var(--blend-offset, 0%) + 5%),
+    white calc(var(--blend-offset, 0%) + 20%)
   );
   -webkit-mask: linear-gradient(
     to bottom, 
-    transparent calc(var(--blend-offset, 0%) - 20%),
-    rgba(255, 255, 255, 0.3) calc(var(--blend-offset, 0%) - 10%),
-    white calc(var(--blend-offset, 0%) + 10%)
+    transparent calc(var(--blend-offset, 0%) - 30%),
+    rgba(255, 255, 255, 0.2) calc(var(--blend-offset, 0%) - 15%),
+    rgba(255, 255, 255, 0.8) calc(var(--blend-offset, 0%) + 5%),
+    white calc(var(--blend-offset, 0%) + 20%)
   );
+}
+
+/* Assure que la section NOG soit complètement opaque quand visible */
+.nog-layer[style*="--layer-opacity: 1"],
+.nog-layer.fully-visible {
+  background: #ffffff;
+  mask: none;
+  -webkit-mask: none;
 }
 
 /* Animation de scroll fluide */
@@ -90,10 +118,17 @@
     opacity: 1;
   }
   
+  .home-layer * {
+    opacity: 1 !important;
+    transition: none;
+  }
+  
   .nog-layer {
     opacity: 1;
     background: #ffffff;
     top: 100vh;
+    mask: none !important;
+    -webkit-mask: none !important;
   }
   
   .nog-layer > * {
@@ -126,9 +161,14 @@
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.7) 15%,
-      rgba(255, 255, 255, 0.9) 30%,
+      rgba(255, 255, 255, 0.5) 10%,
+      rgba(255, 255, 255, 0.8) 20%,
+      rgba(255, 255, 255, 0.95) 30%,
       #ffffff 40%
     );
+  }
+  
+  .nog-layer[style*="--layer-opacity: 1"] {
+    background: #ffffff;
   }
 }
