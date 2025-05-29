@@ -17,22 +17,34 @@ const ScrollTransition = ({
   const animationValues = useMemo(() => {
     if (prefersReducedMotion) {
       return {
-        fadeOpacity: isVisible ? 0.3 : 1,
-        fadeScale: 1,
-        slideY: 0,
-        slideOpacity: isVisible ? 1 : 0
+        homeOpacity: isVisible ? 0.8 : 1,
+        homeBlur: isVisible ? 2 : 0,
+        overlayOpacity: isVisible ? 0.3 : 0,
+        nogOpacity: isVisible ? 1 : 0,
+        nogY: isVisible ? 0 : 30,
+        nogScale: isVisible ? 1 : 0.95
       };
     }
 
-    // Transition douce basée sur le progrès
-    const easedProgress = easeInOutCubic(scrollProgress);
+    // Transition très douce et progressive
+    const smoothProgress = easeInOutQuart(scrollProgress);
+    const earlyProgress = Math.min(1, scrollProgress * 1.5); // Commence plus tôt
+    const lateProgress = Math.max(0, (scrollProgress - 0.3) * 1.43); // Finit plus tard
     
     return {
-      fadeOpacity: Math.max(0.1, 1 - easedProgress * 0.9),
-      fadeScale: Math.max(0.95, 1 - easedProgress * 0.05),
-      slideZ: Math.max(0, -200 + (easedProgress * 200)), // De l'arrière vers l'avant
-      slideScale: Math.max(0.8, 0.8 + (easedProgress * 0.2)), // Scale de 0.8 à 1
-      slideOpacity: Math.min(1, Math.max(0, easedProgress * 1.2 - 0.2))
+      // Page d'accueil : légère atténuation sans arrêter l'animation
+      homeOpacity: Math.max(0.3, 1 - smoothProgress * 0.7),
+      homeBlur: smoothProgress * 8,
+      homeScale: Math.max(0.98, 1 - smoothProgress * 0.02),
+      
+      // Overlay de transition graduelle
+      overlayOpacity: earlyProgress * 0.4,
+      
+      // Section NOG : apparition progressive
+      nogOpacity: lateProgress,
+      nogY: (1 - lateProgress) * 60,
+      nogScale: 0.9 + (lateProgress * 0.1),
+      nogBlur: (1 - lateProgress) * 10
     };
   }, [scrollProgress, isVisible, prefersReducedMotion]);
 
@@ -41,25 +53,35 @@ const ScrollTransition = ({
       className="scroll-transition-container" 
       data-theme={theme}
     >
-      {/* Section d'accueil qui s'estompe */}
+      {/* Section d'accueil qui continue son animation */}
       <div 
-        className={`home-section ${isVisible ? 'fading' : ''}`}
+        className={`home-section ${isVisible ? 'transitioning' : ''}`}
         style={{
-          '--fade-opacity': animationValues.fadeOpacity,
-          '--fade-scale': animationValues.fadeScale
+          '--home-opacity': animationValues.homeOpacity,
+          '--home-blur': `${animationValues.homeBlur}px`,
+          '--home-scale': animationValues.homeScale
         }}
       >
         {homeContent}
       </div>
 
-      {/* Section "No project" qui slide depuis le bas */}
+      {/* Overlay de transition pour un effet plus doux */}
+      <div 
+        className="transition-overlay"
+        style={{
+          '--overlay-opacity': animationValues.overlayOpacity
+        }}
+      />
+
+      {/* Section "No project" qui apparaît progressivement */}
       <div 
         ref={elementRef}
         className={`no-project-section ${isVisible ? 'visible' : ''}`}
         style={{
-          '--slide-z': `${animationValues.slideZ}px`,
-          '--slide-scale': animationValues.slideScale,
-          '--slide-opacity': animationValues.slideOpacity
+          '--nog-opacity': animationValues.nogOpacity,
+          '--nog-y': `${animationValues.nogY}px`,
+          '--nog-scale': animationValues.nogScale,
+          '--nog-blur': `${animationValues.nogBlur}px`
         }}
       >
         {noProjectContent}
@@ -68,9 +90,9 @@ const ScrollTransition = ({
   );
 };
 
-// Fonction d'easing pour une transition plus naturelle
-const easeInOutCubic = (t) => {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+// Fonction d'easing plus douce pour une transition naturelle
+const easeInOutQuart = (t) => {
+  return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
 };
 
 export default ScrollTransition;
