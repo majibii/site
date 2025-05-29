@@ -1,3 +1,4 @@
+// src/components/nog/ScrollTransition.js
 import React, { useMemo } from 'react';
 import { useScrollTransition } from '../../hooks/useScrollTransition';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
@@ -29,7 +30,8 @@ const ScrollTransition = ({
     return {
       fadeOpacity: Math.max(0.1, 1 - easedProgress * 0.9),
       fadeScale: Math.max(0.95, 1 - easedProgress * 0.05),
-      slideY: Math.max(0, 100 - (easedProgress * 100)),
+      slideZ: Math.max(0, -200 + (easedProgress * 200)), // De l'arrière vers l'avant
+      slideScale: Math.max(0.8, 0.8 + (easedProgress * 0.2)), // Scale de 0.8 à 1
       slideOpacity: Math.min(1, Math.max(0, easedProgress * 1.2 - 0.2))
     };
   }, [scrollProgress, isVisible, prefersReducedMotion]);
@@ -55,7 +57,8 @@ const ScrollTransition = ({
         ref={elementRef}
         className={`no-project-section ${isVisible ? 'visible' : ''}`}
         style={{
-          '--slide-y': `${animationValues.slideY}px`,
+          '--slide-z': `${animationValues.slideZ}px`,
+          '--slide-scale': animationValues.slideScale,
           '--slide-opacity': animationValues.slideOpacity
         }}
       >
