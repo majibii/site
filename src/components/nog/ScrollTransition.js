@@ -39,8 +39,8 @@ const ScrollTransition = ({
     // Phase 3: Apparition complète de NOG (finit tard et atteint 100%)
     const nogRevealProgress = Math.max(0, Math.min(1, (progress - 0.1) * 1.25));
     
-    // Phase 4: Texte NOG devient complètement opaque à partir de 70% du scroll
-    const nogTextProgress = progress > 0.7 ? 1 : Math.max(0.3, progress * 1.2);
+    // Phase 4: Texte NOG reste visible et devient complètement opaque à la fin
+    const nogTextProgress = Math.max(0.7, Math.min(1, 0.7 + (progress - 0.3) * 0.75));
     
     return {
       // Textes de la page d'accueil disparaissent complètement
