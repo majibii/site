@@ -17,20 +17,36 @@ const ScrollTransition = ({
   const animationValues = useMemo(() => {
     if (prefersReducedMotion) {
       return {
-        homeOpacity: isVisible ? 0.5 : 1,
+        homeOpacity: isVisible ? 0 : 1,
+        homeTextOpacity: isVisible ? 0 : 1,
         nogOpacity: isVisible ? 1 : 0,
-        blendOffset: 0
+        blendOffset: 0,
+        animationIntensity: isVisible ? 0 : 1
       };
     }
 
-    // Progression très douce pour éviter l'effet "trait"
-    const progress = Math.max(0, Math.min(1, scrollProgress * 0.8));
-    const smoothProgress = progress * progress * (3 - 2 * progress); // Smoother ease
+    // Progression en phases pour un contrôle fin
+    const progress = Math.max(0, Math.min(1, scrollProgress));
+    const smoothProgress = progress * progress * (3 - 2 * progress);
+    
+    // Phase 1: Estompage des textes (commence tôt)
+    const textFadeProgress = Math.max(0, Math.min(1, progress * 1.5));
+    
+    // Phase 2: Estompage général de la page d'accueil
+    const homeFadeProgress = Math.max(0, Math.min(1, (progress - 0.2) * 1.25));
+    
+    // Phase 3: Apparition complète de NOG (finit tard)
+    const nogRevealProgress = Math.max(0, Math.min(1, (progress - 0.1) * 1.1));
     
     return {
-      // Transition très progressive de l'opacité
-      homeOpacity: 1 - smoothProgress,
-      nogOpacity: smoothProgress,
+      // Textes disparaissent en premier
+      homeTextOpacity: 1 - (textFadeProgress * textFadeProgress),
+      // Page d'accueil s'estompe progressivement
+      homeOpacity: 1 - homeFadeProgress,
+      // Animations perdent en intensité
+      animationIntensity: 1 - smoothProgress,
+      // NOG apparaît complètement opaque à la fin
+      nogOpacity: nogRevealProgress,
       // Décalage pour créer un effet de fusion
       blendOffset: smoothProgress * 100
     };
@@ -46,7 +62,9 @@ const ScrollTransition = ({
         className="content-layer home-layer"
         style={{
           '--layer-opacity': animationValues.homeOpacity,
-          '--layer-filter': `saturate(${1 - animationValues.nogOpacity * 0.3})`
+          '--text-opacity': animationValues.homeTextOpacity,
+          '--animation-intensity': animationValues.animationIntensity,
+          '--layer-filter': `saturate(${1 - animationValues.nogOpacity * 0.3}) blur(${animationValues.nogOpacity * 2}px)`
         }}
       >
         {homeContent}
