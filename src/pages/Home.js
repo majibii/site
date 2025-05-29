@@ -9,6 +9,7 @@ import { FooterText } from '../components/footer/FooterText';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
+import StorySection from '../components/story/StorySection';
 import ScrollTransition from '../components/nog/ScrollTransition';
 
 const useStyles = makeStyles(() => ({
@@ -29,7 +30,6 @@ const useStyles = makeStyles(() => ({
 export const Home = () => {
   const classes = useStyles();
 
-  // Contenu de la section d'accueil existante
   const homeContent = (
     <div className={classes.homeSection}>
       <DisplacementSphere />
@@ -46,22 +46,22 @@ export const Home = () => {
     </div>
   );
 
-  // Contenu de la section NOG Project avec un wrapper
-  const noProjectContent = (
+  const nogProjectContent = (
     <div style={{ 
       minHeight: '100vh',
       position: 'relative'
     }}>
       <NOGProjectSection />
+      <StorySection />
     </div>
   );
 
   return (
     <ScrollTransition
       homeContent={homeContent}
-      noProjectContent={noProjectContent}
-      theme="dark" // Changez en "light" si nécessaire selon votre thème
-      transitionThreshold={0.15} // Ajustez selon vos préférences (0.1 à 0.3 recommandé)
+      noProjectContent={nogProjectContent}
+      theme="dark"
+      transitionThreshold={0.15}
     />
   );
 };
