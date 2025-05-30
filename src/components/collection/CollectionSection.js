@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { useInViewport } from '../../hooks/useInViewport';
 import './CollectionSection.css';
 
 const legalPrompts = [
@@ -67,10 +66,9 @@ const legalPrompts = [
 
 const CollectionSection = () => {
   const sectionRef = useRef(null);
-  const isVisible = useInViewport(sectionRef, false, { threshold: 0.2 });
-
+  
   return (
-    <section ref={sectionRef} className={`collection-section ${isVisible ? 'visible' : ''}`}>
+    <section ref={sectionRef} className="collection-section">
       <div className="collection-content">
         <div className="collection-header">
           <h3 className="section-label">COLLECTION</h3>
@@ -101,6 +99,24 @@ const CollectionSection = () => {
             ))}
           </div>
 
+          {/* Statistics Section */}
+          <div className="statistics-section">
+            <div className="stats-container">
+              <div className="stat-item">
+                <div className="stat-number">200+</div>
+                <div className="stat-label">prompts</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">Specialized agents</div>
+                <div className="stat-label">+20 AI-powered roles</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">+12</div>
+                <div className="stat-label">languages</div>
+              </div>
+            </div>
+          </div>
+
           <div className="cards-row bottom">
             {legalPrompts.slice(6, 12).map((prompt, index) => (
               <div key={index} className="prompt-card">
@@ -109,6 +125,46 @@ const CollectionSection = () => {
                 <div className="card-body">{prompt.body}</div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Editorial Section */}
+        <div className="editorial-section">
+          <div className="editorial-line">
+            <span className="editorial-title">ABOUT THE PROMPTING ART</span>
+          </div>
+          
+          <div className="editorial-content">
+            <p>
+              The art of prompting is not just a technical exercise—it's a strategic method of legal reasoning. 
+              By leveraging structured approaches like the IRAC method (Issue, Rule, Application, Conclusion), 
+              our AI models yield significantly more precise and contextually relevant results.
+            </p>
+            <p>
+              This collection demonstrates how advanced prompting techniques are transforming the practice of law, 
+              enabling attorneys to draft, analyze, and argue more effectively. We've designed these prompts to 
+              operate across multilingual legal contexts, ensuring flexibility, depth, and compliance in diverse jurisdictions.
+            </p>
+            <p>
+              At the intersection of legal thought and artificial intelligence, prompting becomes not only a tool—but a new legal craft.
+            </p>
+          </div>
+        </div>
+
+        {/* Benefits Section */}
+        <div className="benefits-section">
+          <div className="benefits-title-line">
+            <span className="benefits-title">BENEFITS FOR HOLDERS</span>
+          </div>
+          
+          <div className="benefits-list">
+            <ul>
+              <li>Contribute to the evolution of legal prompting strategies and frameworks</li>
+              <li>Access a free hub for share prompts and work for transparency</li>
+              <li>Create your prompts in private and keep your strategy</li>
+              <li>Enjoy early access to new prompt collections, the legal agents will coming soon</li>
+              <li>Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs</li>
+            </ul>
           </div>
         </div>
       </div>
