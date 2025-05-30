@@ -1,3 +1,5 @@
+/* src/components/nog/NOGProjectSection.js */
+
 import React, { useRef } from 'react';
 import { useInViewport } from '../../hooks/useInViewport';
 import './NOGProjectSection.css';
