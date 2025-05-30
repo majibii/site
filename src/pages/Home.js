@@ -4,12 +4,12 @@ import { Content } from '../components/content/Content';
 import { Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DisplacementSphere from '../components/background/DisplacementSphere';
-import { ThemeToggle } from '../components/theme/ThemeToggle';
 import { FooterText } from '../components/footer/FooterText';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
 import StorySection from '../components/story/StorySection';
+import CollectionSection from '../components/collection/CollectionSection';
 import ScrollTransition from '../components/nog/ScrollTransition';
 
 const useStyles = makeStyles(() => ({
@@ -54,6 +54,7 @@ export const Home = () => {
         transitionThreshold={0.15}
       />
       <StorySection />
+      <CollectionSection />
     </div>
   );
 };
