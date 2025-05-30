@@ -1,9 +1,10 @@
-/* src/components/nog/ScrollTransition.css */
-
+/* Scroll Transition Styles */
 .scroll-transition-container {
   position: relative;
   width: 100%;
-  height: 200vh; /* Double hauteur pour permettre le scroll */
+  height: 200vh;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .content-layer {
@@ -12,227 +13,61 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  opacity: var(--layer-opacity, 0);
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: opacity;
+  will-change: transform, opacity;
 }
 
 .home-layer {
-  z-index: 1;
+  z-index: 2;
   position: sticky;
-  filter: var(--layer-filter, none);
-}
-
-/* Contrôle spécifique des textes et animations de la page d'accueil */
-.home-layer * {
-  opacity: var(--text-opacity, 1);
-  transition: opacity 0.8s ease-out;
-}
-
-/* Réduction progressive de l'intensité des animations */
-.home-layer [data-animation],
-.home-layer .animated-element,
-.home-layer .hero-animation {
-  transform: scale(var(--animation-intensity, 1));
-  opacity: calc(var(--text-opacity, 1) * var(--animation-intensity, 1));
-  filter: blur(calc((1 - var(--animation-intensity, 1)) * 3px));
-  transition: transform 1s ease-out, opacity 0.8s ease-out, filter 1s ease-out;
-}
-
-/* Masquer complètement la page d'accueil à la fin */
-.home-layer.fully-hidden {
-  opacity: 0 !important;
-  pointer-events: none;
-  visibility: hidden;
-}
-
-.home-layer.fully-hidden * {
-  opacity: 0 !important;
+  top: 0;
+  background-color: var(--home-bg, transparent);
+  transform-origin: center;
+  transform: translateZ(0) scale(var(--home-scale, 1));
+  opacity: var(--home-opacity, 1);
+  filter: var(--home-blur, none);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nog-layer {
-  z-index: 2;
-  position: absolute;
-  top: 100vh; /* Positionnée juste en dessous */
-  /* Transition finale vers opacité complète */
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.7) 5%,
-    rgba(255, 255, 255, 0.95) 15%,
-    #ffffff 25%
-  );
-  /* Mélange progressif avec transition vers opacité totale */
-  mask: linear-gradient(
-    to bottom, 
-    transparent calc(var(--blend-offset, 0%) - 30%),
-    rgba(255, 255, 255, 0.2) calc(var(--blend-offset, 0%) - 15%),
-    rgba(255, 255, 255, 0.8) calc(var(--blend-offset, 0%) + 5%),
-    white calc(var(--blend-offset, 0%) + 20%)
-  );
-  -webkit-mask: linear-gradient(
-    to bottom, 
-    transparent calc(var(--blend-offset, 0%) - 30%),
-    rgba(255, 255, 255, 0.2) calc(var(--blend-offset, 0%) - 15%),
-    rgba(255, 255, 255, 0.8) calc(var(--blend-offset, 0%) + 5%),
-    white calc(var(--blend-offset, 0%) + 20%)
-  );
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  transform-origin: center;
+  transform: translateZ(-100px) scale(var(--nog-scale, 0.85));
+  opacity: var(--nog-opacity, 0);
+  filter: var(--nog-blur, blur(10px));
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Assure que la section NOG soit complètement opaque quand visible */
-.nog-layer[style*="--layer-opacity: 1"],
-.nog-layer.fully-visible {
-  background: #ffffff;
-  mask: none;
-  -webkit-mask: none;
+.nog-layer.active {
+  transform: translateZ(0) scale(1);
+  opacity: 1;
+  filter: none;
 }
 
-/* Animation de scroll fluide avec texte 100% opaque à la fin */
-@keyframes smoothReveal {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.nog-layer > * {
-  animation: smoothReveal 1.2s ease-out forwards;
-  animation-delay: 0.3s;
+.home-layer.fade-out {
+  transform: translateZ(100px) scale(1.15);
   opacity: 0;
+  filter: blur(10px);
+  pointer-events: none;
 }
 
-.nog-content-wrapper {
-  opacity: 1; /* Container toujours opaque */
-  transition: opacity 0.4s ease-out;
-}
-
-/* Gestion progressive de l'opacité des textes NOG */
-.nog-content-wrapper * {
-  opacity: var(--nog-text-opacity, 1) !important;
-  color: #000000 !important;
-  filter: none !important;
-  transition: opacity 0.6s ease-out;
-}
-
-.nog-content-wrapper .nog-title,
-.nog-content-wrapper .highlight,
-.nog-content-wrapper .nog-description,
-.nog-content-wrapper h1,
-.nog-content-wrapper p {
-  opacity: var(--nog-text-opacity, 1) !important;
-  color: #000000 !important;
-  text-shadow: none !important;
-  filter: none !important;
-  transition: opacity 0.6s ease-out;
-}
-
-/* S'assurer que le texte soit complètement visible à la fin */
-.nog-layer.text-fully-visible .nog-content-wrapper *,
-.nog-layer[style*="--nog-text-opacity: 1"] .nog-content-wrapper * {
-  opacity: 1 !important;
-  color: #000000 !important;
-}
-
-/* Force l'affichage complet à la fin de la transition */
-.nog-layer.text-fully-visible {
-  background: #ffffff !important;
-  mask: none !important;
-  -webkit-mask: none !important;
-}
-
-.nog-layer.text-fully-visible .nog-content-wrapper * {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Optimisations de performance */
-.scroll-transition-container {
-  contain: layout style paint;
-}
-
-.content-layer {
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-/* Media queries pour les animations réduites */
 @media (prefers-reduced-motion: reduce) {
   .content-layer {
-    transition: none;
-    transform: none;
+    transition: opacity 0.3s ease-out;
+    transform: none !important;
     filter: none !important;
-    mask: none !important;
-    -webkit-mask: none !important;
   }
   
-  .home-layer {
-    opacity: 1;
-  }
-  
-  .home-layer * {
-    opacity: 1 !important;
-    transition: none;
+  .home-layer.fade-out {
+    opacity: 0;
   }
   
   .nog-layer {
     opacity: 1;
-    background: #ffffff;
-    top: 100vh;
-    mask: none !important;
-    -webkit-mask: none !important;
-  }
-  
-  .nog-layer > * {
-    animation: none;
-    opacity: 1;
-  }
-  
-  .nog-content-wrapper * {
-    opacity: 1 !important;
-  }
-}
-
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  .scroll-transition-container {
-    height: 180vh;
-  }
-  
-  .nog-layer {
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.9) 15%,
-      #ffffff 25%
-    );
-  }
-}
-
-/* Fallback pour les navigateurs sans support mask */
-@supports not (mask: linear-gradient(to bottom, transparent, white)) {
-  .nog-layer {
-    mask: none;
-    -webkit-mask: none;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.5) 10%,
-      rgba(255, 255, 255, 0.8) 20%,
-      rgba(255, 255, 255, 0.95) 30%,
-      #ffffff 40%
-    );
-  }
-  
-  .nog-layer[style*="--layer-opacity: 1"],
-  .nog-layer.text-fully-visible {
-    background: #ffffff;
-  }
-  
-  .nog-layer.text-fully-visible .nog-content-wrapper * {
-    opacity: 1 !important;
   }
 }
