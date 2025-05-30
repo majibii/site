@@ -138,7 +138,7 @@ const CollectionSection = () => {
             <p>
               The art of prompting is not just a technical exercise—it's a strategic method of legal reasoning. 
               By leveraging structured approaches like the IRAC method (Issue, Rule, Application, Conclusion), 
-              our AI models yield significantly more precise and contextually relevant results.
+              your AI models yield significantly more precise and contextually relevant results.
             </p>
             <p>
               This collection demonstrates how advanced prompting techniques are transforming the practice of law, 
@@ -158,13 +158,48 @@ const CollectionSection = () => {
           </div>
           
           <div className="benefits-list">
-            <ul>
-              <li>Contribute to the evolution of legal prompting strategies and frameworks</li>
-              <li>Access a free hub for share prompts and work for transparency</li>
-              <li>Create your prompts in private and keep your strategy</li>
-              <li>Enjoy early access to new prompt collections, the legal agents will coming soon</li>
-              <li>Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs</li>
-            </ul>
+            <div className="benefits-item">
+              <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+              </svg>
+              <span>Contribute to the evolution of legal prompting strategies and frameworks</span>
+            </div>
+            <div className="benefits-item">
+              <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 16V8A2 2 0 0 0 19 6H5A2 2 0 0 0 3 8V16A2 2 0 0 0 5 18H19A2 2 0 0 0 21 16Z"/>
+                <path d="M16 2V6"/>
+                <path d="M8 2V6"/>
+                <path d="M3 10H21"/>
+              </svg>
+              <span>Access a free hub for share prompts and work for transparency</span>
+            </div>
+            <div className="benefits-item">
+              <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <circle cx="12" cy="16" r="1"/>
+                <path d="M7 11V7A5 5 0 0 1 17 7V11"/>
+              </svg>
+              <span>Create your prompts in private and keep your strategy</span>
+            </div>
+            <div className="benefits-item">
+              <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
+              </svg>
+              <span>Enjoy early access to new prompt collections, the legal agents will coming soon</span>
+            </div>
+            <div className="benefits-item">
+              <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 2V6"/>
+                <path d="M12 18V22"/>
+                <path d="M4.93 4.93L7.76 7.76"/>
+                <path d="M16.24 16.24L19.07 19.07"/>
+                <path d="M2 12H6"/>
+                <path d="M18 12H22"/>
+                <path d="M4.93 19.07L7.76 16.24"/>
+                <path d="M16.24 7.76L19.07 4.93"/>
+              </svg>
+              <span>Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs</span>
+            </div>
           </div>
         </div>
       </div>
