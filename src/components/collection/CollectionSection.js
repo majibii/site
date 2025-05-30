@@ -32,6 +32,36 @@ const legalPrompts = [
     title: "Employment Contract (C-Suite)",
     context: "Executive hiring",
     body: "Draft an employment agreement for a Chief Operating Officer in a VC-backed startup. Include equity grants, non-compete clauses, and KPIs."
+  },
+  {
+    title: "Legal Risk Memo – Joint Venture",
+    context: "Complex corporate structure",
+    body: "Write a legal risk assessment memo for a joint venture between two multinational corporations operating in regulated markets."
+  },
+  {
+    title: "IP Assignment Clauses",
+    context: "Startup asset protection",
+    body: "Draft strong intellectual property assignment clauses ensuring that all IP created by employees and contractors vests in the company."
+  },
+  {
+    title: "Anti-Dilution Protections",
+    context: "Investor rights",
+    body: "Explain the legal mechanics and implications of full-ratchet and weighted-average anti-dilution clauses in a Series A term sheet."
+  },
+  {
+    title: "Cross-Border Dispute Resolution",
+    context: "Commercial arbitration",
+    body: "Recommend a dispute resolution clause for a supply agreement between a French supplier and a US buyer. Justify arbitration forum and governing law."
+  },
+  {
+    title: "Convertible Note Template (SAFE)",
+    context: "Startup financing",
+    body: "Generate a founder-friendly convertible note (SAFE) agreement template for pre-seed investment. Include conversion triggers and cap valuation."
+  },
+  {
+    title: "Force Majeure Clauses in Commercial Leases",
+    context: "Post-COVID contract updates",
+    body: "Draft a force majeure clause for a commercial lease agreement that includes pandemics, lockdowns, and supply chain disruptions."
   }
 ];
 
@@ -44,25 +74,25 @@ const CollectionSection = () => {
       <div className="collection-content">
         <div className="collection-header">
           <h3 className="section-label">COLLECTION</h3>
+          
+          <h2 className="collection-title">
+            JOIN THE LEGAL PROMPTS MOVEMENT
+          </h2>
+
+          <p className="collection-intro">
+            Introducing LegalPrompt Archive, our curated collection of advanced legal prompts for 
+            AI-powered research, analysis, and professional development. Stay updated — ask for 
+            early access to the hub.
+          </p>
+
+          <button className="early-access-button">
+            Get Early Access <span>→</span>
+          </button>
         </div>
-
-        <h2 className="collection-title">
-          JOIN THE LEGAL PROMPTS MOVEMENT
-        </h2>
-
-        <p className="collection-intro">
-          Introducing LegalPrompt Archive, our curated collection of advanced legal prompts for 
-          AI-powered research, analysis, and professional development. Stay updated — ask for 
-          early access to the hub.
-        </p>
-
-        <button className="early-access-button">
-          Get Early Access <span>→</span>
-        </button>
 
         <div className="cards-container">
           <div className="cards-row top">
-            {legalPrompts.slice(0, 3).map((prompt, index) => (
+            {legalPrompts.slice(0, 6).map((prompt, index) => (
               <div key={index} className="prompt-card">
                 <div className="card-context">{prompt.context}</div>
                 <h3 className="card-title">{prompt.title}</h3>
@@ -72,7 +102,7 @@ const CollectionSection = () => {
           </div>
 
           <div className="cards-row bottom">
-            {legalPrompts.slice(3, 6).map((prompt, index) => (
+            {legalPrompts.slice(6, 12).map((prompt, index) => (
               <div key={index} className="prompt-card">
                 <div className="card-context">{prompt.context}</div>
                 <h3 className="card-title">{prompt.title}</h3>

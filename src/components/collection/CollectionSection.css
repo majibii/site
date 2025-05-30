@@ -2,18 +2,22 @@
 .collection-section {
   min-height: 100vh;
   background-color: #ffffff;
-  padding: 6rem 2rem;
+  padding: 6rem 0;
   overflow: hidden;
   position: relative;
+  width: 100vw;
 }
 
 .collection-content {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .collection-header {
   margin-bottom: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section-label {
@@ -78,6 +82,8 @@
 .cards-container {
   margin-top: 4rem;
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .cards-row {
@@ -85,14 +91,16 @@
   gap: 2rem;
   margin: 2rem 0;
   position: relative;
+  padding: 1rem 0;
+  width: max-content;
 }
 
 .cards-row.top {
-  animation: scrollRight 30s linear infinite;
+  animation: scrollRight 60s linear infinite;
 }
 
 .cards-row.bottom {
-  animation: scrollLeft 30s linear infinite;
+  animation: scrollLeft 60s linear infinite;
 }
 
 .prompt-card {
@@ -137,17 +145,25 @@
 
 @keyframes scrollRight {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(calc(-100% + 100vw)); }
 }
 
 @keyframes scrollLeft {
-  from { transform: translateX(-100%); }
+  from { transform: translateX(calc(-100% + 100vw)); }
   to { transform: translateX(0); }
+}
+
+.cards-row:hover {
+  animation-play-state: paused;
 }
 
 @media (max-width: 768px) {
   .collection-section {
-    padding: 4rem 1rem;
+    padding: 4rem 0;
+  }
+
+  .collection-content {
+    padding: 0 1rem;
   }
 
   .prompt-card {
@@ -158,6 +174,7 @@
 @media (prefers-reduced-motion: reduce) {
   .cards-row {
     animation: none;
+    transform: none;
   }
   
   .prompt-card {
