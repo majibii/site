@@ -15,7 +15,7 @@ export const useScrollTransition = (threshold = 0.3, rootMargin = '0px') => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
         
-        // Calculer le progrès de scroll quand l'élément est visible
+        // Calcule du progrès de scroll quand l'élément est visible
         if (entry.isIntersecting) {
           const rect = entry.boundingClientRect;
           const windowHeight = window.innerHeight;
