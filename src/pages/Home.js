@@ -35,7 +35,6 @@ export const Home = () => {
       <DisplacementSphere />
       <LogoLink />
       <Content />
-      <ThemeToggle />
       <Hidden smDown>
         <SocialIcons />
       </Hidden>
@@ -46,22 +45,15 @@ export const Home = () => {
     </div>
   );
 
-  const nogProjectContent = (
-    <div style={{ 
-      minHeight: '100vh',
-      position: 'relative'
-    }}>
-      <NOGProjectSection />
+  return (
+    <div className={classes.root}>
+      <ScrollTransition
+        homeContent={homeContent}
+        noProjectContent={<NOGProjectSection />}
+        theme="dark"
+        transitionThreshold={0.15}
+      />
       <StorySection />
     </div>
-  );
-
-  return (
-    <ScrollTransition
-      homeContent={homeContent}
-      noProjectContent={nogProjectContent}
-      theme="dark"
-      transitionThreshold={0.15}
-    />
   );
 };
