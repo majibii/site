@@ -7,27 +7,16 @@ import DisplacementSphere from '../components/background/DisplacementSphere';
 import { FooterText } from '../components/footer/FooterText';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
-// import NOGProjectSection from '../components/nog/NOGProjectSection';
+
+// Testez CHACUN de ces imports un par un (commentez les autres)
+// import NOGProjectSection from '../components/nog/NOGProjectSection.js'; // Avec .js
+import NOGProjectSection from '../components/nog/NOGProjectSection'; // Sans .js (recommandé)
+// import { default as NOGProjectSection } from '../components/nog/NOGProjectSection'; // Import explicite
+// import * as NOGModule from '../components/nog/NOGProjectSection'; // Import namespace
+
 import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
 import { motion } from 'framer-motion';
-
-// Composant de test inline
-const NOGProjectSection = () => {
-  return (
-    <div style={{ 
-      minHeight: '100vh', 
-      backgroundColor: 'red', 
-      display: 'flex', 
-      alignItems: 'center', 
-      justifyContent: 'center' 
-    }}>
-      <h1 style={{ color: 'white', fontSize: '3rem' }}>
-        TEST NOG INLINE - SI VOUS VOYEZ CECI, LE PROBLÈME EST DANS L'IMPORT
-      </h1>
-    </div>
-  );
-};
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -52,6 +41,10 @@ const useStyles = makeStyles(() => ({
 export const Home = () => {
   const classes = useStyles();
 
+  // TEST: Loggez ce que vous importez
+  console.log('NOGProjectSection:', NOGProjectSection);
+  // console.log('NOGModule:', NOGModule); // Si vous utilisez l'import namespace
+
   return (
     <div className={classes.root}>
       {/* Section Home principale */}
@@ -74,9 +67,18 @@ export const Home = () => {
         <FooterText />
       </motion.div>
 
-      {/* Test avec composant inline */}
+      {/* Test section */}
       <div className={classes.contentSection}>
-        <NOGProjectSection />
+        <div style={{ padding: '2rem', backgroundColor: 'yellow', textAlign: 'center' }}>
+          <h2>Test d'import NOG Section</h2>
+          {NOGProjectSection ? (
+            <NOGProjectSection />
+          ) : (
+            <p style={{ color: 'red', fontSize: '2rem' }}>
+              NOGProjectSection est undefined - problème d'import !
+            </p>
+          )}
+        </div>
       </div>
 
       <div className={classes.contentSection}>
