@@ -69,10 +69,14 @@ export const Home = () => {
 
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        style={{ 
+          border: '5px solid red', 
+          backgroundColor: 'yellow',
+          position: 'relative',
+          zIndex: 999
+        }}
+        initial={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
       >
         {NOGProjectSection ? <NOGProjectSection /> : <div style={{backgroundColor: 'orange', padding: '20px'}}>NOGProjectSection est undefined!</div>}
       </motion.div>
@@ -85,10 +89,14 @@ export const Home = () => {
       {/* Section Story */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+        style={{ 
+          border: '5px solid green', 
+          backgroundColor: 'lightblue',
+          position: 'relative',
+          zIndex: 999
+        }}
+        initial={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
       >
         <StorySection />
       </motion.div>
@@ -96,10 +104,14 @@ export const Home = () => {
       {/* Section Collection */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+        style={{ 
+          border: '5px solid purple', 
+          backgroundColor: 'lightgreen',
+          position: 'relative',
+          zIndex: 999
+        }}
+        initial={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
       >
         <CollectionSection />
       </motion.div>
