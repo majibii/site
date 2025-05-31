@@ -57,12 +57,32 @@ export const Home = () => {
         <FooterText />
       </motion.div>
 
-      {/* Section NOG Project */}
+      {/* Section NOG Project avec transition */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
+        style={{
+          position: 'relative',
+          background: 'linear-gradient(to bottom, rgba(252, 233, 107, 0) 0%, rgba(252, 233, 107, 0.3) 20%, rgba(252, 233, 107, 0.7) 50%, rgba(252, 233, 107, 1) 80%, rgba(252, 233, 107, 1) 100%)',
+          zIndex: 2
+        }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
+        {/* Animation 3D en arrière-plan qui continue */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: -1,
+          opacity: 0.3
+        }}>
+          <DisplacementSphere />
+        </div>
+        
         <NOGProjectSection />
       </motion.div>
 
