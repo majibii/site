@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import React, { useRef, useEffect, useState } from 'react';
+import { motion, useTransform, useMotionValue } from 'framer-motion';
 import { Logo } from '../logo/Logo';
 import { useInViewport } from '../../hooks/useInViewport';
 import './StorySection.css';
@@ -54,33 +54,66 @@ const StorySection = () => {
   const containerRef = useRef(null);
   const isVisible = useInViewport(sectionRef, false, { threshold: 0.2 });
   
-  // Configuration du scroll parallaxe
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  // Création des motion values pour le scroll
+  const scrollProgress = useMotionValue(0);
+  const [isScrolling, setIsScrolling] = useState(false);
 
-  // Transformation smooth du scroll
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  // Configuration du scroll parallaxe avec useEffect
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      if (!sectionRef.current) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const sectionHeight = rect.height;
+      
+      // Calcul du pourcentage de scroll dans la section
+      const startOffset = rect.top + sectionHeight;
+      const endOffset = rect.bottom;
+      
+      let progress = 0;
+      if (startOffset > windowHeight) {
+        progress = 0;
+      } else if (endOffset < 0) {
+        progress = 1;
+      } else {
+        progress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
+      }
+      
+      scrollProgress.set(Math.max(0, Math.min(1, progress)));
+      
+      setIsScrolling(true);
+      clearTimeout(window.scrollTimeout);
+      window.scrollTimeout = setTimeout(() => setIsScrolling(false), 150);
+    };
+
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    window.addEventListener('resize', updateScrollProgress, { passive: true });
+    
+    // Initial call
+    updateScrollProgress();
+    
+    return () => {
+      window.removeEventListener('scroll', updateScrollProgress);
+      window.removeEventListener('resize', updateScrollProgress);
+      clearTimeout(window.scrollTimeout);
+    };
+  }, [scrollProgress]);
 
   // Parallaxe horizontal pour les bulles
-  const x1 = useTransform(smoothProgress, [0, 1], [0, -200]);
-  const x2 = useTransform(smoothProgress, [0, 1], [0, 200]);
-  const x3 = useTransform(smoothProgress, [0, 1], [0, -150]);
-  const x4 = useTransform(smoothProgress, [0, 1], [0, 180]);
-  const x5 = useTransform(smoothProgress, [0, 1], [0, -180]);
-  const x6 = useTransform(smoothProgress, [0, 1], [0, 150]);
+  const x1 = useTransform(scrollProgress, [0, 1], [0, -200]);
+  const x2 = useTransform(scrollProgress, [0, 1], [0, 200]);
+  const x3 = useTransform(scrollProgress, [0, 1], [0, -150]);
+  const x4 = useTransform(scrollProgress, [0, 1], [0, 180]);
+  const x5 = useTransform(scrollProgress, [0, 1], [0, -180]);
+  const x6 = useTransform(scrollProgress, [0, 1], [0, 150]);
 
   // Parallaxe pour le logo (mouvement vertical doux)
-  const logoY = useTransform(smoothProgress, [0, 1], [0, -100]);
-  const logoScale = useTransform(smoothProgress, [0, 0.5, 1], [1, 1.2, 1]);
+  const logoY = useTransform(scrollProgress, [0, 1], [0, -100]);
+  const logoScale = useTransform(scrollProgress, [0, 0.5, 1], [1, 1.2, 1]);
 
   // Parallaxe pour l'arrière-plan
-  const backgroundY = useTransform(smoothProgress, [0, 1], [0, -50]);
+  const backgroundY = useTransform(scrollProgress, [0, 1], [0, -50]);
 
   const getMotionProps = (bubble) => {
     const baseProps = {
@@ -198,15 +231,15 @@ const StorySection = () => {
         <motion.div 
           className="floating-element floating-element-1"
           style={{ 
-            x: useTransform(smoothProgress, [0, 1], [0, -300]),
-            y: useTransform(smoothProgress, [0, 1], [0, -100])
+            x: useTransform(scrollProgress, [0, 1], [0, -300]),
+            y: useTransform(scrollProgress, [0, 1], [0, -100])
           }}
         />
         <motion.div 
           className="floating-element floating-element-2"
           style={{ 
-            x: useTransform(smoothProgress, [0, 1], [0, 250]),
-            y: useTransform(smoothProgress, [0, 1], [0, -80])
+            x: useTransform(scrollProgress, [0, 1], [0, 250]),
+            y: useTransform(scrollProgress, [0, 1], [0, -80])
           }}
         />
       </div>
