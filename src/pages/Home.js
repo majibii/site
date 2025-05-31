@@ -7,10 +7,27 @@ import DisplacementSphere from '../components/background/DisplacementSphere';
 import { FooterText } from '../components/footer/FooterText';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
-import NOGProjectSection from '../components/nog/NOGProjectSection';
+// import NOGProjectSection from '../components/nog/NOGProjectSection';
 import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
 import { motion } from 'framer-motion';
+
+// Composant de test inline
+const NOGProjectSection = () => {
+  return (
+    <div style={{ 
+      minHeight: '100vh', 
+      backgroundColor: 'red', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center' 
+    }}>
+      <h1 style={{ color: 'white', fontSize: '3rem' }}>
+        TEST NOG INLINE - SI VOUS VOYEZ CECI, LE PROBLÈME EST DANS L'IMPORT
+      </h1>
+    </div>
+  );
+};
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -24,24 +41,16 @@ const useStyles = makeStyles(() => ({
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
-  },
+  },  
   contentSection: {
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
-    border: '2px solid red', // DEBUG: bordure rouge pour voir les sections
-    margin: '10px 0', // DEBUG: espacement pour voir les sections
   }
 }));
 
 export const Home = () => {
   const classes = useStyles();
-
-  // DEBUG: Console logs pour vérifier le rendu
-  console.log('Home component rendering');
-  console.log('NOGProjectSection:', NOGProjectSection);
-  console.log('StorySection:', StorySection);
-  console.log('CollectionSection:', CollectionSection);
 
   return (
     <div className={classes.root}>
@@ -65,63 +74,18 @@ export const Home = () => {
         <FooterText />
       </motion.div>
 
-      {/* DEBUG: Texte simple pour tester */}
-      <div style={{ 
-        minHeight: '100vh', 
-        backgroundColor: 'yellow', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center',
-        fontSize: '2rem',
-        fontWeight: 'bold'
-      }}>
-        TEST SECTION - Si vous voyez ceci, le problème n'est pas dans Home.js
+      {/* Test avec composant inline */}
+      <div className={classes.contentSection}>
+        <NOGProjectSection />
       </div>
 
-      {/* Section NOG Project */}
-      <motion.div 
-        className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <div style={{ padding: '20px', backgroundColor: 'lightblue' }}>
-          <h2>Avant NOGProjectSection</h2>
-        </div>
-        <NOGProjectSection />
-        <div style={{ padding: '20px', backgroundColor: 'lightgreen' }}>
-          <h2>Après NOGProjectSection</h2>
-        </div>
-      </motion.div>
-
-      {/* Section Story */}
-      <motion.div 
-        className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <div style={{ padding: '20px', backgroundColor: 'pink' }}>
-          <h2>Section Story</h2>
-        </div>
+      <div className={classes.contentSection}>
         <StorySection />
-      </motion.div>
+      </div>
 
-      {/* Section Collection */}
-      <motion.div 
-        className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <div style={{ padding: '20px', backgroundColor: 'orange' }}>
-          <h2>Section Collection</h2>
-        </div>
+      <div className={classes.contentSection}>
         <CollectionSection />
-      </motion.div>
+      </div>
     </div>
   );
 };
