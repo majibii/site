@@ -131,7 +131,44 @@
 .prompt-card.active {
   opacity: 1;
 }
+/* ... (tous les styles existants restent inchangés) */
 
+/* NOUVEAU: Styles pour le contenu de la modale avec l'icône */
+.prompt-content-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px; /* Espace entre l'icône et le texte */
+}
+
+.prompt-content-container p {
+  margin: 0; /* Retire la marge par défaut du paragraphe */
+  padding-top: 2px; /* Léger ajustement vertical */
+}
+
+.prompt-icon {
+  flex-shrink: 0;
+  color: #333;
+  animation: blink-animation 1.5s infinite;
+  transition: color 0.3s;
+}
+
+/* NOUVEAU: Animation de clignotement pour l'icône */
+@keyframes blink-animation {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Styles pour le Dialog Modal */
+.MuiDialog-root .MuiBackdrop-root {
+  backdrop-filter: blur(8px) !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ... (le reste de vos styles reste inchangé) */
 .card-context {
   font-size: 0.875rem;
   color: #666;
