@@ -11,6 +11,7 @@ import NOGProjectSection from '../components/nog/NOGProjectSection';
 import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
 import { motion } from 'framer-motion';
+import { ThemeToggle } from '../components/theme/ThemeToggle'; // AJOUT
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -34,7 +35,6 @@ const useStyles = makeStyles(() => ({
 
 export const Home = () => {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       {/* Section Home principale */}
@@ -57,6 +57,9 @@ export const Home = () => {
         <FooterText />
       </motion.div>
 
+      {/* AJOUT DU BOUTON THEME - placé ici pour être sûr qu'il soit visible */}
+      <ThemeToggle />
+
       {/* Section NOG Project */}
       <motion.div 
         className={classes.contentSection}
@@ -65,7 +68,6 @@ export const Home = () => {
       >
         <NOGProjectSection />
       </motion.div>
-
       {/* Section Story */}
       <motion.div 
         className={classes.contentSection}
@@ -74,7 +76,6 @@ export const Home = () => {
       >
         <StorySection />
       </motion.div>
-
       {/* Section Collection */}
       <motion.div 
         className={classes.contentSection}
