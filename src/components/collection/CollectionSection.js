@@ -1,5 +1,64 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  IconButton,
+  Fade,
+  Backdrop
+} from '@material-ui/core';
+import { Close as CloseIcon } from '@material-ui/icons';
+import { makeStyles } from '@material-ui/core/styles';
 import './CollectionSection.css';
+
+const useStyles = makeStyles((theme) => ({
+  dialog: {
+    '& .MuiDialog-paper': {
+      maxWidth: '800px',
+      width: '90%',
+      maxHeight: '80vh',
+      borderRadius: '16px',
+      overflow: 'hidden',
+    },
+  },
+  backdrop: {
+    backdropFilter: 'blur(8px)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  dialogTitle: {
+    padding: '24px 24px 16px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    borderBottom: '1px solid #eee',
+  },
+  titleSection: {
+    flex: 1,
+  },
+  contextText: {
+    fontSize: '0.875rem',
+    color: '#666',
+    marginBottom: '8px',
+    textTransform: 'uppercase',
+    letterSpacing: '0.1em',
+  },
+  titleText: {
+    fontSize: '1.5rem',
+    fontWeight: 600,
+    color: '#000',
+    margin: 0,
+  },
+  closeButton: {
+    padding: '8px',
+    marginLeft: '16px',
+  },
+  dialogContent: {
+    padding: '24px',
+    fontSize: '1.125rem',
+    lineHeight: 1.7,
+    color: '#333',
+  },
+}));
 
 const legalPrompts = [
   {
@@ -66,6 +125,31 @@ const legalPrompts = [
 
 const CollectionSection = () => {
   const sectionRef = useRef(null);
+  const classes = useStyles();
+  const [selectedPrompt, setSelectedPrompt] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  const handleCardClick = (prompt) => {
+    setSelectedPrompt(prompt);
+    setDialogOpen(true);
+    // Désactiver le scroll des cartes
+    const cardsRows = document.querySelectorAll('.cards-row');
+    cardsRows.forEach(row => {
+      row.style.animationPlayState = 'paused';
+    });
+  };
+
+  const handleCloseDialog = () => {
+    setDialogOpen(false);
+    setTimeout(() => {
+      setSelectedPrompt(null);
+      // Réactiver le scroll des cartes
+      const cardsRows = document.querySelectorAll('.cards-row');
+      cardsRows.forEach(row => {
+        row.style.animationPlayState = 'running';
+      });
+    }, 300);
+  };
   
   return (
     <section ref={sectionRef} className="collection-section">
@@ -91,7 +175,11 @@ const CollectionSection = () => {
         <div className="cards-container">
           <div className="cards-row top">
             {legalPrompts.slice(0, 6).map((prompt, index) => (
-              <div key={index} className="prompt-card">
+              <div 
+                key={index} 
+                className="prompt-card clickable"
+                onClick={() => handleCardClick(prompt)}
+              >
                 <div className="card-context">{prompt.context}</div>
                 <h3 className="card-title">{prompt.title}</h3>
                 <div className="card-body">{prompt.body}</div>
@@ -100,7 +188,7 @@ const CollectionSection = () => {
           </div>
 
           {/* Statistics Section */}
-          <div className="statistics-section">
+          <div className="statistics-section compact">
             <div className="stats-container">
               <div className="stat-item">
                 <div className="stat-number">200+</div>
@@ -115,7 +203,11 @@ const CollectionSection = () => {
 
           <div className="cards-row bottom">
             {legalPrompts.slice(6, 12).map((prompt, index) => (
-              <div key={index} className="prompt-card">
+              <div 
+                key={index} 
+                className="prompt-card clickable"
+                onClick={() => handleCardClick(prompt)}
+              >
                 <div className="card-context">{prompt.context}</div>
                 <h3 className="card-title">{prompt.title}</h3>
                 <div className="card-body">{prompt.body}</div>
@@ -209,6 +301,48 @@ const CollectionSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Dialog Modal */}
+      <Dialog
+        open={dialogOpen}
+        onClose={handleCloseDialog}
+        className={classes.dialog}
+        TransitionComponent={Fade}
+        TransitionProps={{
+          timeout: 400,
+        }}
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          className: classes.backdrop,
+          timeout: 400,
+        }}
+        maxWidth={false}
+      >
+        {selectedPrompt && (
+          <>
+            <DialogTitle className={classes.dialogTitle} disableTypography>
+              <div className={classes.titleSection}>
+                <div className={classes.contextText}>
+                  {selectedPrompt.context}
+                </div>
+                <h2 className={classes.titleText}>
+                  {selectedPrompt.title}
+                </h2>
+              </div>
+              <IconButton
+                className={classes.closeButton}
+                onClick={handleCloseDialog}
+                aria-label="close"
+              >
+                <CloseIcon />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent className={classes.dialogContent}>
+              {selectedPrompt.body}
+            </DialogContent>
+          </>
+        )}
+      </Dialog>
     </section>
   );
 };
