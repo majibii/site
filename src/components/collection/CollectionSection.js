@@ -4,7 +4,7 @@ import {
   DialogTitle,
   DialogContent,
   IconButton,
-  Fade,
+  Zoom, // Modifié: Import de Zoom au lieu de Fade
   Backdrop
 } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
@@ -60,7 +60,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// NOUVEAU: Composant pour l'icône du prompt
+const PromptIcon = () => (
+    <svg
+        width="26"
+        height="26"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="prompt-icon"
+    >
+        <path d="M7.41 13.41L6 12l1.41-1.41L10.83 12 7.41 15.41 6 14l1.41-1.41zM12 18h-2v-2h2v2zm-4-4h-2v-2h2v2zm-4-4H2V8h2v2z" transform="translate(2, 0) scale(0.9)"/>
+        <path d="M13 18v-2h8v2h-8z" transform="translate(2, 0) scale(0.9)"/>
+    </svg>
+);
+
+
 const legalPrompts = [
+  // ... (votre liste de prompts reste inchangée)
   {
     title: "Drafting a Shareholder Agreement",
     context: "Corporate law, early-stage company",
@@ -132,7 +148,6 @@ const CollectionSection = () => {
   const handleCardClick = (prompt) => {
     setSelectedPrompt(prompt);
     setDialogOpen(true);
-    // Désactiver le scroll des cartes
     const cardsRows = document.querySelectorAll('.cards-row');
     cardsRows.forEach(row => {
       row.style.animationPlayState = 'paused';
@@ -143,7 +158,6 @@ const CollectionSection = () => {
     setDialogOpen(false);
     setTimeout(() => {
       setSelectedPrompt(null);
-      // Réactiver le scroll des cartes
       const cardsRows = document.querySelectorAll('.cards-row');
       cardsRows.forEach(row => {
         row.style.animationPlayState = 'running';
@@ -153,6 +167,8 @@ const CollectionSection = () => {
   
   return (
     <section ref={sectionRef} className="collection-section">
+      {/* ... (le reste de votre JSX avant le Dialog reste inchangé) */}
+      
       <div className="collection-content">
         <div className="collection-header">
           <h3 className="section-label">COLLECTION</h3>
@@ -187,7 +203,6 @@ const CollectionSection = () => {
             ))}
           </div>
 
-          {/* Statistics Section */}
           <div className="statistics-section compact">
             <div className="stats-container">
               <div className="stat-item">
@@ -215,99 +230,15 @@ const CollectionSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Editorial Section */}
-        <div className="editorial-section">
-          <div className="editorial-line">
-            <span className="editorial-title">ABOUT THE PROMPTING ART</span>
-          </div>
-          
-          <div className="editorial-content">
-            <p>
-              The art of prompting is not just a technical exercise—it's a strategic method of legal reasoning. 
-              By leveraging structured approaches like the IRAC method (Issue, Rule, Application, Conclusion), 
-              your AI models yield significantly more precise and contextually relevant results.
-            </p>
-            <p>
-              This collection demonstrates how advanced prompting techniques are transforming the practice of law, 
-              enabling attorneys to draft, analyze, and argue more effectively. We've designed these prompts to 
-              operate across multilingual legal contexts, ensuring flexibility, depth, and compliance in diverse jurisdictions.
-            </p>
-            <p>
-              At the intersection of legal thought and artificial intelligence, prompting becomes not only a tool—but a new legal craft.
-            </p>
-          </div>
-        </div>
-
-        {/* Benefits Section */}
-        <div className="benefits-section">
-          <div className="benefits-title-line">
-            <span className="benefits-title">BENEFITS FOR HOLDERS</span>
-          </div>
-          
-          <div className="benefits-list">
-            <div className="benefits-item">
-              <div className="benefit-icon-circle">
-                <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
-                </svg>
-              </div>
-              <span>Contribute to the evolution of legal prompting strategies and frameworks</span>
-            </div>
-            <div className="benefits-item">
-              <div className="benefit-icon-circle">
-                <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-                  <circle cx="16" cy="11" r="3"/>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                </svg>
-              </div>
-              <span>Access a free hub for share prompts and work for transparency</span>
-            </div>
-            <div className="benefits-item">
-              <div className="benefit-icon-circle">
-                <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <circle cx="12" cy="16" r="1"/>
-                  <path d="M7 11V7A5 5 0 0 1 17 7V11"/>
-                </svg>
-              </div>
-              <span>Create your prompts in private and keep your strategy</span>
-            </div>
-            <div className="benefits-item">
-              <div className="benefit-icon-circle">
-                <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
-                </svg>
-              </div>
-              <span>Enjoy early access to new prompt collections, the legal agents will coming soon</span>
-            </div>
-            <div className="benefits-item">
-              <div className="benefit-icon-circle">
-                <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2V6"/>
-                  <path d="M12 18V22"/>
-                  <path d="M4.93 4.93L7.76 7.76"/>
-                  <path d="M16.24 16.24L19.07 19.07"/>
-                  <path d="M2 12H6"/>
-                  <path d="M18 12H22"/>
-                  <path d="M4.93 19.07L7.76 16.24"/>
-                  <path d="M16.24 7.76L19.07 4.93"/>
-                </svg>
-              </div>
-              <span>Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs</span>
-            </div>
-          </div>
-        </div>
       </div>
+
 
       {/* Dialog Modal */}
       <Dialog
         open={dialogOpen}
         onClose={handleCloseDialog}
         className={classes.dialog}
-        TransitionComponent={Fade}
+        TransitionComponent={Zoom} // Modifié: Utilisation de Zoom pour la transition
         TransitionProps={{
           timeout: 400,
         }}
@@ -338,7 +269,11 @@ const CollectionSection = () => {
               </IconButton>
             </DialogTitle>
             <DialogContent className={classes.dialogContent}>
-              {selectedPrompt.body}
+              {/* NOUVEAU: Conteneur pour l'icône et le texte */}
+              <div className="prompt-content-container">
+                <PromptIcon />
+                <p>{selectedPrompt.body}</p>
+              </div>
             </DialogContent>
           </>
         )}
