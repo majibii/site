@@ -1,15 +1,10 @@
-import React, { useRef } from 'react';
-import { useInViewport } from '../../hooks/useInViewport';
+import React from 'react';
 import './NOGProjectSection.css';
 
 const NOGProjectSection = () => {
-  const sectionRef = useRef(null);
-  const isVisible = useInViewport(sectionRef, false, { threshold: 0.3 });
-
   return (
     <section 
-      ref={sectionRef}
-      className={`nog-project-section ${isVisible ? 'visible' : ''}`}
+      className="nog-project-section visible"
       style={{ backgroundColor: '#fce96b' }}
     >
       <div className="nog-content">
