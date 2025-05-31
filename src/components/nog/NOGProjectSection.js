@@ -1,5 +1,3 @@
-/* src/components/nog/NOGProjectSection.js */
-
 import React, { useRef } from 'react';
 import { useInViewport } from '../../hooks/useInViewport';
 import './NOGProjectSection.css';
@@ -12,6 +10,7 @@ const NOGProjectSection = () => {
     <section 
       ref={sectionRef}
       className={`nog-project-section ${isVisible ? 'visible' : ''}`}
+      style={{ backgroundColor: '#fce96b' }}
     >
       <div className="nog-content">
         <div className="nog-main-content">

@@ -10,7 +10,7 @@ import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
 import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
-import ScrollTransition from '../components/nog/ScrollTransition';
+import { motion } from 'framer-motion';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -19,10 +19,9 @@ const useStyles = makeStyles(() => ({
     minHeight: '100vh',
     position: 'relative',
   },
-  homeSection: {
-    display: 'flex',
-    flexDirection: 'column',
+  section: {
     minHeight: '100vh',
+    width: '100%',
     position: 'relative',
   }
 }));
@@ -30,31 +29,56 @@ const useStyles = makeStyles(() => ({
 export const Home = () => {
   const classes = useStyles();
 
-  const homeContent = (
-    <div className={classes.homeSection}>
-      <DisplacementSphere />
-      <LogoLink />
-      <Content />
-      <Hidden smDown>
-        <SocialIcons />
-      </Hidden>
-      <Hidden mdUp>
-        <SpeedDials />
-      </Hidden>
-      <FooterText />
-    </div>
-  );
-
   return (
     <div className={classes.root}>
-      <ScrollTransition
-        homeContent={homeContent}
-        noProjectContent={<NOGProjectSection />}
-        theme="dark"
-        transitionThreshold={0.15}
-      />
-      <StorySection />
-      <CollectionSection />
+      <motion.div 
+        className={classes.section}
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+      >
+        <DisplacementSphere />
+        <LogoLink />
+        <Content />
+        <Hidden smDown>
+          <SocialIcons />
+        </Hidden>
+        <Hidden mdUp>
+          <SpeedDials />
+        </Hidden>
+        <FooterText />
+      </motion.div>
+
+      <motion.div 
+        className={classes.section}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+      >
+        <NOGProjectSection />
+      </motion.div>
+
+      <motion.div 
+        className={classes.section}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+      >
+        <StorySection />
+      </motion.div>
+
+      <motion.div 
+        className={classes.section}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+      >
+        <CollectionSection />
+      </motion.div>
     </div>
   );
 };
