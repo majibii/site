@@ -6,11 +6,17 @@ import { Brightness4, Brightness7 } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
     iconButton: {
-        position: "absolute",
-        bottom: theme.spacing(6),
-        right: theme.spacing(6),
+        position: "fixed", // Changé de absolute à fixed
+        bottom: theme.spacing(3), // Réduit l'espacement
+        right: theme.spacing(3), // Réduit l'espacement
         height: "2.5rem",
         width: "2.5rem",
+        zIndex: 9999, // Ajouter un z-index élevé
+        backgroundColor: theme.palette.background.paper, // Arrière-plan visible
+        border: `1px solid ${theme.palette.divider}`, // Bordure pour la visibilité
+        '&:hover': {
+            backgroundColor: theme.palette.primary.main,
+        },
     },
     icon: {
         fontSize: "1.25rem",
