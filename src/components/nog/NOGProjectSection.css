@@ -40,16 +40,16 @@
   margin-right: auto;
 }
 
-/* Animation visible state */
+/* Animation géré maintenant par framer-motion dans Home.js */
+.nog-main-content {
+  opacity: 1; /* Changé de 0 à 1 pour être visible par défaut */
+  transform: translateY(0); /* Changé de 50px à 0 pour la position finale */
+}
+
+/* Garder les animations existantes pour compatibilité si besoin */
 .nog-project-section.visible .nog-main-content {
   opacity: 1;
   transform: translateY(0);
-  transition: all 1s ease-in-out;
-}
-
-.nog-main-content {
-  opacity: 0;
-  transform: translateY(50px);
   transition: all 1s ease-in-out;
 }
 
