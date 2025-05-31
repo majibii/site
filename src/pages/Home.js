@@ -12,6 +12,9 @@ import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
 import { motion } from 'framer-motion';
 
+console.log('Home.js chargé');
+console.log('NOGProjectSection importé:', NOGProjectSection);
+
 const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
@@ -34,6 +37,7 @@ const useStyles = makeStyles(() => ({
 
 export const Home = () => {
   const classes = useStyles();
+  console.log('Home composant rendu');
 
   return (
     <div className={classes.root}>
@@ -57,7 +61,12 @@ export const Home = () => {
         <FooterText />
       </motion.div>
 
-      {/* Section NOG Project */}
+      {/* TEST: Section NOG Project avec debug */}
+      <div style={{ backgroundColor: 'red', padding: '20px', color: 'white' }}>
+        <h2>DEBUG: Avant NOGProjectSection</h2>
+        <p>Si vous voyez ceci, le problème est dans NOGProjectSection</p>
+      </div>
+
       <motion.div 
         className={classes.contentSection}
         initial={{ opacity: 0, y: 50 }}
@@ -65,8 +74,13 @@ export const Home = () => {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <NOGProjectSection />
+        {NOGProjectSection ? <NOGProjectSection /> : <div style={{backgroundColor: 'orange', padding: '20px'}}>NOGProjectSection est undefined!</div>}
       </motion.div>
+
+      <div style={{ backgroundColor: 'blue', padding: '20px', color: 'white' }}>
+        <h2>DEBUG: Après NOGProjectSection</h2>
+        <p>Si vous voyez ceci, NOGProjectSection s'est rendu</p>
+      </div>
 
       {/* Section Story */}
       <motion.div 
