@@ -1,4 +1,4 @@
-import React, { useRef, useState, useId } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './CollectionSection.css';
 
@@ -67,7 +67,8 @@ const legalPrompts = [
 
 const CollectionSection = () => {
   const sectionRef = useRef(null);
-  const uniqueId = useId();
+  // Remplace useId() par useState pour React 16
+  const [uniqueId] = useState(() => `collection-${Math.random().toString(36).substr(2, 9)}`);
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [editedPrompt, setEditedPrompt] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
