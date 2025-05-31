@@ -87,7 +87,7 @@ const CollectionSection = () => {
   };
 
   const handleSubmit = () => {
-    // Save the modified prompt
+    // Save the modified promppt
     console.log('Modified prompt:', editedPrompt);
     
     // Redirect to hub
