@@ -89,9 +89,9 @@
 .cards-row {
   display: flex;
   gap: 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0; /* Réduit de 2rem à 1rem pour resserrer */
   position: relative;
-  padding: 1rem 0;
+  padding: 0.5rem 0; /* Réduit de 1rem à 0.5rem */
   width: max-content;
 }
 
@@ -113,9 +113,19 @@
   transition: all 0.3s ease-out;
 }
 
+.prompt-card.clickable {
+  cursor: pointer;
+}
+
 .prompt-card:hover {
   opacity: 1;
   transform: translateY(-4px);
+}
+
+.prompt-card.clickable:hover {
+  opacity: 1;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .prompt-card.active {
@@ -143,13 +153,20 @@
   overflow-y: auto;
 }
 
-/* Statistics Section */
+/* Statistics Section - Version compacte */
 .statistics-section {
-  margin: 0.5rem 0;
-  padding: 1rem;
+  margin: 0rem 0; /* Réduit l'espacement vertical */
+  padding: 0.5rem; /* Réduit le padding */
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 10; /* Assure que les stats restent visibles */
+}
+
+.statistics-section.compact {
+  margin: -0.5rem 0; /* Espacement négatif pour rapprocher des cartes */
+  padding: 1rem;
 }
 
 .stats-container {
@@ -158,12 +175,17 @@
   align-items: center;
   gap: 4rem;
   flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.95); /* Fond légèrement opaque */
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem; /* Padding interne pour plus de compacité */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .stat-item {
   text-align: center;
   flex: 0 0 auto;
-  min-width: 150px;
+  min-width: 120px; /* Réduit la largeur minimale */
 }
 
 .stat-number {
@@ -375,6 +397,32 @@
   animation-play-state: paused;
 }
 
+/* Styles pour le Dialog Modal */
+.MuiDialog-root .MuiBackdrop-root {
+  backdrop-filter: blur(8px) !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.MuiDialog-paper {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  max-width: 800px !important;
+  width: 90% !important;
+  max-height: 80vh !important;
+}
+
+.MuiDialogTitle-root {
+  padding: 24px 24px 16px !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+.MuiDialogContent-root {
+  padding: 24px !important;
+  font-size: 1.125rem !important;
+  line-height: 1.7 !important;
+  color: #333 !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .collection-section {
@@ -391,7 +439,8 @@
 
   .stats-container {
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+    padding: 1rem 1.5rem;
   }
 
   .stat-item {
@@ -399,12 +448,8 @@
   }
 
   .statistics-section {
-    margin: 0.5rem 0;
-    padding: 1rem;
-  }
-
-  .stats-container {
-    gap: 2rem;
+    margin: -0.25rem 0;
+    padding: 0.5rem;
   }
 
   .editorial-section,
@@ -418,16 +463,31 @@
     padding: 0 1rem;
     font-size: 1rem;
   }
+
+  .MuiDialog-paper {
+    width: 95% !important;
+    max-width: none !important;
+  }
 }
 
 @media (max-width: 480px) {
   .stats-container {
-    gap: 2rem;
+    gap: 1.5rem;
+    padding: 1rem;
   }
 
   .editorial-content p,
   .benefits-list li {
     font-size: 1rem;
+  }
+
+  .cards-row {
+    gap: 1.5rem;
+  }
+
+  .prompt-card {
+    flex: 0 0 280px;
+    padding: 1.5rem;
   }
 }
 
@@ -444,5 +504,9 @@
 
   .early-access-button {
     transition: none;
+  }
+
+  .MuiDialog-root * {
+    transition: none !important;
   }
 }
