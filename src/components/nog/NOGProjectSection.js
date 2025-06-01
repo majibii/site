@@ -51,57 +51,104 @@ const NOGProjectSection = () => {
           flex: '1'
         }}
       >
-        {/* Titre principal - 40% de la hauteur visible */}
-        <h1
-          style={{
-            fontSize: 'clamp(8rem, 20vw, 16rem)',
-            fontWeight: '900',
-            color: '#000000',
-            lineHeight: '0.8',
-            letterSpacing: '-0.08em',
-            margin: '0',
-            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-            textTransform: 'uppercase',
-            fontStretch: 'condensed',
-            marginBottom: '3rem'
-          }}
-        >
-          N.O.G<br/>PROJECT
-        </h1>
+        {/* Container du titre avec codes-barres */}
+        <div style={{ position: 'relative', marginBottom: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+          {/* Code-barre gauche */}
+          <div style={{ 
+            position: 'absolute', 
+            left: 'clamp(5%, 10vw, 15%)', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '2px',
+            transform: 'rotate(90deg)',
+            transformOrigin: 'center'
+          }}>
+            {Array.from({length: 40}, (_, i) => (
+              <div key={i} style={{
+                width: Math.random() > 0.3 ? '2px' : '4px',
+                height: '60px',
+                backgroundColor: '#000000'
+              }} />
+            ))}
+          </div>
 
-        {/* Description - Beaucoup plus petite */}
+          {/* Titre principal - écrasé verticalement */}
+          <h1
+            style={{
+              fontSize: 'clamp(8rem, 20vw, 16rem)',
+              fontWeight: '900',
+              color: '#000000',
+              lineHeight: '0.55',
+              letterSpacing: '-0.08em',
+              margin: '0',
+              fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+              textTransform: 'uppercase',
+              fontStretch: 'extra-condensed',
+              transform: 'scaleY(0.7)',
+              transformOrigin: 'center'
+            }}
+          >
+            N.O.G<br/>PROJECT
+          </h1>
+
+          {/* Code-barre droite */}
+          <div style={{ 
+            position: 'absolute', 
+            right: 'clamp(5%, 10vw, 15%)', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '2px',
+            transform: 'rotate(90deg)',
+            transformOrigin: 'center'
+          }}>
+            {Array.from({length: 40}, (_, i) => (
+              <div key={i} style={{
+                width: Math.random() > 0.3 ? '2px' : '4px',
+                height: '60px',
+                backgroundColor: '#000000'
+              }} />
+            ))}
+          </div>
+        </div>
+
+        {/* Description - En gras, non coupée */}
         <div
           style={{
             fontSize: 'clamp(0.9rem, 1.8vw, 1.1rem)',
             color: '#000000',
             lineHeight: '1.4',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-            fontWeight: '500',
-            maxWidth: '700px',
+            fontWeight: '700',
+            maxWidth: '90%',
             margin: '0 auto',
-            marginBottom: 'auto'
+            marginBottom: '1.5rem'
           }}
         >
-          <div style={{ marginBottom: '0.3rem' }}>
+          <div style={{ marginBottom: '0.3rem', whiteSpace: 'nowrap', overflow: 'visible' }}>
             A modular platform to build, orchestrate, and govern legal agents with full traceability and security.
           </div>
-          <div style={{ marginBottom: '0.3rem' }}>
-            From prompt engineering to legal logic chains, N.O.G is the AI backbone for compliant, scalable legal automation.
+          <div style={{ marginBottom: '0.3rem', whiteSpace: 'nowrap', overflow: 'visible' }}>
+            From prompt engineering to legal logic chains,
           </div>
-          <div>
+          <div style={{ marginBottom: '0.3rem', whiteSpace: 'nowrap', overflow: 'visible' }}>
+            N.O.G is the AI backbone for compliant, scalable legal automation.
+          </div>
+          <div style={{ whiteSpace: 'nowrap', overflow: 'visible' }}>
             Crafted by their own community.
           </div>
         </div>
 
-        {/* Signature - Tout en bas avec marge généreuse */}
+        {/* Signature - Juste après le texte, alignée avec le titre */}
         <div
           style={{
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)',
             color: '#000000',
-            fontFamily: 'cursive, "Brush Script MT", "Lucida Handwriting", sans-serif',
+            fontFamily: '"Times New Roman", "Georgia", serif',
             fontStyle: 'italic',
-            marginTop: '6rem',
-            alignSelf: 'center'
+            fontWeight: '400',
+            textAlign: 'center',
+            letterSpacing: '0.02em',
+            transform: 'rotate(-2deg)'
           }}
         >
           by EggOn Technology
