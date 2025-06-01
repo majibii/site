@@ -6,13 +6,26 @@
     bottom: 0;
     left: 0;
     opacity: 0;
-    z-index: -1;
+    z-index: -999; /* ✨ CHANGEMENT: z-index très bas */
+    pointer-events: none; /* ✨ AJOUT: Empêche les interactions */
     transition-property: opacity;
     transition-duration: 3s;
-    transition-timing-function: "cubic-bezier(0.4, 0.0, 0.2, 1)";
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .displacement-sphere--entering,
 .displacement-sphere--entered {
     opacity: 1;
+}
+
+/* ✨ AJOUT: Force le canvas Three.js en arrière-plan */
+.displacement-sphere canvas {
+    z-index: -999 !important;
+    pointer-events: none !important;
+}
+
+/* ✨ AJOUT: Assure que tous les enfants restent en arrière-plan */
+.displacement-sphere * {
+    z-index: -999 !important;
+    pointer-events: none !important;
 }
