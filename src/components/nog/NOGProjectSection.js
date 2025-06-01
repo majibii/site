@@ -29,8 +29,8 @@ const NOGProjectSection = () => {
         }}
       >
         {/* Container du titre avec codes-barres */}
-        <div style={{ position: 'relative', marginBottom: '4rem', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-          {/* Code-barre gauche - vertical agrandi */}
+        <div style={{ position: 'relative', marginBottom: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+          {/* Code-barre gauche - traits fins et épais alternés */}
           <div style={{ 
             position: 'absolute', 
             left: '1%', 
@@ -38,56 +38,76 @@ const NOGProjectSection = () => {
             transform: 'translateY(-50%)',
             display: 'flex', 
             flexDirection: 'column', 
-            gap: '1.5px',
-            width: '3px',
-            height: 'clamp(6rem, 18vw, 14rem)',
-            alignItems: 'center'
+            gap: '1px',
+            width: '5px',
+            height: 'clamp(9rem, 22vw, 18rem)',
+            alignItems: 'flex-start'
           }}>
-            {/* Barres horizontales style code-barre vertical */}
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '80%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '60%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '70%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '90%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '50%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '85%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '65%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '95%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '75%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '55%', backgroundColor: '#fafafa' }}></div>
+            {/* Enchaînement de traits fins et épais comme un vrai code-barre */}
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '3px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '4px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '3px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '5px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '3px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '4px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '3px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '2px', width: '4px', backgroundColor: '#fafafa' }}></div>
           </div>
 
-          {/* Titre principal - plus large et imposant */}
+          {/* Titre principal - police écrasée et élargie */}
           <h1
             style={{
-              fontSize: 'clamp(4rem, 14vw, 12rem)',
+              fontSize: 'clamp(4rem, 16vw, 14rem)',
               fontWeight: '900',
               color: '#fafafa',
-              lineHeight: '1.1',
-              letterSpacing: '-0.02em',
+              lineHeight: '0.7',
+              letterSpacing: '-0.12em',
               margin: '0',
-              fontFamily: '"Inter Black", "Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+              fontFamily: '"Arial Black", "Helvetica", sans-serif',
               textTransform: 'uppercase',
-              fontStretch: 'extra-condensed',
+              fontStretch: 'ultra-condensed',
               width: '100%',
-              maxWidth: '90%'
+              maxWidth: '95%',
+              transform: 'scaleY(0.8) scaleX(1.2)',
+              transformOrigin: 'center'
             }}
           >
             N.O.G
             <br/>
-            <div style={{ marginTop: '0.5em' }}>
+            <div style={{ marginTop: '0.15em' }}>
               PROJECT
             </div>
           </h1>
 
-          {/* Code-barre droite - vertical agrandi */}
+          {/* Code-barre droite - vertical centré */}
           <div style={{ 
             position: 'absolute', 
             right: '1%', 
@@ -95,53 +115,62 @@ const NOGProjectSection = () => {
             transform: 'translateY(-50%)',
             display: 'flex', 
             flexDirection: 'column', 
-            gap: '1.5px',
-            width: '3px',
-            height: 'clamp(6rem, 18vw, 14rem)',
+            gap: '0.5px',
+            width: '5px',
+            height: 'clamp(9rem, 22vw, 18rem)',
             alignItems: 'center'
           }}>
-            {/* Barres horizontales style code-barre vertical */}
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '75%', backgroundColor: '#fafafa' }}></div>
+            {/* Séquence de barres continues style code-barre */}
+            <div style={{ height: '7px', width: '100%', backgroundColor: '#fafafa' }}></div>
             <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '55%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '10px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '8px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '6px', width: '100%', backgroundColor: '#fafafa' }}></div>
             <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '80%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '90%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '45%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '11px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '9px', width: '100%', backgroundColor: '#fafafa' }}></div>
             <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '70%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '7px', width: '100%', backgroundColor: '#fafafa' }}></div>
             <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '85%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '60%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '95%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '12px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '6px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '8px', width: '100%', backgroundColor: '#fafafa' }}></div>
             <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '65%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '10px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '7px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '6px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '9px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ height: '8px', width: '100%', backgroundColor: '#fafafa' }}></div>
           </div>
         </div>
 
-        {/* Description - Forme pyramidale inversée sur 3 lignes */}
+        {/* Description - Pyramide inversée sur 3 lignes compactes */}
         <div
           style={{
-            fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+            fontSize: 'clamp(0.95rem, 1.8vw, 1.25rem)',
             color: '#fafafa',
-            lineHeight: '1.5',
+            lineHeight: '1.6',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
             fontWeight: '500',
             margin: '0 auto',
             textAlign: 'center',
-            maxWidth: '90%'
+            maxWidth: 'min(90%, 60ch)',
+            marginTop: '0.5rem'
           }}
         >
-          <div style={{ marginBottom: '0.5rem', maxWidth: '100%' }}>
+          <div style={{ marginBottom: '0.8rem', width: '100%' }}>
             A modular platform to build, orchestrate, and govern legal agents with full traceability.
           </div>
-          <div style={{ marginBottom: '0.5rem', maxWidth: '85%', margin: '0 auto 0.5rem auto' }}>
+          <div style={{ marginBottom: '0.8rem', width: '85%', margin: '0 auto 0.8rem auto' }}>
             From prompts to legal logic chains, it powers compliant and scalable legal automation.
           </div>
-          <div style={{ maxWidth: '60%', margin: '0 auto' }}>
+          <div style={{ width: '60%', margin: '0 auto' }}>
             Crafted by its own community.
           </div>
         </div>
