@@ -1,70 +1,187 @@
 /* src/components/nog/NOGProjectSection.css */
+
+/* Section principale avec gestion responsive */
 .nog-project-section {
   min-height: 100vh;
+  height: auto; /* Permet à la section de grandir */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2f2f2e;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem);
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden; /* Évite les débordements horizontaux */
+}
+
+/* Container principal centré */
+.nog-content {
+  text-align: center;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Container du titre avec motifs */
+.nog-title-container {
+  position: relative;
+  margin-bottom: clamp(2rem, 5vh, 4rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fce96b;
-  padding: 4rem 2rem;
+  width: 100%;
+  min-height: clamp(8rem, 20vh, 16rem);
 }
 
-.nog-content {
-  text-align: center;
-  max-width: 900px;
-}
-
+/* Titre principal */
 .nog-title {
-  font-size: clamp(5rem, 12vw, 10rem);
+  font-size: clamp(3rem, 12vw, 12rem);
   font-weight: 900;
-  color: #000000;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  color: #fafafa;
+  line-height: 0.7;
+  letter-spacing: -0.12em;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Arial Black", "Helvetica", sans-serif;
+  text-transform: uppercase;
+  font-stretch: ultra-condensed;
+  width: 100%;
+  max-width: 90%;
+  transform: scaleY(0.8) scaleX(1.2);
+  transform-origin: center;
+  text-align: center;
 }
 
-.highlight {
-  background: none;
-  -webkit-text-fill-color: black;
+/* Sous-titre PROJECT */
+.nog-subtitle {
+  margin-top: 0.15em;
 }
 
+/* Motifs graphiques */
+.nog-pattern {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: clamp(12rem, 30vh, 20rem);
+  overflow: hidden;
+}
+
+.nog-pattern-left {
+  left: clamp(0.5%, 2vw, 2%);
+}
+
+.nog-pattern-right {
+  right: clamp(0.5%, 2vw, 2%);
+}
+
+.nog-pattern-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Rectangle des motifs */
+.nog-rectangle {
+  background-color: #fafafa;
+  width: clamp(8px, 2vw, 16px);
+}
+
+/* Description */
 .nog-description {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: #333333;
-  font-weight: 400;
-  margin-top: 1.5rem;
-  line-height: 1.6;
-  font-family: 'Inter', sans-serif;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+  color: #fafafa;
+  line-height: clamp(1.4, 1.6, 1.8);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: min(95%, 80ch);
+  margin-top: clamp(1rem, 3vw, 2rem);
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-.nog-main-content {
-  opacity: 1;
-  transform: translateY(0);
+/* Lignes de description */
+.nog-description-line {
+  word-wrap: break-word;
+  hyphens: auto;
+  margin-bottom: clamp(0.6rem, 1.5vw, 1rem);
 }
 
+.nog-description-line:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .nog-project-section {
-    padding: 2rem 1rem;
-    min-height: 80vh;
+    padding: clamp(1.5rem, 4vh, 3rem) clamp(0.5rem, 2vw, 1.5rem);
   }
-
+  
   .nog-title {
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    max-width: 95%;
   }
-
+  
+  /* Masquer les motifs sur mobile */
+  .nog-pattern {
+    display: none;
+  }
+  
   .nog-description {
-    font-size: 1.1rem;
-    margin-top: 1rem;
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    max-width: 95%;
   }
 }
 
+@media (max-width: 480px) {
+  .nog-project-section {
+    padding: clamp(1rem, 3vh, 2rem) 0.5rem;
+  }
+  
+  .nog-title {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+  
+  .nog-description {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+  
+  .nog-title-container {
+    margin-bottom: clamp(1.5rem, 4vh, 3rem);
+  }
+}
+
+/* Optimisations de performance */
 @media (prefers-reduced-motion: no-preference) {
   .nog-project-section {
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
+  }
+}
+
+/* Gestion des très petits écrans */
+@media (max-width: 320px) {
+  .nog-title {
+    font-size: clamp(1.8rem, 7vw, 3.5rem);
+    letter-spacing: -0.08em;
+  }
+  
+  .nog-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 }
