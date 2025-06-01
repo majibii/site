@@ -28,19 +28,18 @@ const useStyles = makeStyles(() => ({
     left: 0,
     width: '100%',
     height: '100vh',
-    zIndex: -1, // Derrière tout le contenu
   },
   homeSection: {
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
-    backgroundColor: 'transparent', // Transparent pour laisser voir les sphères
+    backgroundColor: 'transparent',
   },
   contentSection: {
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
-    backgroundColor: 'transparent', // Transparent pour laisser voir les sphères
+    backgroundColor: 'transparent',
   }
 }));
 
