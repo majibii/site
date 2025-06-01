@@ -1,11 +1,12 @@
-/* Collection Section Styless */
+/* Collection Section Styles */
 .collection-section {
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: transparent;
   padding: 6rem 0;
   overflow: hidden;
   position: relative;
   width: 100vw;
+  color: #fafafa;
 }
 
 .collection-content {
@@ -24,7 +25,7 @@
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #666;
+  color: #fafafa;
   margin: 0;
   font-weight: 500;
   position: relative;
@@ -38,7 +39,7 @@
   bottom: -0.5rem;
   width: 2rem;
   height: 1px;
-  background-color: #666;
+  background-color: #fafafa;
 }
 
 .collection-title {
@@ -46,7 +47,7 @@
   font-weight: 700;
   margin: 2rem 0;
   line-height: 1.2;
-  color: #000;
+  color: #fafafa;
 }
 
 .collection-intro {
@@ -54,7 +55,7 @@
   max-width: 600px;
   margin-bottom: 2rem;
   line-height: 1.6;
-  color: #333;
+  color: #fafafa;
 }
 
 .early-access-button {
@@ -63,8 +64,8 @@
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: #fafafa;
   border: none;
   border-radius: 2rem;
   cursor: pointer;
@@ -97,7 +98,7 @@
 
 .cards-row.top {
   animation: scrollRight 60s linear infinite;
-  margin-bottom: 5cm; /* 5cm spacing */
+  margin-bottom: 5cm;
 }
 
 .cards-row.bottom {
@@ -107,24 +108,25 @@
 
 .prompt-card {
   flex: 0 0 400px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   opacity: 0.6;
   transition: all 0.3s ease-out;
   cursor: pointer;
+  backdrop-filter: blur(10px);
 }
 
 .prompt-card:hover {
   opacity: 1;
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .card-context {
   font-size: 0.875rem;
-  color: #666;
+  color: #fafafa;
   margin-bottom: 1rem;
 }
 
@@ -132,18 +134,17 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #000;
+  color: #fafafa;
 }
 
 .card-body {
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
+  color: #fafafa;
   max-height: 120px;
   overflow-y: auto;
 }
 
-/* Time Indicator */
 .time-indicator {
   position: absolute;
   top: 50%;
@@ -156,14 +157,14 @@
 .year-text {
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  color: #000;
+  color: #fafafa;
   margin: 0;
   line-height: 1;
 }
 
 .last-update-text {
   font-size: clamp(0.875rem, 2vw, 1.125rem);
-  color: #666;
+  color: #fafafa;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   margin: 0.5rem 0 0 0;
@@ -177,7 +178,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -187,18 +188,19 @@
 }
 
 .modal-content {
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   width: 100%;
   max-width: 800px;
   max-height: 80vh;
   overflow: hidden;
   position: relative;
+  backdrop-filter: blur(10px);
 }
 
 .modal-header {
   padding: 24px 24px 16px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -210,7 +212,7 @@
 
 .modal-context {
   font-size: 0.875rem;
-  color: #666;
+  color: #fafafa;
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -219,7 +221,7 @@
 .modal-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #000;
+  color: #fafafa;
   margin: 0;
 }
 
@@ -232,10 +234,11 @@
   margin-left: 16px;
   border-radius: 4px;
   transition: background-color 0.2s;
+  color: #fafafa;
 }
 
 .close-button:hover {
-  background-color: #f5f5f5;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .modal-body {
@@ -253,7 +256,7 @@
 }
 
 .prompt-icon {
-  color: #666;
+  color: #fafafa;
   margin-bottom: 0.5rem;
 }
 
@@ -265,7 +268,7 @@
   outline: none;
   font-size: 1rem;
   line-height: 1.6;
-  color: #333;
+  color: #fafafa;
   background: transparent;
   padding: 0;
 }
@@ -288,22 +291,21 @@
 }
 
 .cancel-button {
-  background: #f5f5f5;
-  color: #666;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fafafa;
 }
 
 .cancel-button:hover {
-  background: #e5e5e5;
-  color: #333;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .submit-button {
-  background: #000;
-  color: white;
+  background: #fafafa;
+  color: #000;
 }
 
 .submit-button:hover {
-  background: #333;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 /* Editorial Section */
@@ -326,18 +328,18 @@
   left: 0;
   right: 0;
   height: 1px;
-  background-color: #ddd;
+  background-color: rgba(255, 255, 255, 0.2);
   z-index: 1;
 }
 
 .editorial-title {
-  background-color: #fff;
+  background-color: transparent;
   padding: 0 2rem;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #000;
+  color: #fafafa;
   position: relative;
   z-index: 2;
 }
@@ -351,7 +353,7 @@
 .editorial-content p {
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   line-height: 1.8;
-  color: #333;
+  color: #fafafa;
   margin-bottom: 1.5rem;
 }
 
@@ -381,18 +383,18 @@
   left: 0;
   right: 0;
   height: 1px;
-  background-color: #ddd;
+  background-color: rgba(255, 255, 255, 0.2);
   z-index: 1;
 }
 
 .benefits-title {
-  background-color: #fff;
+  background-color: transparent;
   padding: 0 2rem;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #000;
+  color: #fafafa;
   position: relative;
   z-index: 2;
 }
@@ -409,7 +411,7 @@
   gap: 1rem;
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   line-height: 1.6;
-  color: #333;
+  color: #fafafa;
   margin-bottom: 1.5rem;
   transition: all 0.3s ease-out;
   text-align: left;
@@ -422,9 +424,8 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   display: flex;
@@ -437,17 +438,17 @@
 .benefit-icon {
   width: 20px;
   height: 20px;
-  color: #000;
+  color: #fafafa;
 }
 
 .benefits-item:hover .benefit-icon-circle {
   transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
 }
 
 .benefits-item:hover {
-  color: #000;
+  color: #fafafa;
   transform: translateX(4px);
 }
 
@@ -485,7 +486,7 @@
   }
 
   .cards-row.top {
-    margin-bottom: 3cm; /* Reduced on mobile */
+    margin-bottom: 3cm;
   }
 
   .editorial-section,
@@ -521,7 +522,7 @@
   }
 
   .cards-row.top {
-    margin-bottom: 2cm; /* Further reduced on very small screens */
+    margin-bottom: 2cm;
   }
 }
 

@@ -1,9 +1,10 @@
 .story-section {
   min-height: 200vh;
-  background-color: #ffffff;
+  background-color: transparent;
   position: relative;
   overflow: hidden;
   padding: 4rem 2rem;
+  color: #fafafa;
 }
 
 .story-content {
@@ -21,7 +22,7 @@
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #666;
+  color: #fafafa;
   margin: 0;
   font-weight: 500;
 }
@@ -29,7 +30,7 @@
 .header-line {
   width: 60px;
   height: 1px;
-  background-color: #666;
+  background-color: #fafafa;
   margin: 1rem auto;
 }
 
@@ -39,7 +40,7 @@
   text-align: center;
   margin: 2rem 0;
   line-height: 1.2;
-  color: #000;
+  color: #fafafa;
 }
 
 .story-intro {
@@ -48,7 +49,7 @@
   max-width: 800px;
   margin: 2rem auto;
   line-height: 1.6;
-  color: #333;
+  color: #fafafa;
 }
 
 .sticky-logo {
@@ -69,24 +70,25 @@
 }
 
 .dialogue-bubble {
-  background: #f8f9fa;
+  background: rgba(248, 249, 250, 0.1);
   border-radius: 20px;
   padding: 2rem;
   margin: 2rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease-out;
+  backdrop-filter: blur(10px);
 }
 
 .dialogue-bubble p {
   margin: 0.5rem 0;
   line-height: 1.6;
-  color: #333;
+  color: #fafafa;
 }
 
 .dialogue-bubble[data-bubble-id="7"] {
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
   border: 1px solid rgba(0, 191, 191, 0.2);
 }
 
