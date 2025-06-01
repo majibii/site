@@ -58,34 +58,53 @@ const NOGProjectSection = () => {
             position: 'absolute', 
             left: 'clamp(5%, 10vw, 15%)', 
             display: 'flex', 
-            flexDirection: 'column', 
-            gap: '2px',
-            transform: 'rotate(90deg)',
-            transformOrigin: 'center'
+            flexDirection: 'row', 
+            gap: '1px',
+            height: '3cm',
+            alignItems: 'flex-end'
           }}>
-            {Array.from({length: 40}, (_, i) => (
-              <div key={i} style={{
-                width: Math.random() > 0.3 ? '2px' : '4px',
-                height: '60px',
-                backgroundColor: '#000000'
-              }} />
-            ))}
+            {/* Barres verticales style EAN-128 */}
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '80%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '3px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '60%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '70%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '90%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '50%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '3px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '85%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '65%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '95%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            {/* Texte du code-barre en très petit */}
+            <div style={{
+              position: 'absolute',
+              bottom: '-15px',
+              left: '0',
+              fontSize: '6px',
+              color: '#000',
+              fontFamily: 'monospace',
+              whiteSpace: 'nowrap'
+            }}>
+              (91)barre(11)barres(10)V1.0(21)barres
+            </div>
           </div>
 
-          {/* Titre principal - écrasé verticalement */}
+          {/* Titre principal - sans chevauchement */}
           <h1
             style={{
               fontSize: 'clamp(8rem, 20vw, 16rem)',
               fontWeight: '900',
               color: '#000000',
-              lineHeight: '0.55',
+              lineHeight: '0.9',
               letterSpacing: '-0.08em',
               margin: '0',
               fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
               textTransform: 'uppercase',
-              fontStretch: 'extra-condensed',
-              transform: 'scaleY(0.7)',
-              transformOrigin: 'center'
+              fontStretch: 'extra-condensed'
             }}
           >
             N.O.G<br/>PROJECT
@@ -96,22 +115,43 @@ const NOGProjectSection = () => {
             position: 'absolute', 
             right: 'clamp(5%, 10vw, 15%)', 
             display: 'flex', 
-            flexDirection: 'column', 
-            gap: '2px',
-            transform: 'rotate(90deg)',
-            transformOrigin: 'center'
+            flexDirection: 'row', 
+            gap: '1px',
+            height: '3cm',
+            alignItems: 'flex-end'
           }}>
-            {Array.from({length: 40}, (_, i) => (
-              <div key={i} style={{
-                width: Math.random() > 0.3 ? '2px' : '4px',
-                height: '60px',
-                backgroundColor: '#000000'
-              }} />
-            ))}
+            {/* Barres verticales style EAN-128 */}
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '75%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '3px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '55%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '80%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '90%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '45%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '3px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '70%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '85%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '1px', height: '60%', backgroundColor: '#000' }}></div>
+            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
+            {/* Texte du code-barre en très petit */}
+            <div style={{
+              position: 'absolute',
+              bottom: '-15px',
+              right: '0',
+              fontSize: '6px',
+              color: '#000',
+              fontFamily: 'monospace',
+              whiteSpace: 'nowrap'
+            }}>
+              (91)barre(11)barres(10)V1.0(21)barres
+            </div>
           </div>
         </div>
 
-        {/* Description - En gras, non coupée */}
+        {/* Description - En forme pyramidale, alignée sous le titre */}
         <div
           style={{
             fontSize: 'clamp(0.9rem, 1.8vw, 1.1rem)',
@@ -119,36 +159,40 @@ const NOGProjectSection = () => {
             lineHeight: '1.4',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
             fontWeight: '700',
-            maxWidth: '90%',
             margin: '0 auto',
-            marginBottom: '1.5rem'
+            marginBottom: '1.5rem',
+            textAlign: 'center',
+            maxWidth: 'clamp(50%, 70%, 80%)'
           }}
         >
-          <div style={{ marginBottom: '0.3rem', whiteSpace: 'nowrap', overflow: 'visible' }}>
+          <div style={{ marginBottom: '0.3rem' }}>
             A modular platform to build, orchestrate, and govern legal agents with full traceability and security.
           </div>
-          <div style={{ marginBottom: '0.3rem', whiteSpace: 'nowrap', overflow: 'visible' }}>
+          <div style={{ marginBottom: '0.3rem', maxWidth: '85%', margin: '0 auto 0.3rem auto' }}>
             From prompt engineering to legal logic chains,
           </div>
-          <div style={{ marginBottom: '0.3rem', whiteSpace: 'nowrap', overflow: 'visible' }}>
+          <div style={{ marginBottom: '0.3rem', maxWidth: '95%', margin: '0 auto 0.3rem auto' }}>
             N.O.G is the AI backbone for compliant, scalable legal automation.
           </div>
-          <div style={{ whiteSpace: 'nowrap', overflow: 'visible' }}>
+          <div style={{ maxWidth: '60%', margin: '0 auto' }}>
             Crafted by their own community.
           </div>
         </div>
 
-        {/* Signature - Juste après le texte, alignée avec le titre */}
+        {/* Signature - Alignée avec la largeur du titre */}
         <div
           style={{
             fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)',
             color: '#000000',
-            fontFamily: '"Times New Roman", "Georgia", serif',
+            fontFamily: '"Brush Script MT", "Lucida Handwriting", cursive',
             fontStyle: 'italic',
             fontWeight: '400',
             textAlign: 'center',
-            letterSpacing: '0.02em',
-            transform: 'rotate(-2deg)'
+            letterSpacing: '0.01em',
+            transform: 'rotate(-1deg)',
+            textShadow: '0 1px 2px rgba(0,0,0,0.1)',
+            width: 'clamp(50%, 70%, 80%)',
+            margin: '0 auto'
           }}
         >
           by EggOn Technology
