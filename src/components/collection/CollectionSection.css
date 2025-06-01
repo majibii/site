@@ -1,11 +1,22 @@
-/* Collection Section Styless */
 .collection-section {
   min-height: 100vh;
-  background-color: #ffffff;
+  /* ✨ CHANGEMENT PRINCIPAL: Fond transparent au lieu de blanc */
+  background-color: transparent;
+  
+  /* ✨ AJOUT: Overlay semi-transparent pour la lisibilité */
+  background: linear-gradient(
+    135deg,
+    rgba(15, 15, 15, 0.85) 0%,
+    rgba(25, 25, 25, 0.75) 50%,
+    rgba(15, 15, 15, 0.85) 100%
+  );
+  
   padding: 6rem 0;
   overflow: hidden;
   position: relative;
   width: 100vw;
+  /* Assure que le contenu reste au-dessus des sphères */
+  z-index: 1;
 }
 
 .collection-content {
@@ -24,7 +35,8 @@
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #666;
+  /* ✨ AMÉLIORATION: Couleur plus claire */
+  color: #bbb;
   margin: 0;
   font-weight: 500;
   position: relative;
@@ -38,7 +50,8 @@
   bottom: -0.5rem;
   width: 2rem;
   height: 1px;
-  background-color: #666;
+  /* ✨ AMÉLIORATION: Ligne plus claire */
+  background-color: #bbb;
 }
 
 .collection-title {
@@ -46,7 +59,10 @@
   font-weight: 700;
   margin: 2rem 0;
   line-height: 1.2;
-  color: #000;
+  /* ✨ AMÉLIORATION: Texte blanc avec ombre */
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
 }
 
 .collection-intro {
@@ -54,7 +70,12 @@
   max-width: 600px;
   margin-bottom: 2rem;
   line-height: 1.6;
-  color: #333;
+  /* ✨ AMÉLIORATION: Texte plus clair avec fond semi-transparent */
+  color: #e0e0e0;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .early-access-button {
@@ -69,48 +90,24 @@
   border-radius: 2rem;
   cursor: pointer;
   transition: transform 0.3s ease-out;
+  /* ✨ AJOUT: Ombre pour plus de visibilité */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .early-access-button:hover {
   transform: translateX(4px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
-.early-access-button span {
-  margin-left: 0.5rem;
-}
-
-.cards-container {
-  margin-top: 4rem;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.cards-row {
-  display: flex;
-  gap: 2rem;
-  margin: 1rem 0;
-  position: relative;
-  padding: 0.5rem 0;
-  width: max-content;
-}
-
-.cards-row.top {
-  animation: scrollRight 60s linear infinite;
-  margin-bottom: 5cm; /* 5cm spacing */
-}
-
-.cards-row.bottom {
-  animation: scrollLeft 60s linear infinite;
-  margin-top: 0;
-}
-
+/* ✨ AMÉLIORATION: Cards avec fond semi-transparent */
 .prompt-card {
   flex: 0 0 400px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   opacity: 0.6;
   transition: all 0.3s ease-out;
   cursor: pointer;
@@ -119,288 +116,79 @@
 .prompt-card:hover {
   opacity: 1;
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.95);
 }
 
-.card-context {
-  font-size: 0.875rem;
-  color: #666;
-  margin-bottom: 1rem;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #000;
-}
-
-.card-body {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
-  max-height: 120px;
-  overflow-y: auto;
-}
-
-/* Time Indicator */
-.time-indicator {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 10;
-}
-
+/* ✨ AMÉLIORATION: Time indicator avec meilleur contraste */
 .year-text {
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  color: #000;
+  /* ✨ AMÉLIORATION: Texte blanc avec ombre */
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   margin: 0;
   line-height: 1;
 }
 
 .last-update-text {
   font-size: clamp(0.875rem, 2vw, 1.125rem);
-  color: #666;
+  /* ✨ AMÉLIORATION: Couleur plus claire */
+  color: #bbb;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   margin: 0.5rem 0 0 0;
   font-weight: 500;
 }
 
-/* Modal styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 1rem;
-}
-
-.modal-content {
-  background: white;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 800px;
-  max-height: 80vh;
-  overflow: hidden;
-  position: relative;
-}
-
-.modal-header {
-  padding: 24px 24px 16px;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.modal-title-section {
-  flex: 1;
-}
-
-.modal-context {
-  font-size: 0.875rem;
-  color: #666;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.modal-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #000;
-  margin: 0;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 8px;
-  margin-left: 16px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-.close-button:hover {
-  background-color: #f5f5f5;
-}
-
-.modal-body {
-  padding: 24px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-}
-
-.prompt-textarea-container {
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.prompt-icon {
-  color: #666;
-  margin-bottom: 0.5rem;
-}
-
-.prompt-textarea {
-  flex: 1;
-  width: 100%;
-  resize: none;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
-  background: transparent;
-  padding: 0;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.action-button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.cancel-button {
-  background: #f5f5f5;
-  color: #666;
-}
-
-.cancel-button:hover {
-  background: #e5e5e5;
-  color: #333;
-}
-
-.submit-button {
-  background: #000;
-  color: white;
-}
-
-.submit-button:hover {
-  background: #333;
-}
-
-/* Editorial Section */
+/* ✨ AMÉLIORATION: Editorial section avec fond semi-transparent */
 .editorial-section {
   margin: 6rem auto;
   max-width: 900px;
   padding: 0 3rem;
 }
 
-.editorial-line {
-  position: relative;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.editorial-line::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #ddd;
-  z-index: 1;
-}
-
 .editorial-title {
-  background-color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   padding: 0 2rem;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #000;
+  /* ✨ AMÉLIORATION: Texte blanc */
+  color: #fff;
   position: relative;
   z-index: 2;
-}
-
-.editorial-content {
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
+  border-radius: 20px;
 }
 
 .editorial-content p {
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   line-height: 1.8;
-  color: #333;
+  /* ✨ AMÉLIORATION: Texte plus clair */
+  color: #e0e0e0;
   margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
 }
 
-.editorial-content p:last-child {
-  margin-bottom: 0;
-  font-style: italic;
-  font-weight: 500;
-}
-
-/* Benefits Section */
-.benefits-section {
-  margin: 6rem auto;
-  max-width: 900px;
-  padding: 0 3rem;
-}
-
-.benefits-title-line {
-  position: relative;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.benefits-title-line::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #ddd;
-  z-index: 1;
-}
-
+/* ✨ AMÉLIORATION: Benefits section */
 .benefits-title {
-  background-color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   padding: 0 2rem;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #000;
+  /* ✨ AMÉLIORATION: Texte blanc */
+  color: #fff;
   position: relative;
   z-index: 2;
-}
-
-.benefits-list {
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
+  border-radius: 20px;
 }
 
 .benefits-item {
@@ -409,24 +197,31 @@
   gap: 1rem;
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   line-height: 1.6;
-  color: #333;
+  /* ✨ AMÉLIORATION: Texte plus clair */
+  color: #e0e0e0;
   margin-bottom: 1.5rem;
   transition: all 0.3s ease-out;
   text-align: left;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  /* ✨ AJOUT: Fond semi-transparent */
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
 }
 
 .benefit-icon-circle {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
+  /* ✨ AMÉLIORATION: Fond plus visible */
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -437,22 +232,15 @@
 .benefit-icon {
   width: 20px;
   height: 20px;
-  color: #000;
-}
-
-.benefits-item:hover .benefit-icon-circle {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+  /* ✨ AMÉLIORATION: Icône blanche */
+  color: #fff;
 }
 
 .benefits-item:hover {
-  color: #000;
+  /* ✨ AMÉLIORATION: Couleur hover */
+  color: #fff;
   transform: translateX(4px);
-}
-
-.benefits-item:hover .benefit-icon {
-  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* Animations */
