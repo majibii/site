@@ -168,7 +168,9 @@ const NOGProjectSection = () => {
             transition: { duration: 0.2 }
           }}
         >
-          A unique collection of legal prompts and agents, built for real-world legal practice.
+          A unique is a modular platform that enables legal professionals to build, orchestrate, and govern intelligent agents dedicated to legal tasks. Designed for automation, compliance, and trust, N.O.G lets users iterate on prompts, structure agents with reasoning chains, foundation models, semantic search engines, and legal logic templates.
+All components are version-controlled and fully auditable, ensuring traceability, legal-grade security, and scalable operations.
+            
         </motion.p>
 
         {/* Ligne décorative animée */}
