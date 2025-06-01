@@ -1,16 +1,16 @@
 {
     "basics": {
         "name": "N.O.G",
-        "label": "Nested Orchestator for Gen AI",
+        "label": "Nested Orchestator for AI ",
         "email": "m.jacquet@eggon.fr",
         "phone": "(XXX) XXX-XXXX",
         "picture": "jl.png",
         "x_title": "Hey, I'm",
-        "job": "a nested orchestrator for Gen Ai",
-        "description": "Hey, I'm Jo Lienhoop, a Computer Science student based in Bremen, Germany. I love all things technical. Talk soon!",
+        "job": "N.O.G",
+        "description": "Hey, I'm N.O.G",
         "summary": "based in Paris, France.",
         "keywords": "personal,website,portfolio,template,kit,jo,lienhoop,jolienhoop,computer,science,bremen,germany,react,github,linkedin,google,gitlab,telegram,material,design,ui,webapp",
-        "url": "https://jolienhoop.com",
+        "url": "https://eggon-technology.com",
         "location": {
             "address": "XX XXXXXstreet",
             "postalCode": "XXXXX",
