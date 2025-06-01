@@ -19,26 +19,23 @@ const NOGProjectSection = () => {
       {/* Logo au-dessus du titre */}
       <div
         style={{
-          width: '120px',
-          height: '60px',
-          marginBottom: '2rem',
+          marginBottom: '1.5rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
         }}
       >
         <svg
-          width="120"
-          height="60"
-          viewBox="0 0 120 60"
+          width="80"
+          height="40"
+          viewBox="0 0 80 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <ellipse cx="60" cy="30" rx="55" ry="25" stroke="#000" strokeWidth="3" fill="none"/>
-          <ellipse cx="60" cy="30" rx="35" ry="15" stroke="#000" strokeWidth="2" fill="none"/>
-          <circle cx="60" cy="30" r="8" fill="#000"/>
-          <path d="M25 20 L95 20 M25 40 L95 40" stroke="#000" strokeWidth="1.5"/>
-          <path d="M35 15 L85 15 M35 45 L85 45" stroke="#000" strokeWidth="1"/>
+          <ellipse cx="40" cy="20" rx="35" ry="16" stroke="#000" strokeWidth="2.5" fill="none"/>
+          <ellipse cx="40" cy="20" rx="22" ry="10" stroke="#000" strokeWidth="1.5" fill="none"/>
+          <circle cx="40" cy="20" r="5" fill="#000"/>
+          <path d="M12 12 L68 12 M12 28 L68 28" stroke="#000" strokeWidth="1"/>
         </svg>
       </div>
 
@@ -46,57 +43,65 @@ const NOGProjectSection = () => {
       <div
         style={{
           textAlign: 'center',
-          maxWidth: '1000px'
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flex: '1'
         }}
       >
-        {/* Titre principal */}
+        {/* Titre principal - 40% de la hauteur visible */}
         <h1
           style={{
-            fontSize: 'clamp(4rem, 12vw, 8rem)',
+            fontSize: 'clamp(8rem, 20vw, 16rem)',
             fontWeight: '900',
             color: '#000000',
-            lineHeight: '0.9',
-            letterSpacing: '-0.02em',
-            margin: '0 0 2rem 0',
+            lineHeight: '0.8',
+            letterSpacing: '-0.08em',
+            margin: '0',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-            textTransform: 'uppercase'
+            textTransform: 'uppercase',
+            fontStretch: 'condensed',
+            marginBottom: '3rem'
           }}
         >
           N.O.G<br/>PROJECT
         </h1>
 
-        {/* Description */}
+        {/* Description - Beaucoup plus petite */}
         <div
           style={{
-            fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+            fontSize: 'clamp(0.9rem, 1.8vw, 1.1rem)',
             color: '#000000',
-            lineHeight: '1.5',
+            lineHeight: '1.4',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
             fontWeight: '500',
-            marginBottom: '3rem',
-            maxWidth: '800px',
-            margin: '0 auto 3rem auto'
+            maxWidth: '700px',
+            margin: '0 auto',
+            marginBottom: 'auto'
           }}
         >
-          <p style={{ margin: '0 0 1rem 0' }}>
+          <div style={{ marginBottom: '0.3rem' }}>
             A modular platform to build, orchestrate, and govern legal agents with full traceability and security.
-          </p>
-          <p style={{ margin: '0 0 1rem 0' }}>
+          </div>
+          <div style={{ marginBottom: '0.3rem' }}>
             From prompt engineering to legal logic chains, N.O.G is the AI backbone for compliant, scalable legal automation.
-          </p>
-          <p style={{ margin: '0' }}>
+          </div>
+          <div>
             Crafted by their own community.
-          </p>
+          </div>
         </div>
 
-        {/* Signature */}
+        {/* Signature - Tout en bas avec marge généreuse */}
         <div
           style={{
-            fontSize: '2rem',
+            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
             color: '#000000',
             fontFamily: 'cursive, "Brush Script MT", "Lucida Handwriting", sans-serif',
             fontStyle: 'italic',
-            marginTop: '4rem'
+            marginTop: '6rem',
+            alignSelf: 'center'
           }}
         >
           by EggOn Technology
