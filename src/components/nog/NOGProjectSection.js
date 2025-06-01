@@ -1,219 +1,108 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const NOGProjectSection = () => {
   console.log('NOGProjectSection rendu avec succès !');
   
-  // Variants pour l'animation du container principal
-  const containerVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 50,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99],
-        staggerChildren: 0.3
-      }
-    }
-  };
-
-  // Variants pour le background animé
-  const backgroundVariants = {
-    hidden: { 
-      backgroundColor: '#ffffff',
-      scale: 1.1
-    },
-    visible: { 
-      backgroundColor: '#fce96b',
-      scale: 1,
-      transition: {
-        duration: 1.2,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  // Variants pour le titre
-  const titleVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 30,
-      rotateX: -15
-    },
-    visible: { 
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
-      }
-    }
-  };
-
-  // Variants pour le texte
-  const textVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 20
-    },
-    visible: { 
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-        delay: 0.2
-      }
-    }
-  };
-
-  // Variants pour l'effet de pulsation subtile
-  const pulseVariants = {
-    initial: { scale: 1 },
-    animate: { 
-      scale: [1, 1.02, 1],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
   return (
-    <motion.div
-      variants={backgroundVariants}
-      initial="hidden"
-      animate="visible"
+    <div
       style={{
         minHeight: '100vh',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fce96b',
         padding: '2rem',
-        position: 'relative',
-        overflow: 'hidden'
+        position: 'relative'
       }}
     >
-      {/* Effet de particules subtil en background */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
-        transition={{ duration: 2, delay: 0.5 }}
+      {/* Logo au-dessus du titre */}
+      <div
         style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `radial-gradient(circle at 20% 50%, rgba(0,0,0,0.05) 1px, transparent 1px),
-                           radial-gradient(circle at 80% 20%, rgba(0,0,0,0.05) 1px, transparent 1px),
-                           radial-gradient(circle at 40% 80%, rgba(0,0,0,0.05) 1px, transparent 1px)`,
-          backgroundSize: '100px 100px, 150px 150px, 120px 120px'
-        }}
-      />
-
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        style={{
-          textAlign: 'center',
-          maxWidth: '900px',
-          zIndex: 1
+          width: '120px',
+          height: '60px',
+          marginBottom: '2rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
       >
-        <motion.div
-          variants={pulseVariants}
-          initial="initial"
-          animate="animate"
+        <svg
+          width="120"
+          height="60"
+          viewBox="0 0 120 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <motion.h1
-            variants={titleVariants}
-            style={{
-              fontSize: '4rem',
-              fontWeight: '900',
-              color: '#000000',
-              margin: '0 0 1rem 0',
-              textShadow: '0 2px 20px rgba(0,0,0,0.1)',
-              letterSpacing: '-0.02em'
-            }}
-            whileHover={{ 
-              scale: 1.05,
-              transition: { duration: 0.2 }
-            }}
-          >
-            N.O.G PROJECT
-          </motion.h1>
-        </motion.div>
+          <ellipse cx="60" cy="30" rx="55" ry="25" stroke="#000" strokeWidth="3" fill="none"/>
+          <ellipse cx="60" cy="30" rx="35" ry="15" stroke="#000" strokeWidth="2" fill="none"/>
+          <circle cx="60" cy="30" r="8" fill="#000"/>
+          <path d="M25 20 L95 20 M25 40 L95 40" stroke="#000" strokeWidth="1.5"/>
+          <path d="M35 15 L85 15 M35 45 L85 45" stroke="#000" strokeWidth="1"/>
+        </svg>
+      </div>
 
-        <motion.p
-          variants={textVariants}
+      {/* Container principal */}
+      <div
+        style={{
+          textAlign: 'center',
+          maxWidth: '1000px'
+        }}
+      >
+        {/* Titre principal */}
+        <h1
           style={{
-            fontSize: '1.25rem',
-            color: '#333333',
-            lineHeight: '1.6',
-            maxWidth: '600px',
-            margin: '0 auto'
-          }}
-          whileHover={{ 
-            color: '#222222',
-            transition: { duration: 0.2 }
-          }}
-        >
-          A unique is a modular platform that enables legal professionals to build, orchestrate, and govern intelligent agents dedicated to legal tasks. Designed for automation, compliance, and trust, N.O.G lets users iterate on prompts, structure agents with reasoning chains, foundation models, semantic search engines, and legal logic templates.
-All components are version-controlled and fully auditable, ensuring traceability, legal-grade security, and scalable operations.
-            
-        </motion.p>
-
-        {/* Ligne décorative animée */}
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: '100px' }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          style={{
-            height: '3px',
-            backgroundColor: '#000000',
-            margin: '2rem auto',
-            borderRadius: '2px'
-          }}
-        />
-
-        {/* Bouton d'action optionnel */}
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
-          whileHover={{ 
-            scale: 1.05,
-            backgroundColor: '#000000',
-            color: '#fce96b',
-            transition: { duration: 0.2 }
-          }}
-          whileTap={{ scale: 0.95 }}
-          style={{
-            padding: '0.75rem 2rem',
-            fontSize: '1rem',
-            fontWeight: '600',
-            backgroundColor: 'transparent',
+            fontSize: 'clamp(4rem, 12vw, 8rem)',
+            fontWeight: '900',
             color: '#000000',
-            border: '2px solid #000000',
-            borderRadius: '50px',
-            cursor: 'pointer',
-            marginTop: '1rem'
+            lineHeight: '0.9',
+            letterSpacing: '-0.02em',
+            margin: '0 0 2rem 0',
+            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+            textTransform: 'uppercase'
           }}
         >
-          Explore Collection
-        </motion.button>
-      </motion.div>
-    </motion.div>
+          N.O.G<br/>PROJECT
+        </h1>
+
+        {/* Description */}
+        <div
+          style={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+            color: '#000000',
+            lineHeight: '1.5',
+            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+            fontWeight: '500',
+            marginBottom: '3rem',
+            maxWidth: '800px',
+            margin: '0 auto 3rem auto'
+          }}
+        >
+          <p style={{ margin: '0 0 1rem 0' }}>
+            A modular platform to build, orchestrate, and govern legal agents with full traceability and security.
+          </p>
+          <p style={{ margin: '0 0 1rem 0' }}>
+            From prompt engineering to legal logic chains, N.O.G is the AI backbone for compliant, scalable legal automation.
+          </p>
+          <p style={{ margin: '0' }}>
+            Crafted by their own community.
+          </p>
+        </div>
+
+        {/* Signature */}
+        <div
+          style={{
+            fontSize: '2rem',
+            color: '#000000',
+            fontFamily: 'cursive, "Brush Script MT", "Lucida Handwriting", sans-serif',
+            fontStyle: 'italic',
+            marginTop: '4rem'
+          }}
+        >
+          by EggOn Technology
+        </div>
+      </div>
+    </div>
   );
 };
 
