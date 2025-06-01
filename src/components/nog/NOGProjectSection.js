@@ -3,6 +3,32 @@ import React from 'react';
 const NOGProjectSection = () => {
   console.log('NOGProjectSection rendu avec succès !');
   
+  // Génération des 60 rectangles avec 5-6 types de hauteurs alternées
+  const generateRectangles = () => {
+    const rectangles = [];
+    const heights = [0.2, 0.3, 0.4, 0.5, 0.6, 0.8]; // 6 types de hauteurs encore plus réduites
+    
+    for (let i = 0; i < 60; i++) {
+      const randomHeight = heights[Math.floor(Math.random() * heights.length)]; // Sélection aléatoire d'une hauteur
+      const randomSpacing = Math.random() * 3 + 1; // Espacement aléatoire entre 1px et 4px
+      const opacity = Math.random() * 0.2 + 0.6; // Entre 0.6 et 0.8
+      
+      rectangles.push(
+        <div
+          key={i}
+          style={{
+            height: `${randomHeight}px`, // Hauteur aléatoire parmi les 6 types ultra-réduits
+            width: 'clamp(8px, 2vw, 16px)', // Largeur responsive
+            backgroundColor: '#fafafa',
+            opacity: opacity,
+            marginBottom: `${randomSpacing}px` // Espacement aléatoire plus important
+          }}
+        />
+      );
+    }
+    return rectangles;
+  };
+  
   return (
     <div
       style={{
@@ -28,58 +54,30 @@ const NOGProjectSection = () => {
           flex: '1'
         }}
       >
-        {/* Container du titre avec codes-barres */}
+        {/* Container du titre avec motifs graphiques */}
         <div style={{ position: 'relative', marginBottom: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-          {/* Code-barre gauche - traits fins et épais alternés */}
+          {/* Motif graphique gauche - 60 rectangles centrés */}
           <div style={{ 
             position: 'absolute', 
-            left: '1%', 
+            left: 'clamp(0.5%, 2vw, 2%)', 
             top: '50%',
             transform: 'translateY(-50%)',
             display: 'flex', 
             flexDirection: 'column', 
-            gap: '1px',
-            width: '5px',
-            height: 'clamp(9rem, 22vw, 18rem)',
-            alignItems: 'flex-start'
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 'clamp(12rem, 30vh, 20rem)', // Hauteur responsive
+            overflow: 'hidden'
           }}>
-            {/* Enchaînement de traits fins et épais comme un vrai code-barre */}
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '3px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '4px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '3px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '5px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '3px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '4px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '3px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '2px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '1px', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '2px', width: '4px', backgroundColor: '#fafafa' }}></div>
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%'
+            }}>
+              {generateRectangles()}
+            </div>
           </div>
 
           {/* Titre principal - police écrasée et élargie */}
@@ -107,71 +105,55 @@ const NOGProjectSection = () => {
             </div>
           </h1>
 
-          {/* Code-barre droite - vertical centré */}
+          {/* Motif graphique droite - 60 rectangles centrés identiques */}
           <div style={{ 
             position: 'absolute', 
-            right: '1%', 
+            right: 'clamp(0.5%, 2vw, 2%)', 
             top: '50%',
             transform: 'translateY(-50%)',
             display: 'flex', 
             flexDirection: 'column', 
-            gap: '0.5px',
-            width: '5px',
-            height: 'clamp(9rem, 22vw, 18rem)',
-            alignItems: 'center'
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: 'clamp(12rem, 30vh, 20rem)', // Hauteur responsive
+            overflow: 'hidden'
           }}>
-            {/* Séquence de barres continues style code-barre */}
-            <div style={{ height: '7px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '10px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '8px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '6px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '11px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '9px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '7px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '12px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '6px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '8px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '10px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '4px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '7px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '6px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '3px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '9px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '5px', width: '100%', backgroundColor: '#fafafa' }}></div>
-            <div style={{ height: '8px', width: '100%', backgroundColor: '#fafafa' }}></div>
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%'
+            }}>
+              {generateRectangles()}
+            </div>
           </div>
         </div>
 
-        {/* Description - Pyramide inversée sur 3 lignes compactes */}
+        {/* Description - 3 lignes strictement, centrées, largeur adaptée */}
         <div
           style={{
-            fontSize: 'clamp(0.95rem, 1.8vw, 1.25rem)',
+            fontSize: 'clamp(0.8rem, 2.2vw, 1.25rem)',
             color: '#fafafa',
-            lineHeight: '1.6',
+            lineHeight: 'clamp(1.4, 1.6, 1.8)',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
             fontWeight: '500',
             margin: '0 auto',
             textAlign: 'center',
-            maxWidth: 'min(90%, 60ch)',
-            marginTop: '0.5rem'
+            width: '100%',
+            maxWidth: 'min(95%, 70ch)',
+            marginTop: 'clamp(1rem, 3vw, 2rem)',
+            padding: '0 1rem'
           }}
         >
-          <div style={{ marginBottom: '0.8rem', width: '100%' }}>
-            A modular platform to build, orchestrate, and govern legal agents with full traceability.
+          <div style={{ marginBottom: 'clamp(0.6rem, 1.5vw, 1rem)', whiteSpace: 'nowrap', overflow: 'hidden' }}>
+            A modular platform to build, orchestrate, and govern legal agents with full traceability
           </div>
-          <div style={{ marginBottom: '0.8rem', width: '85%', margin: '0 auto 0.8rem auto' }}>
-            From prompts to legal logic chains, it powers compliant and scalable legal automation.
+          <div style={{ marginBottom: 'clamp(0.6rem, 1.5vw, 1rem)', whiteSpace: 'nowrap', overflow: 'hidden' }}>
+            From prompts to legal logic chains, it powers compliant and scalable legal automation
           </div>
-          <div style={{ width: '60%', margin: '0 auto' }}>
-            Crafted by its own community.
+          <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
+            Crafted by its own community
           </div>
         </div>
       </div>
