@@ -21,25 +21,29 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     width: '100%',
   },
-  // Fond de sphères qui reste fixe derrière tout le contenu
+  // ✅ CORRECTION: Fond de sphères qui couvre TOUT le contenu
   sphereBackground: {
     position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
-    height: '100vh',
+    height: '100%', // ✅ 100% au lieu de 100vh pour couvrir tout le scroll
+    zIndex: -999,   // ✅ Z-index très négatif
+    pointerEvents: 'none', // ✅ Évite les conflits d'interaction
   },
   homeSection: {
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
     backgroundColor: 'transparent',
+    zIndex: 1, // ✅ Au-dessus des sphères
   },
   contentSection: {
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
     backgroundColor: 'transparent',
+    zIndex: 1, // ✅ Au-dessus des sphères
   }
 }));
 
@@ -47,7 +51,7 @@ export const Home = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {/* Fond de sphères fixe qui reste visible partout */}
+      {/* ✅ Fond de sphères fixe qui reste visible partout */}
       <div className={classes.sphereBackground}>
         <DisplacementSphere />
       </div>
@@ -85,7 +89,7 @@ export const Home = () => {
         <NOGProjectSection />
       </motion.div>
 
-      {/* Section Story */}
+      {/* ✅ Section Story - Maintenant visible ! */}
       <motion.div 
         className={classes.contentSection}
         initial={{ opacity: 0, y: 50 }}
@@ -96,7 +100,7 @@ export const Home = () => {
         <StorySection />
       </motion.div>
 
-      {/* Section Collection */}
+      {/* ✅ Section Collection - Maintenant visible ! */}
       <motion.div 
         className={classes.contentSection}
         initial={{ opacity: 0, y: 50 }}
