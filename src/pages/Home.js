@@ -11,7 +11,7 @@ import NOGProjectSection from '../components/nog/NOGProjectSection';
 import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
 import { motion } from 'framer-motion';
-import { ThemeToggle } from '../components/theme/ThemeToggle'; // AJOUT
+import { ThemeToggle } from '../components/theme/ThemeToggle';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,15 +21,26 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     width: '100%',
   },
+  // Fond de sphères qui reste fixe derrière tout le contenu
+  sphereBackground: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100vh',
+    zIndex: -1, // Derrière tout le contenu
+  },
   homeSection: {
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
+    backgroundColor: 'transparent', // Transparent pour laisser voir les sphères
   },
   contentSection: {
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
+    backgroundColor: 'transparent', // Transparent pour laisser voir les sphères
   }
 }));
 
@@ -37,6 +48,11 @@ export const Home = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      {/* Fond de sphères fixe qui reste visible partout */}
+      <div className={classes.sphereBackground}>
+        <DisplacementSphere />
+      </div>
+
       {/* Section Home principale */}
       <motion.div 
         className={classes.homeSection}
@@ -45,7 +61,6 @@ export const Home = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
-        <DisplacementSphere />
         <LogoLink />
         <Content />
         <Hidden smDown>
@@ -57,30 +72,38 @@ export const Home = () => {
         <FooterText />
       </motion.div>
 
-      {/* AJOUT DU BOUTON THEME - placé ici pour être sûr qu'il soit visible */}
+      {/* Bouton Theme */}
       <ThemeToggle />
 
-      {/* Section NOG Project */}
+      {/* Section NOG Project avec fond transparent */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <NOGProjectSection />
       </motion.div>
+
       {/* Section Story */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <StorySection />
       </motion.div>
+
       {/* Section Collection */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <CollectionSection />
       </motion.div>
