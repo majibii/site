@@ -53,53 +53,44 @@ const NOGProjectSection = () => {
       >
         {/* Container du titre avec codes-barres */}
         <div style={{ position: 'relative', marginBottom: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-          {/* Code-barre gauche */}
+          {/* Code-barre gauche - vertical */}
           <div style={{ 
             position: 'absolute', 
-            left: 'clamp(5%, 10vw, 15%)', 
+            left: '2%', 
+            top: '50%',
+            transform: 'translateY(-50%)',
             display: 'flex', 
-            flexDirection: 'row', 
+            flexDirection: 'column', 
             gap: '1px',
-            height: '3cm',
-            alignItems: 'flex-end'
+            width: '2px',
+            height: 'clamp(4rem, 12vw, 10rem)',
+            alignItems: 'center'
           }}>
-            {/* Barres verticales style EAN-128 */}
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '80%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '3px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '60%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '70%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '90%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '50%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '3px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '85%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '65%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '95%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            {/* Texte du code-barre en très petit */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-15px',
-              left: '0',
-              fontSize: '6px',
-              color: '#000',
-              fontFamily: 'monospace',
-              whiteSpace: 'nowrap'
-            }}>
-              (91)barre(11)barres(10)V1.0(21)barres
-            </div>
+            {/* Barres horizontales style code-barre vertical */}
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '1px', width: '80%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '4px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '2px', width: '60%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '1px', width: '70%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '2px', width: '90%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '1px', width: '50%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '4px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '2px', width: '85%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '1px', width: '65%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '2px', width: '95%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
           </div>
 
-          {/* Titre principal - sans chevauchement */}
+          {/* Titre principal - version écrasée */}
           <h1
             style={{
-              fontSize: 'clamp(8rem, 20vw, 16rem)',
+              fontSize: 'clamp(4rem, 12vw, 10rem)',
               fontWeight: '900',
               color: '#000000',
-              lineHeight: '0.9',
+              lineHeight: '0.8',
               letterSpacing: '-0.08em',
               margin: '0',
               fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -110,44 +101,35 @@ const NOGProjectSection = () => {
             N.O.G<br/>PROJECT
           </h1>
 
-          {/* Code-barre droite */}
+          {/* Code-barre droite - vertical */}
           <div style={{ 
             position: 'absolute', 
-            right: 'clamp(5%, 10vw, 15%)', 
+            right: '2%', 
+            top: '50%',
+            transform: 'translateY(-50%)',
             display: 'flex', 
-            flexDirection: 'row', 
+            flexDirection: 'column', 
             gap: '1px',
-            height: '3cm',
-            alignItems: 'flex-end'
+            width: '2px',
+            height: 'clamp(4rem, 12vw, 10rem)',
+            alignItems: 'center'
           }}>
-            {/* Barres verticales style EAN-128 */}
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '75%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '3px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '55%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '80%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '90%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '45%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '3px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '70%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '85%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '1px', height: '60%', backgroundColor: '#000' }}></div>
-            <div style={{ width: '2px', height: '100%', backgroundColor: '#000' }}></div>
-            {/* Texte du code-barre en très petit */}
-            <div style={{
-              position: 'absolute',
-              bottom: '-15px',
-              right: '0',
-              fontSize: '6px',
-              color: '#000',
-              fontFamily: 'monospace',
-              whiteSpace: 'nowrap'
-            }}>
-              (91)barre(11)barres(10)V1.0(21)barres
-            </div>
+            {/* Barres horizontales style code-barre vertical */}
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '2px', width: '75%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '4px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '1px', width: '55%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '2px', width: '80%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '1px', width: '90%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '2px', width: '45%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '4px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '1px', width: '70%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '2px', width: '85%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '1px', width: '60%', backgroundColor: '#000' }}></div>
+            <div style={{ height: '3px', width: '100%', backgroundColor: '#000' }}></div>
           </div>
         </div>
 
