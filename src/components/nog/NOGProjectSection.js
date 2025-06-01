@@ -31,28 +31,44 @@ const NOGProjectSection = () => {
     <section
       style={{
         minHeight: '100vh',
-        height: 'auto', // Permet à la section de grandir si nécessaire
+        height: 'auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#2f2f2e',
+        backgroundColor: 'transparent', // ✨ CHANGEMENT: Fond transparent
         padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
         position: 'relative',
         boxSizing: 'border-box'
       }}
     >
+      {/* Overlay semi-transparent pour améliorer la lisibilité du texte */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(47, 47, 46, 0.7)', // Overlay semi-transparent
+          zIndex: 1,
+          pointerEvents: 'none' // Permet les interactions avec le contenu
+        }}
+      />
+
       {/* Container principal */}
       <div
         style={{
           textAlign: 'center',
           width: '100%',
-          maxWidth: '1400px', // Limite la largeur maximale
+          maxWidth: '1400px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          flex: '1'
+          flex: '1',
+          position: 'relative',
+          zIndex: 2 // Au-dessus de l'overlay
         }}
       >
         {/* Container du titre avec motifs graphiques */}
@@ -63,7 +79,7 @@ const NOGProjectSection = () => {
           alignItems: 'center', 
           justifyContent: 'center', 
           width: '100%',
-          minHeight: 'clamp(8rem, 20vh, 16rem)' // Hauteur minimum responsive
+          minHeight: 'clamp(8rem, 20vh, 16rem)'
         }}>
           
           {/* Motif graphique gauche - masqué sur mobile */}
@@ -72,7 +88,7 @@ const NOGProjectSection = () => {
             left: 'clamp(0.5%, 2vw, 2%)', 
             top: '50%',
             transform: 'translateY(-50%)',
-            display: window.innerWidth > 768 ? 'flex' : 'none', // Masqué sur mobile
+            display: window.innerWidth > 768 ? 'flex' : 'none',
             flexDirection: 'column', 
             alignItems: 'center',
             justifyContent: 'center',
@@ -90,7 +106,7 @@ const NOGProjectSection = () => {
             </div>
           </div>
 
-          {/* Titre principal */}
+          {/* Titre principal avec meilleur contraste */}
           <h1
             style={{
               fontSize: 'clamp(3rem, 12vw, 12rem)',
@@ -103,10 +119,12 @@ const NOGProjectSection = () => {
               textTransform: 'uppercase',
               fontStretch: 'ultra-condensed',
               width: '100%',
-              maxWidth: '90%', // Réduit pour éviter le débordement
+              maxWidth: '90%',
               transform: 'scaleY(0.8) scaleX(1.2)',
               transformOrigin: 'center',
-              textAlign: 'center'
+              textAlign: 'center',
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.8)', // ✨ Ombre pour le contraste
+              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.1))' // ✨ Effet de lueur
             }}
           >
             N.O.G
@@ -122,7 +140,7 @@ const NOGProjectSection = () => {
             right: 'clamp(0.5%, 2vw, 2%)', 
             top: '50%',
             transform: 'translateY(-50%)',
-            display: window.innerWidth > 768 ? 'flex' : 'none', // Masqué sur mobile
+            display: window.innerWidth > 768 ? 'flex' : 'none',
             flexDirection: 'column', 
             alignItems: 'center',
             justifyContent: 'center',
@@ -141,7 +159,7 @@ const NOGProjectSection = () => {
           </div>
         </div>
 
-        {/* Description - Texte responsive sans coupure */}
+        {/* Description avec meilleur contraste */}
         <div
           style={{
             fontSize: 'clamp(0.9rem, 2.2vw, 1.25rem)',
@@ -152,16 +170,18 @@ const NOGProjectSection = () => {
             margin: '0 auto',
             textAlign: 'center',
             width: '100%',
-            maxWidth: 'min(95%, 80ch)', // Plus large pour éviter les coupures
+            maxWidth: 'min(95%, 80ch)',
             marginTop: 'clamp(1rem, 3vw, 2rem)',
             padding: '0 1rem',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            textShadow: '1px 1px 4px rgba(0, 0, 0, 0.8)', // ✨ Ombre pour le contraste
+            backgroundColor: 'rgba(47, 47, 46, 0.4)', // ✨ Fond semi-transparent pour la lisibilité
+            borderRadius: '8px',
+            padding: 'clamp(1rem, 2vw, 2rem)'
           }}
         >
-          {/* Chaque ligne avec gestion responsive */}
           <div style={{ 
             marginBottom: 'clamp(0.6rem, 1.5vw, 1rem)',
-            // Suppression des règles qui coupent le texte
             wordWrap: 'break-word',
             hyphens: 'auto'
           }}>
@@ -183,7 +203,6 @@ const NOGProjectSection = () => {
         </div>
       </div>
       
-      {/* Media query responsivité via CSS-in-JS */}
       <style jsx>{`
         @media (max-width: 768px) {
           h1 {
