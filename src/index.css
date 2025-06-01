@@ -24,10 +24,3 @@ p {
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
 }
-/* Force les sphères en arrière-plan */
-.displacement-sphere,
-.displacement-sphere canvas,
-.displacement-sphere > * {
-  z-index: -999 !important;
-  pointer-events: none !important;
-}
