@@ -118,7 +118,6 @@ const CollectionSection = () => {
           backgroundColor: 'transparent',
           color: '#fafafa',
           position: 'relative',
-          // Assure la visibilité immédiate
           opacity: 1,
           visibility: 'visible'
         }}
@@ -129,7 +128,6 @@ const CollectionSection = () => {
             width: '100%',
             maxWidth: '1400px',
             margin: '0 auto',
-            // Assure la visibilité du contenu
             opacity: 1,
             visibility: 'visible'
           }}
@@ -208,6 +206,7 @@ const CollectionSection = () => {
           </div>
 
           <div className="cards-container">
+            {/* Première ligne de cartes */}
             <div 
               className="cards-row top"
               style={{
@@ -230,7 +229,6 @@ const CollectionSection = () => {
                     borderRadius: '16px',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
-                    // Assure la visibilité
                     opacity: 1,
                     visibility: 'visible'
                   }}
@@ -285,7 +283,7 @@ const CollectionSection = () => {
               ))}
             </div>
 
-            {/* Time Indicator */}
+            {/* Indicateur de temps */}
             <div 
               className="time-indicator"
               style={{
@@ -317,6 +315,7 @@ const CollectionSection = () => {
               </div>
             </div>
 
+            {/* Deuxième ligne de cartes */}
             <div 
               className="cards-row bottom"
               style={{
@@ -339,7 +338,6 @@ const CollectionSection = () => {
                     borderRadius: '16px',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
-                    // Assure la visibilité
                     opacity: 1,
                     visibility: 'visible'
                   }}
@@ -355,7 +353,7 @@ const CollectionSection = () => {
                   <div 
                     className="card-context"
                     style={{
-                      fontSize: 'clamp(3rem, 8vw, 6rem)',
+                      fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
                       color: 'rgba(250, 250, 250, 0.7)',
                       marginBottom: '0.8rem',
                       textTransform: 'uppercase',
@@ -395,7 +393,7 @@ const CollectionSection = () => {
             </div>
           </div>
 
-          {/* Editorial Section */}
+          {/* Section éditoriale */}
           <div className="editorial-section" style={{ marginBottom: 'clamp(3rem, 6vh, 4rem)' }}>
             <div className="editorial-line" style={{ marginBottom: '2rem' }}>
               <span 
@@ -438,7 +436,7 @@ const CollectionSection = () => {
             </div>
           </div>
 
-          {/* Benefits Section */}
+          {/* Section des avantages */}
           <div className="benefits-section">
             <div className="benefits-title-line" style={{ marginBottom: '2rem' }}>
               <span 
@@ -570,13 +568,24 @@ const CollectionSection = () => {
                 }}
                 className="modal-content"
                 onClick={(e) => e.stopPropagation()}
+                style={{
+                  background: 'rgba(20, 20, 20, 0.95)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '20px',
+                  padding: '2rem',
+                  maxWidth: '800px',
+                  width: '90%',
+                  maxHeight: '80vh',
+                  overflow: 'auto'
+                }}
               >
-                <div className="modal-header">
+                <div className="modal-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
                   <div className="modal-title-section">
-                    <div className="modal-context">
+                    <div className="modal-context" style={{ fontSize: '0.9rem', color: 'rgba(250, 250, 250, 0.7)', marginBottom: '0.5rem' }}>
                       {selectedPrompt.context}
                     </div>
-                    <h2 className="modal-title">
+                    <h2 className="modal-title" style={{ fontSize: '1.5rem', fontWeight: '700', color: '#fafafa', margin: 0 }}>
                       {selectedPrompt.title}
                     </h2>
                   </div>
@@ -584,33 +593,79 @@ const CollectionSection = () => {
                     className="close-button"
                     onClick={handleCloseDialog}
                     aria-label="close"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#fafafa',
+                      fontSize: '2rem',
+                      cursor: 'pointer',
+                      padding: '0',
+                      width: '40px',
+                      height: '40px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
                   >
                     ×
                   </button>
                 </div>
                 
                 <div className="modal-body">
-                  <div className="prompt-textarea-container">
-                    <PromptIcon />
+                  <div className="prompt-textarea-container" style={{ position: 'relative', marginBottom: '2rem' }}>
+                    <div style={{ position: 'absolute', top: '1rem', left: '1rem', zIndex: 1 }}>
+                      <PromptIcon />
+                    </div>
                     <textarea
                       className="prompt-textarea"
                       value={editedPrompt}
                       onChange={(e) => setEditedPrompt(e.target.value)}
                       placeholder="Modifiez votre prompt ici..."
                       autoFocus
+                      style={{
+                        width: '100%',
+                        minHeight: '200px',
+                        padding: '1rem 1rem 1rem 3rem',
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        borderRadius: '12px',
+                        color: '#fafafa',
+                        fontSize: '1rem',
+                        lineHeight: '1.5',
+                        resize: 'vertical',
+                        fontFamily: 'inherit'
+                      }}
                     />
                   </div>
                   
-                  <div className="modal-actions">
+                  <div className="modal-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
                     <button
                       className="action-button cancel-button"
                       onClick={handleCloseDialog}
+                      style={{
+                        padding: '0.8rem 1.5rem',
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        borderRadius: '8px',
+                        color: '#fafafa',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease'
+                      }}
                     >
                       Annuler
                     </button>
                     <button
                       className="action-button submit-button"
                       onClick={handleSubmit}
+                      style={{
+                        padding: '0.8rem 1.5rem',
+                        background: 'rgba(255, 255, 255, 0.2)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        borderRadius: '8px',
+                        color: '#fafafa',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease'
+                      }}
                     >
                       Submit →
                     </button>
