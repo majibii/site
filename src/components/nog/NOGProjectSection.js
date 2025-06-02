@@ -33,18 +33,18 @@ const NOGProjectSection = () => {
   return (
     <section
       style={{
-        minHeight: '100vh', // Restauré pour avoir une hauteur complète
+        minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
-        padding: 'clamp(2rem, 4vh, 3rem) clamp(1rem, 3vw, 2rem)', // Padding réduit
+        padding: '0 clamp(1rem, 3vw, 2rem)', // Suppression du padding vertical
         position: 'relative',
         boxSizing: 'border-box',
-        margin: 0, // Suppression de tout margin
-        marginTop: 0, // Force spécifiquement
-        paddingTop: 'clamp(2rem, 4vh, 3rem)' // Padding top réduit
+        margin: 0,
+        marginTop: 0,
+        paddingTop: 0 // Suppression complète du padding-top
       }}
     >
       {/* Container principal */}
@@ -58,7 +58,7 @@ const NOGProjectSection = () => {
           alignItems: 'center',
           justifyContent: 'center',
           position: 'relative',
-          margin: 0 // Suppression de tout margin
+          margin: 0
         }}
       >
         {/* Container du titre avec motifs graphiques */}
@@ -198,8 +198,8 @@ const NOGProjectSection = () => {
       <style jsx>{`
         @media (max-width: 768px) {
           section {
-            padding: clamp(1.5rem, 3vh, 2rem) clamp(0.5rem, 2vw, 1.5rem) !important;
-            padding-top: clamp(1.5rem, 3vh, 2rem) !important;
+            padding: 0 clamp(0.5rem, 2vw, 1.5rem) !important;
+            padding-top: 0 !important;
           }
           
           h1 {
@@ -209,8 +209,8 @@ const NOGProjectSection = () => {
         
         @media (max-width: 480px) {
           section {
-            padding: clamp(1rem, 2vh, 1.5rem) 0.5rem !important;
-            padding-top: clamp(1rem, 2vh, 1.5rem) !important;
+            padding: 0 0.5rem !important;
+            padding-top: 0 !important;
           }
           
           div {
