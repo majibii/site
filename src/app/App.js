@@ -24,22 +24,22 @@ const useSectionScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Affiche la section NOG après 30% de scroll
-      if (scrollY > windowHeight * 0.3) {
+      // Affiche la section NOG après 15% de scroll
+      if (scrollY > windowHeight * 0.15) {
         setShowNOGSection(true);
       } else {
         setShowNOGSection(false);
       }
       
-      // Section Story après 80% de scroll
-      if (scrollY > windowHeight * 0.8) {
+      // Section Story après 65% de scroll
+      if (scrollY > windowHeight * 0.65) {
         setShowStorySection(true);
       } else {
         setShowStorySection(false);
       }
       
-      // Section Collection après 130% de scroll
-      if (scrollY > windowHeight * 1.3) {
+      // Section Collection après 115% de scroll
+      if (scrollY > windowHeight * 1.15) {
         setShowCollectionSection(true);
       } else {
         setShowCollectionSection(false);
@@ -72,8 +72,8 @@ const EnhancedHome = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
-              duration: 0.5,
-              ease: [0.43, 0.13, 0.23, 0.96]
+              duration: 0.3,
+              ease: "easeInOut"
             }}
             style={{ minHeight: '100vh' }}
           >
@@ -90,8 +90,8 @@ const EnhancedHome = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
-              duration: 0.5,
-              ease: [0.43, 0.13, 0.23, 0.96]
+              duration: 0.3,
+              ease: "easeInOut"
             }}
             style={{ minHeight: '100vh' }}
           >
@@ -108,8 +108,8 @@ const EnhancedHome = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
-              duration: 0.5,
-              ease: [0.43, 0.13, 0.23, 0.96]
+              duration: 0.3,
+              ease: "easeInOut"
             }}
             style={{ minHeight: '100vh' }}
           >
