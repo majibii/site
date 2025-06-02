@@ -78,36 +78,40 @@ export const Home = () => {
       {/* Bouton Theme */}
       <ThemeToggle />
 
-      {/* Sections de contenu avec animations d'apparition */}
-      <motion.div 
-        className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      {/* Sections de contenu - VERSION DEBUG TEMPORAIRE */}
+      <div className={classes.contentSection}>
         <NOGProjectSection />
-      </motion.div>
+      </div>
 
-      <motion.div 
+      <div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
+        style={{ 
+          minHeight: '100vh', 
+          backgroundColor: 'rgba(255, 0, 0, 0.1)', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          color: 'white',
+          fontSize: '2rem'
+        }}
       >
-        <StorySection />
-      </motion.div>
+        <div>STORY SECTION - TEST</div>
+      </div>
 
-      <motion.div 
+      <div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
+        style={{ 
+          minHeight: '100vh', 
+          backgroundColor: 'rgba(0, 255, 0, 0.1)', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          color: 'white',
+          fontSize: '2rem'
+        }}
       >
-        <CollectionSection />
-      </motion.div>
+        <div>COLLECTION SECTION - TEST</div>
+      </div>
     </div>
   );
 };
