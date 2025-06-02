@@ -78,39 +78,17 @@ export const Home = () => {
       {/* Bouton Theme */}
       <ThemeToggle />
 
-      {/* Sections de contenu - VERSION DEBUG TEMPORAIRE */}
+      {/* Sections de contenu - RESTAURÉES */}
       <div className={classes.contentSection}>
         <NOGProjectSection />
       </div>
 
-      <div 
-        className={classes.contentSection}
-        style={{ 
-          minHeight: '100vh', 
-          backgroundColor: 'rgba(255, 0, 0, 0.1)', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center',
-          color: 'white',
-          fontSize: '2rem'
-        }}
-      >
-        <div>STORY SECTION - TEST</div>
+      <div className={classes.contentSection}>
+        <StorySection />
       </div>
 
-      <div 
-        className={classes.contentSection}
-        style={{ 
-          minHeight: '100vh', 
-          backgroundColor: 'rgba(0, 255, 0, 0.1)', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center',
-          color: 'white',
-          fontSize: '2rem'
-        }}
-      >
-        <div>COLLECTION SECTION - TEST</div>
+      <div className={classes.contentSection}>
+        <CollectionSection />
       </div>
     </div>
   );
