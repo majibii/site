@@ -1,86 +1,13 @@
-import React, { lazy, useState } from "react";
+import React, { lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { motion, AnimatePresence } from 'framer-motion';
 import { HelmetMeta } from "./HelmetMeta";
 import { ThemeProvider } from "../components/theme/ThemeProvider";
 import { CssBaseline } from "@material-ui/core";
 import { logCredits } from "../utils/logCredits";
 import { Home } from "../pages/Home";
-import NOGProjectSection from '../components/nog/NOGProjectSection';
-import StorySection from '../components/story/StorySection';
-import CollectionSection from '../components/collection/CollectionSection';
 
 const Resume = lazy(() => import("../pages/Resume"));
 const PageNotFound = lazy(() => import("../pages/PageNotFound"));
-
-const EnhancedHome = () => {
-  return (
-    <div style={{ margin: 0, padding: 0 }}>
-      {/* Section Home originale */}
-      <div style={{ 
-        minHeight: '100vh',
-        margin: 0,
-        padding: 0
-      }}>
-        <Home />
-      </div>
-      
-      {/* Section NOG avec animation - SANS ESPACEMENT */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut"
-        }}
-        style={{ 
-          minHeight: '100vh',
-          margin: 0,
-          padding: 0,
-          marginTop: '-1px' // Léger chevauchement pour éviter les gaps
-        }}
-      >
-        <NOGProjectSection />
-      </motion.div>
-      
-      {/* Section Story avec animation - SANS ESPACEMENT */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut"
-        }}
-        style={{ 
-          minHeight: '100vh',
-          margin: 0,
-          padding: 0,
-          marginTop: '-1px' // Léger chevauchement pour éviter les gaps
-        }}
-      >
-        <StorySection />
-      </motion.div>
-      
-      {/* Section Collection avec animation - SANS ESPACEMENT */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut"
-        }}
-        style={{ 
-          minHeight: '100vh',
-          margin: 0,
-          padding: 0,
-          marginTop: '-1px' // Léger chevauchement pour éviter les gaps
-        }}
-      >
-        <CollectionSection />
-      </motion.div>
-    </div>
-  );
-};
 
 export const App = () => {
     logCredits();
@@ -91,7 +18,8 @@ export const App = () => {
             <Router>
                 <HelmetMeta />
                 <Switch>
-                    <Route path="/" exact component={EnhancedHome} />
+                    {/* Utilise directement Home qui contient déjà toutes les sections */}
+                    <Route path="/" exact component={Home} />
                     <Route path="/resume" component={Resume} />
                     <Route path="*" component={PageNotFound} />
                 </Switch>
