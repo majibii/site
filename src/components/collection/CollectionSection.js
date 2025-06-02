@@ -212,7 +212,7 @@ const CollectionSection = () => {
               className="cards-row top"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gridTemplateColumns: 'repeat(6, 1fr)',
                 gap: 'clamp(1rem, 2vw, 1.5rem)',
                 marginBottom: 'clamp(2rem, 4vh, 3rem)'
               }}
@@ -321,7 +321,7 @@ const CollectionSection = () => {
               className="cards-row bottom"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gridTemplateColumns: 'repeat(6, 1fr)',
                 gap: 'clamp(1rem, 2vw, 1.5rem)',
                 marginBottom: 'clamp(3rem, 6vh, 4rem)'
               }}
@@ -355,7 +355,7 @@ const CollectionSection = () => {
                   <div 
                     className="card-context"
                     style={{
-                      fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
+                      fontSize: 'clamp(3rem, 8vw, 6rem)',
                       color: 'rgba(250, 250, 250, 0.7)',
                       marginBottom: '0.8rem',
                       textTransform: 'uppercase',
