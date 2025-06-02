@@ -92,19 +92,8 @@ const CollectionSection = () => {
     handleCloseDialog();
   };
 
-  const PromptIcon = () => (
-    <svg 
-      width="20" 
-      height="20" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2"
-      className="prompt-icon"
-    >
-      <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
-    </svg>
-  );
+  // Dupliquer les prompts pour l'effet de défilement infini
+  const duplicatedPrompts = [...legalPrompts, ...legalPrompts];
 
   return (
     <>
@@ -205,20 +194,12 @@ const CollectionSection = () => {
             </button>
           </div>
 
-          <div className="cards-container">
-            {/* Première ligne de cartes */}
-            <div 
-              className="cards-row top"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(6, 1fr)',
-                gap: 'clamp(1rem, 2vw, 1.5rem)',
-                marginBottom: 'clamp(2rem, 4vh, 3rem)'
-              }}
-            >
-              {legalPrompts.slice(0, 6).map((prompt, index) => (
+          <div className="cards-container" style={{ overflow: 'hidden', marginBottom: 'clamp(3rem, 6vh, 4rem)' }}>
+            {/* Première ligne de cartes - défilement vers la gauche */}
+            <div className="cards-row top">
+              {duplicatedPrompts.slice(0, 12).map((prompt, index) => (
                 <div 
-                  key={index} 
+                  key={`top-${index}`} 
                   className="prompt-card"
                   onClick={() => handleCardClick(prompt)}
                   style={{
@@ -228,17 +209,7 @@ const CollectionSection = () => {
                     border: '1px solid rgba(255, 255, 255, 0.15)',
                     borderRadius: '16px',
                     cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    opacity: 1,
-                    visibility: 'visible'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = 'translateY(-8px)';
-                    e.target.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.4)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.boxShadow = 'none';
+                    transition: 'all 0.3s ease'
                   }}
                 >
                   <div 
@@ -289,15 +260,16 @@ const CollectionSection = () => {
               style={{
                 textAlign: 'center',
                 margin: 'clamp(3rem, 6vh, 4rem) 0',
-                opacity: 0.6
+                opacity: 0.8
               }}
             >
               <div 
                 className="year-text"
                 style={{
-                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                  fontWeight: '900',
-                  color: '#fafafa'
+                  fontSize: 'clamp(3rem, 6vw, 5rem)',
+                  fontWeight: '900', 
+                  color: '#fafafa',
+                  lineHeight: '1'
                 }}
               >
                 2025
@@ -308,26 +280,19 @@ const CollectionSection = () => {
                   fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
                   color: 'rgba(250, 250, 250, 0.6)',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.1em'
+                  letterSpacing: '0.1em',
+                  marginTop: '0.5rem'
                 }}
               >
                 last update
               </div>
             </div>
 
-            {/* Deuxième ligne de cartes */}
-            <div 
-              className="cards-row bottom"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(6, 1fr)',
-                gap: 'clamp(1rem, 2vw, 1.5rem)',
-                marginBottom: 'clamp(3rem, 6vh, 4rem)'
-              }}
-            >
-              {legalPrompts.slice(6, 12).map((prompt, index) => (
+            {/* Deuxième ligne de cartes - défilement vers la droite */}
+            <div className="cards-row bottom">
+              {duplicatedPrompts.slice(6, 18).map((prompt, index) => (
                 <div 
-                  key={index} 
+                  key={`bottom-${index}`} 
                   className="prompt-card"
                   onClick={() => handleCardClick(prompt)}
                   style={{
@@ -337,17 +302,7 @@ const CollectionSection = () => {
                     border: '1px solid rgba(255, 255, 255, 0.15)',
                     borderRadius: '16px',
                     cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    opacity: 1,
-                    visibility: 'visible'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = 'translateY(-8px)';
-                    e.target.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.4)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.boxShadow = 'none';
+                    transition: 'all 0.3s ease'
                   }}
                 >
                   <div 
@@ -493,7 +448,6 @@ const CollectionSection = () => {
                     }}
                   >
                     <svg 
-                      className="benefit-icon" 
                       width="20" 
                       height="20"
                       viewBox="0 0 24 24" 
@@ -613,9 +567,6 @@ const CollectionSection = () => {
                 
                 <div className="modal-body">
                   <div className="prompt-textarea-container" style={{ position: 'relative', marginBottom: '2rem' }}>
-                    <div style={{ position: 'absolute', top: '1rem', left: '1rem', zIndex: 1 }}>
-                      <PromptIcon />
-                    </div>
                     <textarea
                       className="prompt-textarea"
                       value={editedPrompt}
@@ -625,7 +576,7 @@ const CollectionSection = () => {
                       style={{
                         width: '100%',
                         minHeight: '200px',
-                        padding: '1rem 1rem 1rem 3rem',
+                        padding: '1rem',
                         background: 'rgba(255, 255, 255, 0.05)',
                         border: '1px solid rgba(255, 255, 255, 0.1)',
                         borderRadius: '12px',
