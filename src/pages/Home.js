@@ -18,6 +18,8 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    margin: 0, // Ajout
+    padding: 0, // Ajout
   },
   sphereBackground: {
     position: 'fixed',
@@ -34,12 +36,16 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     backgroundColor: 'transparent',
     zIndex: 1,
+    margin: 0, // Ajout
+    padding: 0, // Ajout
   },
   contentSection: {
     width: '100%',
     position: 'relative',
     backgroundColor: 'transparent',
     zIndex: 1,
+    margin: 0, // Ajout
+    padding: 0, // Ajout
   }
 }));
 
@@ -69,13 +75,14 @@ export const Home = () => {
       {/* Bouton Theme */}
       <ThemeToggle />
 
-      {/* Sections de contenu qui s'enchainent */}
+      {/* Sections de contenu qui s'enchainent - SANS MARGIN/PADDING SUPPLÉMENTAIRES */}
       <motion.div 
         className={classes.contentSection}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, margin: "-50px" }}
+        style={{ marginTop: 0, paddingTop: 0 }} // Force l'absence d'espacement
       >
         <NOGProjectSection />
       </motion.div>
@@ -86,6 +93,7 @@ export const Home = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, margin: "-50px" }}
+        style={{ marginTop: 0, paddingTop: 0 }} // Force l'absence d'espacement
       >
         <StorySection />
       </motion.div>
@@ -96,6 +104,7 @@ export const Home = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, margin: "-50px" }}
+        style={{ marginTop: 0, paddingTop: 0 }} // Force l'absence d'espacement
       >
         <CollectionSection />
       </motion.div>
