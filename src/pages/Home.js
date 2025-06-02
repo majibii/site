@@ -18,8 +18,9 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    margin: 0, // Ajout
-    padding: 0, // Ajout
+    margin: 0,
+    padding: 0,
+    position: 'relative',
   },
   sphereBackground: {
     position: 'fixed',
@@ -36,16 +37,18 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     backgroundColor: 'transparent',
     zIndex: 1,
-    margin: 0, // Ajout
-    padding: 0, // Ajout
+    margin: 0,
+    padding: 0,
+    display: 'flex',
+    flexDirection: 'column',
   },
   contentSection: {
     width: '100%',
     position: 'relative',
     backgroundColor: 'transparent',
     zIndex: 1,
-    margin: 0, // Ajout
-    padding: 0, // Ajout
+    margin: 0,
+    padding: 0,
   }
 }));
 
@@ -75,36 +78,33 @@ export const Home = () => {
       {/* Bouton Theme */}
       <ThemeToggle />
 
-      {/* Sections de contenu qui s'enchainent - SANS MARGIN/PADDING SUPPLÉMENTAIRES */}
+      {/* Sections de contenu avec animations d'apparition */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-50px" }}
-        style={{ marginTop: 0, paddingTop: 0 }} // Force l'absence d'espacement
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <NOGProjectSection />
       </motion.div>
 
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-50px" }}
-        style={{ marginTop: 0, paddingTop: 0 }} // Force l'absence d'espacement
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <StorySection />
       </motion.div>
 
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-50px" }}
-        style={{ marginTop: 0, paddingTop: 0 }} // Force l'absence d'espacement
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
       >
         <CollectionSection />
       </motion.div>
