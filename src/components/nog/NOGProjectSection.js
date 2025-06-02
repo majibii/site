@@ -33,16 +33,18 @@ const NOGProjectSection = () => {
   return (
     <section
       style={{
-        // Suppression de minHeight: '100vh' pour éviter les grands espaces
-        height: 'auto',
+        minHeight: '100vh', // Restauré pour avoir une hauteur complète
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
-        padding: 'clamp(4rem, 8vh, 6rem) clamp(1rem, 3vw, 2rem)', // Padding plus généreux pour compenser
+        padding: 'clamp(2rem, 4vh, 3rem) clamp(1rem, 3vw, 2rem)', // Padding réduit
         position: 'relative',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        margin: 0, // Suppression de tout margin
+        marginTop: 0, // Force spécifiquement
+        paddingTop: 'clamp(2rem, 4vh, 3rem)' // Padding top réduit
       }}
     >
       {/* Container principal */}
@@ -55,7 +57,8 @@ const NOGProjectSection = () => {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          position: 'relative'
+          position: 'relative',
+          margin: 0 // Suppression de tout margin
         }}
       >
         {/* Container du titre avec motifs graphiques */}
@@ -194,6 +197,11 @@ const NOGProjectSection = () => {
       
       <style jsx>{`
         @media (max-width: 768px) {
+          section {
+            padding: clamp(1.5rem, 3vh, 2rem) clamp(0.5rem, 2vw, 1.5rem) !important;
+            padding-top: clamp(1.5rem, 3vh, 2rem) !important;
+          }
+          
           h1 {
             font-size: clamp(2.5rem, 10vw, 5rem) !important;
           }
@@ -201,7 +209,8 @@ const NOGProjectSection = () => {
         
         @media (max-width: 480px) {
           section {
-            padding: clamp(2rem, 4vh, 3rem) 0.5rem !important;
+            padding: clamp(1rem, 2vh, 1.5rem) 0.5rem !important;
+            padding-top: clamp(1rem, 2vh, 1.5rem) !important;
           }
           
           div {
