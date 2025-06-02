@@ -17,33 +17,33 @@ const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh',
-    position: 'relative',
     width: '100%',
   },
-  // ✅ CORRECTION: Fond de sphères qui couvre TOUT le contenu
+  // Fond de sphères qui couvre tout le contenu
   sphereBackground: {
     position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
-    height: '100%', // ✅ 100% au lieu de 100vh pour couvrir tout le scroll
-    zIndex: -999,   // ✅ Z-index très négatif
-    pointerEvents: 'none', // ✅ Évite les conflits d'interaction
+    height: '100%',
+    zIndex: -999,
+    pointerEvents: 'none',
   },
+  // Section Home - reste en 100vh pour occuper tout l'écran initial
   homeSection: {
     minHeight: '100vh',
     width: '100%',
     position: 'relative',
     backgroundColor: 'transparent',
-    zIndex: 1, // ✅ Au-dessus des sphères
+    zIndex: 1,
   },
+  // Sections de contenu - hauteur automatique pour s'enchainer naturellement
   contentSection: {
-    minHeight: '100vh',
     width: '100%',
     position: 'relative',
     backgroundColor: 'transparent',
-    zIndex: 1, // ✅ Au-dessus des sphères
+    zIndex: 1,
+    // Suppression du minHeight: '100vh' pour éviter les grands espaces
   }
 }));
 
@@ -51,12 +51,12 @@ export const Home = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {/* ✅ Fond de sphères fixe qui reste visible partout */}
+      {/* Fond de sphères fixe qui reste visible partout */}
       <div className={classes.sphereBackground}>
         <DisplacementSphere />
       </div>
 
-      {/* Section Home principale */}
+      {/* Section Home principale - garde sa hauteur plein écran */}
       <motion.div 
         className={classes.homeSection}
         initial={{ opacity: 1 }}
@@ -78,7 +78,7 @@ export const Home = () => {
       {/* Bouton Theme */}
       <ThemeToggle />
 
-      {/* Section NOG Project avec fond transparent */}
+      {/* Section NOG Project - s'enchaine directement après Home */}
       <motion.div 
         className={classes.contentSection}
         initial={{ opacity: 0, y: 50 }}
@@ -89,7 +89,7 @@ export const Home = () => {
         <NOGProjectSection />
       </motion.div>
 
-      {/* ✅ Section Story - Maintenant visible ! */}
+      {/* Section Story - s'enchaine directement */}
       <motion.div 
         className={classes.contentSection}
         initial={{ opacity: 0, y: 50 }}
@@ -100,7 +100,7 @@ export const Home = () => {
         <StorySection />
       </motion.div>
 
-      {/* ✅ Section Collection - Maintenant visible ! */}
+      {/* Section Collection - s'enchaine directement */}
       <motion.div 
         className={classes.contentSection}
         initial={{ opacity: 0, y: 50 }}
