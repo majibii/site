@@ -67,7 +67,6 @@ const legalPrompts = [
 
 const CollectionSection = () => {
   const sectionRef = useRef(null);
-  // Remplace useId() par useState pour React 16
   const [uniqueId] = useState(() => `collection-${Math.random().toString(36).substr(2, 9)}`);
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [editedPrompt, setEditedPrompt] = useState('');
@@ -88,12 +87,8 @@ const CollectionSection = () => {
   };
 
   const handleSubmit = () => {
-    // Save the modified prompt
     console.log('Modified prompt:', editedPrompt);
-    
-    // Redirect to hub
-    window.location.href = '/hub'; // Adjust URL according to your routing
-    
+    window.location.href = '/hub';
     handleCloseDialog();
   };
 
@@ -113,75 +108,326 @@ const CollectionSection = () => {
 
   return (
     <>
-      <section ref={sectionRef} className="collection-section">
-        <div className="collection-content">
-          <div className="collection-header">
-            <h3 className="section-label">COLLECTION</h3>
+      <section 
+        ref={sectionRef} 
+        className="collection-section"
+        style={{
+          minHeight: '100vh',
+          width: '100%',
+          padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
+          backgroundColor: 'transparent',
+          color: '#fafafa',
+          position: 'relative',
+          // Assure la visibilité immédiate
+          opacity: 1,
+          visibility: 'visible'
+        }}
+      >
+        <div 
+          className="collection-content"
+          style={{
+            width: '100%',
+            maxWidth: '1400px',
+            margin: '0 auto',
+            // Assure la visibilité du contenu
+            opacity: 1,
+            visibility: 'visible'
+          }}
+        >
+          <div className="collection-header" style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 6vh, 5rem)' }}>
+            <h3 
+              className="section-label"
+              style={{
+                fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)',
+                fontWeight: '600',
+                color: 'rgba(250, 250, 250, 0.8)',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                marginBottom: '1.5rem'
+              }}
+            >
+              COLLECTION
+            </h3>
             
-            <h2 className="collection-title">
+            <h2 
+              className="collection-title"
+              style={{
+                fontSize: 'clamp(2rem, 6vw, 4rem)',
+                fontWeight: '900',
+                color: '#fafafa',
+                lineHeight: '1.1',
+                marginBottom: 'clamp(1.5rem, 3vh, 2rem)',
+                textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)'
+              }}
+            >
               JOIN THE LEGAL PROMPTS MOVEMENT
             </h2>
 
-            <p className="collection-intro">
+            <p 
+              className="collection-intro"
+              style={{
+                fontSize: 'clamp(1rem, 2.2vw, 1.3rem)',
+                color: 'rgba(250, 250, 250, 0.9)',
+                lineHeight: '1.6',
+                marginBottom: 'clamp(2rem, 4vh, 3rem)',
+                maxWidth: '80ch',
+                margin: '0 auto clamp(2rem, 4vh, 3rem) auto'
+              }}
+            >
               Introducing LegalPrompt Archive, our curated collection of advanced legal prompts for 
               AI-powered research, analysis, and professional development. Stay updated — ask for 
               early access to the hub.
             </p>
 
-            <button className="early-access-button">
+            <button 
+              className="early-access-button"
+              style={{
+                padding: 'clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem)',
+                fontSize: 'clamp(0.9rem, 1.8vw, 1.1rem)',
+                fontWeight: '600',
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '50px',
+                color: '#fafafa',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                marginBottom: 'clamp(3rem, 6vh, 4rem)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.2)';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+            >
               Get Early Access <span>→</span>
             </button>
           </div>
 
           <div className="cards-container">
-            <div className="cards-row top">
+            <div 
+              className="cards-row top"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: 'clamp(1rem, 2vw, 1.5rem)',
+                marginBottom: 'clamp(2rem, 4vh, 3rem)'
+              }}
+            >
               {legalPrompts.slice(0, 6).map((prompt, index) => (
                 <div 
                   key={index} 
                   className="prompt-card"
                   onClick={() => handleCardClick(prompt)}
+                  style={{
+                    padding: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    borderRadius: '16px',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    // Assure la visibilité
+                    opacity: 1,
+                    visibility: 'visible'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'translateY(-8px)';
+                    e.target.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.boxShadow = 'none';
+                  }}
                 >
-                  <div className="card-context">{prompt.context}</div>
-                  <h3 className="card-title">{prompt.title}</h3>
-                  <div className="card-body">{prompt.body}</div>
+                  <div 
+                    className="card-context"
+                    style={{
+                      fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
+                      color: 'rgba(250, 250, 250, 0.7)',
+                      marginBottom: '0.8rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em'
+                    }}
+                  >
+                    {prompt.context}
+                  </div>
+                  <h3 
+                    className="card-title"
+                    style={{
+                      fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+                      fontWeight: '700',
+                      color: '#fafafa',
+                      marginBottom: '1rem',
+                      lineHeight: '1.3'
+                    }}
+                  >
+                    {prompt.title}
+                  </h3>
+                  <div 
+                    className="card-body"
+                    style={{
+                      fontSize: 'clamp(0.85rem, 1.6vw, 1rem)',
+                      color: 'rgba(250, 250, 250, 0.8)',
+                      lineHeight: '1.5',
+                      overflow: 'hidden',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical'
+                    }}
+                  >
+                    {prompt.body}
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* Time Indicator */}
-            <div className="time-indicator">
-              <div className="year-text">2025</div>
-              <div className="last-update-text">last update</div>
+            <div 
+              className="time-indicator"
+              style={{
+                textAlign: 'center',
+                margin: 'clamp(3rem, 6vh, 4rem) 0',
+                opacity: 0.6
+              }}
+            >
+              <div 
+                className="year-text"
+                style={{
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                  fontWeight: '900',
+                  color: '#fafafa'
+                }}
+              >
+                2025
+              </div>
+              <div 
+                className="last-update-text"
+                style={{
+                  fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
+                  color: 'rgba(250, 250, 250, 0.6)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                last update
+              </div>
             </div>
 
-            <div className="cards-row bottom">
+            <div 
+              className="cards-row bottom"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: 'clamp(1rem, 2vw, 1.5rem)',
+                marginBottom: 'clamp(3rem, 6vh, 4rem)'
+              }}
+            >
               {legalPrompts.slice(6, 12).map((prompt, index) => (
                 <div 
                   key={index} 
                   className="prompt-card"
                   onClick={() => handleCardClick(prompt)}
+                  style={{
+                    padding: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    borderRadius: '16px',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    // Assure la visibilité
+                    opacity: 1,
+                    visibility: 'visible'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'translateY(-8px)';
+                    e.target.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.boxShadow = 'none';
+                  }}
                 >
-                  <div className="card-context">{prompt.context}</div>
-                  <h3 className="card-title">{prompt.title}</h3>
-                  <div className="card-body">{prompt.body}</div>
+                  <div 
+                    className="card-context"
+                    style={{
+                      fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
+                      color: 'rgba(250, 250, 250, 0.7)',
+                      marginBottom: '0.8rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em'
+                    }}
+                  >
+                    {prompt.context}
+                  </div>
+                  <h3 
+                    className="card-title"
+                    style={{
+                      fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+                      fontWeight: '700',
+                      color: '#fafafa',
+                      marginBottom: '1rem',
+                      lineHeight: '1.3'
+                    }}
+                  >
+                    {prompt.title}
+                  </h3>
+                  <div 
+                    className="card-body"
+                    style={{
+                      fontSize: 'clamp(0.85rem, 1.6vw, 1rem)',
+                      color: 'rgba(250, 250, 250, 0.8)',
+                      lineHeight: '1.5',
+                      overflow: 'hidden',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical'
+                    }}
+                  >
+                    {prompt.body}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Editorial Section */}
-          <div className="editorial-section">
-            <div className="editorial-line">
-              <span className="editorial-title">ABOUT THE PROMPTING ART</span>
+          <div className="editorial-section" style={{ marginBottom: 'clamp(3rem, 6vh, 4rem)' }}>
+            <div className="editorial-line" style={{ marginBottom: '2rem' }}>
+              <span 
+                className="editorial-title"
+                style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                  fontWeight: '700',
+                  color: '#fafafa',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                ABOUT THE PROMPTING ART
+              </span>
             </div>
             
-            <div className="editorial-content">
-              <p>
+            <div 
+              className="editorial-content"
+              style={{
+                maxWidth: '80ch',
+                margin: '0 auto',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.1rem)',
+                lineHeight: '1.7',
+                color: 'rgba(250, 250, 250, 0.9)'
+              }}
+            >
+              <p style={{ marginBottom: '1.5rem' }}>
                 The art of prompting is not just a technical exercise—it's a strategic method of legal reasoning. 
                 By leveraging structured approaches like the IRAC method (Issue, Rule, Application, Conclusion), 
                 your AI models yield significantly more precise and contextually relevant results.
               </p>
-              <p>
+              <p style={{ marginBottom: '1.5rem' }}>
                 This collection demonstrates how advanced prompting techniques are transforming the practice of law, 
                 enabling attorneys to draft, analyze, and argue more effectively. We've designed these prompts to 
                 operate across multilingual legal contexts, ensuring flexibility, depth, and compliance in diverse jurisdictions.
@@ -194,68 +440,89 @@ const CollectionSection = () => {
 
           {/* Benefits Section */}
           <div className="benefits-section">
-            <div className="benefits-title-line">
-              <span className="benefits-title">BENEFITS FOR HOLDERS</span>
+            <div className="benefits-title-line" style={{ marginBottom: '2rem' }}>
+              <span 
+                className="benefits-title"
+                style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                  fontWeight: '700',
+                  color: '#fafafa',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                BENEFITS FOR HOLDERS
+              </span>
             </div>
             
-            <div className="benefits-list">
-              <div className="benefits-item">
-                <div className="benefit-icon-circle">
-                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
-                  </svg>
+            <div 
+              className="benefits-list"
+              style={{
+                display: 'grid',
+                gap: '1.5rem',
+                maxWidth: '90ch',
+                margin: '0 auto'
+              }}
+            >
+              {[
+                "Contribute to the evolution of legal prompting strategies and frameworks",
+                "Access a free hub for share prompts and work for transparency",
+                "Create your prompts in private and keep your strategy",
+                "Enjoy early access to new prompt collections, the legal agents will coming soon",
+                "Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs"
+              ].map((benefit, index) => (
+                <div 
+                  key={index}
+                  className="benefits-item"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '1rem'
+                  }}
+                >
+                  <div 
+                    className="benefit-icon-circle"
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }}
+                  >
+                    <svg 
+                      className="benefit-icon" 
+                      width="20" 
+                      height="20"
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2"
+                      style={{ color: '#fafafa' }}
+                    >
+                      <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+                    </svg>
+                  </div>
+                  <span
+                    style={{
+                      fontSize: 'clamp(0.9rem, 1.7vw, 1.05rem)',
+                      lineHeight: '1.6',
+                      color: 'rgba(250, 250, 250, 0.9)'
+                    }}
+                  >
+                    {benefit}
+                  </span>
                 </div>
-                <span>Contribute to the evolution of legal prompting strategies and frameworks</span>
-              </div>
-              <div className="benefits-item">
-                <div className="benefit-icon-circle">
-                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="9" cy="7" r="4"/>
-                    <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-                    <circle cx="16" cy="11" r="3"/>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                  </svg>
-                </div>
-                <span>Access a free hub for share prompts and work for transparency</span>
-              </div>
-              <div className="benefits-item">
-                <div className="benefit-icon-circle">
-                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                    <circle cx="12" cy="16" r="1"/>
-                    <path d="M7 11V7A5 5 0 0 1 17 7V11"/>
-                  </svg>
-                </div>
-                <span>Create your prompts in private and keep your strategy</span>
-              </div>
-              <div className="benefits-item">
-                <div className="benefit-icon-circle">
-                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
-                  </svg>
-                </div>
-                <span>Enjoy early access to new prompt collections, the legal agents will coming soon</span>
-              </div>
-              <div className="benefits-item">
-                <div className="benefit-icon-circle">
-                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2V6"/>
-                    <path d="M12 18V22"/>
-                    <path d="M4.93 4.93L7.76 7.76"/>
-                    <path d="M16.24 16.24L19.07 19.07"/>
-                    <path d="M2 12H6"/>
-                    <path d="M18 12H22"/>
-                    <path d="M4.93 19.07L7.76 16.24"/>
-                    <path d="M16.24 7.76L19.07 4.93"/>
-                  </svg>
-                </div>
-                <span>Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs</span>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Modal Dialog with animation */}
+        {/* Modal Dialog avec animation */}
         <AnimatePresence>
           {isDialogOpen && selectedPrompt && (
             <motion.div
@@ -263,17 +530,28 @@ const CollectionSection = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="modal-overlay"
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                backdropFilter: 'blur(10px)',
+                zIndex: 1000,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '2rem'
+              }}
               onClick={handleCloseDialog}
             >
               <motion.div
                 initial={{ 
                   opacity: 0,
-                  scale: 0.3,
-                  x: '-50%',
-                  y: '-50%'
+                  scale: 0.3
                 }}
-                animate={{ 
+                animate={{
                   opacity: 1,
                   scale: 1,
                   x: 0,
