@@ -39,12 +39,10 @@ const NOGProjectSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
-        padding: '0 clamp(1rem, 3vw, 2rem)', // Suppression du padding vertical
+        padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
         position: 'relative',
         boxSizing: 'border-box',
         margin: 0,
-        marginTop: 0,
-        paddingTop: 0 // Suppression complète du padding-top
       }}
     >
       {/* Container principal */}
@@ -194,30 +192,6 @@ const NOGProjectSection = () => {
           </div>
         </div>
       </div>
-      
-      <style jsx>{`
-        @media (max-width: 768px) {
-          section {
-            padding: 0 clamp(0.5rem, 2vw, 1.5rem) !important;
-            padding-top: 0 !important;
-          }
-          
-          h1 {
-            font-size: clamp(2.5rem, 10vw, 5rem) !important;
-          }
-        }
-        
-        @media (max-width: 480px) {
-          section {
-            padding: 0 0.5rem !important;
-            padding-top: 0 !important;
-          }
-          
-          div {
-            max-width: 95% !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };
