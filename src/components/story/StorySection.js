@@ -46,35 +46,149 @@ const StorySection = () => {
   const isVisible = useInViewport(sectionRef, false, { threshold: 0.2 });
   
   return (
-    <section ref={sectionRef} className={`story-section ${isVisible ? 'visible' : ''}`}>
-      <div className="story-content">
-        <div className="story-header">
-          <h3 className="section-label">Story</h3>
-          <div className="header-line"></div>
+    <section 
+      ref={sectionRef} 
+      className={`story-section ${isVisible ? 'visible' : ''}`}
+      style={{
+        minHeight: '100vh',
+        width: '100%',
+        padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
+        backgroundColor: 'transparent',
+        color: '#fafafa',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        // Assure la visibilité immédiate
+        opacity: 1,
+        visibility: 'visible'
+      }}
+    >
+      <div 
+        className="story-content"
+        style={{
+          width: '100%',
+          maxWidth: '1400px',
+          textAlign: 'center',
+          // Assure la visibilité du contenu
+          opacity: 1,
+          visibility: 'visible'
+        }}
+      >
+        <div className="story-header" style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+          <h3 
+            className="section-label"
+            style={{
+              fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)',
+              fontWeight: '600',
+              color: 'rgba(250, 250, 250, 0.8)',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              marginBottom: '1rem'
+            }}
+          >
+            Story
+          </h3>
+          <div 
+            className="header-line"
+            style={{
+              width: '100px',
+              height: '2px',
+              backgroundColor: 'rgba(250, 250, 250, 0.3)',
+              margin: '0 auto'
+            }}
+          ></div>
         </div>
 
-        <h2 className="story-title">
+        <h2 
+          className="story-title"
+          style={{
+            fontSize: 'clamp(2rem, 6vw, 4rem)',
+            fontWeight: '900',
+            color: '#fafafa',
+            lineHeight: '1.1',
+            marginBottom: 'clamp(1.5rem, 3vh, 2rem)',
+            textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)'
+          }}
+        >
           The Legal LLM Journey — And Why It Fails (Until Now)
         </h2>
 
-        <p className="story-intro">
+        <p 
+          className="story-intro"
+          style={{
+            fontSize: 'clamp(1rem, 2.2vw, 1.3rem)',
+            color: 'rgba(250, 250, 250, 0.9)',
+            lineHeight: '1.6',
+            marginBottom: 'clamp(3rem, 6vh, 4rem)',
+            maxWidth: '80ch',
+            margin: '0 auto clamp(3rem, 6vh, 4rem) auto'
+          }}
+        >
           You've heard about legal AI. Maybe you've tried it. But do you really understand where it fits? 
           Can you explain what it does — or why it fails? Let's find out.
         </p>
 
-        <div className="sticky-logo">
+        <div 
+          className="sticky-logo"
+          style={{
+            marginBottom: 'clamp(2rem, 4vh, 3rem)',
+            opacity: 0.7
+          }}
+        >
           <Logo />
         </div>
 
-        <div className="dialogue-container">
-          {DialogueBubbles.map((bubble) => (
+        <div 
+          className="dialogue-container"
+          style={{
+            display: 'grid',
+            gap: 'clamp(1.5rem, 3vh, 2.5rem)',
+            maxWidth: '90ch',
+            margin: '0 auto'
+          }}
+        >
+          {DialogueBubbles.map((bubble, index) => (
             <div 
               key={bubble.id}
               className={`dialogue-bubble ${bubble.animation}`}
               data-bubble-id={bubble.id}
+              style={{
+                padding: 'clamp(1.2rem, 2.5vw, 2rem)',
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '16px',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                // Assure la visibilité immédiate sans animation complexe
+                opacity: 1,
+                transform: 'none',
+                // Animation simple au hover
+                transition: 'all 0.3s ease',
+                cursor: 'default'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-5px)';
+                e.target.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+              }}
             >
               {bubble.text.split('\n').map((line, i) => (
-                <p key={i}>{line}</p>
+                <p 
+                  key={i}
+                  style={{
+                    margin: i === 0 ? '0' : '0.8em 0 0 0',
+                    fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
+                    lineHeight: '1.5',
+                    color: '#fafafa'
+                  }}
+                >
+                  {line}
+                </p>
               ))}
             </div>
           ))}
