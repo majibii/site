@@ -19,7 +19,6 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
     width: '100%',
   },
-  // Fond de sphères qui couvre tout le contenu
   sphereBackground: {
     position: 'fixed',
     top: 0,
@@ -29,7 +28,6 @@ const useStyles = makeStyles(() => ({
     zIndex: -999,
     pointerEvents: 'none',
   },
-  // Section Home - reste en 100vh pour occuper tout l'écran initial
   homeSection: {
     minHeight: '100vh',
     width: '100%',
@@ -37,33 +35,26 @@ const useStyles = makeStyles(() => ({
     backgroundColor: 'transparent',
     zIndex: 1,
   },
-  // Sections de contenu - hauteur automatique pour s'enchainer naturellement
   contentSection: {
     width: '100%',
     position: 'relative',
     backgroundColor: 'transparent',
     zIndex: 1,
-    // Suppression du minHeight: '100vh' pour éviter les grands espaces
   }
 }));
 
 export const Home = () => {
   const classes = useStyles();
+  
   return (
     <div className={classes.root}>
-      {/* Fond de sphères fixe qui reste visible partout */}
+      {/* Fond de sphères fixe */}
       <div className={classes.sphereBackground}>
         <DisplacementSphere />
       </div>
 
-      {/* Section Home principale - garde sa hauteur plein écran */}
-      <motion.div 
-        className={classes.homeSection}
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-      >
+      {/* Section Home principale */}
+      <div className={classes.homeSection}>
         <LogoLink />
         <Content />
         <Hidden smDown>
@@ -73,40 +64,38 @@ export const Home = () => {
           <SpeedDials />
         </Hidden>
         <FooterText />
-      </motion.div>
+      </div>
 
       {/* Bouton Theme */}
       <ThemeToggle />
 
-      {/* Section NOG Project - s'enchaine directement après Home */}
+      {/* Sections de contenu qui s'enchainent */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-50px" }}
       >
         <NOGProjectSection />
       </motion.div>
 
-      {/* Section Story - s'enchaine directement */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-50px" }}
       >
         <StorySection />
       </motion.div>
 
-      {/* Section Collection - s'enchaine directement */}
       <motion.div 
         className={classes.contentSection}
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-50px" }}
       >
         <CollectionSection />
       </motion.div>
