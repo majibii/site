@@ -9,7 +9,7 @@ const NOGProjectSection = () => {
     for (let i = 0; i < 60; i++) {
       const randomHeight = heights[Math.floor(Math.random() * heights.length)];
       const randomSpacing = Math.random() * 3 + 1;
-      const opacity = Math.random() * 0.2 + 0.6;
+      const opacity = Math.random() * 0.3 + 0.4; // Réduit l'opacité pour l'effet glassy
       
       rectangles.push(
         <div
@@ -17,9 +17,12 @@ const NOGProjectSection = () => {
           style={{
             height: `${randomHeight}px`,
             width: 'clamp(8px, 2vw, 16px)',
-            backgroundColor: '#fafafa',
+            backgroundColor: 'rgba(250, 250, 250, 0.2)', // Plus transparent
+            backdropFilter: 'blur(10px)', // Effet blur glassy
+            border: '1px solid rgba(255, 255, 255, 0.1)', // Bordure subtile
             opacity: opacity,
-            marginBottom: `${randomSpacing}px`
+            marginBottom: `${randomSpacing}px`,
+            borderRadius: '2px' // Coins légèrement arrondis
           }}
         />
       );
@@ -36,26 +39,12 @@ const NOGProjectSection = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'transparent', // ✨ CHANGEMENT: Fond transparent
+        backgroundColor: 'transparent', // Fond complètement transparent
         padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
         position: 'relative',
         boxSizing: 'border-box'
       }}
     >
-      {/* Overlay semi-transparent pour améliorer la lisibilité du texte */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(47, 47, 46, 0.7)', // Overlay semi-transparent
-          zIndex: 1,
-          pointerEvents: 'none' // Permet les interactions avec le contenu
-        }}
-      />
-
       {/* Container principal */}
       <div
         style={{
@@ -67,8 +56,7 @@ const NOGProjectSection = () => {
           alignItems: 'center',
           justifyContent: 'center',
           flex: '1',
-          position: 'relative',
-          zIndex: 2 // Au-dessus de l'overlay
+          position: 'relative'
         }}
       >
         {/* Container du titre avec motifs graphiques */}
@@ -106,7 +94,7 @@ const NOGProjectSection = () => {
             </div>
           </div>
 
-          {/* Titre principal avec meilleur contraste */}
+          {/* Titre principal avec effet glassy */}
           <h1
             style={{
               fontSize: 'clamp(3rem, 12vw, 12rem)',
@@ -123,8 +111,8 @@ const NOGProjectSection = () => {
               transform: 'scaleY(0.8) scaleX(1.2)',
               transformOrigin: 'center',
               textAlign: 'center',
-              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.8)', // ✨ Ombre pour le contraste
-              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.1))' // ✨ Effet de lueur
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
+              filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.1))'
             }}
           >
             N.O.G
@@ -159,7 +147,7 @@ const NOGProjectSection = () => {
           </div>
         </div>
 
-        {/* Description avec meilleur contraste */}
+        {/* Description avec effet glassy */}
         <div
           style={{
             fontSize: 'clamp(0.9rem, 2.2vw, 1.25rem)',
@@ -172,12 +160,15 @@ const NOGProjectSection = () => {
             width: '100%',
             maxWidth: 'min(95%, 80ch)',
             marginTop: 'clamp(1rem, 3vw, 2rem)',
-            padding: '0 1rem',
+            padding: 'clamp(1rem, 2vw, 2rem)',
             boxSizing: 'border-box',
-            textShadow: '1px 1px 4px rgba(0, 0, 0, 0.8)', // ✨ Ombre pour le contraste
-            backgroundColor: 'rgba(47, 47, 46, 0.4)', // ✨ Fond semi-transparent pour la lisibilité
-            borderRadius: '8px',
-            padding: 'clamp(1rem, 2vw, 2rem)'
+            textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
+            // Effet glassy moderne
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            borderRadius: '16px',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
           }}
         >
           <div style={{ 
