@@ -9,7 +9,7 @@ const NOGProjectSection = () => {
     for (let i = 0; i < 60; i++) {
       const randomHeight = heights[Math.floor(Math.random() * heights.length)];
       const randomSpacing = Math.random() * 3 + 1;
-      const opacity = Math.random() * 0.3 + 0.4; // Réduit l'opacité pour l'effet glassy
+      const opacity = Math.random() * 0.3 + 0.4;
       
       rectangles.push(
         <div
@@ -17,12 +17,12 @@ const NOGProjectSection = () => {
           style={{
             height: `${randomHeight}px`,
             width: 'clamp(8px, 2vw, 16px)',
-            backgroundColor: 'rgba(250, 250, 250, 0.2)', // Plus transparent
-            backdropFilter: 'blur(10px)', // Effet blur glassy
-            border: '1px solid rgba(255, 255, 255, 0.1)', // Bordure subtile
+            backgroundColor: 'rgba(250, 250, 250, 0.2)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
             opacity: opacity,
             marginBottom: `${randomSpacing}px`,
-            borderRadius: '2px' // Coins légèrement arrondis
+            borderRadius: '2px'
           }}
         />
       );
@@ -33,14 +33,14 @@ const NOGProjectSection = () => {
   return (
     <section
       style={{
-        minHeight: '100vh',
+        // Suppression de minHeight: '100vh' pour éviter les grands espaces
         height: 'auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'transparent', // Fond complètement transparent
-        padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
+        backgroundColor: 'transparent',
+        padding: 'clamp(4rem, 8vh, 6rem) clamp(1rem, 3vw, 2rem)', // Padding plus généreux pour compenser
         position: 'relative',
         boxSizing: 'border-box'
       }}
@@ -55,7 +55,6 @@ const NOGProjectSection = () => {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          flex: '1',
           position: 'relative'
         }}
       >
@@ -163,7 +162,6 @@ const NOGProjectSection = () => {
             padding: 'clamp(1rem, 2vw, 2rem)',
             boxSizing: 'border-box',
             textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
-            // Effet glassy moderne
             background: 'rgba(255, 255, 255, 0.1)',
             backdropFilter: 'blur(20px)',
             border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -203,7 +201,7 @@ const NOGProjectSection = () => {
         
         @media (max-width: 480px) {
           section {
-            padding: clamp(1rem, 3vh, 2rem) 0.5rem !important;
+            padding: clamp(2rem, 4vh, 3rem) 0.5rem !important;
           }
           
           div {
