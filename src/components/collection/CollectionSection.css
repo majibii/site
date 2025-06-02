@@ -1,4 +1,4 @@
-/* Collection Section Styles corrigé */
+/* Collection Section Styles avec animations */
 
 .collection-section {
   min-height: 100vh;
@@ -18,18 +18,44 @@
 
 .cards-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: max-content;
   gap: 2rem;
   padding: 1rem 0;
-  animation: none;
+}
+
+/* Animations de défilement */
+.cards-row.top {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.cards-row.bottom {
+  animation: scrollRight 30s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .prompt-card {
-  flex: 1 1 300px;
-  min-width: 260px;
-  max-width: 100%;
+  flex: 0 0 300px;
+  min-width: 300px;
+  max-width: 300px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   padding: 2rem;
@@ -38,6 +64,12 @@
   transition: all 0.3s ease-out;
   cursor: pointer;
   backdrop-filter: blur(10px);
+}
+
+.prompt-card:hover {
+  opacity: 1;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .time-indicator {
@@ -56,10 +88,26 @@
   line-height: 1;
 }
 
-@media (min-width: 769px) {
+.last-update-text {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: rgba(250, 250, 250, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+/* Responsive - désactive les animations sur mobile */
+@media (max-width: 768px) {
   .cards-row.top,
   .cards-row.bottom {
     animation: none;
-    margin: 2rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .prompt-card {
+    flex: 1 1 280px;
+    min-width: 280px;
   }
 }
