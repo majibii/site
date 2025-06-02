@@ -15,13 +15,17 @@ const PageNotFound = lazy(() => import("../pages/PageNotFound"));
 
 const EnhancedHome = () => {
   return (
-    <div>
+    <div style={{ margin: 0, padding: 0 }}>
       {/* Section Home originale */}
-      <div style={{ minHeight: '100vh' }}>
+      <div style={{ 
+        minHeight: '100vh',
+        margin: 0,
+        padding: 0
+      }}>
         <Home />
       </div>
       
-      {/* Section NOG avec animation */}
+      {/* Section NOG avec animation - SANS ESPACEMENT */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -29,12 +33,17 @@ const EnhancedHome = () => {
           duration: 0.3,
           ease: "easeInOut"
         }}
-        style={{ minHeight: '100vh' }}
+        style={{ 
+          minHeight: '100vh',
+          margin: 0,
+          padding: 0,
+          marginTop: '-1px' // Léger chevauchement pour éviter les gaps
+        }}
       >
         <NOGProjectSection />
       </motion.div>
       
-      {/* Section Story avec animation */}
+      {/* Section Story avec animation - SANS ESPACEMENT */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -42,12 +51,17 @@ const EnhancedHome = () => {
           duration: 0.3,
           ease: "easeInOut"
         }}
-        style={{ minHeight: '100vh' }}
+        style={{ 
+          minHeight: '100vh',
+          margin: 0,
+          padding: 0,
+          marginTop: '-1px' // Léger chevauchement pour éviter les gaps
+        }}
       >
         <StorySection />
       </motion.div>
       
-      {/* Section Collection avec animation */}
+      {/* Section Collection avec animation - SANS ESPACEMENT */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -55,7 +69,12 @@ const EnhancedHome = () => {
           duration: 0.3,
           ease: "easeInOut"
         }}
-        style={{ minHeight: '100vh' }}
+        style={{ 
+          minHeight: '100vh',
+          margin: 0,
+          padding: 0,
+          marginTop: '-1px' // Léger chevauchement pour éviter les gaps
+        }}
       >
         <CollectionSection />
       </motion.div>
