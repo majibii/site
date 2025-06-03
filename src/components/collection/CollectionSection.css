@@ -1,113 +1,34 @@
-/* Collection Section Styles avec animations */
-
-.collection-section {
-  min-height: 100vh;
-  background-color: transparent;
-  padding: 6rem 0;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  color: #fafafa;
-}
-
-.collection-content {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.cards-row {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  width: max-content;
-  gap: 2rem;
-  padding: 1rem 0;
-}
-
-/* Animations de défilement */
-.cards-row.top {
-  animation: scrollLeft 30s linear infinite;
-}
-
-.cards-row.bottom {
-  animation: scrollRight 30s linear infinite;
-}
-
 @keyframes scrollLeft {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 1rem));
   }
 }
 
 @keyframes scrollRight {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 1rem));
   }
   100% {
     transform: translateX(0);
   }
 }
 
-.prompt-card {
-  flex: 0 0 300px;
-  min-width: 300px;
-  max-width: 300px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  opacity: 0.6;
-  transition: all 0.3s ease-out;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-}
-
-.prompt-card:hover {
-  opacity: 1;
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-}
-
-.time-indicator {
-  position: relative;
-  transform: none;
-  margin: 4rem auto;
-  text-align: center;
-  z-index: 10;
-}
-
-.year-text {
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 900;
-  color: #fafafa;
-  margin: 0;
-  line-height: 1;
-}
-
-.last-update-text {
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  color: rgba(250, 250, 250, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-top: 0.5rem;
-}
-
-/* Responsive - désactive les animations sur mobile */
 @media (max-width: 768px) {
-  .cards-row.top,
-  .cards-row.bottom {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+  .collection-section {
+    padding: 3rem 1rem;
   }
-  
-  .prompt-card {
-    flex: 1 1 280px;
-    min-width: 280px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collection-section *,
+  .collection-section *::before,
+  .collection-section *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

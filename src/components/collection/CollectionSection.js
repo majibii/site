@@ -92,389 +92,371 @@ const CollectionSection = () => {
     handleCloseDialog();
   };
 
-  // Dupliquer les prompts pour l'effet de défilement infini
   const duplicatedPrompts = [...legalPrompts, ...legalPrompts];
 
   return (
-    <>
-      <section 
-        ref={sectionRef} 
-        className="collection-section"
+    <section 
+      ref={sectionRef} 
+      style={{
+        minHeight: '100vh',
+        width: '100%',
+        padding: '4rem 0',
+        backgroundColor: 'transparent',
+        color: '#fafafa',
+        position: 'relative',
+        opacity: 1,
+        visibility: 'visible'
+      }}
+    >
+      <div 
         style={{
-          minHeight: '100vh',
           width: '100%',
-          padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
-          backgroundColor: 'transparent',
-          color: '#fafafa',
-          position: 'relative',
+          maxWidth: '100%',
+          margin: '0 auto',
           opacity: 1,
           visibility: 'visible'
         }}
       >
-        <div 
-          className="collection-content"
-          style={{
-            width: '100%',
-            maxWidth: '1400px',
-            margin: '0 auto',
-            opacity: 1,
-            visibility: 'visible'
-          }}
-        >
-          <div className="collection-header" style={{ textAlign: 'center', marginBottom: 'clamp(3rem, 6vh, 5rem)' }}>
-            <h3 
-              className="section-label"
+        <div className="collection-header" style={{ textAlign: 'center', marginBottom: '4rem', padding: '0 2rem' }}>
+          <h3 
+            style={{
+              fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)',
+              fontWeight: '600',
+              color: 'rgba(250, 250, 250, 0.8)',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              marginBottom: '1.5rem'
+            }}
+          >
+            COLLECTION
+          </h3>
+          
+          <h2 
+            style={{
+              fontSize: 'clamp(2rem, 6vw, 4rem)',
+              fontWeight: '900',
+              color: '#fafafa',
+              lineHeight: '1.1',
+              marginBottom: '2rem',
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)'
+            }}
+          >
+            JOIN THE LEGAL PROMPTS MOVEMENT
+          </h2>
+
+          <p 
+            style={{
+              fontSize: 'clamp(1rem, 2.2vw, 1.3rem)',
+              color: 'rgba(250, 250, 250, 0.9)',
+              lineHeight: '1.6',
+              marginBottom: '3rem',
+              maxWidth: '80ch',
+              margin: '0 auto 3rem'
+            }}
+          >
+            Introducing LegalPrompt Archive, our curated collection of advanced legal prompts for 
+            AI-powered research, analysis, and professional development. Stay updated — ask for 
+            early access to the hub.
+          </p>
+
+          <button 
+            style={{
+              padding: '1.2rem 2.5rem',
+              fontSize: '1.1rem',
+              fontWeight: '600',
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              borderRadius: '50px',
+              color: '#fafafa',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              marginBottom: '4rem'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = 'rgba(255, 255, 255, 0.2)';
+              e.target.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+              e.target.style.transform = 'translateY(0)';
+            }}
+          >
+            Get Early Access <span>→</span>
+          </button>
+        </div>
+
+        <div style={{ overflow: 'hidden', width: '100%', marginBottom: '4rem' }}>
+          <div style={{ 
+            display: 'flex',
+            width: 'max-content',
+            animation: 'scrollLeft 30s linear infinite',
+            gap: '2rem',
+            padding: '2rem'
+          }}>
+            {duplicatedPrompts.slice(0, 12).map((prompt, index) => (
+              <div 
+                key={`top-${index}`}
+                onClick={() => handleCardClick(prompt)}
+                style={{
+                  flex: '0 0 300px',
+                  padding: '1.8rem',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: '16px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <div 
+                  style={{
+                    fontSize: '0.9rem',
+                    color: 'rgba(250, 250, 250, 0.7)',
+                    marginBottom: '0.8rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  {prompt.context}
+                </div>
+                <h3 
+                  style={{
+                    fontSize: '1.3rem',
+                    fontWeight: '700',
+                    color: '#fafafa',
+                    marginBottom: '1rem',
+                    lineHeight: '1.3'
+                  }}
+                >
+                  {prompt.title}
+                </h3>
+                <div 
+                  style={{
+                    fontSize: '1rem',
+                    color: 'rgba(250, 250, 250, 0.8)',
+                    lineHeight: '1.5',
+                    overflow: 'hidden',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical'
+                  }}
+                >
+                  {prompt.body}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div 
+            style={{
+              textAlign: 'center',
+              margin: '4rem 0',
+              opacity: 0.8
+            }}
+          >
+            <div 
               style={{
-                fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)',
-                fontWeight: '600',
-                color: 'rgba(250, 250, 250, 0.8)',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                marginBottom: '1.5rem'
-              }}
-            >
-              COLLECTION
-            </h3>
-            
-            <h2 
-              className="collection-title"
-              style={{
-                fontSize: 'clamp(2rem, 6vw, 4rem)',
+                fontSize: 'clamp(3rem, 6vw, 5rem)',
                 fontWeight: '900',
                 color: '#fafafa',
-                lineHeight: '1.1',
-                marginBottom: 'clamp(1.5rem, 3vh, 2rem)',
-                textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)'
+                lineHeight: '1'
               }}
             >
-              JOIN THE LEGAL PROMPTS MOVEMENT
-            </h2>
-
-            <p 
-              className="collection-intro"
+              2025
+            </div>
+            <div 
               style={{
-                fontSize: 'clamp(1rem, 2.2vw, 1.3rem)',
-                color: 'rgba(250, 250, 250, 0.9)',
-                lineHeight: '1.6',
-                marginBottom: 'clamp(2rem, 4vh, 3rem)',
-                maxWidth: '80ch',
-                margin: '0 auto clamp(2rem, 4vh, 3rem) auto'
+                fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
+                color: 'rgba(250, 250, 250, 0.6)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                marginTop: '0.5rem'
               }}
             >
-              Introducing LegalPrompt Archive, our curated collection of advanced legal prompts for 
-              AI-powered research, analysis, and professional development. Stay updated — ask for 
-              early access to the hub.
-            </p>
-
-            <button 
-              className="early-access-button"
-              style={{
-                padding: 'clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem)',
-                fontSize: 'clamp(0.9rem, 1.8vw, 1.1rem)',
-                fontWeight: '600',
-                background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                borderRadius: '50px',
-                color: '#fafafa',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                marginBottom: 'clamp(3rem, 6vh, 4rem)'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.2)';
-                e.target.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = 'rgba(255, 255, 255, 0.1)';
-                e.target.style.transform = 'translateY(0)';
-              }}
-            >
-              Get Early Access <span>→</span>
-            </button>
+              last update
+            </div>
           </div>
 
-          <div className="cards-container" style={{ overflow: 'hidden', marginBottom: 'clamp(3rem, 6vh, 4rem)' }}>
-            {/* Première ligne de cartes - défilement vers la gauche */}
-            <div className="cards-row top">
-              {duplicatedPrompts.slice(0, 12).map((prompt, index) => (
-                <div 
-                  key={`top-${index}`} 
-                  className="prompt-card"
-                  onClick={() => handleCardClick(prompt)}
-                  style={{
-                    padding: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '16px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  <div 
-                    className="card-context"
-                    style={{
-                      fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
-                      color: 'rgba(250, 250, 250, 0.7)',
-                      marginBottom: '0.8rem',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em'
-                    }}
-                  >
-                    {prompt.context}
-                  </div>
-                  <h3 
-                    className="card-title"
-                    style={{
-                      fontSize: 'clamp(1rem, 2vw, 1.3rem)',
-                      fontWeight: '700',
-                      color: '#fafafa',
-                      marginBottom: '1rem',
-                      lineHeight: '1.3'
-                    }}
-                  >
-                    {prompt.title}
-                  </h3>
-                  <div 
-                    className="card-body"
-                    style={{
-                      fontSize: 'clamp(0.85rem, 1.6vw, 1rem)',
-                      color: 'rgba(250, 250, 250, 0.8)',
-                      lineHeight: '1.5',
-                      overflow: 'hidden',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: 'vertical'
-                    }}
-                  >
-                    {prompt.body}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Indicateur de temps */}
-            <div 
-              className="time-indicator"
-              style={{
-                textAlign: 'center',
-                margin: 'clamp(3rem, 6vh, 4rem) 0',
-                opacity: 0.8
-              }}
-            >
+          <div style={{ 
+            display: 'flex',
+            width: 'max-content',
+            animation: 'scrollRight 30s linear infinite',
+            gap: '2rem',
+            padding: '2rem'
+          }}>
+            {duplicatedPrompts.slice(6, 18).map((prompt, index) => (
               <div 
-                className="year-text"
+                key={`bottom-${index}`}
+                onClick={() => handleCardClick(prompt)}
                 style={{
-                  fontSize: 'clamp(3rem, 6vw, 5rem)',
-                  fontWeight: '900', 
-                  color: '#fafafa',
-                  lineHeight: '1'
+                  flex: '0 0 300px',
+                  padding: '1.8rem',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: '16px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
                 }}
               >
-                2025
-              </div>
-              <div 
-                className="last-update-text"
-                style={{
-                  fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
-                  color: 'rgba(250, 250, 250, 0.6)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  marginTop: '0.5rem'
-                }}
-              >
-                last update
-              </div>
-            </div>
-
-            {/* Deuxième ligne de cartes - défilement vers la droite */}
-            <div className="cards-row bottom">
-              {duplicatedPrompts.slice(6, 18).map((prompt, index) => (
                 <div 
-                  key={`bottom-${index}`} 
-                  className="prompt-card"
-                  onClick={() => handleCardClick(prompt)}
                   style={{
-                    padding: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '16px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease'
+                    fontSize: '0.9rem',
+                    color: 'rgba(250, 250, 250, 0.7)',
+                    marginBottom: '0.8rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
                   }}
                 >
-                  <div 
-                    className="card-context"
-                    style={{
-                      fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
-                      color: 'rgba(250, 250, 250, 0.7)',
-                      marginBottom: '0.8rem',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em'
-                    }}
-                  >
-                    {prompt.context}
-                  </div>
-                  <h3 
-                    className="card-title"
-                    style={{
-                      fontSize: 'clamp(1rem, 2vw, 1.3rem)',
-                      fontWeight: '700',
-                      color: '#fafafa',
-                      marginBottom: '1rem',
-                      lineHeight: '1.3'
-                    }}
-                  >
-                    {prompt.title}
-                  </h3>
-                  <div 
-                    className="card-body"
-                    style={{
-                      fontSize: 'clamp(0.85rem, 1.6vw, 1rem)',
-                      color: 'rgba(250, 250, 250, 0.8)',
-                      lineHeight: '1.5',
-                      overflow: 'hidden',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: 'vertical'
-                    }}
-                  >
-                    {prompt.body}
-                  </div>
+                  {prompt.context}
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Section éditoriale */}
-          <div className="editorial-section" style={{ marginBottom: 'clamp(3rem, 6vh, 4rem)' }}>
-            <div className="editorial-line" style={{ marginBottom: '2rem' }}>
-              <span 
-                className="editorial-title"
-                style={{
-                  fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-                  fontWeight: '700',
-                  color: '#fafafa',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em'
-                }}
-              >
-                ABOUT THE PROMPTING ART
-              </span>
-            </div>
-            
-            <div 
-              className="editorial-content"
-              style={{
-                maxWidth: '80ch',
-                margin: '0 auto',
-                fontSize: 'clamp(0.95rem, 1.8vw, 1.1rem)',
-                lineHeight: '1.7',
-                color: 'rgba(250, 250, 250, 0.9)'
-              }}
-            >
-              <p style={{ marginBottom: '1.5rem' }}>
-                The art of prompting is not just a technical exercise—it's a strategic method of legal reasoning. 
-                By leveraging structured approaches like the IRAC method (Issue, Rule, Application, Conclusion), 
-                your AI models yield significantly more precise and contextually relevant results.
-              </p>
-              <p style={{ marginBottom: '1.5rem' }}>
-                This collection demonstrates how advanced prompting techniques are transforming the practice of law, 
-                enabling attorneys to draft, analyze, and argue more effectively. We've designed these prompts to 
-                operate across multilingual legal contexts, ensuring flexibility, depth, and compliance in diverse jurisdictions.
-              </p>
-              <p>
-                At the intersection of legal thought and artificial intelligence, prompting becomes not only a tool—but a new legal craft.
-              </p>
-            </div>
-          </div>
-
-          {/* Section des avantages */}
-          <div className="benefits-section">
-            <div className="benefits-title-line" style={{ marginBottom: '2rem' }}>
-              <span 
-                className="benefits-title"
-                style={{
-                  fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-                  fontWeight: '700',
-                  color: '#fafafa',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em'
-                }}
-              >
-                BENEFITS FOR HOLDERS
-              </span>
-            </div>
-            
-            <div 
-              className="benefits-list"
-              style={{
-                display: 'grid',
-                gap: '1.5rem',
-                maxWidth: '90ch',
-                margin: '0 auto'
-              }}
-            >
-              {[
-                "Contribute to the evolution of legal prompting strategies and frameworks",
-                "Access a free hub for share prompts and work for transparency",
-                "Create your prompts in private and keep your strategy",
-                "Enjoy early access to new prompt collections, the legal agents will coming soon",
-                "Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs"
-              ].map((benefit, index) => (
-                <div 
-                  key={index}
-                  className="benefits-item"
+                <h3 
                   style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '1rem'
+                    fontSize: '1.3rem',
+                    fontWeight: '700',
+                    color: '#fafafa',
+                    marginBottom: '1rem',
+                    lineHeight: '1.3'
                   }}
                 >
-                  <div 
-                    className="benefit-icon-circle"
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '50%',
-                      background: 'rgba(255, 255, 255, 0.1)',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0
-                    }}
-                  >
-                    <svg 
-                      width="20" 
-                      height="20"
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2"
-                      style={{ color: '#fafafa' }}
-                    >
-                      <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
-                    </svg>
-                  </div>
-                  <span
-                    style={{
-                      fontSize: 'clamp(0.9rem, 1.7vw, 1.05rem)',
-                      lineHeight: '1.6',
-                      color: 'rgba(250, 250, 250, 0.9)'
-                    }}
-                  >
-                    {benefit}
-                  </span>
+                  {prompt.title}
+                </h3>
+                <div 
+                  style={{
+                    fontSize: '1rem',
+                    color: 'rgba(250, 250, 250, 0.8)',
+                    lineHeight: '1.5',
+                    overflow: 'hidden',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical'
+                  }}
+                >
+                  {prompt.body}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Modal Dialog avec animation */}
+        <div style={{ padding: '0 2rem', marginBottom: '4rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span 
+              style={{
+                fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                fontWeight: '700',
+                color: '#fafafa',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em'
+              }}
+            >
+              ABOUT THE PROMPTING ART
+            </span>
+          </div>
+          
+          <div 
+            style={{
+              maxWidth: '80ch',
+              margin: '0 auto',
+              fontSize: 'clamp(0.95rem, 1.8vw, 1.1rem)',
+              lineHeight: '1.7',
+              color: 'rgba(250, 250, 250, 0.9)'
+            }}
+          >
+            <p style={{ marginBottom: '1.5rem' }}>
+              The art of prompting is not just a technical exercise—it's a strategic method of legal reasoning. 
+              By leveraging structured approaches like the IRAC method (Issue, Rule, Application, Conclusion), 
+              your AI models yield significantly more precise and contextually relevant results.
+            </p>
+            <p style={{ marginBottom: '1.5rem' }}>
+              This collection demonstrates how advanced prompting techniques are transforming the practice of law, 
+              enabling attorneys to draft, analyze, and argue more effectively. We've designed these prompts to 
+              operate across multilingual legal contexts, ensuring flexibility, depth, and compliance in diverse jurisdictions.
+            </p>
+            <p>
+              At the intersection of legal thought and artificial intelligence, prompting becomes not only a tool—but a new legal craft.
+            </p>
+          </div>
+        </div>
+
+        <div style={{ padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span 
+              style={{
+                fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                fontWeight: '700',
+                color: '#fafafa',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em'
+              }}
+            >
+              BENEFITS FOR HOLDERS
+            </span>
+          </div>
+          
+          <div 
+            style={{
+              display: 'grid',
+              gap: '1.5rem',
+              maxWidth: '90ch',
+              margin: '0 auto'
+            }}
+          >
+            {[
+              "Contribute to the evolution of legal prompting strategies and frameworks",
+              "Access a free hub for share prompts and work for transparency",
+              "Create your prompts in private and keep your strategy",
+              "Enjoy early access to new prompt collections, the legal agents will coming soon",
+              "Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs"
+            ].map((benefit, index) => (
+              <div 
+                key={index}
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '1rem'
+                }}
+              >
+                <div 
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%',
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}
+                >
+                  <svg 
+                    width="20" 
+                    height="20"
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                    style={{ color: '#fafafa' }}
+                  >
+                    <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+                  </svg>
+                </div>
+                <span
+                  style={{
+                    fontSize: 'clamp(0.9rem, 1.7vw, 1.05rem)',
+                    lineHeight: '1.6',
+                    color: 'rgba(250, 250, 250, 0.9)'
+                  }}
+                >
+                  {benefit}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <AnimatePresence>
           {isDialogOpen && selectedPrompt && (
             <motion.div
@@ -499,28 +481,10 @@ const CollectionSection = () => {
               onClick={handleCloseDialog}
             >
               <motion.div
-                initial={{ 
-                  opacity: 0,
-                  scale: 0.3
-                }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  x: 0,
-                  y: 0
-                }}
-                exit={{ 
-                  opacity: 0,
-                  scale: 0.3,
-                  x: '-50%',
-                  y: '-50%'
-                }}
-                transition={{ 
-                  type: 'spring', 
-                  bounce: 0.05, 
-                  duration: 0.4 
-                }}
-                className="modal-content"
+                initial={{ opacity: 0, scale: 0.3 }}
+                animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                exit={{ opacity: 0, scale: 0.3, x: '-50%', y: '-50%' }}
+                transition={{ type: 'spring', bounce: 0.05, duration: 0.4 }}
                 onClick={(e) => e.stopPropagation()}
                 style={{
                   background: 'rgba(20, 20, 20, 0.95)',
@@ -534,17 +498,16 @@ const CollectionSection = () => {
                   overflow: 'auto'
                 }}
               >
-                <div className="modal-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
-                  <div className="modal-title-section">
-                    <div className="modal-context" style={{ fontSize: '0.9rem', color: 'rgba(250, 250, 250, 0.7)', marginBottom: '0.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
+                  <div>
+                    <div style={{ fontSize: '0.9rem', color: 'rgba(250, 250, 250, 0.7)', marginBottom: '0.5rem' }}>
                       {selectedPrompt.context}
                     </div>
-                    <h2 className="modal-title" style={{ fontSize: '1.5rem', fontWeight: '700', color: '#fafafa', margin: 0 }}>
+                    <h2 style={{ fontSize: '1.5rem', fontWeight: '700', color: '#fafafa', margin: 0 }}>
                       {selectedPrompt.title}
                     </h2>
                   </div>
                   <button
-                    className="close-button"
                     onClick={handleCloseDialog}
                     aria-label="close"
                     style={{
@@ -565,10 +528,9 @@ const CollectionSection = () => {
                   </button>
                 </div>
                 
-                <div className="modal-body">
-                  <div className="prompt-textarea-container" style={{ position: 'relative', marginBottom: '2rem' }}>
+                <div>
+                  <div style={{ position: 'relative', marginBottom: '2rem' }}>
                     <textarea
-                      className="prompt-textarea"
                       value={editedPrompt}
                       onChange={(e) => setEditedPrompt(e.target.value)}
                       placeholder="Modifiez votre prompt ici..."
@@ -589,9 +551,8 @@ const CollectionSection = () => {
                     />
                   </div>
                   
-                  <div className="modal-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+                  <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
                     <button
-                      className="action-button cancel-button"
                       onClick={handleCloseDialog}
                       style={{
                         padding: '0.8rem 1.5rem',
@@ -606,7 +567,6 @@ const CollectionSection = () => {
                       Annuler
                     </button>
                     <button
-                      className="action-button submit-button"
                       onClick={handleSubmit}
                       style={{
                         padding: '0.8rem 1.5rem',
@@ -626,8 +586,8 @@ const CollectionSection = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
