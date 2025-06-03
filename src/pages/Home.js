@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: 'transparent',
     zIndex: 1,
     margin: 0,
-    padding: 0,
+    padding: 0
   }
 }));
 
@@ -57,12 +57,10 @@ export const Home = () => {
   
   return (
     <div className={classes.root}>
-      {/* Fond de sphères fixe */}
       <div className={classes.sphereBackground}>
         <DisplacementSphere />
       </div>
 
-      {/* Section Home principale */}
       <div className={classes.homeSection}>
         <LogoLink />
         <Content />
@@ -75,10 +73,8 @@ export const Home = () => {
         <FooterText />
       </div>
 
-      {/* Bouton Theme */}
       <ThemeToggle />
 
-      {/* Sections de contenu - RESTAURÉES */}
       <div className={classes.contentSection}>
         <NOGProjectSection />
       </div>

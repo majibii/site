@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NOGProjectSection = () => {
-  // Génération des 60 rectangles avec 5-6 types de hauteurs alternées
   const generateRectangles = () => {
     const rectangles = [];
     const heights = [0.2, 0.3, 0.4, 0.5, 0.6, 0.8];
@@ -39,30 +38,29 @@ const NOGProjectSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
-        padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
+        padding: '4rem 0',
         position: 'relative',
         boxSizing: 'border-box',
         margin: 0,
       }}
     >
-      {/* Container principal */}
       <div
         style={{
           textAlign: 'center',
           width: '100%',
-          maxWidth: '1400px',
+          maxWidth: '1600px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           position: 'relative',
-          margin: 0
+          margin: '0 auto',
+          padding: '0 2rem'
         }}
       >
-        {/* Container du titre avec motifs graphiques */}
         <div style={{ 
           position: 'relative', 
-          marginBottom: 'clamp(2rem, 5vh, 4rem)', 
+          marginBottom: '4rem', 
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'center', 
@@ -70,10 +68,9 @@ const NOGProjectSection = () => {
           minHeight: 'clamp(8rem, 20vh, 16rem)'
         }}>
           
-          {/* Motif graphique gauche - masqué sur mobile */}
           <div style={{ 
             position: 'absolute', 
-            left: 'clamp(0.5%, 2vw, 2%)', 
+            left: '2%', 
             top: '50%',
             transform: 'translateY(-50%)',
             display: window.innerWidth > 768 ? 'flex' : 'none',
@@ -94,7 +91,6 @@ const NOGProjectSection = () => {
             </div>
           </div>
 
-          {/* Titre principal avec effet glassy */}
           <h1
             style={{
               fontSize: 'clamp(3rem, 12vw, 12rem)',
@@ -122,10 +118,9 @@ const NOGProjectSection = () => {
             </div>
           </h1>
 
-          {/* Motif graphique droite - masqué sur mobile */}
           <div style={{ 
             position: 'absolute', 
-            right: 'clamp(0.5%, 2vw, 2%)', 
+            right: '2%', 
             top: '50%',
             transform: 'translateY(-50%)',
             display: window.innerWidth > 768 ? 'flex' : 'none',
@@ -147,20 +142,18 @@ const NOGProjectSection = () => {
           </div>
         </div>
 
-        {/* Description avec effet glassy */}
         <div
           style={{
             fontSize: 'clamp(0.9rem, 2.2vw, 1.25rem)',
             color: '#fafafa',
-            lineHeight: 'clamp(1.4, 1.6, 1.8)',
+            lineHeight: '1.6',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
             fontWeight: '500',
             margin: '0 auto',
             textAlign: 'center',
             width: '100%',
-            maxWidth: 'min(95%, 80ch)',
-            marginTop: 'clamp(1rem, 3vw, 2rem)',
-            padding: 'clamp(1rem, 2vw, 2rem)',
+            maxWidth: '1200px',
+            padding: '2rem',
             boxSizing: 'border-box',
             textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
             background: 'rgba(255, 255, 255, 0.1)',
@@ -170,24 +163,13 @@ const NOGProjectSection = () => {
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
           }}
         >
-          <div style={{ 
-            marginBottom: 'clamp(0.6rem, 1.5vw, 1rem)',
-            wordWrap: 'break-word',
-            hyphens: 'auto'
-          }}>
+          <div style={{ marginBottom: '1rem' }}>
             A modular platform to build, orchestrate, and govern legal agents with full traceability
           </div>
-          <div style={{ 
-            marginBottom: 'clamp(0.6rem, 1.5vw, 1rem)',
-            wordWrap: 'break-word',
-            hyphens: 'auto'
-          }}>
+          <div style={{ marginBottom: '1rem' }}>
             From prompts to legal logic chains, it powers compliant and scalable legal automation
           </div>
-          <div style={{ 
-            wordWrap: 'break-word',
-            hyphens: 'auto'
-          }}>
+          <div>
             Crafted by its own community
           </div>
         </div>
