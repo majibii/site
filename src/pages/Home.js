@@ -10,6 +10,7 @@ import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
 import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
+import LegalStackSection from '../components/legalStack/LegalStackSection';
 import { motion } from 'framer-motion';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 
@@ -77,6 +78,10 @@ export const Home = () => {
 
       <div className={classes.contentSection}>
         <NOGProjectSection />
+      </div>
+
+      <div className={classes.contentSection}>
+        <LegalStackSection />
       </div>
 
       <div className={classes.contentSection}>
