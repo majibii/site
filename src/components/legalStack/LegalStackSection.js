@@ -8,22 +8,71 @@ const LegalStackSection = () => {
 
   const benefits = [
     {
-      icon: "🔧",
+      icon: (
+        <svg 
+          width="24" 
+          height="24"
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2"
+          style={{ color: '#fafafa' }}
+        >
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+      ),
       title: "Accelerate Agent Construction",
       description: "Model rapidly with a visual interface and reusable templates. Combine prompts, documents, and business functions without technical complexity."
     },
     {
-      icon: "🛡️",
+      icon: (
+        <svg 
+          width="24" 
+          height="24"
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2"
+          style={{ color: '#fafafa' }}
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      ),
       title: "Deliver Reliable Agents",
       description: "Track and trace your agents with comprehensive monitoring and validation systems for consistent performance."
     },
     {
-      icon: "📈",
+      icon: (
+        <svg 
+          width="24" 
+          height="24"
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2"
+          style={{ color: '#fafafa' }}
+        >
+          <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+        </svg>
+      ),
       title: "Gain Efficiency",
       description: "Optimize team work with configurable agents that adapt to your workflow and business requirements."
     },
     {
-      icon: "⚖️",
+      icon: (
+        <svg 
+          width="24" 
+          height="24"
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2"
+          style={{ color: '#fafafa' }}
+        >
+          <path d="M9 12l2 2 4-4"/>
+          <path d="M21 12c.552 0 1-.448 1-1V8c0-.552-.448-1-1-1h-1V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v1H3c-.552 0-1 .448-1 1v3c0 .552.448 1 1 1h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1h1z"/>
+        </svg>
+      ),
       title: "Ensure Compliance",
       description: "Built-in governance and audit trails ensure your legal agents meet regulatory requirements and professional standards."
     }
@@ -162,34 +211,51 @@ const LegalStackSection = () => {
             >
               <div 
                 style={{
-                  fontSize: '2.5rem',
-                  marginBottom: '1rem',
-                  display: 'block'
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '1rem'
                 }}
               >
-                {benefit.icon}
+                <div 
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%',
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}
+                >
+                  {benefit.icon}
+                </div>
+                <div style={{ flex: 1 }}>
+                  <h3 
+                    style={{
+                      fontSize: 'clamp(1.1rem, 2vw, 1.3rem)',
+                      fontWeight: '700',
+                      color: '#fafafa',
+                      marginBottom: '1rem',
+                      lineHeight: '1.3',
+                      margin: '0 0 1rem 0'
+                    }}
+                  >
+                    {benefit.title}
+                  </h3>
+                  <p 
+                    style={{
+                      fontSize: 'clamp(0.9rem, 1.8vw, 1rem)',
+                      color: 'rgba(250, 250, 250, 0.8)',
+                      lineHeight: '1.5',
+                      margin: 0
+                    }}
+                  >
+                    {benefit.description}
+                  </p>
+                </div>
               </div>
-              <h3 
-                style={{
-                  fontSize: 'clamp(1.1rem, 2vw, 1.3rem)',
-                  fontWeight: '700',
-                  color: '#fafafa',
-                  marginBottom: '1rem',
-                  lineHeight: '1.3'
-                }}
-              >
-                {benefit.title}
-              </h3>
-              <p 
-                style={{
-                  fontSize: 'clamp(0.9rem, 1.8vw, 1rem)',
-                  color: 'rgba(250, 250, 250, 0.8)',
-                  lineHeight: '1.5',
-                  margin: 0
-                }}
-              >
-                {benefit.description}
-              </p>
             </div>
           ))}
         </div>
