@@ -81,11 +81,11 @@ export const Home = () => {
       </div>
 
       <div className={classes.contentSection}>
-        <LegalStackSection />
+        <StorySection />
       </div>
 
       <div className={classes.contentSection}>
-        <StorySection />
+        <LegalStackSection />
       </div>
 
       <div className={classes.contentSection}>
