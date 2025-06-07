@@ -37,17 +37,17 @@ varying float noise;
 void main() {
   #include <clipping_planes_fragment>
   
-  // color base Yellow
-  vec3 baseYellow = vec3(1.0, 0.843, 0.0); // #FFD700
+  // Couleur de base noire (même que le site)
+  vec3 baseBlack = vec3(0.184, 0.184, 0.180); // #2f2f2e converti en RGB normalisé
   
   // Calcul de l'intensité basée sur le bruit
   float noiseIntensity = abs(noise); // Valeur absolue du bruit
   
-  // Légèrement plus de jaune : baisse un peu le seuil haut
-  float whiteFactor = smoothstep(0.15, 0.5, noiseIntensity);
+  // Variation subtile : du noir vers un gris très foncé
+  float grayFactor = smoothstep(0.15, 0.5, noiseIntensity);
   
-  // Mélange : blanc au centre (bruit faible) vers jaune foncé sur les pointes (bruit fort)
-  vec3 finalColor = mix(vec3(1.0, 1.0, 1.0), baseYellow, whiteFactor);
+  // Mélange : noir au centre vers gris très foncé sur les pointes
+  vec3 finalColor = mix(baseBlack, vec3(0.3, 0.3, 0.3), grayFactor * 0.3);
   
   vec4 diffuseColor = vec4(finalColor, 1.0);
   ReflectedLight reflectedLight = ReflectedLight(vec3(0.0), vec3(0.0), vec3(0.0), vec3(0.0));
