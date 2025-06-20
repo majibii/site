@@ -1,10 +1,10 @@
 ::-moz-selection {
-    background: #00bfbf;
+    background: #fce96b;
     color: #fafafa;
     text-shadow: none;
 }
 ::selection {
-    background: #00bfbf;
+    background: #fce96b;
     color: #fafafa;
     text-shadow: none;
 }

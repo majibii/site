@@ -1,10 +1,10 @@
 {
-    "name": "personal-website-react",
+    "name": "eggon-website-react",
     "version": "0.2.0",
-    "homepage": "https://jolienhoop.com",
-    "description": "This is a clean customizable portfolio template for developers.",
-    "repository": "https://github.com/JoHoop/personal-website-react",
-    "author": "Jo Lienhoop <hey@jolienhoop.com>",
+    "homepage": "https://eggon-technology.com",
+    "description": "This is a clean portfolio template for developerss.",
+    "repository": "https://github.com/xxx/personal-website-react",
+    "author": "Marina Jacquet <m.jacquet@eggon.fr>",
     "license": "MIT",
     "dependencies": {
         "@material-ui/core": "^4.11.0",
@@ -14,6 +14,7 @@
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
         "classnames": "^2.2.6",
+        "framer-motion": "^4.1.17",
         "ios-inner-height": "^1.1.1",
         "popmotion": "^8.7.3",
         "react": "^16.13.1",
@@ -29,6 +30,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
+        "dev": "react-scripts start",
         "build": "react-scripts build && react-snapshot",
         "test": "react-scripts test",
         "eject": "react-scripts eject"

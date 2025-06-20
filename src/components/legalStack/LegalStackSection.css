@@ -1,0 +1,37 @@
+.legal-stack-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .legal-stack-section {
+    padding: clamp(3rem, 6vh, 4rem) clamp(0.5rem, 2vw, 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-stack-section {
+    padding: clamp(2rem, 4vh, 3rem) 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .legal-stack-section *,
+  .legal-stack-section *::before,
+  .legal-stack-section *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: no-preference) {
+  .legal-stack-section {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}

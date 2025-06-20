@@ -6,11 +6,17 @@ import { Brightness4, Brightness7 } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
     iconButton: {
-        position: "absolute",
-        bottom: theme.spacing(6),
-        right: theme.spacing(6),
+        position: "fixed", // Changed from absolute to fixed
+        bottom: theme.spacing(3), // Reduced spacing
+        right: theme.spacing(3), // Reduced spacing
         height: "2.5rem",
         width: "2.5rem",
+        zIndex: 9999, // High z-index
+        backgroundColor: theme.palette.background.paper, // Visible background
+        border: `2px solid ${theme.palette.primary.main}`, // Border for visibility
+        '&:hover': {
+            backgroundColor: theme.palette.primary.main,
+        },
     },
     icon: {
         fontSize: "1.25rem",
@@ -24,7 +30,7 @@ export const ThemeToggle = () => {
     return (
         <Tooltip
             title={"Toggle theme"}
-            placement="right"
+            placement="left" // Changed from right to left
             TransitionComponent={Zoom}
         >
             <IconButton

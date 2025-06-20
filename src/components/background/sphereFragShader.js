@@ -34,16 +34,24 @@ varying float noise;
 #include <specularmap_pars_fragment>
 #include <logdepthbuf_pars_fragment>
 #include <clipping_planes_pars_fragment>
-
 void main() {
   #include <clipping_planes_fragment>
-
-  vec3 color = vec3(vUv * (0.2 - 2.0 * noise), 1.0);
-  vec3 finalColors = vec3(color.b * 1.5, color.r, color.r);
-  vec4 diffuseColor = vec4(cos(finalColors * noise * 3.0), 1.0);
+  
+  // Couleur de base noire (même que le site)
+  vec3 baseBlack = vec3(0.184, 0.184, 0.180); // #2f2f2e converti en RGB normalisé
+  
+  // Calcul de l'intensité basée sur le bruit
+  float noiseIntensity = abs(noise); // Valeur absolue du bruit
+  
+  // Variation subtile : du noir vers un gris très foncé
+  float grayFactor = smoothstep(0.15, 0.5, noiseIntensity);
+  
+  // Mélange : noir au centre vers gris très foncé sur les pointes
+  vec3 finalColor = mix(baseBlack, vec3(0.3, 0.3, 0.3), grayFactor * 0.3);
+  
+  vec4 diffuseColor = vec4(finalColor, 1.0);
   ReflectedLight reflectedLight = ReflectedLight(vec3(0.0), vec3(0.0), vec3(0.0), vec3(0.0));
   vec3 totalEmissiveRadiance = emissive;
-
   #include <logdepthbuf_fragment>
   #include <map_fragment>
   #include <color_fragment>
@@ -58,15 +66,12 @@ void main() {
   #include <lights_fragment_maps>
   #include <lights_fragment_end>
   #include <aomap_fragment>
-
   vec3 outgoingLight = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse + reflectedLight.directSpecular + reflectedLight.indirectSpecular + totalEmissiveRadiance;
-
   #include <envmap_fragment>
   #include <premultiplied_alpha_fragment>
   #include <tonemapping_fragment>
   #include <encodings_fragment>
   #include <fog_fragment>
-
   gl_FragColor = vec4(outgoingLight, diffuseColor.a);
 }
 `;
