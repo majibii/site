@@ -1,47 +1,68 @@
-import React, { useEffect } from "react";
-import { useDencrypt } from "use-dencrypt-effect";
+import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
-const decryptOptions = {
-    chars: [
-        // Syntax & structure
-        "{", "}", "[", "]", "(", ")", "<", ">", ":", ",", ".", "-", "/", "*", "~",
-
-        // Logic & math
-        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-        "=", "+", "-", "*", "%", "&", "|", "!", "?",
-
-        // IA / vector DB semantics
-        "q", "k", "v", "d",     // query, key, value, dimension
-        "r", "a", "g",            // retrieval-augmented generation (RAG)
-        "e", "m", "b",            // embedding
-        "i", "n", "x",            // index
-
-        // ML notation & Greek letters
-        "λ", "θ", "μ", "α", "β",
-
-        // Villes symboliques (autorisées)
-        "C", "A", "D", "I", "Z",
-        "P", "R", "S"
-    ],
-    interval: 50,
-};
+const useStyles = makeStyles((theme) => ({
+    shimmerContainer: {
+        position: 'relative',
+        display: 'inline-block',
+        overflow: 'hidden',
+    },
+    shimmerText: {
+        background: `linear-gradient(90deg, 
+            transparent 0%, 
+            transparent 40%, 
+            ${theme.palette.primary.main} 50%, 
+            transparent 60%, 
+            transparent 100%)`,
+        backgroundSize: '200% 100%',
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+        animation: '$shimmer 2s ease-in-out',
+        animationFillMode: 'forwards',
+    },
+    '@keyframes shimmer': {
+        '0%': {
+            backgroundPosition: '-200% 0',
+            color: 'transparent',
+        },
+        '50%': {
+            backgroundPosition: '0% 0',
+            color: 'transparent',
+        },
+        '100%': {
+            backgroundPosition: '200% 0',
+            color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
+        },
+    },
+    finalText: {
+        color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
+    }
+}));
 
 export const TextDecrypt = (props) => {
-    const { result, dencrypt } = useDencrypt(decryptOptions);
+    const classes = useStyles();
+    const [isAnimating, setIsAnimating] = useState(true);
 
     useEffect(() => {
-        const updateText = () => {
-            dencrypt(props.text || "");
-        };
+        const timer = setTimeout(() => {
+            setIsAnimating(false);
+        }, 2000); // Match animation duration
 
-        const action = setTimeout(updateText, 0);
+        return () => clearTimeout(timer);
+    }, [props.text]);
 
-        return () => clearTimeout(action);
-    }, [dencrypt, props.text]);
+    // Reset animation when text changes
+    useEffect(() => {
+        setIsAnimating(true);
+    }, [props.text]);
 
     return (
-        <p>
-            {result}&nbsp;
+        <p className={classes.shimmerContainer}>
+            <span className={isAnimating ? classes.shimmerText : classes.finalText}>
+                {props.text || ""}
+            </span>
+            &nbsp;
         </p>
     );
 };
