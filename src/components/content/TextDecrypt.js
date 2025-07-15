@@ -1,77 +1,59 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
+/*
+ * TextDecrypt – pixel‑style headline with a single, slow left‑to‑right scan.
+ * – Keeps text always readable (no transparent fill).
+ * – Scan overlay animates once (2.4 s) then disappears.
+ * – Re‑triggers automatically when the `text` prop changes.
+ */
+
 const useStyles = makeStyles((theme) => ({
   container: {
+    position: "relative",
     display: "inline-block",
+    overflow: "hidden",
+  },
+  text: {
     position: "relative",
+    zIndex: 1,
+    color:
+      theme.palette.foreground?.default ||
+      (theme.palette.type === "dark" ? "#fafafa" : "#2f2f2e"),
+    fontFamily: "Delicatus, monospace", // pixel‑style branding
   },
-  scanText: {
-    color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
-    fontFamily: "Delicatus, monospace",
-    fontSize: "2.2rem",
-    position: "relative",
-    "&::after": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: `linear-gradient(90deg,
-        rgba(136, 136, 136, 0) 0%,
-        rgba(136, 136, 136, 0.3) 8%,
-        rgba(136, 136, 136, 0.3) 92%,
-        rgba(136, 136, 136, 0) 100%)`,
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "12% 100%",
-      backgroundPosition: "-100% 0",
-      animation: "$reveal 1.8s forwards ease-out",
-      filter: "blur(0px)",
-      pointerEvents: "none",
-    }
+  scan: {
+    position: "absolute",
+    top: 0,
+    left: "-100%",
+    width: "100%",
+    height: "100%",
+    background:
+      "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%)",
+    animation: "$scan 2.4s ease-out 1", // slow, single pass
+    pointerEvents: "none",
   },
-  visibleText: {
-    fontFamily: "Delicatus, monospace",
-    fontSize: "2.2rem",
-    color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
-    whiteSpace: "pre-line",
-  },
-  "@keyframes reveal": {
-    "0%": {
-      backgroundPosition: "-100% 0",
-      filter: "blur(0px)",
-    },
-    "40%": {
-      filter: "blur(0.8px)",
-    },
-    "60%": {
-      filter: "blur(0.8px)",
-    },
-    "100%": {
-      backgroundPosition: "100% 0",
-      filter: "blur(0px)",
-    },
+  "@keyframes scan": {
+    "0%": { left: "-100%" },
+    "100%": { left: "100%" },
   },
 }));
 
-export const TextDecrypt = ({ text = "", variant = "egg" }) => {
+export const TextDecrypt = ({ text = "", className }) => {
   const classes = useStyles();
   const [showScan, setShowScan] = useState(true);
 
   useEffect(() => {
+    // Trigger scan on mount & whenever text changes
     setShowScan(true);
-    const timer = setTimeout(() => setShowScan(false), 1800);
+    const timer = setTimeout(() => setShowScan(false), 2400);
     return () => clearTimeout(timer);
   }, [text]);
 
   return (
-    <span className={classes.container}>
-      {variant === "egg" ? (
-        <span className={showScan ? classes.scanText : classes.visibleText}>{text}</span>
-      ) : (
-        <span className={classes.visibleText}>{text}</span>
-      )}
+    <span className={`${classes.container} ${className || ""}`.trim()}>
+      <span className={classes.text}>{text}</span>
+      {showScan && <span className={classes.scan} />} {/* overlay scan */}
     </span>
   );
 };
