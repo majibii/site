@@ -5,38 +5,39 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "inline-block",
     position: "relative",
+    overflow: "hidden",
   },
-  scanText: {
-    background: `linear-gradient(
-      90deg,
-      ${theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e')} 0%,
-      rgba(255,255,255,0.45) 50%,
-      ${theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e')} 100%
-    )`,
-    backgroundSize: "200% 100%",
-    backgroundClip: "text",
-    WebkitBackgroundClip: "text",
-    color: "transparent",
-    animation: "$scanTextSmooth 2.8s ease-out 1 forwards",
+  textBase: {
     fontFamily: "Delicatus, monospace",
+    position: "relative",
   },
-  '@keyframes scanTextSmooth': {
+  textRevealed: {
+    color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
+    clipPath: "inset(0 100% 0 0)",
+    animation: "$revealText 2.4s ease-out 1 forwards",
+  },
+  textHidden: {
+    color: theme.palette.type === 'dark' ? '#2f2f2e' : '#fafafa',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    clipPath: "inset(0 0 0 0)",
+    animation: "$hideText 2.4s ease-out 1 forwards",
+  },
+  '@keyframes revealText': {
     '0%': {
-      backgroundPosition: '200% 0%',
-    },
-    '70%': {
-      backgroundPosition: '0% 0%',
-    },
-    '85%': {
-      backgroundPosition: '-20% 0%',
+      clipPath: "inset(0 100% 0 0)",
     },
     '100%': {
-      backgroundPosition: '-50% 0%',
-      background: `linear-gradient(
-        90deg,
-        ${theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e')} 0%,
-        ${theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e')} 100%
-      )`,
+      clipPath: "inset(0 0 0 0)",
+    }
+  },
+  '@keyframes hideText': {
+    '0%': {
+      clipPath: "inset(0 0 0 0)",
+    },
+    '100%': {
+      clipPath: "inset(0 0 0 100%)",
     }
   },
   finalText: {
@@ -51,15 +52,26 @@ export const TextDecrypt = ({ text = "" }) => {
 
   useEffect(() => {
     setShowScan(true);
-    const timer = setTimeout(() => setShowScan(false), 2800);
+    const timer = setTimeout(() => setShowScan(false), 2400);
     return () => clearTimeout(timer);
   }, [text]);
 
   return (
     <span className={classes.container}>
-      <span className={showScan ? classes.scanText : classes.finalText}>
-        {text}
-      </span>
+      {showScan ? (
+        <span className={classes.textBase}>
+          <span className={classes.textRevealed}>
+            {text}
+          </span>
+          <span className={classes.textHidden}>
+            {text}
+          </span>
+        </span>
+      ) : (
+        <span className={classes.finalText}>
+          {text}
+        </span>
+      )}
     </span>
   );
 };
