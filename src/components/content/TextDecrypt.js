@@ -17,15 +17,26 @@ const useStyles = makeStyles((theme) => ({
     backgroundClip: "text",
     WebkitBackgroundClip: "text",
     color: "transparent",
-    animation: "$scanText 2.4s ease-out 1",
+    animation: "$scanTextSmooth 2.8s ease-out 1 forwards",
     fontFamily: "Delicatus, monospace",
   },
-  '@keyframes scanText': {
+  '@keyframes scanTextSmooth': {
     '0%': {
       backgroundPosition: '200% 0%',
     },
-    '100%': {
+    '70%': {
       backgroundPosition: '0% 0%',
+    },
+    '85%': {
+      backgroundPosition: '-20% 0%',
+    },
+    '100%': {
+      backgroundPosition: '-50% 0%',
+      background: `linear-gradient(
+        90deg,
+        ${theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e')} 0%,
+        ${theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e')} 100%
+      )`,
     }
   },
   finalText: {
@@ -40,7 +51,7 @@ export const TextDecrypt = ({ text = "" }) => {
 
   useEffect(() => {
     setShowScan(true);
-    const timer = setTimeout(() => setShowScan(false), 2400);
+    const timer = setTimeout(() => setShowScan(false), 2800);
     return () => clearTimeout(timer);
   }, [text]);
 
