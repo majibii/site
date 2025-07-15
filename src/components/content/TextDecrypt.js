@@ -5,66 +5,48 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "inline-block",
     position: "relative",
-    overflow: "hidden",
   },
-  textBase: {
+  scanText: {
+    background: `linear-gradient(90deg,
+      rgba(0, 0, 0, 0) 0%,
+      ${theme.palette.primary.main} 8%,
+      ${theme.palette.primary.main} 92%,
+      rgba(0, 0, 0, 0) 100%)`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "12% 100%",
+    backgroundPosition: "-100% 0",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
     fontFamily: "Delicatus, monospace",
-    position: "relative",
-  },
-  textRevealed: {
-    color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
-    clipPath: "inset(0 100% 0 0)",
-    animation: "$revealText 1.8s ease-out 1 forwards",
+    fontSize: "2.2rem",
+    animation: "$reveal 1.8s forwards ease-out",
     filter: "blur(0px)",
   },
-  textHidden: {
-    color: theme.palette.type === 'dark' ? '#2f2f2e' : '#fafafa',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    clipPath: "inset(0 0 0 0)",
-    animation: "$hideText 1.8s ease-out 1 forwards",
-    filter: "blur(0px)",
-  },
-  '@keyframes revealText': {
-    '0%': {
-      clipPath: "inset(0 100% 0 0)",
-      filter: "blur(0px)",
-    },
-    '45%': {
-      filter: "blur(1px)",
-    },
-    '55%': {
-      filter: "blur(1px)",
-    },
-    '100%': {
-      clipPath: "inset(0 0 0 0)",
-      filter: "blur(0px)",
-    }
-  },
-  '@keyframes hideText': {
-    '0%': {
-      clipPath: "inset(0 0 0 0)",
-      filter: "blur(0px)",
-    },
-    '45%': {
-      filter: "blur(1px)",
-    },
-    '55%': {
-      filter: "blur(1px)",
-    },
-    '100%': {
-      clipPath: "inset(0 0 0 100%)",
-      filter: "blur(0px)",
-    }
-  },
-  finalText: {
-    color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
+  visibleText: {
     fontFamily: "Delicatus, monospace",
-  }
+    fontSize: "2.2rem",
+    color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
+    whiteSpace: "pre-line",
+  },
+  "@keyframes reveal": {
+    "0%": {
+      backgroundPosition: "-100% 0",
+      filter: "blur(0px)",
+    },
+    "40%": {
+      filter: "blur(0.8px)",
+    },
+    "60%": {
+      filter: "blur(0.8px)",
+    },
+    "100%": {
+      backgroundPosition: "100% 0",
+      filter: "blur(0px)",
+    },
+  },
 }));
 
-export const TextDecrypt = ({ text = "" }) => {
+export const TextDecrypt = ({ text = "", variant = "egg" }) => {
   const classes = useStyles();
   const [showScan, setShowScan] = useState(true);
 
@@ -76,19 +58,10 @@ export const TextDecrypt = ({ text = "" }) => {
 
   return (
     <span className={classes.container}>
-      {showScan ? (
-        <span className={classes.textBase}>
-          <span className={classes.textRevealed}>
-            {text}
-          </span>
-          <span className={classes.textHidden}>
-            {text}
-          </span>
-        </span>
+      {variant === "egg" ? (
+        <span className={showScan ? classes.scanText : classes.visibleText}>{text}</span>
       ) : (
-        <span className={classes.finalText}>
-          {text}
-        </span>
+        <span className={classes.visibleText}>{text}</span>
       )}
     </span>
   );
