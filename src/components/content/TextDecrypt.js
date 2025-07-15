@@ -7,37 +7,34 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
   },
   scanText: {
-    background: `linear-gradient(90deg,
-      rgba(0, 0, 0, 0) 0%,
-      ${theme.palette.primary.main} 10%,
-      ${theme.palette.primary.main} 90%,
-      rgba(0, 0, 0, 0) 100%)`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "10% 100%",
-    backgroundPosition: "-100% 0",
+    background: `linear-gradient(
+      90deg,
+      ${theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e')} 0%,
+      rgba(255,255,255,0.45) 50%,
+      ${theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e')} 100%
+    )`,
+    backgroundSize: "200% 100%",
+    backgroundClip: "text",
     WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    color: "transparent",
+    animation: "$scanText 2.4s ease-out 1",
     fontFamily: "Delicatus, monospace",
-    fontSize: "2.2rem",
-    animation: "$reveal 2.4s forwards ease-out",
   },
-  visibleText: {
-    fontFamily: "'Rubik', sans-serif",
-    fontSize: "1.15rem",
+  '@keyframes scanText': {
+    '0%': {
+      backgroundPosition: '200% 0%',
+    },
+    '100%': {
+      backgroundPosition: '0% 0%',
+    }
+  },
+  finalText: {
     color: theme.palette.foreground?.default || (theme.palette.type === 'dark' ? '#fafafa' : '#2f2f2e'),
-    whiteSpace: "pre-line",
-  },
-  "@keyframes reveal": {
-    "0%": {
-      backgroundPosition: "-100% 0",
-    },
-    "100%": {
-      backgroundPosition: "100% 0",
-    },
-  },
+    fontFamily: "Delicatus, monospace",
+  }
 }));
 
-export const TextDecrypt = ({ text = "", variant = "egg" }) => {
+export const TextDecrypt = ({ text = "" }) => {
   const classes = useStyles();
   const [showScan, setShowScan] = useState(true);
 
@@ -49,11 +46,9 @@ export const TextDecrypt = ({ text = "", variant = "egg" }) => {
 
   return (
     <span className={classes.container}>
-      {variant === "egg" ? (
-        <span className={showScan ? classes.scanText : classes.visibleText}>{text}</span>
-      ) : (
-        <span className={classes.visibleText}>{text}</span>
-      )}
+      <span className={showScan ? classes.scanText : classes.finalText}>
+        {text}
+      </span>
     </span>
   );
 };
