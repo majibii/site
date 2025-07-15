@@ -16,17 +16,20 @@ const useStyles = makeStyles((theme) => ({
     storyTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
-        fontSize: 'clamp(2rem, 6vw, 4rem)',
+        fontSize: 'clamp(3rem, 8vw, 6rem)',
         lineHeight: '1.1',
         color: '#fafafa',
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
     },
     storySubtitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '500',
-        fontSize: 'clamp(1rem, 2.2vw, 1.3rem)',
+        fontWeight: '400',
+        fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
         lineHeight: '1.6',
         color: 'rgba(250, 250, 250, 0.9)',
+        maxWidth: '80ch',
+        margin: '0 auto',
+        textAlign: 'center',
     }
 }));
 
