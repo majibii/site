@@ -74,7 +74,7 @@ export const ParticleText = ({ text, className }) => {
       constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 3 + 1;
+        this.size = Math.random() * 2 + 2;
         this.baseX = this.x;
         this.baseY = this.y;
         this.density = (Math.random() * 30) + 1;
@@ -82,7 +82,7 @@ export const ParticleText = ({ text, className }) => {
       }
 
       draw() {
-        ctx.fillStyle = 'rgba(250, 250, 250, 0.8)';
+        ctx.fillStyle = 'rgba(250, 250, 250, 0.9)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
@@ -139,25 +139,25 @@ export const ParticleText = ({ text, className }) => {
 
       // Create text
       ctx.clearRect(0, 0, width, height);
-      ctx.font = `bold ${Math.min(width / 12, 80)}px "Inter", -apple-system, BlinkMacSystemFont, sans-serif`;
+      ctx.font = `bold ${Math.min(width / 8, 120)}px "Inter", -apple-system, BlinkMacSystemFont, sans-serif`;
       ctx.fillStyle = 'white';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       
-      // Dessiner "EGGON TECHNOLOGY" sur deux lignes
-      const fontSize = Math.min(width / 12, 80);
+      // Dessiner "EggOn Technology" sur deux lignes
+      const fontSize = Math.min(width / 8, 120);
       const lineHeight = fontSize * 1.2;
       const startY = height / 2 - lineHeight / 2;
       
-      ctx.fillText('EGGON', width / 2, startY);
-      ctx.fillText('TECHNOLOGY', width / 2, startY + lineHeight);
+      ctx.fillText('EggOn', width / 2, startY);
+      ctx.fillText('Technology', width / 2, startY + lineHeight);
 
       // Get image data
       const data = ctx.getImageData(0, 0, width, height);
       
       // Create particles from text pixels
-      for (let y = 0; y < data.height; y += 3) {
-        for (let x = 0; x < data.width; x += 3) {
+      for (let y = 0; y < data.height; y += 2) {
+        for (let x = 0; x < data.width; x += 2) {
           if (data.data[(y * 4 * data.width) + (x * 4) + 3] > 128) {
             particleArray.push(new Particle(x, y));
           }
@@ -172,8 +172,8 @@ export const ParticleText = ({ text, className }) => {
           let distance = ((particleArray[a].x - particleArray[b].x) * (particleArray[a].x - particleArray[b].x))
             + ((particleArray[a].y - particleArray[b].y) * (particleArray[a].y - particleArray[b].y));
           
-          if (distance < 2600) {
-            opacityValue = 1 - (distance / 2600);
+          if (distance < 1600) {
+            opacityValue = 1 - (distance / 1600);
             
             if (mouse.x !== null && mouse.y !== null) {
               let dx = mouse.x - particleArray[a].x;
@@ -190,7 +190,7 @@ export const ParticleText = ({ text, className }) => {
                 ctx.strokeStyle = `rgba(250, 250, 250, ${opacityValue})`;
               }
             } else {
-              ctx.strokeStyle = `rgba(250, 250, 250, ${opacityValue * 0.3})`;
+              ctx.strokeStyle = `rgba(250, 250, 250, ${opacityValue * 0.5})`;
             }
             
             ctx.lineWidth = 1;
