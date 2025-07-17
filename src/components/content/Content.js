@@ -43,7 +43,7 @@ export const Content = () => {
     return (
         <Container component="main" className={`${classes.main}`} maxWidth="sm">
             <div className={classes.storyTitle}>
-                <ParticleText text={Resume.basics.x_title} />
+                <ParticleText text="EGGON TECHNOLOGY" />
             </div>
             <Typography variant="h5" component="h2" gutterBottom className={classes.storySubtitle}>
                 {Resume.basics.job}

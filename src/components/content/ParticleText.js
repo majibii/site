@@ -139,25 +139,25 @@ export const ParticleText = ({ text, className }) => {
 
       // Create text
       ctx.clearRect(0, 0, width, height);
-      ctx.font = `bold ${Math.min(width / 8, 120)}px "Inter", -apple-system, BlinkMacSystemFont, sans-serif`;
+      ctx.font = `bold ${Math.min(width / 12, 80)}px "Inter", -apple-system, BlinkMacSystemFont, sans-serif`;
       ctx.fillStyle = 'white';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       
-      const lines = text.split('\n');
-      const lineHeight = Math.min(width / 8, 120) * 1.2;
-      const startY = height / 2 - ((lines.length - 1) * lineHeight) / 2;
+      // Dessiner "EGGON TECHNOLOGY" sur deux lignes
+      const fontSize = Math.min(width / 12, 80);
+      const lineHeight = fontSize * 1.2;
+      const startY = height / 2 - lineHeight / 2;
       
-      lines.forEach((line, index) => {
-        ctx.fillText(line, width / 2, startY + index * lineHeight);
-      });
+      ctx.fillText('EGGON', width / 2, startY);
+      ctx.fillText('TECHNOLOGY', width / 2, startY + lineHeight);
 
       // Get image data
       const data = ctx.getImageData(0, 0, width, height);
       
       // Create particles from text pixels
-      for (let y = 0; y < data.height; y += 4) {
-        for (let x = 0; x < data.width; x += 4) {
+      for (let y = 0; y < data.height; y += 3) {
+        for (let x = 0; x < data.width; x += 3) {
           if (data.data[(y * 4 * data.width) + (x * 4) + 3] > 128) {
             particleArray.push(new Particle(x, y));
           }
