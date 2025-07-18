@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Resume from "../../settings/resume.json";
+import ShinyText from "./ShinyText";
 
 const useStyles = makeStyles((theme) => ({
     main: {
@@ -38,13 +39,13 @@ export const Content = () => {
 
     return (
         <Container component="main" className={`${classes.main}`} maxWidth="sm">
-            <Typography
+            <ShinyText
+                text={Resume.basics.x_title}
                 variant="h2"
                 component="h1"
                 className={classes.title}
-            >
-                {Resume.basics.x_title}
-            </Typography>
+                speed={4}
+            />
             <Typography
                 variant="h5"
                 component="h2"
