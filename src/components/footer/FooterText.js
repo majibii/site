@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Link } from '@material-ui/core';
-import ShinyText from '../content/ShinyText';
 import { HeartIcon } from '../content/SponsorButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,11 +31,13 @@ export const FooterText = () => {
       className={classes.footerText}
     >
       <HeartIcon />
-      <ShinyText 
-        text=" Sponsor"
+      <Typography
         variant="body1"
-        speed={3}
-      />
+        component="span"
+        style={{ marginLeft: '0.5rem' }}
+      >
+        Sponsor
+      </Typography>
     </Link>
   );
 };
