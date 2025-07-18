@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { TextDecrypt } from "./TextDecrypt";
+import ShinyText from "./ShinyText";
 import Resume from "../../settings/resume.json";
 import { FirstName } from "../../utils/getName";
 
@@ -38,12 +38,22 @@ export const Content = () => {
 
     return (
         <Container component="main" className={`${classes.main}`} maxWidth="sm">
-            <Typography variant="h2" component="h1" gutterBottom className={classes.storyTitle}>
-                <TextDecrypt text={`${Resume.basics.x_title}`} />
-            </Typography>
-            <Typography variant="h5" component="h2" gutterBottom className={classes.storySubtitle}>
-                <TextDecrypt text={`${Resume.basics.job}`} />
-            </Typography>
+            <ShinyText 
+                text={Resume.basics.x_title}
+                variant="h2"
+                component="h1"
+                className={classes.storyTitle}
+                speed={4}
+                style={{ marginBottom: '1rem' }}
+            />
+            <ShinyText 
+                text={Resume.basics.job}
+                variant="h5"
+                component="h2"
+                className={classes.storySubtitle}
+                speed={5}
+                style={{ marginBottom: '1rem' }}
+            />
         </Container>
     );
 };
