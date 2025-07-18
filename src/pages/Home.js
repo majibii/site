@@ -3,7 +3,7 @@ import { LogoLink } from '../components/logo/LogoLink';
 import { Content } from '../components/content/Content';
 import { Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import DisplacementSphere from '../components/background/DisplacementSphere';
+import Dither from '../components/background/Dither';
 import { FooterText } from '../components/footer/FooterText';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
@@ -23,12 +23,12 @@ const useStyles = makeStyles(() => ({
     padding: 0,
     position: 'relative',
   },
-  sphereBackground: {
+  ditherBackground: {
     position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
-    height: '100%',
+    height: '100vh',
     zIndex: -999,
     pointerEvents: 'none',
   },
@@ -58,8 +58,17 @@ export const Home = () => {
   
   return (
     <div className={classes.root}>
-      <div className={classes.sphereBackground}>
-        <DisplacementSphere />
+      <div className={classes.ditherBackground}>
+        <Dither
+          waveColor={[0.5, 0.5, 0.5]}
+          disableAnimation={false}
+          enableMouseInteraction={true}
+          mouseRadius={0.3}
+          colorNum={4}
+          waveAmplitude={0.3}
+          waveFrequency={3}
+          waveSpeed={0.05}
+        />
       </div>
 
       <div className={classes.homeSection}>
