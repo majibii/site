@@ -1,6 +1,6 @@
 {
-    "name": "Jo Lienhoop | Bremen, Germany",
-    "short_name": "jolienhoop.com",
+    "name": "EggOn Technology | Paris, France",
+    "short_name": "eggon-technology.com",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#00bfbf",
-    "background_color": "#171c28"
+    "theme_color": "##F9E479",
+    "background_color": "#2F2F2E"
 }
