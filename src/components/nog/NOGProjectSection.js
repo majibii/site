@@ -20,33 +20,34 @@ const NOGProjectSection = () => {
     return () => clearInterval(interval);
   }, [lines.length]);
 
-  const generateRectangles = () => {
-    const rectangles = [];
-    const heights = [0.2, 0.3, 0.4, 0.5, 0.6, 0.8];
-    
-    for (let i = 0; i < 60; i++) {
-      const randomHeight = heights[Math.floor(Math.random() * heights.length)];
-      const randomSpacing = Math.random() * 3 + 1;
-      const opacity = Math.random() * 0.3 + 0.4;
-      
-      rectangles.push(
-        <div
-          key={i}
-          style={{
-            height: `${randomHeight}px`,
-            width: 'clamp(8px, 2vw, 16px)',
-            backgroundColor: 'rgba(250, 250, 250, 0.2)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            opacity: opacity,
-            marginBottom: `${randomSpacing}px`,
-            borderRadius: '2px'
-          }}
-        />
-      );
-    }
-    return rectangles;
-  };
+  // COMMENTED OUT - Barcode effect generator for potential reuse in other sections
+  // const generateRectangles = () => {
+  //   const rectangles = [];
+  //   const heights = [0.2, 0.3, 0.4, 0.5, 0.6, 0.8];
+  //   
+  //   for (let i = 0; i < 60; i++) {
+  //     const randomHeight = heights[Math.floor(Math.random() * heights.length)];
+  //     const randomSpacing = Math.random() * 3 + 1;
+  //     const opacity = Math.random() * 0.3 + 0.4;
+  //     
+  //     rectangles.push(
+  //       <div
+  //         key={i}
+  //         style={{
+  //           height: `${randomHeight}px`,
+  //           width: 'clamp(8px, 2vw, 16px)',
+  //           backgroundColor: 'rgba(250, 250, 250, 0.2)',
+  //           backdropFilter: 'blur(10px)',
+  //           border: '1px solid rgba(255, 255, 255, 0.1)',
+  //           opacity: opacity,
+  //           marginBottom: `${randomSpacing}px`,
+  //           borderRadius: '2px'
+  //         }}
+  //       />
+  //     );
+  //   }
+  //   return rectangles;
+  // };
   
   return (
     <section
@@ -57,7 +58,7 @@ const NOGProjectSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
-        padding: '4rem 0',
+        padding: '2rem 0',
         position: 'relative',
         boxSizing: 'border-box',
         margin: 0,
@@ -77,7 +78,8 @@ const NOGProjectSection = () => {
           padding: '0 2rem'
         }}
       >
-        <div style={{ 
+        {/* COMMENTED OUT - Title and barcode effects for potential reuse in other sections */}
+        {/* <div style={{ 
           position: 'relative', 
           marginBottom: '4rem', 
           display: 'flex', 
@@ -155,7 +157,7 @@ const NOGProjectSection = () => {
               {generateRectangles()}
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div
           style={{
@@ -167,7 +169,7 @@ const NOGProjectSection = () => {
             margin: '0 auto',
             textAlign: 'center',
             width: '100%',
-            maxWidth: '1000px',
+            maxWidth: '1200px',
             padding: '2.5rem',
             boxSizing: 'border-box',
             textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
@@ -176,10 +178,10 @@ const NOGProjectSection = () => {
             border: '1px solid rgba(255, 255, 255, 0.2)',
             borderRadius: '16px',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-            marginTop: '-2rem'
+            marginTop: '0'
           }}
         >
-          <div>
+          <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
             Right now, clients are asking the EggOn team to{' '}
             <AnimatePresence mode="wait">
               <motion.span
