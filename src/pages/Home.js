@@ -4,7 +4,6 @@ import { Content } from '../components/content/Content';
 import { Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Dither from '../components/background/Dither';
-import { FooterText } from '../components/footer/FooterText';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
@@ -80,7 +79,6 @@ export const Home = () => {
         <Hidden mdUp>
           <SpeedDials />
         </Hidden>
-        <FooterText />
       </div>
 
       <ThemeToggle />
