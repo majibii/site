@@ -1,6 +1,25 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const NOGProjectSection = () => {
+  const [currentLineIndex, setCurrentLineIndex] = React.useState(0);
+  
+  const lines = [
+    "integrate enterprise databases (RAG) into a large model",
+    "build AI agents", 
+    "automation tasks",
+    "train in prompt engineering",
+    "train in security IA"
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLineIndex((prevIndex) => (prevIndex + 1) % lines.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [lines.length]);
+
   const generateRectangles = () => {
     const rectangles = [];
     const heights = [0.2, 0.3, 0.4, 0.5, 0.6, 0.8];
@@ -112,10 +131,6 @@ const NOGProjectSection = () => {
             }}
           >
             N.O.G
-            <br/>
-            <div style={{ marginTop: '0.15em' }}>
-              PROJECT
-            </div>
           </h1>
 
           <div style={{ 
@@ -144,7 +159,7 @@ const NOGProjectSection = () => {
 
         <div
           style={{
-            fontSize: 'clamp(0.9rem, 2.2vw, 1.25rem)',
+            fontSize: 'clamp(1rem, 2.4vw, 1.4rem)',
             color: '#fafafa',
             lineHeight: '1.6',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -152,25 +167,40 @@ const NOGProjectSection = () => {
             margin: '0 auto',
             textAlign: 'center',
             width: '100%',
-            maxWidth: '1200px',
-            padding: '2rem',
+            maxWidth: '1000px',
+            padding: '2.5rem',
             boxSizing: 'border-box',
             textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
             background: 'rgba(255, 255, 255, 0.1)',
             backdropFilter: 'blur(20px)',
             border: '1px solid rgba(255, 255, 255, 0.2)',
             borderRadius: '16px',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+            marginTop: '-2rem'
           }}
         >
-          <div style={{ marginBottom: '1rem' }}>
-            A modular platform to build, orchestrate, and govern legal agents with full traceability
-          </div>
-          <div style={{ marginBottom: '1rem' }}>
-            From prompts to legal logic chains, it powers compliant and scalable legal automation
-          </div>
           <div>
-            Crafted by its own community
+            Right now, clients are asking the EggOn team to{' '}
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentLineIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ 
+                  duration: 0.5,
+                  ease: "easeInOut"
+                }}
+                style={{
+                  display: 'inline-block',
+                  color: '#fce96b',
+                  fontWeight: '600',
+                  textShadow: '2px 2px 6px rgba(0, 0, 0, 0.8)'
+                }}
+              >
+                {lines[currentLineIndex]}
+              </motion.span>
+            </AnimatePresence>
           </div>
         </div>
       </div>
