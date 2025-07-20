@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import { Logo } from '../logo/Logo';
 import { useInViewport } from '../../hooks/useInViewport';
 import './StorySection.css';
@@ -44,6 +45,12 @@ const DialogueBubbles = [
 const StorySection = () => {
   const sectionRef = useRef(null);
   const isVisible = useInViewport(sectionRef, false, { threshold: 0.2 });
+  const { scrollY } = useViewportScroll();
+  
+  // Effets parallax pour différents éléments
+  const headerY = useTransform(scrollY, [0, 1000], [0, -30]);
+  const logoY = useTransform(scrollY, [0, 1000], [0, 50]);
+  const bubblesY = useTransform(scrollY, [0, 1000], [0, 20]);
   
   return (
     <section 
@@ -76,7 +83,13 @@ const StorySection = () => {
           visibility: 'visible'
         }}
       >
-        <div className="story-header" style={{ marginBottom: 'clamp(2rem, 4vh, 3rem)' }}>
+        <motion.div 
+          className="story-header" 
+          style={{ 
+            marginBottom: 'clamp(2rem, 4vh, 3rem)',
+            y: headerY
+          }}
+        >
           <h3 
             className="section-label"
             style={{
@@ -90,7 +103,7 @@ const StorySection = () => {
           >
             Story
           </h3>
-          <div 
+        </motion.div>
             className="header-line"
             style={{
               width: '100px',
@@ -101,7 +114,7 @@ const StorySection = () => {
           ></div>
         </div>
 
-        <h2 
+        <motion.h2 
           className="story-title"
           style={{
             fontSize: 'clamp(2rem, 6vw, 4rem)',
@@ -109,13 +122,14 @@ const StorySection = () => {
             color: '#fafafa',
             lineHeight: '1.1',
             marginBottom: 'clamp(1.5rem, 3vh, 2rem)',
-            textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)'
+            textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
+            y: headerY
           }}
         >
           The Legal LLM Journey — And Why It Fails (Until Now)
-        </h2>
+        </motion.h2>
 
-        <p 
+        <motion.p 
           className="story-intro"
           style={{
             fontSize: 'clamp(1rem, 2.2vw, 1.3rem)',
@@ -123,30 +137,33 @@ const StorySection = () => {
             lineHeight: '1.6',
             marginBottom: 'clamp(3rem, 6vh, 4rem)',
             maxWidth: '80ch',
-            margin: '0 auto clamp(3rem, 6vh, 4rem) auto'
+            margin: '0 auto clamp(3rem, 6vh, 4rem) auto',
+            y: headerY
           }}
         >
           You've heard about legal AI. Maybe you've tried it. But do you really understand where it fits? 
           Can you explain what it does — or why it fails? Let's find out.
-        </p>
+        </motion.p>
 
-        <div 
+        <motion.div 
           className="sticky-logo"
           style={{
             marginBottom: 'clamp(2rem, 4vh, 3rem)',
-            opacity: 0.7
+            opacity: 0.7,
+            y: logoY
           }}
         >
           <Logo />
-        </div>
+        </motion.div>
 
-        <div 
+        <motion.div 
           className="dialogue-container"
           style={{
             display: 'grid',
             gap: 'clamp(1.5rem, 3vh, 2.5rem)',
             maxWidth: '90ch',
-            margin: '0 auto'
+            margin: '0 auto',
+            y: bubblesY
           }}
         >
           {DialogueBubbles.map((bubble, index) => (
@@ -192,7 +209,7 @@ const StorySection = () => {
               ))}
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -12,6 +12,7 @@ import CollectionSection from '../components/collection/CollectionSection';
 import LegalStackSection from '../components/legalStack/LegalStackSection';
 import { motion } from 'framer-motion';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
+import ParallaxSection from '../components/parallax/ParallaxSection';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -71,10 +72,16 @@ export const Home = () => {
       </div>
 
       <div className={classes.homeSection}>
-        <LogoLink />
-        <Content />
+        <ParallaxSection offset={30} speed={0.3}>
+          <LogoLink />
+        </ParallaxSection>
+        <ParallaxSection offset={50} speed={0.5}>
+          <Content />
+        </ParallaxSection>
         <Hidden smDown>
-          <SocialIcons />
+          <ParallaxSection offset={20} speed={0.2}>
+            <SocialIcons />
+          </ParallaxSection>
         </Hidden>
         <Hidden mdUp>
           <SpeedDials />
@@ -84,19 +91,27 @@ export const Home = () => {
       <ThemeToggle />
 
       <div className={classes.contentSection}>
-        <NOGProjectSection />
+        <ParallaxSection offset={40} speed={0.4}>
+          <NOGProjectSection />
+        </ParallaxSection>
       </div>
 
       <div className={classes.contentSection}>
-        <StorySection />
+        <ParallaxSection offset={60} speed={0.6}>
+          <StorySection />
+        </ParallaxSection>
       </div>
 
       <div className={classes.contentSection}>
-        <LegalStackSection />
+        <ParallaxSection offset={35} speed={0.35}>
+          <LegalStackSection />
+        </ParallaxSection>
       </div>
 
       <div className={classes.contentSection}>
-        <CollectionSection />
+        <ParallaxSection offset={45} speed={0.45}>
+          <CollectionSection />
+        </ParallaxSection>
       </div>
     </div>
   );

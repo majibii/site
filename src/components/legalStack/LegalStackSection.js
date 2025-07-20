@@ -1,10 +1,17 @@
 import React, { useRef } from 'react';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import { useInViewport } from '../../hooks/useInViewport';
 import './LegalStackSection.css';
 
 const LegalStackSection = () => {
   const sectionRef = useRef(null);
   const isVisible = useInViewport(sectionRef, false, { threshold: 0.2 });
+  const { scrollY } = useViewportScroll();
+  
+  // Effets parallax pour différents éléments
+  const headerY = useTransform(scrollY, [0, 1000], [0, -25]);
+  const benefitsY = useTransform(scrollY, [0, 1000], [0, 15]);
+  const stackY = useTransform(scrollY, [0, 1000], [0, 30]);
 
   const benefits = [
     {
@@ -136,7 +143,13 @@ const LegalStackSection = () => {
         }}
       >
         {/* Hero Section */}
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(4rem, 8vh, 6rem)' }}>
+        <motion.div 
+          style={{ 
+            textAlign: 'center', 
+            marginBottom: 'clamp(4rem, 8vh, 6rem)',
+            y: headerY
+          }}
+        >
           <h3 
             style={{
               fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)',
@@ -175,15 +188,16 @@ const LegalStackSection = () => {
             Build, deploy, and govern legal AI agents with full traceability and compliance. 
             From prompt engineering to production deployment.
           </p>
-        </div>
+        </motion.div>
 
         {/* Benefits Grid */}
-        <div 
+        <motion.div 
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: 'clamp(1.5rem, 3vw, 2.5rem)',
-            marginBottom: 'clamp(6rem, 10vh, 8rem)'
+            marginBottom: 'clamp(6rem, 10vh, 8rem)',
+            y: benefitsY
           }}
         >
           {benefits.map((benefit, index) => (
@@ -258,10 +272,15 @@ const LegalStackSection = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Technical Stack Section */}
-        <div style={{ marginBottom: '4rem' }}>
+        <motion.div 
+          style={{ 
+            marginBottom: '4rem',
+            y: stackY
+          }}
+        >
           <h3 
             style={{
               fontSize: 'clamp(1.5rem, 3vw, 2rem)',
@@ -366,7 +385,7 @@ const LegalStackSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

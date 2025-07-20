@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useViewportScroll, useTransform } from 'framer-motion';
 import './CollectionSection.css';
 
 const legalPrompts = [
@@ -71,6 +71,12 @@ const CollectionSection = () => {
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [editedPrompt, setEditedPrompt] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { scrollY } = useViewportScroll();
+  
+  // Effets parallax pour différents éléments
+  const headerY = useTransform(scrollY, [0, 1000], [0, -20]);
+  const cardsY = useTransform(scrollY, [0, 1000], [0, 25]);
+  const benefitsY = useTransform(scrollY, [0, 1000], [0, 35]);
 
   const handleCardClick = (prompt) => {
     setSelectedPrompt(prompt);
@@ -212,7 +218,15 @@ const CollectionSection = () => {
           visibility: 'visible'
         }}
       >
-        <div className="collection-header" style={{ textAlign: 'center', marginBottom: '4rem', padding: '0 2rem' }}>
+        <motion.div 
+          className="collection-header" 
+          style={{ 
+            textAlign: 'center', 
+            marginBottom: '4rem', 
+            padding: '0 2rem',
+            y: headerY
+          }}
+        >
           <h3 
             style={{
               fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)',
@@ -279,9 +293,16 @@ const CollectionSection = () => {
           >
             Get Early Access <span>→</span>
           </button>
-        </div>
+        </motion.div>
 
-        <div style={{ overflow: 'hidden', width: '100%', marginBottom: '4rem' }}>
+        <motion.div 
+          style={{ 
+            overflow: 'hidden', 
+            width: '100%', 
+            marginBottom: '4rem',
+            y: cardsY
+          }}
+        >
           <div style={{ 
             display: 'flex',
             width: 'max-content',
@@ -433,9 +454,15 @@ const CollectionSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div style={{ padding: '0 2rem', marginBottom: '4rem' }}>
+        <motion.div 
+          style={{ 
+            padding: '0 2rem', 
+            marginBottom: '4rem',
+            y: benefitsY
+          }}
+        >
           <div style={{ marginBottom: '2rem' }}>
             <span 
               style={{
@@ -473,9 +500,14 @@ const CollectionSection = () => {
               At the intersection of legal thought and artificial intelligence, prompting becomes not only a tool—but a new legal craft.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div style={{ padding: '0 2rem' }}>
+        <motion.div 
+          style={{ 
+            padding: '0 2rem',
+            y: benefitsY
+          }}
+        >
           <div style={{ marginBottom: '2rem' }}>
             <span 
               style={{
@@ -534,7 +566,7 @@ const CollectionSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         <AnimatePresence>
           {isDialogOpen && selectedPrompt && (
