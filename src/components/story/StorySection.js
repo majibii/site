@@ -103,7 +103,7 @@ const StorySection = () => {
           >
             Story
           </h3>
-        </motion.div>
+          <div
             className="header-line"
             style={{
               width: '100px',
@@ -112,7 +112,7 @@ const StorySection = () => {
               margin: '0 auto'
             }}
           ></div>
-        </div>
+        </motion.div>
 
         <motion.h2 
           className="story-title"

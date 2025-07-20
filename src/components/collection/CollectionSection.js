@@ -67,7 +67,6 @@ const legalPrompts = [
 
 const CollectionSection = () => {
   const sectionRef = useRef(null);
-  const [uniqueId] = useState(() => `collection-${Math.random().toString(36).substr(2, 9)}`);
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [editedPrompt, setEditedPrompt] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
