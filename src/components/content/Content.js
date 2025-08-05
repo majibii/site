@@ -1,141 +1,130 @@
 import React from "react";
 import { Typography, Container, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import ShinyText from "./ShinyText";
 
 const useStyles = makeStyles((theme) => ({
     main: {
         marginTop: "auto",
         marginBottom: "auto",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        width: "100%",
-        maxWidth: "1200px",
         "@media (max-width: 768px)": {
-            flexDirection: "column",
-            textAlign: "center",
+            marginLeft: theme.spacing(4),
         },
     },
-    contentLeft: {
-        flex: "1",
-        maxWidth: "600px",
-        "@media (max-width: 768px)": {
-            maxWidth: "100%",
-        },
-    },
-    contentRight: {
-        flex: "1",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        "@media (max-width: 768px)": {
-            marginTop: "2rem",
-        },
-    },
-    imagePlaceholder: {
-        width: "300px",
-        height: "300px",
-        background: "rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(20px)",
-        border: "1px solid rgba(255, 255, 255, 0.2)",
-        borderRadius: "16px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "rgba(250, 250, 250, 0.7)",
-        fontSize: "1rem",
-        textAlign: "center",
-        "@media (max-width: 768px)": {
-            width: "250px",
-            height: "250px",
-        },
-    },
-    title: {
+    shinyTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
-        fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+        fontSize: 'clamp(2rem, 6vw, 4rem)',
         lineHeight: '1.1',
-        color: '#fafafa',
+        color: '#b5b5b5a4',
+        background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
+        backgroundSize: '200% 100%',
+        WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
+        animation: '$shine 5s linear infinite',
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
-        marginBottom: '1rem',
-        textAlign: 'left',
-        "@media (max-width: 768px)": {
-            textAlign: "center",
+        '&.disabled': {
+            animation: 'none',
+            color: '#fafafa',
+            background: 'none',
         },
     },
     subtitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '400',
-        fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+        fontWeight: '500',
+        fontSize: 'clamp(1rem, 2vw, 1.2rem)',
         lineHeight: '1.6',
         color: 'rgba(250, 250, 250, 0.9)',
-        maxWidth: '60ch',
-        margin: '0',
-        textAlign: 'left',
-        marginBottom: '1rem',
+        marginBottom: '2rem',
+    },
+    buttonContainer: {
+        display: 'flex',
+        gap: '2rem',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        marginTop: '2rem',
         "@media (max-width: 768px)": {
-            textAlign: "center",
-            margin: "0 auto 1rem auto",
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1rem',
         },
     },
-    ctaButton: {
+    primaryButton: {
+        padding: '1rem 2rem',
+        fontSize: '1rem',
+        fontWeight: '600',
+        background: 'rgba(252, 233, 107, 0.9)',
+        color: '#2f2f2e',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+            background: '#fce96b',
+            transform: 'translateY(-2px)',
+            boxShadow: '0 8px 25px rgba(252, 233, 107, 0.3)',
+        },
+    },
+    secondaryButton: {
         padding: '1rem 2rem',
         fontSize: '1rem',
         fontWeight: '600',
         background: 'rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(20px)',
-        border: '1px solid rgba(255, 255, 255, 0.3)',
-        borderRadius: '50px',
         color: '#fafafa',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
+        borderRadius: '8px',
         cursor: 'pointer',
         transition: 'all 0.3s ease',
-        marginTop: '2rem',
-        textTransform: 'none',
         '&:hover': {
             background: 'rgba(255, 255, 255, 0.2)',
             transform: 'translateY(-2px)',
-            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)',
+            boxShadow: '0 8px 25px rgba(255, 255, 255, 0.1)',
         },
-    }
+    },
+    linkButton: {
+        background: 'none',
+        border: 'none',
+        color: 'rgba(250, 250, 250, 0.8)',
+        fontSize: '0.9rem',
+        fontWeight: '500',
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        textDecoration: 'none',
+        '&:hover': {
+            color: '#fafafa',
+        },
+        "@media (max-width: 768px)": {
+            fontSize: '0.85rem',
+        },
+    },
+    '@keyframes shine': {
+        '0%': {
+            backgroundPosition: '-200% 0',
+        },
+        '100%': {
+            backgroundPosition: '200% 0',
+        },
+    },
 }));
 
 export const Content = () => {
     const classes = useStyles();
 
     return (
-        <Container component="main" className={classes.main} maxWidth="lg">
-            <div className={classes.contentLeft}>
-                <ShinyText
-                    text="Meet N.O.G, your trusted legal AI"
-                    variant="h2"
-                    component="h1"
-                    className={classes.title}
-                    speed={4}
-                />
-                <Typography
-                    variant="h5"
-                    component="h2"
-                    className={classes.subtitle}
-                >
-                    N.O.G connects to your workflow and brings full transparency to every legal task—alone or with your team.
-                </Typography>
-                <Button
-                    className={classes.ctaButton}
-                    onClick={() => {
-                        // Action à définir selon vos besoins
-                        console.log('Become a Design Partner clicked');
-                    }}
-                >
-                    Become a Design Partner
+        <Container component="main" className={`${classes.main}`} maxWidth="sm">
+            <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
+                Make AI agents your competitive advantage
+            </Typography>
+            <Typography variant="h5" component="h2" className={classes.subtitle}>
+                With N.O.G., you can build and orchestrate AI legal agents that plan, act, and collaborate securely — all with full traceability.
+            </Typography>
+            <div className={classes.buttonContainer}>
+                <Button className={classes.primaryButton}>
+                    Start building
                 </Button>
-            </div>
-            <div className={classes.contentRight}>
-                <div className={classes.imagePlaceholder}>
-                    Image placeholder
-                    <br />
-                    (300x300px)
-                </div>
+                <button className={classes.linkButton}>
+                    → More info about the Nested Orchestrator and Governance project
+                </button>
             </div>
         </Container>
     );
