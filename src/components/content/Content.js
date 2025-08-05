@@ -6,8 +6,39 @@ const useStyles = makeStyles((theme) => ({
     main: {
         marginTop: "auto",
         marginBottom: "auto",
+        display: "flex",
+        alignItems: "center",
+        gap: "3rem",
+        width: "100%",
+        maxWidth: "1200px",
         "@media (max-width: 768px)": {
-            marginLeft: theme.spacing(4),
+            flexDirection: "column",
+            gap: "2rem",
+            marginLeft: theme.spacing(2),
+            marginRight: theme.spacing(2),
+        },
+    },
+    contentWrapper: {
+        flex: "1",
+        minWidth: "0", // Permet au flex item de se rétrécir
+    },
+    imageWrapper: {
+        flex: "0 0 auto",
+        display: "flex",
+        alignItems: "center",
+        "@media (max-width: 768px)": {
+            width: "100%",
+            justifyContent: "center",
+        },
+    },
+    heroImage: {
+        height: "auto",
+        maxWidth: "100%",
+        width: "auto",
+        maxHeight: "400px", // Limite la hauteur maximale
+        objectFit: "contain",
+        "@media (max-width: 768px)": {
+            maxHeight: "300px",
         },
     },
     shinyTitle: {
@@ -111,20 +142,29 @@ export const Content = () => {
     const classes = useStyles();
 
     return (
-        <Container component="main" className={`${classes.main}`} maxWidth="sm">
-            <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
-                Make AI agents your competitive advantage
-            </Typography>
-            <Typography variant="h5" component="h2" className={classes.subtitle}>
-                With N.O.G., you can build and orchestrate AI legal agents that plan, act, and collaborate securely — all with full traceability.
-            </Typography>
-            <div className={classes.buttonContainer}>
-                <Button className={classes.primaryButton}>
-                    Start building
-                </Button>
-                <button className={classes.linkButton}>
-                    → More info about the Nested Orchestrator and Governance project
-                </button>
+        <Container component="main" className={`${classes.main}`} maxWidth="lg">
+            <div className={classes.contentWrapper}>
+                <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
+                    Make AI agents your competitive advantage
+                </Typography>
+                <Typography variant="h5" component="h2" className={classes.subtitle}>
+                    With N.O.G., you can build and orchestrate AI legal agents that plan, act, and collaborate securely — all with full traceability.
+                </Typography>
+                <div className={classes.buttonContainer}>
+                    <Button className={classes.primaryButton}>
+                        Start building
+                    </Button>
+                    <button className={classes.linkButton}>
+                        → More info about the Nested Orchestrator and Governance project
+                    </button>
+                </div>
+            </div>
+            <div className={classes.imageWrapper}>
+                <img 
+                    src="/Site web NOG.png" 
+                    alt="N.O.G. Platform Interface" 
+                    className={classes.heroImage}
+                />
             </div>
         </Container>
     );
