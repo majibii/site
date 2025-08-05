@@ -4,14 +4,12 @@ import { Content } from '../components/content/Content';
 import { Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DisplacementSphere from '../components/background/DisplacementSphere';
-import { FooterText } from '../components/footer/FooterText';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
 import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
 import LegalStackSection from '../components/legalStack/LegalStackSection';
-import { motion } from 'framer-motion';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 
 const useStyles = makeStyles(() => ({
