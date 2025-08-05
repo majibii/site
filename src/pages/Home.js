@@ -3,7 +3,6 @@ import { LogoLink } from '../components/logo/LogoLink';
 import { Content } from '../components/content/Content';
 import { Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import DisplacementSphere from '../components/background/DisplacementSphere';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
@@ -20,15 +19,6 @@ const useStyles = makeStyles(() => ({
     margin: 0,
     padding: 0,
     position: 'relative',
-  },
-  sphereBackground: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    zIndex: -999,
-    pointerEvents: 'none',
   },
   homeSection: {
     minHeight: '100vh',
@@ -56,10 +46,6 @@ export const Home = () => {
   
   return (
     <div className={classes.root}>
-      <div className={classes.sphereBackground}>
-        <DisplacementSphere />
-      </div>
-
       <div className={classes.homeSection}>
         <LogoLink />
         <Content />
