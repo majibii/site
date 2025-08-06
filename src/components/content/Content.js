@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     contentWrapper: {
         flex: "1",
         minWidth: "0", // Permet au flex item de se rétrécir
+        paddingLeft: "2rem", // Décalage vers la gauche
+        "@media (max-width: 768px)": {
+            paddingLeft: "1rem",
+        },
     },
     imageWrapper: {
         flex: "0 0 auto",
@@ -35,10 +39,10 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxWidth: "100%",
         width: "auto",
-        maxHeight: "400px", // Limite la hauteur maximale
+        maxHeight: "500px", // Agrandir l'image
         objectFit: "contain",
         "@media (max-width: 768px)": {
-            maxHeight: "300px",
+            maxHeight: "400px",
         },
     },
     shinyTitle: {
@@ -69,15 +73,15 @@ const useStyles = makeStyles((theme) => ({
     },
     buttonContainer: {
         display: 'flex',
-        gap: '2rem',
-        alignItems: 'center',
+        flexDirection: 'column',
+        gap: '1.5rem',
+        alignItems: 'flex-start', // Alignement à gauche
         flexWrap: 'wrap',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         marginTop: '2rem',
         "@media (max-width: 768px)": {
-            flexDirection: 'column',
             alignItems: 'center',
-            gap: '1rem',
+            justifyContent: 'center',
         },
     },
     primaryButton: {
@@ -145,17 +149,17 @@ export const Content = () => {
         <Container component="main" className={`${classes.main}`} maxWidth="lg">
             <div className={classes.contentWrapper}>
                 <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
-                    Make AI agents your competitive advantage
+                    Make AI agents your{'\n'}competitive advantage
                 </Typography>
                 <Typography variant="h5" component="h2" className={classes.subtitle}>
-                    With N.O.G., you can build and orchestrate AI legal agents that plan, act, and collaborate securely — all with full traceability.
+                    Securely connect AI to your company's knowledge{'\n'}with agents that plan, act, and empower every team with trusted
                 </Typography>
                 <div className={classes.buttonContainer}>
                     <Button className={classes.primaryButton}>
                         Start building
                     </Button>
                     <button className={classes.linkButton}>
-                        → More info about the Nested Orchestrator and Governance project
+                        → More about our Lab and the Nested Orchestrator and Governance project
                     </button>
                 </div>
             </div>
