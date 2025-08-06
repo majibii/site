@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "1200px",
         "@media (max-width: 768px)": {
             flexDirection: "column",
-            gap: "2rem",
+            gap: "3rem",
             marginLeft: theme.spacing(2),
             marginRight: theme.spacing(2),
         },
@@ -21,16 +21,16 @@ const useStyles = makeStyles((theme) => ({
     contentWrapper: {
         flex: "1",
         minWidth: "0", // Permet au flex item de se rétrécir
-        paddingLeft: "3rem", // Décalage vers la gauche
+        paddingLeft: "4rem", // Décalage vers la gauche
         "@media (max-width: 768px)": {
-            paddingLeft: "1rem",
+            paddingLeft: "1.5rem",
         },
     },
     imageWrapper: {
         flex: "0 0 auto",
         display: "flex",
         alignItems: "center",
-        paddingRight: "2rem", // Décalage vers la droite
+        paddingRight: "3rem", // Décalage vers la droite
         "@media (max-width: 768px)": {
             width: "100%",
             justifyContent: "center",
@@ -41,10 +41,10 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxWidth: "100%",
         width: "auto",
-        maxHeight: "600px", // Agrandir encore plus l'image
+        maxHeight: "700px", // Agrandir encore plus l'image
         objectFit: "contain",
         "@media (max-width: 768px)": {
-            maxHeight: "450px",
+            maxHeight: "500px",
         },
     },
     shinyTitle: {
