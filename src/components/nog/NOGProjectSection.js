@@ -5,17 +5,17 @@ const NOGProjectSection = () => {
   const [currentLineIndex, setCurrentLineIndex] = React.useState(0);
   
   const lines = [
-    "integrate enterprise databases (RAG) into a large model",
-    "build AI agents", 
-    "automation tasks",
-    "train in prompt engineering",
-    "train in security IA"
+    "Build AI agents",
+    "Prompt engineering", 
+    "Advise on AI security",
+    "Connect AI to data",
+    "Deliver AI training"
   ];
 
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentLineIndex((prevIndex) => (prevIndex + 1) % lines.length);
-    }, 3000); // Change every 3 seconds
+    }, 3500); // Change every 3.5 seconds
 
     return () => clearInterval(interval);
   }, [lines.length]);
@@ -58,24 +58,32 @@ const NOGProjectSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
-        padding: '2rem 0',
+        padding: '2rem',
         position: 'relative',
         boxSizing: 'border-box',
-        margin: 0,
+        overflow: 'hidden'
       }}
     >
+      {/* Effets de fond subtils */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 30% 20%, rgba(252, 233, 107, 0.1) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%)',
+          pointerEvents: 'none'
+        }}
+      />
+
       <div
         style={{
           textAlign: 'center',
           width: '100%',
-          maxWidth: '1600px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          maxWidth: '1200px',
           position: 'relative',
-          margin: '0 auto',
-          padding: '0 2rem'
+          zIndex: 1
         }}
       >
         {/* COMMENTED OUT - Title and barcode effects for potential reuse in other sections */}
@@ -159,51 +167,189 @@ const NOGProjectSection = () => {
           </div>
         </div> */}
 
+        {/* Phrase complète qui défile avec bouton intégré */}
         <div
           style={{
-            fontSize: 'clamp(1rem, 2.4vw, 1.4rem)',
+            fontSize: 'clamp(1rem, 2.5vw, 1.8rem)',
             color: '#fafafa',
             lineHeight: '1.6',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-            fontWeight: '500',
+            fontWeight: '400',
+            maxWidth: '1100px',
             margin: '0 auto',
             textAlign: 'center',
-            width: '100%',
-            maxWidth: '1200px',
-            padding: '2.5rem',
-            boxSizing: 'border-box',
-            textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
-            background: 'rgba(255, 255, 255, 0.1)',
+            padding: '2rem',
+            background: 'rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
             borderRadius: '16px',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-            marginTop: '0'
+            minHeight: '8rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1.5rem'
           }}
         >
-          <div style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
-            Right now, clients are asking the EggOn team to{' '}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'nowrap', gap: '0.3rem' }}>
+            <span>Right now, clients are asking the eggon team to </span>
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentLineIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
+                initial={{ 
+                  opacity: 0, 
+                  y: 20
+                }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0
+                }}
+                exit={{ 
+                  opacity: 0, 
+                  y: -20
+                }}
                 transition={{ 
                   duration: 0.5,
                   ease: "easeInOut"
                 }}
                 style={{
-                  display: 'inline-block',
                   color: '#fce96b',
-                  fontWeight: '600',
-                  textShadow: '2px 2px 6px rgba(0, 0, 0, 0.8)'
+                  fontWeight: '700',
+                  textShadow: '0 2px 8px rgba(252, 233, 107, 0.6)',
+                  display: 'inline-block',
+                  marginLeft: '0.3rem',
+                  whiteSpace: 'nowrap'
                 }}
               >
                 {lines[currentLineIndex]}
               </motion.span>
             </AnimatePresence>
           </div>
+
+          {/* Ligne avec Get Examples et les boutons */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '1rem',
+              width: '100%'
+            }}
+          >
+            <div
+              style={{
+                fontSize: 'clamp(0.9rem, 2vw, 1.2rem)',
+                color: '#fce96b',
+                fontWeight: '600',
+                fontFamily: '"Inter", sans-serif',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                textShadow: '0 2px 8px rgba(252, 233, 107, 0.6)'
+              }}
+            >
+              Get Examples
+            </div>
+            
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <button
+                style={{
+                  padding: '0.5rem 1.5rem',
+                  fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
+                  fontWeight: '600',
+                  color: '#fafafa',
+                  backgroundColor: 'transparent',
+                  border: '2px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '50px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  fontFamily: '"Inter", sans-serif',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  backdropFilter: 'blur(10px)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-2px) scale(1.05)';
+                  e.target.style.borderColor = '#fce96b';
+                  e.target.style.color = '#fce96b';
+                  e.target.style.boxShadow = '0 8px 30px rgba(252, 233, 107, 0.2)';
+                  e.target.style.backgroundColor = 'rgba(252, 233, 107, 0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0) scale(1)';
+                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  e.target.style.color = '#fafafa';
+                  e.target.style.boxShadow = 'none';
+                  e.target.style.backgroundColor = 'transparent';
+                }}
+              >
+                Use Cases Agent
+              </button>
+
+              <button
+                style={{
+                  padding: '0.5rem 1.5rem',
+                  fontSize: 'clamp(0.8rem, 1.5vw, 1rem)',
+                  fontWeight: '600',
+                  color: '#fafafa',
+                  backgroundColor: 'transparent',
+                  border: '2px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '50px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  fontFamily: '"Inter", sans-serif',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  backdropFilter: 'blur(10px)',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = 'translateY(-2px) scale(1.05)';
+                  e.target.style.borderColor = '#fce96b';
+                  e.target.style.color = '#fce96b';
+                  e.target.style.boxShadow = '0 8px 30px rgba(252, 233, 107, 0.2)';
+                  e.target.style.backgroundColor = 'rgba(252, 233, 107, 0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'translateY(0) scale(1)';
+                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  e.target.style.color = '#fafafa';
+                  e.target.style.boxShadow = 'none';
+                  e.target.style.backgroundColor = 'transparent';
+                }}
+              >
+                IA Academy Program
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Indicateurs de progression */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '0.5rem',
+            marginTop: '2rem'
+          }}
+        >
+          {lines.map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: index === currentLineIndex ? '2rem' : '0.5rem',
+                height: '0.5rem',
+                backgroundColor: index === currentLineIndex ? '#fce96b' : 'rgba(255, 255, 255, 0.3)',
+                borderRadius: '1rem',
+                transition: 'all 0.5s ease',
+                boxShadow: index === currentLineIndex ? '0 0 12px rgba(252, 233, 107, 0.6)' : 'none'
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>
