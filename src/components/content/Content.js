@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "auto",
         display: "flex",
         alignItems: "center",
-        gap: "3rem",
+        gap: "5rem",
         width: "100%",
         maxWidth: "1200px",
         "@media (max-width: 768px)": {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     contentWrapper: {
         flex: "1",
         minWidth: "0", // Permet au flex item de se rétrécir
-        paddingLeft: "2rem", // Décalage vers la gauche
+        paddingLeft: "3rem", // Décalage vers la gauche
         "@media (max-width: 768px)": {
             paddingLeft: "1rem",
         },
@@ -30,19 +30,21 @@ const useStyles = makeStyles((theme) => ({
         flex: "0 0 auto",
         display: "flex",
         alignItems: "center",
+        paddingRight: "2rem", // Décalage vers la droite
         "@media (max-width: 768px)": {
             width: "100%",
             justifyContent: "center",
+            paddingRight: "0",
         },
     },
     heroImage: {
         height: "auto",
         maxWidth: "100%",
         width: "auto",
-        maxHeight: "500px", // Agrandir l'image
+        maxHeight: "600px", // Agrandir encore plus l'image
         objectFit: "contain",
         "@media (max-width: 768px)": {
-            maxHeight: "400px",
+            maxHeight: "450px",
         },
     },
     shinyTitle: {
