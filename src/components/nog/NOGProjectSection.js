@@ -76,13 +76,16 @@ const NOGProjectSection = () => {
           }}>
             <span>Right now, clients are asking the eggon team to </span>
             <div style={{ 
-              minWidth: '200px',
-              height: '2rem', // Hauteur fixe pour une seule ligne
-              overflow: 'hidden', // Cache le texte qui dépasse
+              minWidth: '300px', // Augmenté pour accommoder les textes les plus longs
+              width: 'auto', // Permet l'expansion automatique
+              height: '2rem',
+              overflow: 'hidden',
               display: 'inline-block',
               position: 'relative',
               marginLeft: '0.3rem',
-              lineHeight: '2rem' // Align avec la hauteur du container
+              lineHeight: '2rem',
+              backgroundColor: 'transparent', // Force la transparence
+              border: 'none' // Supprime toute bordure
             }}>
               <AnimatePresence mode="wait">
                 <motion.span
@@ -112,9 +115,10 @@ const NOGProjectSection = () => {
                     position: 'absolute',
                     top: 0,
                     left: 0,
-                    width: '100%',
+                    width: 'max-content', // Utilise la largeur du contenu
                     whiteSpace: 'nowrap',
-                    lineHeight: '2rem'
+                    lineHeight: '2rem',
+                    backgroundColor: 'transparent' // Force la transparence
                   }}
                 >
                   {lines[currentLineIndex]}
