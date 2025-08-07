@@ -185,14 +185,14 @@ export const Content = () => {
                     Make AI agents your {'\n'}competitive advantage
                 </Typography>
                 <Typography variant="h5" component="h2" className={classes.subtitle}>
-                    Securely connect AI to your company's knowledge{'\n'}with agents that plan, act, and empower every team with trusted
+                    Securely connect AI to your company's knowledge{'\n'}with agents that plan, act, and empower every team with trusted.
                 </Typography>
                 <div className={classes.buttonContainer}>
                     <Button className={classes.primaryButton}>
                         Start building
                     </Button>
                     <button className={classes.linkButton}>
-                        → Meet EggOn Lab → Building traceable and insurable AI agents.
+                        → Meet EggOn Lab - Building traceable and insurable AI agents
                     </button>
                 </div>
             </div>
