@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     shinyTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
-        fontSize: 'clamp(2rem, 5.5vw, 3.8rem)', // Légèrement réduit pour tenir sur 2 lignes
+        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)', // Légèrement réduit pour assurer 2 lignes
         lineHeight: '1.1',
         color: '#b5b5b5a4',
         background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
@@ -192,7 +192,7 @@ export const Content = () => {
                         Start building
                     </Button>
                     <button className={classes.linkButton}>
-                        → Meet EggOn Lab - Building traceable and insurable AI agents
+                        → More about EggOn Lab → Building traceable and insurable AI agents.
                     </button>
                 </div>
             </div>
