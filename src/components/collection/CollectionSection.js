@@ -3,65 +3,78 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './CollectionSection.css';
 
 const legalPrompts = [
+  // LEGAL
   {
-    title: "Drafting a Shareholder Agreement",
-    context: "Corporate law, early-stage company",
-    body: "You are a legal expert drafting a shareholder agreement for a private limited company. Draft key clauses covering voting rights, transfer restrictions, and exit provisions. Adapt to UK corporate law."
+    title: "AI Contract Analysis",
+    context: "Legal / Risk Review",
+    body: "Analyze a commercial contract and flag clauses that present legal risk (e.g. indemnities, termination, governing law). Output a summary with explanations and suggestions."
   },
   {
-    title: "Startup Incorporation Checklist",
-    context: "Formation stage",
-    body: "Create a comprehensive legal checklist for incorporating a tech startup in Delaware, including required filings, board resolutions, and IP assignments."
+    title: "AI Case Law Research",
+    context: "Legal / Case Search",
+    body: "Search and summarize case law relevant to a given legal question, including links and jurisdiction-specific reasoning."
+  },
+
+  // PRODUCTIVITY
+  {
+    title: "AI Meeting Prep Agent",
+    context: "Productivity / Team Support",
+    body: "Prepare structured meeting packs for internal teams including agenda, links, previous action items, and a summary of relevant updates."
   },
   {
-    title: "NDAs in Cross-Border Deals",
-    context: "Confidentiality in international transactions",
-    body: "Compare and contrast enforceability of NDAs under US and German law. What clauses must be included to ensure mutual protection of confidential information?"
+    title: "AI Wiki Builder",
+    context: "Internal Knowledge / Documentation",
+    body: "Build and update a private internal wiki by scanning documents and internal conversations. Automatically tag and categorize entries."
+  },
+
+  // COMPLIANCE
+  {
+    title: "Audit Trail Review Agent",
+    context: "Compliance / Cybersecurity",
+    body: "Analyze audit logs and identify anomalies or risks. Generate compliance-ready summaries and flag irregularities."
   },
   {
-    title: "Due Diligence – M&A",
-    context: "Buyer-side legal audit",
-    body: "Generate a detailed legal due diligence questionnaire for an acquisition of a SaaS company. Focus on IP, contracts, liabilities, and employment."
+    title: "Supplier Compliance Monitor",
+    context: "Compliance / Procurement",
+    body: "Track supplier certifications and regulatory documents. Alert on missing files, expired documents, or inconsistent legal status."
+  },
+
+  // BUSINESS OPS
+  {
+    title: "AI Quotation Agent",
+    context: "Sales / B2B Quoting",
+    body: "Generate and send client-ready professional quotations based on product configurations, pricing rules, and customer data."
   },
   {
-    title: "Contract Risk Analysis",
-    context: "Commercial contract negotiation",
-    body: "Analyze a draft distribution agreement and flag clauses that present excessive legal risk. Highlight indemnity, termination, and governing law sections."
+    title: "Client Onboarding Agent",
+    context: "Operations / Customer Management",
+    body: "Automate the onboarding of new clients by generating checklists, requesting documents, verifying completeness, and storing profiles."
+  },
+
+  // STRATEGY / R&D
+  {
+    title: "Tech Intelligence Agent",
+    context: "R&D / Strategy",
+    body: "Every week, summarize key news and trends in a selected technology sector, including key sources, highlights, and regulatory updates."
+  },
+
+  // PUBLIC SECTOR / TENDERS
+  {
+    title: "RFP Drafting Agent",
+    context: "Public Sector / Tenders",
+    body: "Assist teams in answering public RFPs by drafting structured responses using past documents and regulatory templates."
+  },
+
+  // ADDITIONAL
+  {
+    title: "ESG Compliance Agent",
+    context: "Sustainability / Governance",
+    body: "Monitor environmental, social, and governance criteria across suppliers and internal reports. Alert on non-compliance and prepare ESG audit summaries."
   },
   {
-    title: "Employment Contract (C-Suite)",
-    context: "Executive hiring",
-    body: "Draft an employment agreement for a Chief Operating Officer in a VC-backed startup. Include equity grants, non-compete clauses, and KPIs."
-  },
-  {
-    title: "Legal Risk Memo – Joint Venture",
-    context: "Complex corporate structure",
-    body: "Write a legal risk assessment memo for a joint venture between two multinational corporations operating in regulated markets."
-  },
-  {
-    title: "IP Assignment Clauses",
-    context: "Startup asset protection",
-    body: "Draft strong intellectual property assignment clauses ensuring that all IP created by employees and contractors vests in the company."
-  },
-  {
-    title: "Anti-Dilution Protections",
-    context: "Investor rights",
-    body: "Explain the legal mechanisms and implications of full-ratchet and weighted-average anti-dilution clauses in a Series A term sheet."
-  },
-  {
-    title: "Cross-Border Dispute Resolution",
-    context: "Commercial arbitration",
-    body: "Recommend a dispute resolution clause for a supply agreement between a French supplier and a US buyer. Justify arbitration forum and governing law."
-  },
-  {
-    title: "Convertible Note Template (SAFE)",
-    context: "Startup financing",
-    body: "Generate a founder-friendly convertible note (SAFE) agreement template for pre-seed investment. Include conversion triggers and cap valuation."
-  },
-  {
-    title: "Force Majeure Clauses in Commercial Leases",
-    context: "Post-COVID contract updates",
-    body: "Draft a force majeure clause for a commercial lease agreement that includes pandemics, lockdowns, and supply chain disruptions."
+    title: "Data Privacy Audit Agent",
+    context: "Legal / GDPR",
+    body: "Review internal processes for data privacy compliance (GDPR/CCPA). Generate a report on data usage, consent collection, and breach risk exposure."
   }
 ];
 
