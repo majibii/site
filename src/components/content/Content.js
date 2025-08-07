@@ -40,9 +40,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-end", // Aligne l'image vers la droite
         paddingTop: "2rem", // Ajoute un padding en haut pour décaler vers le haut
         paddingLeft: "3rem", // Augmenté pour plus d'espace avec le texte
-        paddingRight: "6rem", // Augmenté pour plus de décalage à droite
+        paddingRight: "2rem", // Réduit pour rapprocher de la marge droite
         "@media (max-width: 1200px)": {
-            paddingRight: "4rem",
+            paddingRight: "1.5rem",
             paddingTop: "1rem",
         },
         "@media (max-width: 768px)": {
@@ -182,7 +182,7 @@ export const Content = () => {
         <Container component="main" className={`${classes.main}`} maxWidth={false}>
             <div className={classes.contentWrapper}>
                 <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
-                    Make AI agents your{'\n'}competitive advantage
+                    Make AI agents your {'\n'}competitive advantage
                 </Typography>
                 <Typography variant="h5" component="h2" className={classes.subtitle}>
                     Securely connect AI to your company's knowledge{'\n'}with agents that plan, act, and empower every team with trusted
