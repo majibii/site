@@ -23,13 +23,13 @@ const NOGProjectSection = () => {
   return (
     <section
       style={{
-        minHeight: '100vh',
+        // Suppression de minHeight: '100vh' qui causait le problème
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
-        padding: '2rem',
+        padding: '4rem 2rem', // Padding réduit pour rapprocher les sections
         position: 'relative',
         boxSizing: 'border-box',
         overflow: 'hidden'
