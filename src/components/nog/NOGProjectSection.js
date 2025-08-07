@@ -23,13 +23,12 @@ const NOGProjectSection = () => {
   return (
     <section
       style={{
-        // Suppression de minHeight: '100vh' qui causait le problème
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
-        padding: '4rem 2rem', // Padding réduit pour rapprocher les sections
+        padding: '4rem 2rem',
         position: 'relative',
         boxSizing: 'border-box',
         overflow: 'hidden'
@@ -39,12 +38,11 @@ const NOGProjectSection = () => {
         style={{
           textAlign: 'center',
           width: '100%',
-          maxWidth: '1400px', // Augmenté pour correspondre à la section Story
+          maxWidth: '1400px',
           position: 'relative',
           zIndex: 1
         }}
       >
-        {/* Phrase complète qui défile avec bouton intégré */}
         <div
           style={{
             fontSize: 'clamp(1rem, 2.5vw, 1.8rem)',
@@ -52,7 +50,7 @@ const NOGProjectSection = () => {
             lineHeight: '1.6',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
             fontWeight: '400',
-            maxWidth: '1400px', // Augmenté pour correspondre à la largeur de la section Story
+            maxWidth: '1400px',
             margin: '0 auto',
             textAlign: 'center',
             padding: '2rem',
@@ -69,39 +67,62 @@ const NOGProjectSection = () => {
             gap: '1.5rem'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'nowrap', gap: '0.3rem' }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            flexWrap: 'nowrap', 
+            gap: '0.3rem',
+            minHeight: '2.5rem' // Hauteur fixe pour éviter le décalage
+          }}>
             <span>Right now, clients are asking the eggon team to </span>
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={currentLineIndex}
-                initial={{ 
-                  opacity: 0, 
-                  y: 20
-                }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0
-                }}
-                exit={{ 
-                  opacity: 0, 
-                  y: -20
-                }}
-                transition={{ 
-                  duration: 0.5,
-                  ease: "easeInOut"
-                }}
-                style={{
-                  color: '#fce96b',
-                  fontWeight: '700',
-                  textShadow: '0 2px 8px rgba(252, 233, 107, 0.6)',
-                  display: 'inline-block',
-                  marginLeft: '0.3rem',
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                {lines[currentLineIndex]}
-              </motion.span>
-            </AnimatePresence>
+            <div style={{ 
+              position: 'relative',
+              minWidth: '200px', // Largeur minimale pour éviter les sauts
+              display: 'inline-block',
+              height: '2rem', // Hauteur fixe pour le container
+              overflow: 'hidden'
+            }}>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentLineIndex}
+                  initial={{ 
+                    opacity: 0, 
+                    y: 30,
+                    scale: 0.8
+                  }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    scale: 1
+                  }}
+                  exit={{ 
+                    opacity: 0, 
+                    y: -30,
+                    scale: 0.8
+                  }}
+                  transition={{ 
+                    duration: 0.4, // Durée réduite pour transition plus fluide
+                    ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier plus fluide
+                    opacity: { duration: 0.3 }, // Opacité plus rapide
+                    scale: { duration: 0.4 }
+                  }}
+                  style={{
+                    color: '#fce96b',
+                    fontWeight: '700',
+                    textShadow: '0 2px 8px rgba(252, 233, 107, 0.6)',
+                    display: 'inline-block',
+                    position: 'absolute',
+                    left: '50%',
+                    top: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  {lines[currentLineIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Ligne avec Get Examples et les boutons */}
