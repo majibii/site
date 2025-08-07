@@ -214,7 +214,7 @@ const LegalStackSection = () => {
               key={index}
               style={{
                 padding: 'clamp(1.8rem, 3vw, 2.4rem)',
-                background: 'transparent',
+                background: 'transparent !important',
                 backdropFilter: 'blur(20px)',
                 border: '2px solid rgba(255, 255, 255, 0.15)',
                 borderRadius: '16px',
@@ -222,19 +222,29 @@ const LegalStackSection = () => {
                 cursor: 'default',
                 minHeight: '280px',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                position: 'relative'
               }}
+              className="benefit-card"
               onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-5px)';
-                e.target.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.4)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.25)';
-                e.target.style.background = 'transparent';
+                e.stopPropagation();
+                const card = e.currentTarget;
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.4)';
+                card.style.borderColor = 'rgba(255, 255, 255, 0.25)';
+                // Forcer tous les éléments enfants à rester transparents
+                const allChildren = card.querySelectorAll('*');
+                allChildren.forEach(child => {
+                  child.style.background = 'transparent';
+                  child.style.backgroundColor = 'transparent';
+                });
               }}
               onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-                e.target.style.background = 'transparent';
+                e.stopPropagation();
+                const card = e.currentTarget;
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'none';
+                card.style.borderColor = 'rgba(255, 255, 255, 0.15)';
               }}
             >
               <div 
