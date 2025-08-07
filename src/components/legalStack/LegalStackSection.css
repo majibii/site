@@ -3,6 +3,51 @@
   overflow: hidden;
 }
 
+/* Correction pour éviter les rectangles noirs dans les cartes */
+.benefit-card,
+.benefit-card *,
+.benefit-card *::before,
+.benefit-card *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.benefit-card:hover,
+.benefit-card:hover *,
+.benefit-card:hover *::before,
+.benefit-card:hover *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.benefit-card:focus,
+.benefit-card:focus *,
+.benefit-card:focus *::before,
+.benefit-card:focus *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+.benefit-card:active,
+.benefit-card:active *,
+.benefit-card:active *::before,
+.benefit-card:active *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Empêcher la sélection de créer des backgrounds */
+.benefit-card ::selection {
+  background: #fce96b !important;
+  color: #fafafa !important;
+}
+
+.benefit-card ::-moz-selection {
+  background: #fce96b !important;
+  color: #fafafa !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .legal-stack-section {
