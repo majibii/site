@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
-import StorySection from '../components/story/StorySection';
 import CollectionSection from '../components/collection/CollectionSection';
 import LegalStackSection from '../components/legalStack/LegalStackSection';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
@@ -63,9 +62,6 @@ export const Home = () => {
         <NOGProjectSection />
       </div>
 
-      <div className={classes.contentSection}>
-        <StorySection />
-      </div>
 
       <div className={classes.contentSection}>
         <LegalStackSection />
