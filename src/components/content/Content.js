@@ -192,7 +192,7 @@ export const Content = () => {
                         Start building
                     </Button>
                     <button className={classes.linkButton}>
-                        → More about EggOn Lab → Building traceable and insurable AI agents.
+                        → Discover EggOn Lab → The future of AI insurability.
                     </button>
                 </div>
             </div>
