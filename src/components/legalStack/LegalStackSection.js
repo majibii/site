@@ -25,7 +25,10 @@ const LegalStackSection = () => {
           strokeWidth="2"
           style={{ color: '#fafafa' }}
         >
-          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
+          <path d="M8 21v-4a2 2 0 012-2h4a2 2 0 012 2v4"/>
+          <path d="M3 10h18"/>
+          <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
         </svg>
       ),
       title: "Connected to Your World",
@@ -42,7 +45,9 @@ const LegalStackSection = () => {
           strokeWidth="2"
           style={{ color: '#fafafa' }}
         >
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
         </svg>
       ),
       title: "Solves Your Toughest Challenges",
@@ -59,7 +64,8 @@ const LegalStackSection = () => {
           strokeWidth="2"
           style={{ color: '#fafafa' }}
         >
-          <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+          <path d="M9 12l2 2 4-4"/>
+          <circle cx="12" cy="12" r="10"/>
         </svg>
       ),
       title: "From Complexity to Clarity",
@@ -76,8 +82,11 @@ const LegalStackSection = () => {
           strokeWidth="2"
           style={{ color: '#fafafa' }}
         >
-          <path d="M9 12l2 2 4-4"/>
-          <path d="M21 12c.552 0 1-.448 1-1V8c0-.552-.448-1-1-1h-1V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v1H3c-.552 0-1 .448-1 1v3c0 .552.448 1 1 1h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1h1z"/>
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+          <path d="M6 8h12"/>
+          <path d="M6 12h8"/>
         </svg>
       ),
       title: "Real AI Engineering",
@@ -194,7 +203,7 @@ const LegalStackSection = () => {
         <motion.div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: 'clamp(1.5rem, 3vw, 2.5rem)',
             marginBottom: 'clamp(6rem, 10vh, 8rem)',
             y: benefitsY
@@ -204,39 +213,43 @@ const LegalStackSection = () => {
             <div 
               key={index}
               style={{
-                padding: 'clamp(1.5rem, 3vw, 2rem)',
+                padding: 'clamp(1.8rem, 3vw, 2.4rem)',
                 background: 'transparent',
                 backdropFilter: 'blur(20px)',
-                border: '1px solid transparent',
+                border: '2px solid rgba(255, 255, 255, 0.15)',
                 borderRadius: '16px',
                 transition: 'all 0.3s ease',
-                cursor: 'default'
+                cursor: 'default',
+                minHeight: '280px',
+                display: 'flex',
+                flexDirection: 'column'
               }}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-5px)';
                 e.target.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.4)';
-                e.target.style.background = 'rgba(255, 255, 255, 0.08)';
+                e.target.style.borderColor = 'rgba(255, 255, 255, 0.25)';
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0)';
                 e.target.style.boxShadow = 'none';
-                e.target.style.background = 'transparent';
+                e.target.style.borderColor = 'rgba(255, 255, 255, 0.15)';
               }}
             >
               <div 
                 style={{
                   display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '1rem'
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '1.5rem'
                 }}
               >
                 <div 
                   style={{
-                    width: '40px',
-                    height: '40px',
+                    width: '60px',
+                    height: '60px',
                     borderRadius: '50%',
                     background: 'rgba(255, 255, 255, 0.1)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    border: '2px solid rgba(255, 255, 255, 0.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -245,30 +258,32 @@ const LegalStackSection = () => {
                 >
                   {benefit.icon}
                 </div>
-                <div style={{ flex: 1 }}>
-                  <h3 
-                    style={{
-                      fontSize: 'clamp(1.1rem, 2vw, 1.3rem)',
-                      fontWeight: '700',
-                      color: '#fafafa',
-                      marginBottom: '1rem',
-                      lineHeight: '1.3',
-                      margin: '0 0 1rem 0'
-                    }}
-                  >
-                    {benefit.title}
-                  </h3>
-                  <p 
-                    style={{
-                      fontSize: 'clamp(0.9rem, 1.8vw, 1rem)',
-                      color: 'rgba(250, 250, 250, 0.8)',
-                      lineHeight: '1.5',
-                      margin: 0
-                    }}
-                  >
-                    {benefit.description}
-                  </p>
-                </div>
+              </div>
+              
+              <div style={{ flex: 1, textAlign: 'center' }}>
+                <h3 
+                  style={{
+                    fontSize: 'clamp(1.2rem, 2vw, 1.4rem)',
+                    fontWeight: '700',
+                    color: '#fafafa',
+                    marginBottom: '1.2rem',
+                    lineHeight: '1.3'
+                  }}
+                >
+                  {benefit.title}
+                </h3>
+                
+                <p 
+                  style={{
+                    fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
+                    color: 'rgba(250, 250, 250, 0.85)',
+                    lineHeight: '1.6',
+                    textAlign: 'left',
+                    margin: 0
+                  }}
+                >
+                  {benefit.description}
+                </p>
               </div>
             </div>
           ))}
