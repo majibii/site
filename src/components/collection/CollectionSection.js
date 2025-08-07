@@ -185,22 +185,25 @@ const CollectionSection = () => {
           {/* Editorial Section */}
           <div className="editorial-section">
             <div className="editorial-line">
-              <span className="editorial-title">ABOUT THE PROMPTING ART</span>
+              <span className="editorial-title">WHAT ARE AGENTS?</span>
             </div>
             
             <div className="editorial-content">
               <p>
-                The art of prompting is not just a technical exercise—it's a strategic method of legal reasoning. 
-                By leveraging structured approaches like the IRAC method (Issue, Rule, Application, Conclusion), 
-                your AI models yield significantly more precise and contextually relevant results.
+                The "Agent" can be defined in several ways. Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks. 
+                Others use the term to describe more prescriptive implementations that follow predefined workflows. 
+                At EggOn, we categorize all these variations as agentic systems, but we draw an important architectural distinction between workflows and agents:
               </p>
               <p>
-                This collection demonstrates how advanced prompting techniques are transforming the practice of law, 
-                enabling attorneys to draft, analyze, and argue more effectively. We've designed these prompts to 
-                operate across multilingual legal contexts, ensuring flexibility, depth, and compliance in diverse jurisdictions.
+                - Workflows are systems where LLMs and tools are orchestrated through predefined code paths.
+                - Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.
               </p>
               <p>
-                At the intersection of legal thought and artificial intelligence, prompting becomes not only a tool—but a new legal craft.
+                When building applications with LLMs, we recommend starting with the simplest possible solution and only increasing complexity when necessary. 
+                In many cases, this means not building agentic systems at all. Often, optimizing single LLM calls with retrieval and in-context examples provides sufficient performance.
+                When more complexity is warranted, workflows offer predictability and consistency for well-defined tasks, while agents are better suited for scenarios that require flexibility and model-driven decision-making at scale.
+
+                Let our AI engineers guide you toward the most efficient architecture—and deliver the right system, in production, for your needs.
               </p>
             </div>
           </div>
