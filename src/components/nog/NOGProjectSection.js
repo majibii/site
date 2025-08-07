@@ -72,48 +72,55 @@ const NOGProjectSection = () => {
             alignItems: 'center', 
             justifyContent: 'center', 
             flexWrap: 'nowrap', 
-            gap: '0.3rem',
-            minHeight: '2.5rem' // Hauteur fixe pour éviter le décalage
+            gap: '0.3rem'
           }}>
             <span>Right now, clients are asking the eggon team to </span>
-            <span style={{ 
-              minWidth: '200px', // Largeur minimale pour éviter les sauts
+            <div style={{ 
+              minWidth: '200px',
+              height: '2rem', // Hauteur fixe pour une seule ligne
+              overflow: 'hidden', // Cache le texte qui dépasse
               display: 'inline-block',
-              textAlign: 'left',
-              marginLeft: '0.3rem'
+              position: 'relative',
+              marginLeft: '0.3rem',
+              lineHeight: '2rem' // Align avec la hauteur du container
             }}>
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentLineIndex}
                   initial={{ 
-                    opacity: 0, 
-                    y: 20
+                    y: '100%', // Commence en dessous (invisible)
+                    opacity: 1
                   }}
                   animate={{ 
-                    opacity: 1, 
-                    y: 0
+                    y: '0%', // Monte à sa position finale
+                    opacity: 1
                   }}
                   exit={{ 
-                    opacity: 0, 
-                    y: -20
+                    y: '-100%', // Sort vers le haut (invisible)
+                    opacity: 1
                   }}
                   transition={{ 
-                    duration: 0.4, // Durée réduite pour transition plus fluide
-                    ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier plus fluide
-                    opacity: { duration: 0.3 } // Opacité plus rapide
+                    duration: 0.6, // Plus lent pour voir l'effet roue
+                    ease: [0.4, 0.0, 0.2, 1], // Easing Material Design
+                    type: "tween"
                   }}
                   style={{
                     color: '#fce96b',
                     fontWeight: '700',
                     textShadow: '0 2px 8px rgba(252, 233, 107, 0.6)',
-                    display: 'inline-block',
-                    whiteSpace: 'nowrap'
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    whiteSpace: 'nowrap',
+                    lineHeight: '2rem'
                   }}
                 >
                   {lines[currentLineIndex]}
                 </motion.span>
               </AnimatePresence>
-            </span>
+            </div>
           </div>
 
           {/* Ligne avec Get Examples et les boutons */}
