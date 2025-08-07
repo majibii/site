@@ -8,40 +8,54 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "auto",
         display: "flex",
         alignItems: "center",
-        gap: "5rem",
+        gap: "2rem", // Réduit légèrement l'espace entre les deux colonnes
         width: "100%",
-        maxWidth: "1200px",
+        maxWidth: "1400px", // Augmenté pour plus d'espace
+        padding: "0 2rem", // Padding global du container
         "@media (max-width: 768px)": {
             flexDirection: "column",
             gap: "3rem",
-            marginLeft: theme.spacing(2),
-            marginRight: theme.spacing(2),
+            padding: "0 1rem",
         },
     },
     contentWrapper: {
-        flex: "1",
-        minWidth: "0", // Permet au flex item de se rétrécir
-        paddingLeft: "4rem", // Décalage vers la gauche
+        flex: "1 1 55%", // Prend 55% de l'espace disponible
+        minWidth: "0",
+        paddingLeft: "6rem", // Augmenté pour plus de décalage à gauche
+        paddingRight: "2rem", // Ajout d'un padding droit
+        "@media (max-width: 1200px)": {
+            paddingLeft: "4rem",
+        },
         "@media (max-width: 768px)": {
-            paddingLeft: "1.5rem",
+            paddingLeft: "0",
+            paddingRight: "0",
+            flex: "1 1 auto",
+            textAlign: "center", // Centre le texte sur mobile
         },
     },
     imageWrapper: {
-        flex: "0 0 auto",
+        flex: "1 1 45%", // Prend 45% de l'espace disponible
         display: "flex",
         alignItems: "center",
-        paddingRight: "3rem", // Décalage vers la droite
+        justifyContent: "flex-end", // Aligne l'image vers la droite
+        paddingLeft: "2rem", // Ajout d'un padding gauche
+        paddingRight: "4rem", // Augmenté pour plus de décalage à droite
+        "@media (max-width: 1200px)": {
+            paddingRight: "2rem",
+        },
         "@media (max-width: 768px)": {
             width: "100%",
             justifyContent: "center",
+            paddingLeft: "0",
             paddingRight: "0",
+            flex: "1 1 auto",
         },
     },
     heroImage: {
         height: "auto",
         maxWidth: "100%",
         width: "auto",
-        maxHeight: "700px", // Agrandir encore plus l'image
+        maxHeight: "700px",
         objectFit: "contain",
         "@media (max-width: 768px)": {
             maxHeight: "500px",
@@ -59,10 +73,14 @@ const useStyles = makeStyles((theme) => ({
         backgroundClip: 'text',
         animation: '$shine 5s linear infinite',
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
+        textAlign: "left", // Force l'alignement à gauche
         '&.disabled': {
             animation: 'none',
             color: '#fafafa',
             background: 'none',
+        },
+        "@media (max-width: 768px)": {
+            textAlign: "center",
         },
     },
     subtitle: {
@@ -72,12 +90,16 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '1.6',
         color: 'rgba(250, 250, 250, 0.9)',
         marginBottom: '2rem',
+        textAlign: "left", // Force l'alignement à gauche
+        "@media (max-width: 768px)": {
+            textAlign: "center",
+        },
     },
     buttonContainer: {
         display: 'flex',
         flexDirection: 'column',
         gap: '1.5rem',
-        alignItems: 'flex-start', // Alignement à gauche
+        alignItems: 'flex-start',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
         marginTop: '2rem',
@@ -127,11 +149,13 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         transition: 'all 0.3s ease',
         textDecoration: 'none',
+        textAlign: 'left', // Force l'alignement à gauche
         '&:hover': {
             color: '#fafafa',
         },
         "@media (max-width: 768px)": {
             fontSize: '0.85rem',
+            textAlign: 'center',
         },
     },
     '@keyframes shine': {
@@ -148,7 +172,7 @@ export const Content = () => {
     const classes = useStyles();
 
     return (
-        <Container component="main" className={`${classes.main}`} maxWidth="lg">
+        <Container component="main" className={`${classes.main}`} maxWidth={false}>
             <div className={classes.contentWrapper}>
                 <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
                     Make AI agents your{'\n'}competitive advantage
