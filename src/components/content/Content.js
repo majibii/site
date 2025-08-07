@@ -192,7 +192,7 @@ export const Content = () => {
                         Start building
                     </Button>
                     <button className={classes.linkButton}>
-                        → More about our Lab and the Nested Orchestrator and Governance project
+                        → Meet EggOn Lab → Building traceable and insurable AI agents.
                     </button>
                 </div>
             </div>
