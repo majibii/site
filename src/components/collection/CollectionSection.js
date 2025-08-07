@@ -1,82 +1,543 @@
-.legal-stack-section {
+/* Collection Section Styles */
+.collection-section {
+  min-height: 100vh;
+  background-color: transparent;
+  padding: 6rem 0;
+  overflow: hidden;
   position: relative;
+  width: 100vw;
+  color: #fafafa;
+}
+
+.collection-content {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.collection-header {
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #fafafa;
+  margin: 0;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+
+.section-label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 2rem;
+  height: 1px;
+  background-color: #fafafa;
+}
+
+.collection-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin: 2rem 0;
+  line-height: 1.2;
+  color: #fafafa;
+}
+
+.collection-intro {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 600px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #fafafa;
+}
+
+.early-access-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  background-color: #fafafa;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+.early-access-button:hover {
+  transform: translateX(4px);
+}
+
+.early-access-button span {
+  margin-left: 0.5rem;
+}
+
+.cards-container {
+  margin-top: 4rem;
+  position: relative;
+  width: 100%;
   overflow: hidden;
 }
 
-/* Correction pour éviter les rectangles noirs dans les cartes */
-.benefit-card,
-.benefit-card *,
-.benefit-card *::before,
-.benefit-card *::after {
-  background: transparent !important;
-  background-color: transparent !important;
+.cards-row {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0;
+  position: relative;
+  padding: 0.5rem 0;
+  width: max-content;
 }
 
-.benefit-card:hover,
-.benefit-card:hover *,
-.benefit-card:hover *::before,
-.benefit-card:hover *::after {
-  background: transparent !important;
-  background-color: transparent !important;
+.cards-row.top {
+  animation: scrollRight 60s linear infinite;
+  margin-bottom: 5cm;
 }
 
-.benefit-card:focus,
-.benefit-card:focus *,
-.benefit-card:focus *::before,
-.benefit-card:focus *::after {
-  background: transparent !important;
-  background-color: transparent !important;
-  outline: none !important;
+.cards-row.bottom {
+  animation: scrollLeft 60s linear infinite;
+  margin-top: 0;
 }
 
-.benefit-card:active,
-.benefit-card:active *,
-.benefit-card:active *::before,
-.benefit-card:active *::after {
-  background: transparent !important;
-  background-color: transparent !important;
+.prompt-card {
+  flex: 0 0 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0.6;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
 }
 
-/* Empêcher la sélection de créer des backgrounds */
-.benefit-card ::selection {
-  background: #fce96b !important;
-  color: #fafafa !important;
+.prompt-card:hover {
+  opacity: 1;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-.benefit-card ::-moz-selection {
-  background: #fce96b !important;
-  color: #fafafa !important;
+.card-context {
+  font-size: 0.875rem;
+  color: #fafafa;
+  margin-bottom: 1rem;
 }
 
-/* Responsive adjustments */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fafafa;
+}
+
+.card-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fafafa;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.time-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.year-text {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #fafafa;
+  margin: 0;
+  line-height: 1;
+}
+
+.last-update-text {
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  color: #fafafa;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.modal-header {
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal-title-section {
+  flex: 1;
+}
+
+.modal-context {
+  font-size: 0.875rem;
+  color: #fafafa;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fafafa;
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  color: #fafafa;
+}
+
+.close-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+  padding: 24px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt-textarea-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt-icon {
+  color: #fafafa;
+  margin-bottom: 0.5rem;
+}
+
+.prompt-textarea {
+  flex: 1;
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fafafa;
+  background: transparent;
+  padding: 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.action-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fafafa;
+}
+
+.cancel-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.submit-button {
+  background: #fafafa;
+  color: #000;
+}
+
+.submit-button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Editorial Section */
+.editorial-section {
+  margin: 6rem auto;
+  max-width: 900px;
+  padding: 0 3rem;
+}
+
+.editorial-line {
+  position: relative;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.editorial-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+.editorial-title {
+  background-color: transparent;
+  padding: 0 2rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #fafafa;
+  position: relative;
+  z-index: 2;
+}
+
+.editorial-content {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.editorial-content p {
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  line-height: 1.8;
+  color: #fafafa;
+  margin-bottom: 1.5rem;
+}
+
+.editorial-content p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Benefits Section */
+.benefits-section {
+  margin: 6rem auto;
+  max-width: 900px;
+  padding: 0 3rem;
+}
+
+.benefits-title-line {
+  position: relative;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.benefits-title-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+.benefits-title {
+  background-color: transparent;
+  padding: 0 2rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #fafafa;
+  position: relative;
+  z-index: 2;
+}
+
+.benefits-list {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.benefits-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  line-height: 1.6;
+  color: #fafafa;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease-out;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefit-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease-out;
+}
+
+.benefit-icon {
+  width: 20px;
+  height: 20px;
+  color: #fafafa;
+}
+
+.benefits-item:hover .benefit-icon-circle {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+.benefits-item:hover {
+  color: #fafafa;
+  transform: translateX(4px);
+}
+
+.benefits-item:hover .benefit-icon {
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes scrollRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% + 100vw)); }
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(calc(-100% + 100vw)); }
+  to { transform: translateX(0); }
+}
+
+.cards-row:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .legal-stack-section {
-    padding: clamp(3rem, 6vh, 4rem) clamp(0.5rem, 2vw, 1rem);
+  .collection-section {
+    padding: 4rem 0;
+  }
+
+  .collection-content {
+    padding: 0 1rem;
+  }
+
+  .prompt-card {
+    flex: 0 0 300px;
+  }
+
+  .cards-row.top {
+    margin-bottom: 3cm;
+  }
+
+  .editorial-section,
+  .benefits-section {
+    margin: 4rem auto;
+    padding: 0 2rem;
+  }
+
+  .editorial-title,
+  .benefits-title {
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    margin: 1rem;
+    max-width: calc(100vw - 2rem);
+  }
+
+  .modal-body {
+    height: 300px;
   }
 }
 
 @media (max-width: 480px) {
-  .legal-stack-section {
-    padding: clamp(2rem, 4vh, 3rem) 1rem;
+  .cards-row {
+    gap: 1.5rem;
+  }
+
+  .prompt-card {
+    flex: 0 0 280px;
+    padding: 1.5rem;
+  }
+
+  .cards-row.top {
+    margin-bottom: 2cm;
   }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .legal-stack-section *,
-  .legal-stack-section *::before,
-  .legal-stack-section *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .cards-row {
+    animation: none;
+    transform: none;
   }
-}
+  
+  .prompt-card,
+  .benefits-item {
+    transition: none;
+  }
 
-/* Performance optimizations */
-@media (prefers-reduced-motion: no-preference) {
-  .legal-stack-section {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+  .early-access-button {
+    transition: none;
   }
 }
