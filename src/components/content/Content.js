@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
     contentWrapper: {
         flex: "1 1 45%", // Réduit à 45% pour laisser plus d'espace à l'image
         minWidth: "0",
-        paddingLeft: "8rem", // Encore plus décalé vers la gauche
+        paddingLeft: "6rem", // Légèrement réduit pour décaler le texte un peu plus à gauche
         paddingRight: "3rem", // Augmenté pour plus d'espace avec l'image
         "@media (max-width: 1200px)": {
-            paddingLeft: "5rem",
+            paddingLeft: "4rem", // Réduit aussi pour mobile
         },
         "@media (max-width: 768px)": {
             paddingLeft: "0",
@@ -36,18 +36,22 @@ const useStyles = makeStyles((theme) => ({
     imageWrapper: {
         flex: "1 1 55%", // Augmenté à 55% pour donner plus d'espace à l'image
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start", // Aligne l'image vers le haut
         justifyContent: "flex-end", // Aligne l'image vers la droite
+        paddingTop: "2rem", // Ajoute un padding en haut pour décaler vers le haut
         paddingLeft: "3rem", // Augmenté pour plus d'espace avec le texte
-        paddingRight: "5rem", // Augmenté pour plus de décalage à droite
+        paddingRight: "6rem", // Augmenté pour plus de décalage à droite
         "@media (max-width: 1200px)": {
-            paddingRight: "3rem",
+            paddingRight: "4rem",
+            paddingTop: "1rem",
         },
         "@media (max-width: 768px)": {
             width: "100%",
             justifyContent: "center",
+            alignItems: "center", // Recentre sur mobile
             paddingLeft: "0",
             paddingRight: "0",
+            paddingTop: "0",
             flex: "1 1 auto",
         },
     },
@@ -67,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     shinyTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
-        fontSize: 'clamp(2rem, 6vw, 4rem)',
+        fontSize: 'clamp(2rem, 5.5vw, 3.8rem)', // Légèrement réduit pour tenir sur 2 lignes
         lineHeight: '1.1',
         color: '#b5b5b5a4',
         background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
