@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "auto",
         display: "flex",
         alignItems: "center",
-        gap: "2rem", // Réduit légèrement l'espace entre les deux colonnes
+        gap: "4rem", // Augmenté pour plus d'espace entre texte et image
         width: "100%",
-        maxWidth: "1400px", // Augmenté pour plus d'espace
-        padding: "0 2rem", // Padding global du container
+        maxWidth: "1600px", // Encore plus large pour utiliser plus la largeur de page
+        padding: "0 1rem", // Padding réduit pour utiliser plus d'espace
         "@media (max-width: 768px)": {
             flexDirection: "column",
             gap: "3rem",
@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     contentWrapper: {
-        flex: "1 1 55%", // Prend 55% de l'espace disponible
+        flex: "1 1 45%", // Réduit à 45% pour laisser plus d'espace à l'image
         minWidth: "0",
-        paddingLeft: "6rem", // Augmenté pour plus de décalage à gauche
-        paddingRight: "2rem", // Ajout d'un padding droit
+        paddingLeft: "8rem", // Encore plus décalé vers la gauche
+        paddingRight: "3rem", // Augmenté pour plus d'espace avec l'image
         "@media (max-width: 1200px)": {
-            paddingLeft: "4rem",
+            paddingLeft: "5rem",
         },
         "@media (max-width: 768px)": {
             paddingLeft: "0",
@@ -34,14 +34,14 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     imageWrapper: {
-        flex: "1 1 45%", // Prend 45% de l'espace disponible
+        flex: "1 1 55%", // Augmenté à 55% pour donner plus d'espace à l'image
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end", // Aligne l'image vers la droite
-        paddingLeft: "2rem", // Ajout d'un padding gauche
-        paddingRight: "4rem", // Augmenté pour plus de décalage à droite
+        paddingLeft: "3rem", // Augmenté pour plus d'espace avec le texte
+        paddingRight: "5rem", // Augmenté pour plus de décalage à droite
         "@media (max-width: 1200px)": {
-            paddingRight: "2rem",
+            paddingRight: "3rem",
         },
         "@media (max-width: 768px)": {
             width: "100%",
@@ -55,8 +55,11 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxWidth: "100%",
         width: "auto",
-        maxHeight: "700px",
+        maxHeight: "850px", // Augmenté significativement pour une image plus grosse
         objectFit: "contain",
+        "@media (max-width: 1200px)": {
+            maxHeight: "750px",
+        },
         "@media (max-width: 768px)": {
             maxHeight: "500px",
         },
