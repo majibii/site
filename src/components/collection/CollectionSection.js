@@ -1,543 +1,350 @@
-/* Collection Section Styles */
-.collection-section {
-  min-height: 100vh;
-  background-color: transparent;
-  padding: 6rem 0;
-  overflow: hidden;
-  position: relative;
-  width: 100vw;
-  color: #fafafa;
-}
+import React, { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './CollectionSection.css';
 
-.collection-content {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.collection-header {
-  margin-bottom: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-label {
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #fafafa;
-  margin: 0;
-  font-weight: 500;
-  position: relative;
-  display: inline-block;
-}
-
-.section-label::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -0.5rem;
-  width: 2rem;
-  height: 1px;
-  background-color: #fafafa;
-}
-
-.collection-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  margin: 2rem 0;
-  line-height: 1.2;
-  color: #fafafa;
-}
-
-.collection-intro {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  max-width: 600px;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  color: #fafafa;
-}
-
-.early-access-button {
-  display: inline-flex;
-  align-items: center;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #000;
-  background-color: #fafafa;
-  border: none;
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: transform 0.3s ease-out;
-}
-
-.early-access-button:hover {
-  transform: translateX(4px);
-}
-
-.early-access-button span {
-  margin-left: 0.5rem;
-}
-
-.cards-container {
-  margin-top: 4rem;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.cards-row {
-  display: flex;
-  gap: 2rem;
-  margin: 1rem 0;
-  position: relative;
-  padding: 0.5rem 0;
-  width: max-content;
-}
-
-.cards-row.top {
-  animation: scrollRight 60s linear infinite;
-  margin-bottom: 5cm;
-}
-
-.cards-row.bottom {
-  animation: scrollLeft 60s linear infinite;
-  margin-top: 0;
-}
-
-.prompt-card {
-  flex: 0 0 400px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  opacity: 0.6;
-  transition: all 0.3s ease-out;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-}
-
-.prompt-card:hover {
-  opacity: 1;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-.card-context {
-  font-size: 0.875rem;
-  color: #fafafa;
-  margin-bottom: 1rem;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #fafafa;
-}
-
-.card-body {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #fafafa;
-  max-height: 120px;
-  overflow-y: auto;
-}
-
-.time-indicator {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 10;
-}
-
-.year-text {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 900;
-  color: #fafafa;
-  margin: 0;
-  line-height: 1;
-}
-
-.last-update-text {
-  font-size: clamp(0.875rem, 2vw, 1.125rem);
-  color: #fafafa;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin: 0.5rem 0 0 0;
-  font-weight: 500;
-}
-
-/* Modal styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 1rem;
-}
-
-.modal-content {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  width: 100%;
-  max-width: 800px;
-  max-height: 80vh;
-  overflow: hidden;
-  position: relative;
-  backdrop-filter: blur(10px);
-}
-
-.modal-header {
-  padding: 24px 24px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.modal-title-section {
-  flex: 1;
-}
-
-.modal-context {
-  font-size: 0.875rem;
-  color: #fafafa;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.modal-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #fafafa;
-  margin: 0;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 8px;
-  margin-left: 16px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-  color: #fafafa;
-}
-
-.close-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.modal-body {
-  padding: 24px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-}
-
-.prompt-textarea-container {
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.prompt-icon {
-  color: #fafafa;
-  margin-bottom: 0.5rem;
-}
-
-.prompt-textarea {
-  flex: 1;
-  width: 100%;
-  resize: none;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #fafafa;
-  background: transparent;
-  padding: 0;
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.action-button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.cancel-button {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fafafa;
-}
-
-.cancel-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.submit-button {
-  background: #fafafa;
-  color: #000;
-}
-
-.submit-button:hover {
-  background: rgba(255, 255, 255, 0.8);
-}
-
-/* Editorial Section */
-.editorial-section {
-  margin: 6rem auto;
-  max-width: 900px;
-  padding: 0 3rem;
-}
-
-.editorial-line {
-  position: relative;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.editorial-line::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: 1;
-}
-
-.editorial-title {
-  background-color: transparent;
-  padding: 0 2rem;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #fafafa;
-  position: relative;
-  z-index: 2;
-}
-
-.editorial-content {
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.editorial-content p {
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
-  line-height: 1.8;
-  color: #fafafa;
-  margin-bottom: 1.5rem;
-}
-
-.editorial-content p:last-child {
-  margin-bottom: 0;
-  font-style: italic;
-  font-weight: 500;
-}
-
-/* Benefits Section */
-.benefits-section {
-  margin: 6rem auto;
-  max-width: 900px;
-  padding: 0 3rem;
-}
-
-.benefits-title-line {
-  position: relative;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.benefits-title-line::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: 1;
-}
-
-.benefits-title {
-  background-color: transparent;
-  padding: 0 2rem;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #fafafa;
-  position: relative;
-  z-index: 2;
-}
-
-.benefits-list {
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.benefits-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
-  line-height: 1.6;
-  color: #fafafa;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease-out;
-  text-align: left;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.benefit-icon-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.3s ease-out;
-}
-
-.benefit-icon {
-  width: 20px;
-  height: 20px;
-  color: #fafafa;
-}
-
-.benefits-item:hover .benefit-icon-circle {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
-}
-
-.benefits-item:hover {
-  color: #fafafa;
-  transform: translateX(4px);
-}
-
-.benefits-item:hover .benefit-icon {
-  transform: scale(1.1);
-}
-
-/* Animations */
-@keyframes scrollRight {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-100% + 100vw)); }
-}
-
-@keyframes scrollLeft {
-  from { transform: translateX(calc(-100% + 100vw)); }
-  to { transform: translateX(0); }
-}
-
-.cards-row:hover {
-  animation-play-state: paused;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .collection-section {
-    padding: 4rem 0;
+const legalPrompts = [
+  {
+    title: "Drafting a Shareholder Agreement",
+    context: "Corporate law, early-stage company",
+    body: "You are a legal expert drafting a shareholder agreement for a private limited company. Draft key clauses covering voting rights, transfer restrictions, and exit provisions. Adapt to UK corporate law."
+  },
+  {
+    title: "Startup Incorporation Checklist",
+    context: "Formation stage",
+    body: "Create a comprehensive legal checklist for incorporating a tech startup in Delaware, including required filings, board resolutions, and IP assignments."
+  },
+  {
+    title: "NDAs in Cross-Border Deals",
+    context: "Confidentiality in international transactions",
+    body: "Compare and contrast enforceability of NDAs under US and German law. What clauses must be included to ensure mutual protection of confidential information?"
+  },
+  {
+    title: "Due Diligence – M&A",
+    context: "Buyer-side legal audit",
+    body: "Generate a detailed legal due diligence questionnaire for an acquisition of a SaaS company. Focus on IP, contracts, liabilities, and employment."
+  },
+  {
+    title: "Contract Risk Analysis",
+    context: "Commercial contract negotiation",
+    body: "Analyze a draft distribution agreement and flag clauses that present excessive legal risk. Highlight indemnity, termination, and governing law sections."
+  },
+  {
+    title: "Employment Contract (C-Suite)",
+    context: "Executive hiring",
+    body: "Draft an employment agreement for a Chief Operating Officer in a VC-backed startup. Include equity grants, non-compete clauses, and KPIs."
+  },
+  {
+    title: "Legal Risk Memo – Joint Venture",
+    context: "Complex corporate structure",
+    body: "Write a legal risk assessment memo for a joint venture between two multinational corporations operating in regulated markets."
+  },
+  {
+    title: "IP Assignment Clauses",
+    context: "Startup asset protection",
+    body: "Draft strong intellectual property assignment clauses ensuring that all IP created by employees and contractors vests in the company."
+  },
+  {
+    title: "Anti-Dilution Protections",
+    context: "Investor rights",
+    body: "Explain the legal mechanisms and implications of full-ratchet and weighted-average anti-dilution clauses in a Series A term sheet."
+  },
+  {
+    title: "Cross-Border Dispute Resolution",
+    context: "Commercial arbitration",
+    body: "Recommend a dispute resolution clause for a supply agreement between a French supplier and a US buyer. Justify arbitration forum and governing law."
+  },
+  {
+    title: "Convertible Note Template (SAFE)",
+    context: "Startup financing",
+    body: "Generate a founder-friendly convertible note (SAFE) agreement template for pre-seed investment. Include conversion triggers and cap valuation."
+  },
+  {
+    title: "Force Majeure Clauses in Commercial Leases",
+    context: "Post-COVID contract updates",
+    body: "Draft a force majeure clause for a commercial lease agreement that includes pandemics, lockdowns, and supply chain disruptions."
   }
+];
 
-  .collection-content {
-    padding: 0 1rem;
-  }
+const CollectionSection = () => {
+  const sectionRef = useRef(null);
+  // Remplace useId() par useState pour React 16
+  const [uniqueId] = useState(() => `collection-${Math.random().toString(36).substr(2, 9)}`);
+  const [selectedPrompt, setSelectedPrompt] = useState(null);
+  const [editedPrompt, setEditedPrompt] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  .prompt-card {
-    flex: 0 0 300px;
-  }
+  const handleCardClick = (prompt) => {
+    setSelectedPrompt(prompt);
+    setEditedPrompt(prompt.body);
+    setIsDialogOpen(true);
+  };
 
-  .cards-row.top {
-    margin-bottom: 3cm;
-  }
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setTimeout(() => {
+      setSelectedPrompt(null);
+      setEditedPrompt('');
+    }, 300);
+  };
 
-  .editorial-section,
-  .benefits-section {
-    margin: 4rem auto;
-    padding: 0 2rem;
-  }
+  const handleSubmit = () => {
+    // Save the modified prompt
+    console.log('Modified prompt:', editedPrompt);
+    
+    // Redirect to hub
+    window.location.href = '/hub'; // Adjust URL according to your routing
+    
+    handleCloseDialog();
+  };
 
-  .editorial-title,
-  .benefits-title {
-    padding: 0 1rem;
-    font-size: 1rem;
-  }
+  const PromptIcon = () => (
+    <svg 
+      width="20" 
+      height="20" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2"
+      className="prompt-icon"
+    >
+      <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+    </svg>
+  );
 
-  .modal-content {
-    margin: 1rem;
-    max-width: calc(100vw - 2rem);
-  }
+  return (
+    <>
+      <section ref={sectionRef} className="collection-section">
+        <div className="collection-content">
+          <div className="collection-header">
+            <h3 className="section-label">COLLECTION</h3>
+            
+            <h2 className="collection-title">
+              JOIN THE LEGAL PROMPTS MOVEMENT
+            </h2>
 
-  .modal-body {
-    height: 300px;
-  }
-}
+            <p className="collection-intro">
+              Introducing LegalPrompt Archive, our curated collection of advanced legal prompts for 
+              AI-powered research, analysis, and professional development. Stay updated — ask for 
+              early access to the hub.
+            </p>
 
-@media (max-width: 480px) {
-  .cards-row {
-    gap: 1.5rem;
-  }
+            <button className="early-access-button">
+              Get Early Access <span>→</span>
+            </button>
+          </div>
 
-  .prompt-card {
-    flex: 0 0 280px;
-    padding: 1.5rem;
-  }
+          <div className="cards-container">
+            <div className="cards-row top">
+              {legalPrompts.slice(0, 6).map((prompt, index) => (
+                <div 
+                  key={index} 
+                  className="prompt-card"
+                  onClick={() => handleCardClick(prompt)}
+                >
+                  <div className="card-context">{prompt.context}</div>
+                  <h3 className="card-title">{prompt.title}</h3>
+                  <div className="card-body">{prompt.body}</div>
+                </div>
+              ))}
+            </div>
 
-  .cards-row.top {
-    margin-bottom: 2cm;
-  }
-}
+            {/* Time Indicator */}
+            <div className="time-indicator">
+              <div className="year-text">2025</div>
+              <div className="last-update-text">last update</div>
+            </div>
 
-@media (prefers-reduced-motion: reduce) {
-  .cards-row {
-    animation: none;
-    transform: none;
-  }
-  
-  .prompt-card,
-  .benefits-item {
-    transition: none;
-  }
+            <div className="cards-row bottom">
+              {legalPrompts.slice(6, 12).map((prompt, index) => (
+                <div 
+                  key={index} 
+                  className="prompt-card"
+                  onClick={() => handleCardClick(prompt)}
+                >
+                  <div className="card-context">{prompt.context}</div>
+                  <h3 className="card-title">{prompt.title}</h3>
+                  <div className="card-body">{prompt.body}</div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-  .early-access-button {
-    transition: none;
-  }
-}
+          {/* Editorial Section */}
+          <div className="editorial-section">
+            <div className="editorial-line">
+              <span className="editorial-title">ABOUT THE PROMPTING ART</span>
+            </div>
+            
+            <div className="editorial-content">
+              <p>
+                The art of prompting is not just a technical exercise—it's a strategic method of legal reasoning. 
+                By leveraging structured approaches like the IRAC method (Issue, Rule, Application, Conclusion), 
+                your AI models yield significantly more precise and contextually relevant results.
+              </p>
+              <p>
+                This collection demonstrates how advanced prompting techniques are transforming the practice of law, 
+                enabling attorneys to draft, analyze, and argue more effectively. We've designed these prompts to 
+                operate across multilingual legal contexts, ensuring flexibility, depth, and compliance in diverse jurisdictions.
+              </p>
+              <p>
+                At the intersection of legal thought and artificial intelligence, prompting becomes not only a tool—but a new legal craft.
+              </p>
+            </div>
+          </div>
+
+          {/* Benefits Section */}
+          <div className="benefits-section">
+            <div className="benefits-title-line">
+              <span className="benefits-title">BENEFITS FOR HOLDERS</span>
+            </div>
+            
+            <div className="benefits-list">
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+                  </svg>
+                </div>
+                <span>Contribute to the evolution of legal prompting strategies and frameworks</span>
+              </div>
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+                    <circle cx="16" cy="11" r="3"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                  </svg>
+                </div>
+                <span>Access a free hub for share prompts and work for transparency</span>
+              </div>
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <circle cx="12" cy="16" r="1"/>
+                    <path d="M7 11V7A5 5 0 0 1 17 7V11"/>
+                  </svg>
+                </div>
+                <span>Create your prompts in private and keep your strategy</span>
+              </div>
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
+                  </svg>
+                </div>
+                <span>Enjoy early access to new prompt collections, the legal agents will coming soon</span>
+              </div>
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2V6"/>
+                    <path d="M12 18V22"/>
+                    <path d="M4.93 4.93L7.76 7.76"/>
+                    <path d="M16.24 16.24L19.07 19.07"/>
+                    <path d="M2 12H6"/>
+                    <path d="M18 12H22"/>
+                    <path d="M4.93 19.07L7.76 16.24"/>
+                    <path d="M16.24 7.76L19.07 4.93"/>
+                  </svg>
+                </div>
+                <span>Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Modal Dialog with animation */}
+        <AnimatePresence>
+          {isDialogOpen && selectedPrompt && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="modal-overlay"
+              onClick={handleCloseDialog}
+            >
+              <motion.div
+                initial={{ 
+                  opacity: 0,
+                  scale: 0.3,
+                  x: '-50%',
+                  y: '-50%'
+                }}
+                animate={{ 
+                  opacity: 1,
+                  scale: 1,
+                  x: 0,
+                  y: 0
+                }}
+                exit={{ 
+                  opacity: 0,
+                  scale: 0.3,
+                  x: '-50%',
+                  y: '-50%'
+                }}
+                transition={{ 
+                  type: 'spring', 
+                  bounce: 0.05, 
+                  duration: 0.4 
+                }}
+                className="modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="modal-header">
+                  <div className="modal-title-section">
+                    <div className="modal-context">
+                      {selectedPrompt.context}
+                    </div>
+                    <h2 className="modal-title">
+                      {selectedPrompt.title}
+                    </h2>
+                  </div>
+                  <button
+                    className="close-button"
+                    onClick={handleCloseDialog}
+                    aria-label="close"
+                  >
+                    ×
+                  </button>
+                </div>
+                
+                <div className="modal-body">
+                  <div className="prompt-textarea-container">
+                    <PromptIcon />
+                    <textarea
+                      className="prompt-textarea"
+                      value={editedPrompt}
+                      onChange={(e) => setEditedPrompt(e.target.value)}
+                      placeholder="Modifiez votre prompt ici..."
+                      autoFocus
+                    />
+                  </div>
+                  
+                  <div className="modal-actions">
+                    <button
+                      className="action-button cancel-button"
+                      onClick={handleCloseDialog}
+                    >
+                      Annuler
+                    </button>
+                    <button
+                      className="action-button submit-button"
+                      onClick={handleSubmit}
+                    >
+                      Submit →
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </section>
+    </>
+  );
+};
+
+export default CollectionSection;
