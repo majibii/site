@@ -132,17 +132,17 @@ const CollectionSection = () => {
             <h3 className="section-label">COLLECTION</h3>
             
             <h2 className="collection-title">
-              JOIN THE LEGAL PROMPTS MOVEMENT
+              CASE STUDIES
             </h2>
 
             <p className="collection-intro">
-              Introducing LegalPrompt Archive, our curated collection of advanced legal prompts for 
-              AI-powered research, analysis, and professional development. Stay updated — ask for 
-              early access to the hub.
+              Firms are choosing to build with EggOn for unfair competitive advantage.
+                Our agents are trusted by forward-thinking companies across legal, aerospace & Finance. Stay updated — ask for 
+                a pricing.
             </p>
 
             <button className="early-access-button">
-              Get Early Access <span>→</span>
+              Get Pricing <span>→</span>
             </button>
           </div>
 
