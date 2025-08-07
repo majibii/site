@@ -157,7 +157,8 @@ const LegalStackSection = () => {
               color: 'rgba(250, 250, 250, 0.8)',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              marginBottom: '1.5rem'
+              marginBottom: '1.5rem',
+              textDecoration: 'underline'
             }}
           >
             WHY EGGON
@@ -170,11 +171,10 @@ const LegalStackSection = () => {
               color: '#fafafa',
               lineHeight: '1.1',
               marginBottom: '2rem',
-              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
-              textDecoration: 'underline'
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)'
             }}
           >
-            WHY EGGON
+            Trust a team with expertise in your field
           </h2>
 
           <p 
