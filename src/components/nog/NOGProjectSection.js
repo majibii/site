@@ -39,7 +39,7 @@ const NOGProjectSection = () => {
         style={{
           textAlign: 'center',
           width: '100%',
-          maxWidth: '1200px',
+          maxWidth: '1400px', // Augmenté pour correspondre à la section Story
           position: 'relative',
           zIndex: 1
         }}
@@ -52,7 +52,7 @@ const NOGProjectSection = () => {
             lineHeight: '1.6',
             fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
             fontWeight: '400',
-            maxWidth: '1100px',
+            maxWidth: '1400px', // Augmenté pour correspondre à la largeur de la section Story
             margin: '0 auto',
             textAlign: 'center',
             padding: '2rem',
