@@ -133,8 +133,9 @@ const NOGProjectSection = () => {
             </div>
           </div>
 
-          {/* Deuxième ligne - tous les éléments alignés à droite */}
+          {/* Deuxième ligne - version desktop/tablet */}
           <div
+            className="desktop-layout"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -230,6 +231,7 @@ const NOGProjectSection = () => {
 
           {/* Version mobile - affichage vertical */}
           <div
+            className="mobile-layout"
             style={{
               display: 'none',
               flexDirection: 'column',
@@ -237,7 +239,6 @@ const NOGProjectSection = () => {
               gap: '1rem',
               width: '100%'
             }}
-            className="mobile-layout"
           >
             <div
               style={{
@@ -350,12 +351,12 @@ const NOGProjectSection = () => {
 
       <style jsx>{`
         @media (max-width: 768px) {
-          .mobile-layout {
-            display: flex !important;
+          .desktop-layout {
+            display: none !important;
           }
           
-          .mobile-layout + div {
-            display: none !important;
+          .mobile-layout {
+            display: flex !important;
           }
         }
         
