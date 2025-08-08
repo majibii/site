@@ -31,98 +31,189 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   logo: {
-    fontSize: '1.25rem',
-    fontWeight: '700',
-    color: '#fafafa',
+    fontSize: '1rem',
+    fontWeight: 500,
+    color: 'rgba(250, 250, 250, 0.8)',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     textDecoration: 'none',
     transition: 'all 0.3s ease',
     '&:hover': {
-      color: '#fce96b',
-      transform: 'translateY(-1px)',
+      opacity: 1,
+      color: '#fafafa',
     },
     '@media (max-width: 768px)': {
-      fontSize: '1.1rem',
+      display: 'none',
+    },
+  },
+  // Logo circulaire pour mobile
+  circularLogo: {
+    display: 'none',
+    '@media (max-width: 768px)': {
+      display: 'block',
+      position: 'relative',
+      width: '60px',
+      height: '60px',
+      borderRadius: '50%',
+      cursor: 'pointer',
+      transformOrigin: '50% 50%',
+      WebkitTransformOrigin: '50% 50%',
+    },
+  },
+  circularText: {
+    position: 'absolute',
+    display: 'inline-block',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    fontSize: '12px',
+    fontWeight: 600,
+    color: 'rgba(250, 250, 250, 0.8)',
+    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+    transition: 'all 0.5s cubic-bezier(0, 0, 0, 1)',
+    '&:hover': {
+      color: '#fafafa',
     },
   },
   navLinks: {
     display: 'flex',
     alignItems: 'center',
     gap: '2.5rem',
-    listStyle: 'none',
-    margin: 0,
-    padding: 0,
     '@media (max-width: 768px)': {
-      gap: '1.5rem',
-    },
-    '@media (max-width: 480px)': {
-      gap: '1rem',
+      display: 'none',
     },
   },
   navLink: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '0.75rem 1.5rem',
     color: 'rgba(250, 250, 250, 0.8)',
     textDecoration: 'none',
-    fontSize: '1rem',
-    fontWeight: '500',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-    position: 'relative',
-    padding: '0.5rem 0',
+    fontSize: '1rem',
+    fontWeight: 500,
     transition: 'all 0.3s ease',
     '&:hover': {
       color: '#fafafa',
-      transform: 'translateY(-1px)',
-    },
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      width: '0%',
-      height: '2px',
-      background: 'linear-gradient(90deg, #fce96b, rgba(252, 233, 107, 0.6))',
-      transition: 'width 0.3s ease',
-    },
-    '&:hover::after': {
-      width: '100%',
-    },
-    '@media (max-width: 768px)': {
-      fontSize: '0.9rem',
-    },
-    '@media (max-width: 480px)': {
-      fontSize: '0.85rem',
+      opacity: 1,
     },
   },
-  mobileMenu: {
+  mobileMenuToggle: {
     display: 'none',
     flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '2.5rem',
+    height: '2.5rem',
+    background: 'rgba(255, 255, 255, 0.08)',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
+    borderRadius: '8px',
     cursor: 'pointer',
-    padding: '0.5rem',
-    '@media (max-width: 480px)': {
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      background: 'rgba(255, 255, 255, 0.15)',
+      borderColor: 'rgba(255, 255, 255, 0.2)',
+    },
+    '@media (max-width: 768px)': {
       display: 'flex',
     },
   },
-  mobileMenuLine: {
-    width: '24px',
+  hamburgerLine: {
+    width: '18px',
     height: '2px',
     backgroundColor: '#fafafa',
     margin: '2px 0',
     transition: 'all 0.3s ease',
+    '&.active:nth-child(1)': {
+      transform: 'rotate(45deg) translate(5px, 5px)',
+    },
+    '&.active:nth-child(2)': {
+      opacity: 0,
+    },
+    '&.active:nth-child(3)': {
+      transform: 'rotate(-45deg) translate(7px, -6px)',
+    },
   },
-  mobileNavLinks: {
-    display: 'flex',
-    '@media (max-width: 480px)': {
-      display: 'none',
+  mobileNav: {
+    display: 'none',
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    right: 0,
+    background: 'rgba(47, 47, 46, 0.98)',
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+    padding: '1.5rem 2rem',
+    flexDirection: 'column',
+    gap: '1rem',
+    opacity: 0,
+    transform: 'translateY(-10px)',
+    transition: 'all 0.3s ease',
+    '&.open': {
+      display: 'flex',
+      opacity: 1,
+      transform: 'translateY(0)',
+    },
+  },
+  mobileNavLink: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '1rem 1.5rem',
+    color: 'rgba(250, 250, 250, 0.8)',
+    textDecoration: 'none',
+    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+    fontSize: '1rem',
+    fontWeight: 500,
+    transition: 'all 0.3s ease',
+    borderRadius: '8px',
+    position: 'relative',
+    overflow: 'hidden',
+    // Effet de soulignement animé
+    '&::after': {
+      content: '""',
       position: 'absolute',
-      top: '100%',
-      left: 0,
-      right: 0,
-      background: 'rgba(47, 47, 46, 0.98)',
-      backdropFilter: 'blur(20px)',
-      flexDirection: 'column',
-      padding: '1rem 2rem',
-      borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-      '&.open': {
-        display: 'flex',
+      bottom: '0.5rem',
+      left: '50%',
+      width: '0%',
+      height: '2px',
+      background: 'linear-gradient(90deg, #fafafa, rgba(250, 250, 250, 0.6))',
+      transform: 'translateX(-50%)',
+      transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      borderRadius: '1px',
+    },
+    '&:hover': {
+      color: '#fafafa',
+      opacity: 1,
+      background: 'rgba(255, 255, 255, 0.05)',
+      transform: 'translateY(-2px)',
+      '&::after': {
+        width: '80%',
+      },
+    },
+    // Animation d'apparition du soulignement lors de l'ouverture du menu
+    '&.menu-open': {
+      animation: '$slideInUnderline 0.6s ease-out forwards',
+      animationDelay: 'var(--delay)',
+    },
+  },
+  // Animation keyframes pour l'effet d'apparition
+  '@keyframes slideInUnderline': {
+    '0%': {
+      '&::after': {
+        width: '0%',
+      },
+    },
+    '60%': {
+      '&::after': {
+        width: '0%',
+      },
+    },
+    '100%': {
+      '&::after': {
+        width: '60%',
       },
     },
   },
@@ -151,47 +242,86 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Fonction pour créer le texte circulaire
+  const createCircularText = (text) => {
+    const chars = text.split('');
+    const angleStep = 360 / chars.length;
+    
+    return chars.map((char, index) => {
+      const angle = index * angleStep;
+      const rotation = angle - 90; // Commence en haut
+      
+      return (
+        <span
+          key={index}
+          className={classes.circularText}
+          style={{
+            transform: `rotate(${rotation}deg) translateY(-20px) rotate(-${rotation}deg)`,
+            transformOrigin: '50% 50%',
+          }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </span>
+      );
+    });
+  };
+
+  // Données des liens de navigation
+  const navigationLinks = [
+    { href: '/', label: 'eggon' },
+    { href: '/nog-lab', label: 'N.O.G Lab' },
+    { href: '/learn', label: 'Learn' }
+  ];
+
   return (
     <header className={`${classes.header} ${isScrolled ? 'scrolled' : ''}`}>
       <nav className={classes.nav}>
+        {/* Logo desktop */}
         <a href="/" className={classes.logo}>
           EggOn Technology
         </a>
         
-        <ul className={`${classes.navLinks} ${classes.mobileNavLinks} ${isMobileMenuOpen ? 'open' : ''}`}>
-          <li>
+        {/* Logo circulaire mobile */}
+        <a href="/" className={classes.circularLogo}>
+          {createCircularText('EggOn Tech')}
+        </a>
+        
+        {/* Navigation desktop */}
+        <div className={classes.navLinks}>
+          {navigationLinks.map((link, index) => (
             <a 
-              href="/" 
-              className={classes.navLink}
+              key={index}
+              href={link.href} 
+              className={classes.navLink} 
               onClick={handleLinkClick}
             >
-              eggon
+              {link.label}
             </a>
-          </li>
-          <li>
-            <a 
-              href="/nog-lab" 
-              className={classes.navLink}
-              onClick={handleLinkClick}
-            >
-              N.O.G Lab
-            </a>
-          </li>
-          <li>
-            <a 
-              href="/learn" 
-              className={classes.navLink}
-              onClick={handleLinkClick}
-            >
-              Learn
-            </a>
-          </li>
-        </ul>
+          ))}
+        </div>
 
-        <div className={classes.mobileMenu} onClick={toggleMobileMenu}>
-          <div className={classes.mobileMenuLine}></div>
-          <div className={classes.mobileMenuLine}></div>
-          <div className={classes.mobileMenuLine}></div>
+        {/* Bouton hamburger mobile */}
+        <button className={classes.mobileMenuToggle} onClick={toggleMobileMenu}>
+          <span className={`${classes.hamburgerLine} ${isMobileMenuOpen ? 'active' : ''}`}></span>
+          <span className={`${classes.hamburgerLine} ${isMobileMenuOpen ? 'active' : ''}`}></span>
+          <span className={`${classes.hamburgerLine} ${isMobileMenuOpen ? 'active' : ''}`}></span>
+        </button>
+
+        {/* Navigation mobile */}
+        <div className={`${classes.mobileNav} ${isMobileMenuOpen ? 'open' : ''}`}>
+          {navigationLinks.map((link, index) => (
+            <a 
+              key={index}
+              href={link.href} 
+              className={`${classes.mobileNavLink} ${isMobileMenuOpen ? 'menu-open' : ''}`}
+              onClick={handleLinkClick}
+              style={{
+                '--delay': `${index * 0.1}s`
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </nav>
     </header>
