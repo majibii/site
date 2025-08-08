@@ -61,10 +61,12 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    fontSize: '12px',
+    fontSize: '11px',
     fontWeight: 600,
     color: 'rgba(250, 250, 250, 0.8)',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+    textTransform: 'uppercase',
+    letterSpacing: '0.5px',
   },
   charSpan: {
     position: 'absolute',
@@ -352,7 +354,7 @@ const Header = () => {
         {/* Logo circulaire mobile */}
         <div className={classes.circularLogo}>
           <CircularText
-            text="EggOn Tech • "
+            text="EGGON * TECHNOLOGY * "
             spinDuration={15}
             onHover="speedUp"
             onClick={() => window.location.href = '/'}
