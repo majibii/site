@@ -20,6 +20,16 @@ const NOGProjectSection = () => {
     return () => clearInterval(interval);
   }, [lines.length]);
 
+  // Fonction pour diviser le texte en caractères
+  const splitIntoCharacters = (text) => {
+    return Array.from(text);
+  };
+
+  // Fonction pour calculer le délai de stagger
+  const getStaggerDelay = (index) => {
+    return index * 0.05; // 50ms entre chaque caractère
+  };
+
   return (
     <section
       style={{
@@ -88,48 +98,63 @@ const NOGProjectSection = () => {
               width: 'auto',
               height: 'clamp(1.8rem, 4vw, 2.2rem)',
               overflow: 'hidden',
-              display: 'inline-block',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               position: 'relative',
               lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
               backgroundColor: 'transparent',
               border: 'none'
             }}>
-              <AnimatePresence mode="wait">
-                <motion.span
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
                   key={currentLineIndex}
-                  initial={{ 
-                    y: '100%',
-                    opacity: 1
-                  }}
-                  animate={{ 
-                    y: '0%',
-                    opacity: 1
-                  }}
-                  exit={{ 
-                    y: '-100%',
-                    opacity: 1
-                  }}
-                  transition={{ 
-                    duration: 0.6,
-                    ease: [0.4, 0.0, 0.2, 1],
-                    type: "tween"
-                  }}
                   style={{
-                    color: '#fce96b',
-                    fontWeight: '600',
-                    display: 'block',
+                    display: 'inline-flex',
                     position: 'absolute',
-                    top: 0,
+                    top: '50%',
                     left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: 'max-content',
-                    whiteSpace: 'nowrap',
-                    lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
-                    backgroundColor: 'transparent'
+                    transform: 'translate(-50%, -50%)',
+                    whiteSpace: 'nowrap'
                   }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {lines[currentLineIndex]}
-                </motion.span>
+                  {splitIntoCharacters(lines[currentLineIndex]).map((char, index) => (
+                    <motion.span
+                      key={`${currentLineIndex}-${index}`}
+                      initial={{ 
+                        y: '100%', 
+                        opacity: 0 
+                      }}
+                      animate={{ 
+                        y: 0, 
+                        opacity: 1 
+                      }}
+                      exit={{ 
+                        y: '-100%', 
+                        opacity: 0 
+                      }}
+                      transition={{ 
+                        duration: 0.5,
+                        delay: getStaggerDelay(index),
+                        ease: [0.4, 0.0, 0.2, 1],
+                        type: "tween"
+                      }}
+                      style={{
+                        color: '#fce96b',
+                        fontWeight: '600',
+                        display: 'inline-block',
+                        lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
+                        backgroundColor: 'transparent'
+                      }}
+                    >
+                      {char === ' ' ? '\u00A0' : char}
+                    </motion.span>
+                  ))}
+                </motion.div>
               </AnimatePresence>
             </div>
           </div>
