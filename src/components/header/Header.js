@@ -57,6 +57,14 @@ const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
       transformOrigin: '50% 50%',
       WebkitTransformOrigin: '50% 50%',
+      // Animation de rotation au hover pour plus d'interactivité
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        transform: 'rotate(10deg) scale(1.05)',
+        '& $circularText': {
+          color: '#fafafa',
+        },
+      },
     },
   },
   circularText: {
@@ -71,9 +79,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(250, 250, 250, 0.8)',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     transition: 'all 0.5s cubic-bezier(0, 0, 0, 1)',
-    '&:hover': {
-      color: '#fafafa',
-    },
+    pointerEvents: 'none', // Empêche les interférences avec l'interaction hover
   },
   navLinks: {
     display: 'flex',
@@ -195,26 +201,25 @@ const useStyles = makeStyles((theme) => ({
     },
     // Animation d'apparition du soulignement lors de l'ouverture du menu
     '&.menu-open': {
-      animation: '$slideInUnderline 0.6s ease-out forwards',
-      animationDelay: 'var(--delay)',
+      '&::after': {
+        animation: '$slideInUnderline 0.6s ease-out forwards',
+        animationDelay: 'calc(var(--delay) + 0.2s)',
+      },
     },
   },
   // Animation keyframes pour l'effet d'apparition
   '@keyframes slideInUnderline': {
     '0%': {
-      '&::after': {
-        width: '0%',
-      },
+      width: '0%',
+      opacity: 0,
     },
-    '60%': {
-      '&::after': {
-        width: '0%',
-      },
+    '50%': {
+      width: '0%',
+      opacity: 1,
     },
     '100%': {
-      '&::after': {
-        width: '60%',
-      },
+      width: '60%',
+      opacity: 1,
     },
   },
 }));
@@ -307,7 +312,7 @@ const Header = () => {
           <span className={`${classes.hamburgerLine} ${isMobileMenuOpen ? 'active' : ''}`}></span>
         </button>
 
-        {/* Navigation mobile */}
+        {/* Navigation mobile avec animations améliorées */}
         <div className={`${classes.mobileNav} ${isMobileMenuOpen ? 'open' : ''}`}>
           {navigationLinks.map((link, index) => (
             <a 
@@ -316,7 +321,8 @@ const Header = () => {
               className={`${classes.mobileNavLink} ${isMobileMenuOpen ? 'menu-open' : ''}`}
               onClick={handleLinkClick}
               style={{
-                '--delay': `${index * 0.1}s`
+                '--delay': `${index * 0.1}s`,
+                animationDelay: `${index * 0.1}s`
               }}
             >
               {link.label}
