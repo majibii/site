@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../components/header/Header';
 import { LogoLink } from '../components/logo/LogoLink';
 import { Content } from '../components/content/Content';
 import { Hidden } from '@material-ui/core';
@@ -26,9 +27,12 @@ const useStyles = makeStyles(() => ({
     backgroundColor: 'transparent',
     zIndex: 1,
     margin: 0,
-    padding: 0,
+    padding: '80px 0 0 0', // Add top padding to account for fixed header
     display: 'flex',
     flexDirection: 'column',
+    '@media (max-width: 768px)': {
+      padding: '70px 0 0 0',
+    },
   },
   contentSection: {
     width: '100%',
@@ -45,6 +49,7 @@ export const Home = () => {
   
   return (
     <div className={classes.root}>
+      <Header />
       <div className={classes.homeSection}>
         <LogoLink />
         <Content />
