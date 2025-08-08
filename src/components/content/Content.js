@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Typography, Container, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -66,6 +66,75 @@ const useStyles = makeStyles((theme) => ({
         },
         "@media (max-width: 768px)": {
             maxHeight: "500px",
+        },
+    },
+    // Nouvelle classe pour la phrase interactive
+    interactivePhrase: {
+        background: 'none',
+        border: 'none',
+        color: 'rgba(250, 250, 250, 0.8)',
+        fontSize: '0.9rem',
+        fontWeight: '500',
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        textDecoration: 'none',
+        textAlign: 'left', // Force l'alignement à gauche
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        marginBottom: '1.5rem',
+        display: 'block',
+        position: 'relative',
+        '&:hover': {
+            color: '#fafafa',
+        },
+        "@media (max-width: 768px)": {
+            fontSize: '0.85rem',
+            textAlign: 'center',
+        },
+    },
+    dropdownContainer: {
+        position: 'relative',
+        display: 'inline',
+    },
+    dynamicWord: {
+        position: 'relative',
+        cursor: 'pointer',
+        '&:hover': {
+            color: '#fafafa',
+        },
+    },
+    chevronDown: {
+        marginRight: '4px',
+        fontSize: '0.75em',
+        opacity: 0.7,
+        transition: 'all 0.3s ease',
+    },
+    dropdown: {
+        position: 'absolute',
+        top: '100%',
+        left: '0',
+        background: 'rgba(47, 47, 46, 0.95)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
+        borderRadius: '8px',
+        padding: '0.5rem 0',
+        minWidth: '140px',
+        zIndex: 1000,
+        boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)',
+        marginTop: '4px',
+    },
+    dropdownItem: {
+        display: 'block',
+        padding: '0.75rem 1rem',
+        color: 'rgba(250, 250, 250, 0.8)',
+        textDecoration: 'none',
+        fontSize: '0.9rem',
+        fontWeight: '500',
+        transition: 'all 0.2s ease',
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        '&:hover': {
+            background: 'rgba(255, 255, 255, 0.1)',
+            color: '#fafafa',
         },
     },
     shinyTitle: {
@@ -177,10 +246,75 @@ const useStyles = makeStyles((theme) => ({
 
 export const Content = () => {
     const classes = useStyles();
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("AI Agents");
+    const dropdownRef = useRef(null);
+
+    const dropdownOptions = [
+        { label: "AI System", path: "/ai-system" },
+        { label: "AI Agents", path: "/ai-agents" },
+        { label: "Future AI", path: "/future-ai" },
+    ];
+
+    // Fermer le dropdown en cliquant à l'extérieur
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    const handleDropdownToggle = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleOptionClick = (option) => {
+        setSelectedOption(option.label);
+        setIsDropdownOpen(false);
+        // Rediriger vers la page correspondante
+        window.location.href = option.path;
+    };
 
     return (
         <Container component="main" className={`${classes.main}`} maxWidth={false}>
             <div className={classes.contentWrapper}>
+                {/* Nouvelle phrase interactive */}
+                <div className={classes.interactivePhrase}>
+                    → EggOn Make your{' '}
+                    <div className={classes.dropdownContainer} ref={dropdownRef}>
+                        <span 
+                            className={classes.dynamicWord}
+                            onClick={handleDropdownToggle}
+                        >
+                            <span className={classes.chevronDown}>▼</span>
+                            {selectedOption}
+                        </span>
+                        {isDropdownOpen && (
+                            <div className={classes.dropdown}>
+                                {dropdownOptions.map((option, index) => (
+                                    <a
+                                        key={index}
+                                        href="#"
+                                        className={classes.dropdownItem}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleOptionClick(option);
+                                        }}
+                                    >
+                                        {option.label}
+                                    </a>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+
                 <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
                     Make AI agents your {'\n'}competitive advantage
                 </Typography>
