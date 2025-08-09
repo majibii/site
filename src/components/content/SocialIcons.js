@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Tooltip, IconButton, Zoom } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Resume from '../../settings/resume.json';
 
 const useStyles = makeStyles((theme) => ({
   socialIcons: {
@@ -23,7 +22,27 @@ const useStyles = makeStyles((theme) => ({
 export const SocialIcons = () => {
   const classes = useStyles();
 
-  const socialItems = Resume.basics.profiles.map((socialItem) => (
+  // Remplacez les données du resume.json par des données statiques
+  const socialItems = [
+    {
+      network: 'GitHub',
+      username: 'EggOn Technology',
+      url: 'https://github.com/MarinaEgg', // Remplacez par votre URL GitHub
+      x_icon: 'fab fa-github' // Icône Font Awesome pour GitHub
+    },
+    {
+      network: 'LinkedIn',
+      username: 'EggOn Technology',
+      url: 'https://linkedin.com/in/votre-profil', // Remplacez par votre URL LinkedIn
+      x_icon: 'fab fa-linkedin'
+    },
+    {
+      network: 'Twitter',
+      username: 'EggOn Technology',
+      url: 'https://twitter.com/votre-compte', // Remplacez par votre URL Twitter
+      x_icon: 'fab fa-twitter'
+    }
+  ].map((socialItem) => (
     <Link
       href={socialItem.url}
       key={socialItem.network.toLowerCase()}
