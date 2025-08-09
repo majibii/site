@@ -149,7 +149,7 @@ const Header = () => {
   const underlineVariants = {
     closed: { width: "0%" },
     open: { 
-      width: "60%",
+      width: "30%", // RÉDUIT : Plus petit pour un effet crochet
       transition: { 
         delay: 0.2,
         duration: 0.4,
@@ -279,7 +279,7 @@ const Header = () => {
                     <motion.div
                       style={{
                         position: 'absolute',
-                        bottom: '0.5rem',
+                        top: '0.5rem', // CHANGÉ : Trait AU-DESSUS du titre
                         left: '50%',
                         height: '2px',
                         background: 'linear-gradient(90deg, #fafafa, rgba(250, 250, 250, 0.6))',
