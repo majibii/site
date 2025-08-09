@@ -133,14 +133,17 @@
 }
 
 /* Theme-aware CSS custom properties */
-[data-theme="light"] .learn-section-subtitle-text,
-body[data-theme="light"] .learn-section-subtitle-text {
+:root {
+  --foreground-default: #ffffff;
+  --primary-main: #007bff;
+}
+
+[data-theme="light"] {
   --foreground-default: #000000;
   --primary-main: #007bff;
 }
 
-[data-theme="dark"] .learn-section-subtitle-text,
-body[data-theme="dark"] .learn-section-subtitle-text {
+[data-theme="dark"] {
   --foreground-default: #ffffff;
   --primary-main: #007bff;
 }
