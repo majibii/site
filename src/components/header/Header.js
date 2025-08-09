@@ -267,29 +267,30 @@ const Header = () => {
                 left: '0',
                 right: '0',
                 width: '100%',
-                // 🎯 ADAPTATION DYNAMIQUE : plus opaque et blur plus fort pour la lisibilité
+                // 🔥 BLUR ENCORE PLUS FORT pour flouter le contenu derrière
                 backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.85)' : 'rgba(0, 0, 0, 0.75)',
-                backdropFilter: isScrolled ? 'blur(8px)' : 'blur(6px)',
-                WebkitBackdropFilter: isScrolled ? 'blur(8px)' : 'blur(6px)',
+                backdropFilter: isScrolled ? 'blur(25px)' : 'blur(20px)', // 🎯 BLUR EXTRÊME
+                WebkitBackdropFilter: isScrolled ? 'blur(25px)' : 'blur(20px)',
                 borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 boxSizing: 'border-box',
                 zIndex: 1001,
                 padding: '0',
-                // 🔥 MOBILE ONLY : disparaît automatiquement en desktop
+                // 🎯 DOUBLE SÉCURITÉ : Saturation pour masquer complètement
+                filter: 'saturate(1.2)', // Renforce la visibilité du menu
                 display: 'block'
               }}
             >
             >
               {/* 🎯 CONTENEUR INTERNE AVEC MÊME STYLE QUE LE HEADER */}
               <div style={{
-                // 🎯 FOND AVEC BLUR FORT pour flouter ce qui passe derrière
-                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.85)' : 'rgba(0, 0, 0, 0.75)',
-                backdropFilter: isScrolled ? 'blur(20px)' : 'blur(15px)', // 🔥 BLUR BEAUCOUP PLUS FORT
-                WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'blur(15px)',
+                // 🔥 BLUR MAXIMAL pour rendre le contenu derrière complètement illisible
+                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.9)' : 'rgba(0, 0, 0, 0.85)', // Plus opaque
+                backdropFilter: isScrolled ? 'blur(30px)' : 'blur(25px)', // 🎯 BLUR ULTRA-FORT
+                WebkitBackdropFilter: isScrolled ? 'blur(30px)' : 'blur(25px)',
                 padding: '1.5rem 2rem',
                 width: '100%',
-                // Ajout d'une ombre pour séparer du contenu
-                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.3)'
+                // Ajout d'une ombre interne pour plus de profondeur
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.4)'
               }}>
                 {navigationLinks.map((link, index) => (
                   <motion.div key={index} variants={linkVariants}>
@@ -299,16 +300,16 @@ const Header = () => {
                       textAlign: 'center',
                       margin: '1rem 0',
                       display: 'flex',
-                      alignItems: 'center',
+                      alignItems: 'center', // 🎯 CENTRE VERTICAL PARFAIT
                       justifyContent: 'center'
                     }}>
-                      {/* Trait gauche */}
+                      {/* Trait gauche - aligné au centre du texte */}
                       <div style={{
-                        content: '',
                         flex: 1,
                         height: '1px',
                         backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                        marginRight: '1rem'
+                        marginRight: '1rem',
+                        alignSelf: 'center' // 🎯 FORCE L'ALIGNEMENT CENTRAL
                       }} />
                       
                       <motion.a 
@@ -339,13 +340,13 @@ const Header = () => {
                         {link.label}
                       </motion.a>
                       
-                      {/* Trait droit */}
+                      {/* Trait droit - aligné au centre du texte */}
                       <div style={{
-                        content: '',
                         flex: 1,
                         height: '1px',
                         backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                        marginLeft: '1rem'
+                        marginLeft: '1rem',
+                        alignSelf: 'center' // 🎯 FORCE L'ALIGNEMENT CENTRAL
                       }} />
                     </div>
                   </motion.div>
