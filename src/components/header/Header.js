@@ -146,19 +146,6 @@ const Header = () => {
     }
   };
 
-  const underlineVariants = {
-    closed: { width: "0px", opacity: 0 },
-    open: { 
-      width: "20px", // Taille fixe pour les traits décoratifs
-      opacity: 1,
-      transition: { 
-        delay: 0.2,
-        duration: 0.4,
-        ease: "easeOut"
-      }
-    }
-  };
-
   const hamburgerVariants = {
     closed: {
       rotate: 0,
@@ -253,7 +240,7 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* Navigation mobile avec animations et fond noir forcé */}
+        {/* 🔥 NAVIGATION MOBILE - SUPPRESSION DES STYLES INLINE PROBLÉMATIQUES */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
@@ -262,18 +249,7 @@ const Header = () => {
               initial="closed"
               animate="open"
               exit="closed"
-              style={{
-                position: 'absolute',
-                top: '100%',
-                left: 0,
-                right: 0,
-                width: '100%',
-                background: '#000000', // NOIR OPAQUE TOTAL
-                border: '2px solid red', // TEST : Bordure rouge pour voir si l'élément existe
-                padding: '1.5rem 2rem',
-                boxSizing: 'border-box',
-                zIndex: 1001
-              }}
+              // ✅ SUPPRESSION DE TOUS LES STYLES INLINE - on utilise uniquement le CSS
             >
               {navigationLinks.map((link, index) => (
                 <motion.div key={index} variants={linkVariants}>
