@@ -11,11 +11,14 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1000,
     padding: '1rem 2rem',
     background: 'rgba(0, 0, 0, 0.3)', // Plus opaque pour être bien visible
-    // Suppression de backdrop-filter et WebkitBackdropFilter
+    backdropFilter: 'blur(2px)', // Flou très fin pour la lisibilité
+    WebkitBackdropFilter: 'blur(2px)', // Support Safari
     borderBottom: '1px solid rgba(255, 255, 255, 0.1)', // Bordure plus visible
     transition: 'all 0.3s ease',
     '&.scrolled': {
       background: 'rgba(0, 0, 0, 0.5)', // Plus foncé au scroll
+      backdropFilter: 'blur(3px)', // Légèrement plus de flou au scroll
+      WebkitBackdropFilter: 'blur(3px)',
       boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)', // Ombre plus marquée
     },
     '@media (max-width: 768px)': {
@@ -127,7 +130,9 @@ const useStyles = makeStyles((theme) => ({
     top: '100%',
     left: 0,
     right: 0,
-    background: 'rgba(0, 0, 0, 0.6)', // Plus opaque, sans blur
+    background: 'rgba(0, 0, 0, 0.6)', // Plus opaque, avec flou fin
+    backdropFilter: 'blur(2px)', // Flou très fin
+    WebkitBackdropFilter: 'blur(2px)', // Support Safari
     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
     padding: '1.5rem 2rem',
   },
