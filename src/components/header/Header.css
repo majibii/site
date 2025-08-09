@@ -1,0 +1,264 @@
+/* HEADER STYLES - CLASSES STABLES SANS JSS */
+
+.eggon-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.eggon-header.eggon-header-scrolled {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .eggon-header {
+    padding: 0.75rem 1rem;
+    height: 70px;
+  }
+}
+
+.eggon-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent !important;
+}
+
+.eggon-logo {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(250, 250, 250, 0.9);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-left: 0;
+}
+
+.eggon-logo:hover {
+  opacity: 1;
+  color: #fafafa;
+}
+
+@media (max-width: 768px) {
+  .eggon-logo {
+    display: none;
+  }
+}
+
+.eggon-circular-logo {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .eggon-circular-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+}
+
+.header-circular-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(250, 250, 250, 0.9);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header-char-span {
+  position: absolute;
+  left: 50%;
+  transform-origin: 0 25px;
+}
+
+.eggon-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .eggon-nav-links {
+    display: none;
+  }
+}
+
+.eggon-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  color: rgba(250, 250, 250, 0.9);
+  text-decoration: none;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.eggon-nav-link:hover {
+  color: #fafafa;
+  opacity: 1;
+}
+
+.eggon-mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.eggon-mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .eggon-mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+.eggon-hamburger-line {
+  width: 18px;
+  height: 2px;
+  background-color: #fafafa;
+  margin: 2px 0;
+}
+
+.eggon-mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+}
+
+.eggon-mobile-nav-link {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: rgba(250, 250, 250, 0.9);
+  text-decoration: none;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.eggon-mobile-nav-link:last-child {
+  margin-bottom: 0;
+}
+
+/* CORRECTION CRITIQUE : Styles qui surchargent les classes JSS dynamiques */
+
+/* Force tous les headers à avoir la même apparence */
+header[class*="jss"],
+header.eggon-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  z-index: 1000 !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  height: 80px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 1rem 2rem !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+/* Force tous les navs à avoir la même structure */
+nav[class*="jss"],
+.eggon-nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Mobile header override */
+@media (max-width: 768px) {
+  header[class*="jss"],
+  header.eggon-header {
+    height: 70px !important;
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+/* Assure que les éléments nav ne récupèrent pas les styles incorrects */
+nav[class*="jss"] > *,
+.eggon-nav > * {
+  background: transparent !important;
+}
+
+/* Force le logo à rester en place */
+nav[class*="jss"] > a[href="/"],
+.eggon-nav > a[href="/"] {
+  margin-right: auto !important;
+}
+
+/* Force les liens de navigation à rester alignés à droite */
+nav[class*="jss"] > div:last-child,
+.eggon-nav > div:last-child {
+  margin-left: auto !important;
+}
