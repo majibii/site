@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "auto",
         display: "flex",
         alignItems: "center",
-        gap: "4rem", // Augmenté pour plus d'espace entre texte et image
+        gap: "4rem",
         width: "100%",
-        maxWidth: "1600px", // Encore plus large pour utiliser plus la largeur de page
-        padding: "0 1rem", // Padding réduit pour utiliser plus d'espace
+        maxWidth: "1600px",
+        padding: "0 1rem",
         "@media (max-width: 768px)": {
             flexDirection: "column",
             gap: "3rem",
@@ -19,28 +19,28 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     contentWrapper: {
-        flex: "1 1 45%", // Réduit à 45% pour laisser plus d'espace à l'image
+        flex: "1 1 45%",
         minWidth: "0",
-        paddingLeft: "6rem", // Légèrement réduit pour décaler le texte un peu plus à gauche
-        paddingRight: "3rem", // Augmenté pour plus d'espace avec l'image
+        paddingLeft: "6rem",
+        paddingRight: "3rem",
         "@media (max-width: 1200px)": {
-            paddingLeft: "4rem", // Réduit aussi pour mobile
+            paddingLeft: "4rem",
         },
         "@media (max-width: 768px)": {
             paddingLeft: "0",
             paddingRight: "0",
             flex: "1 1 auto",
-            textAlign: "center", // Centre le texte sur mobile
+            textAlign: "center",
         },
     },
     imageWrapper: {
-        flex: "1 1 55%", // Augmenté à 55% pour donner plus d'espace à l'image
+        flex: "1 1 55%",
         display: "flex",
-        alignItems: "flex-start", // Aligne l'image vers le haut
-        justifyContent: "flex-end", // Aligne l'image vers la droite
-        paddingTop: "2rem", // Ajoute un padding en haut pour décaler vers le haut
-        paddingLeft: "3rem", // Augmenté pour plus d'espace avec le texte
-        paddingRight: "2rem", // Réduit pour rapprocher de la marge droite
+        alignItems: "flex-start",
+        justifyContent: "flex-end",
+        paddingTop: "2rem",
+        paddingLeft: "3rem",
+        paddingRight: "2rem",
         "@media (max-width: 1200px)": {
             paddingRight: "1.5rem",
             paddingTop: "1rem",
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
         "@media (max-width: 768px)": {
             width: "100%",
             justifyContent: "center",
-            alignItems: "center", // Recentre sur mobile
+            alignItems: "center",
             paddingLeft: "0",
             paddingRight: "0",
             paddingTop: "0",
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxWidth: "100%",
         width: "auto",
-        maxHeight: "850px", // Augmenté significativement pour une image plus grosse
+        maxHeight: "850px",
         objectFit: "contain",
         "@media (max-width: 1200px)": {
             maxHeight: "750px",
@@ -68,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
             maxHeight: "500px",
         },
     },
-    // Nouvelle classe pour la phrase interactive
     interactivePhrase: {
         background: 'none',
         border: 'none',
@@ -78,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         transition: 'all 0.3s ease',
         textDecoration: 'none',
-        textAlign: 'left', // Force l'alignement à gauche
+        textAlign: 'left',
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         marginBottom: '1.5rem',
         display: 'block',
@@ -140,7 +139,7 @@ const useStyles = makeStyles((theme) => ({
     shinyTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
-        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)', // Légèrement réduit pour assurer 2 lignes
+        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
         lineHeight: '1.1',
         color: '#b5b5b5a4',
         background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
@@ -149,7 +148,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundClip: 'text',
         animation: '$shine 5s linear infinite',
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
-        textAlign: "left", // Force l'alignement à gauche
+        textAlign: "left",
         '&.disabled': {
             animation: 'none',
             color: '#fafafa',
@@ -166,7 +165,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '1.6',
         color: 'rgba(250, 250, 250, 0.9)',
         marginBottom: '2rem',
-        textAlign: "left", // Force l'alignement à gauche
+        textAlign: "left",
         "@media (max-width: 768px)": {
             textAlign: "center",
         },
@@ -225,7 +224,7 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         transition: 'all 0.3s ease',
         textDecoration: 'none',
-        textAlign: 'left', // Force l'alignement à gauche
+        textAlign: 'left',
         '&:hover': {
             color: '#fafafa',
         },
@@ -250,10 +249,10 @@ export const Content = () => {
     const [selectedOption, setSelectedOption] = useState("AI Agents");
     const dropdownRef = useRef(null);
 
+    // MODIFICATION : Mise à jour des options du dropdown selon Étape 1.3
     const dropdownOptions = [
-        { label: "AI System", path: "/ai-system" },
-        { label: "AI Agents", path: "/ai-agents" },
-        { label: "Future AI", path: "/future-ai" },
+        { label: "AI Agents", path: "/" },
+        { label: "Future AI", path: "/nog-lab" },
     ];
 
     // Fermer le dropdown en cliquant à l'extérieur
@@ -279,6 +278,11 @@ export const Content = () => {
         setIsDropdownOpen(false);
         // Rediriger vers la page correspondante
         window.location.href = option.path;
+    };
+
+    // MODIFICATION : Fonction pour gérer le clic vers la page Lab (Étape 1.4)
+    const handleLabClick = () => {
+        window.location.href = '/nog-lab';
     };
 
     return (
@@ -325,7 +329,8 @@ export const Content = () => {
                     <Button className={classes.primaryButton}>
                         Start building
                     </Button>
-                    <button className={classes.linkButton}>
+                    {/* MODIFICATION : Lien vers page Lab (Étape 1.4) */}
+                    <button className={classes.linkButton} onClick={handleLabClick}>
                         → EggOn Lab — The team dedicated to making AI agents fully insurable.
                     </button>
                 </div>
