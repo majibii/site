@@ -10,13 +10,13 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     zIndex: 1000,
     padding: '1rem 2rem',
-    background: 'rgba(47, 47, 46, 0.85)',
+    background: 'rgba(0, 0, 0, 0.3)', // Transparence unifiée comme NOGLab
     backdropFilter: 'blur(20px)',
     WebkitBackdropFilter: 'blur(20px)',
     borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
     transition: 'all 0.3s ease',
     '&.scrolled': {
-      background: 'rgba(47, 47, 46, 0.95)',
+      background: 'rgba(0, 0, 0, 0.5)', // Plus opaque au scroll mais reste cohérent
       boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
     },
     '@media (max-width: 768px)': {
@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
     top: '100%',
     left: 0,
     right: 0,
-    background: 'rgba(47, 47, 46, 0.98)',
+    background: 'rgba(0, 0, 0, 0.8)', // Cohérent avec la nouvelle transparence
     backdropFilter: 'blur(20px)',
     WebkitBackdropFilter: 'blur(20px)',
     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
