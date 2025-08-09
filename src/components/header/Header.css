@@ -135,6 +135,7 @@
   opacity: 1;
 }
 
+/* MENU HAMBURGER MOBILE - STYLE SIMPLIFIÉ COMME L'ANCIEN */
 .eggon-mobile-menu-toggle {
   display: none;
   flex-direction: column;
@@ -166,8 +167,10 @@
   height: 2px;
   background-color: #fafafa;
   margin: 2px 0;
+  transition: all 0.3s ease;
 }
 
+/* MENU MOBILE DÉROULANT - STYLE COMME L'ANCIEN AVEC FOND TRANSPARENT */
 .eggon-mobile-nav {
   position: absolute;
   top: 100%;
