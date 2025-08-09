@@ -282,26 +282,72 @@ const Header = () => {
             >
               {/* 🎯 CONTENEUR INTERNE AVEC MÊME STYLE QUE LE HEADER */}
               <div style={{
-                // 🎯 ADAPTATION DYNAMIQUE : plus opaque et blur plus fort pour la lisibilité
+                // 🎯 FOND AVEC BLUR FORT pour flouter ce qui passe derrière
                 backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.85)' : 'rgba(0, 0, 0, 0.75)',
-                backdropFilter: isScrolled ? 'blur(8px)' : 'blur(6px)',
-                WebkitBackdropFilter: isScrolled ? 'blur(8px)' : 'blur(6px)',
+                backdropFilter: isScrolled ? 'blur(20px)' : 'blur(15px)', // 🔥 BLUR BEAUCOUP PLUS FORT
+                WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'blur(15px)',
                 padding: '1.5rem 2rem',
-                width: '100%'
+                width: '100%',
+                // Ajout d'une ombre pour séparer du contenu
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.3)'
               }}>
                 {navigationLinks.map((link, index) => (
                   <motion.div key={index} variants={linkVariants}>
-                    <motion.a 
-                      href={link.href} 
-                      className="eggon-mobile-nav-link"
-                      onClick={handleLinkClick}
-                      whileHover={{ 
-                        color: '#fafafa',
-                        backgroundColor: 'rgba(255, 255, 255, 0.05)'
-                      }}
-                    >
-                      {link.label}
-                    </motion.a>
+                    {/* 🎯 TITRE AVEC TRAITS COMME "WHAT ARE AGENTS" */}
+                    <div style={{
+                      position: 'relative',
+                      textAlign: 'center',
+                      margin: '1rem 0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      {/* Trait gauche */}
+                      <div style={{
+                        content: '',
+                        flex: 1,
+                        height: '1px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                        marginRight: '1rem'
+                      }} />
+                      
+                      <motion.a 
+                        href={link.href} 
+                        className="eggon-mobile-nav-link"
+                        onClick={handleLinkClick}
+                        style={{
+                          display: 'block',
+                          padding: '0.5rem 1rem',
+                          color: 'rgba(250, 250, 250, 0.9)',
+                          textDecoration: 'none',
+                          fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+                          fontSize: '1rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.1em',
+                          borderRadius: '8px',
+                          position: 'relative',
+                          transition: 'all 0.3s ease',
+                          whiteSpace: 'nowrap',
+                          flexShrink: 0
+                        }}
+                        whileHover={{ 
+                          color: '#fafafa',
+                          backgroundColor: 'rgba(255, 255, 255, 0.05)'
+                        }}
+                      >
+                        {link.label}
+                      </motion.a>
+                      
+                      {/* Trait droit */}
+                      <div style={{
+                        content: '',
+                        flex: 1,
+                        height: '1px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                        marginLeft: '1rem'
+                      }} />
+                    </div>
                   </motion.div>
                 ))}
               </div>
