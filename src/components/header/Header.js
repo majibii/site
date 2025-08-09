@@ -41,8 +41,10 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
     width: '100%',
     height: '100%',
-    // AJOUT : Assure que la nav prend toute la largeur disponible
     boxSizing: 'border-box',
+    // CORRECTION : Force un arrière-plan transparent pour éviter le rectangle noir
+    backgroundColor: 'transparent !important',
+    background: 'none !important',
   },
   logo: {
     fontSize: '1rem',
