@@ -12,17 +12,12 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         maxWidth: "1600px",
         padding: "0 1rem",
-        // CORRECTION : Force les paddings à zéro pour éviter le décalage
-        paddingLeft: "1rem !important",
-        paddingRight: "1rem !important",
-        marginLeft: "auto !important",
-        marginRight: "auto !important",
+        marginLeft: "auto",
+        marginRight: "auto",
         "@media (max-width: 768px)": {
             flexDirection: "column",
             gap: "3rem",
             padding: "0 1rem",
-            paddingLeft: "1rem !important",
-            paddingRight: "1rem !important",
         },
     },
     contentWrapper: {
@@ -289,7 +284,6 @@ export const Content = () => {
     };
 
     return (
-        // CORRECTION : Ajout de disableGutters pour supprimer les paddings automatiques
         <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
             <div className={classes.contentWrapper}>
                 <div className={classes.interactivePhrase}>
