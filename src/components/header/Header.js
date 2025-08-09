@@ -267,10 +267,10 @@ const Header = () => {
                 left: '0',
                 right: '0',
                 width: '100%',
-                // 🎯 ADAPTATION DYNAMIQUE : même style que le header actuel (scrollé ou pas)
-                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.3)',
-                backdropFilter: isScrolled ? 'blur(3px)' : 'blur(2px)',
-                WebkitBackdropFilter: isScrolled ? 'blur(3px)' : 'blur(2px)',
+                // 🎯 ADAPTATION DYNAMIQUE : plus opaque et blur plus fort pour la lisibilité
+                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.85)' : 'rgba(0, 0, 0, 0.75)',
+                backdropFilter: isScrolled ? 'blur(8px)' : 'blur(6px)',
+                WebkitBackdropFilter: isScrolled ? 'blur(8px)' : 'blur(6px)',
                 borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 boxSizing: 'border-box',
                 zIndex: 1001,
@@ -282,10 +282,10 @@ const Header = () => {
             >
               {/* 🎯 CONTENEUR INTERNE AVEC MÊME STYLE QUE LE HEADER */}
               <div style={{
-                // 🎯 ADAPTATION DYNAMIQUE : même transparence et blur que le header actuel
-                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.3)',
-                backdropFilter: isScrolled ? 'blur(3px)' : 'blur(2px)',
-                WebkitBackdropFilter: isScrolled ? 'blur(3px)' : 'blur(2px)',
+                // 🎯 ADAPTATION DYNAMIQUE : plus opaque et blur plus fort pour la lisibilité
+                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.85)' : 'rgba(0, 0, 0, 0.75)',
+                backdropFilter: isScrolled ? 'blur(8px)' : 'blur(6px)',
+                WebkitBackdropFilter: isScrolled ? 'blur(8px)' : 'blur(6px)',
                 padding: '1.5rem 2rem',
                 width: '100%'
               }}>
