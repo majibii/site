@@ -270,43 +270,11 @@ const Header = () => {
                     className="eggon-mobile-nav-link"
                     onClick={handleLinkClick}
                     whileHover={{ 
-                      scale: 1.02,
-                      backgroundColor: 'rgba(252, 233, 107, 0.1)'
+                      color: '#fafafa',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)'
                     }}
-                    style={{ position: 'relative' }}
                   >
-                    {/* Trait décoratif de chaque côté */}
-                    <motion.div
-                      style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '2rem',
-                        width: '20px',
-                        height: '2px',
-                        background: 'linear-gradient(90deg, #fce96b, rgba(252, 233, 107, 0.4))',
-                        transform: 'translateY(-50%)',
-                        borderRadius: '1px',
-                      }}
-                      variants={underlineVariants}
-                      initial="closed"
-                      animate="open"
-                    />
-                    <span style={{ margin: '0 3rem' }}>{link.label}</span>
-                    <motion.div
-                      style={{
-                        position: 'absolute',
-                        top: '50%',
-                        right: '2rem',
-                        width: '20px',
-                        height: '2px',
-                        background: 'linear-gradient(90deg, rgba(252, 233, 107, 0.4), #fce96b)',
-                        transform: 'translateY(-50%)',
-                        borderRadius: '1px',
-                      }}
-                      variants={underlineVariants}
-                      initial="closed"
-                      animate="open"
-                    />
+                    {link.label}
                   </motion.a>
                 </motion.div>
               ))}
