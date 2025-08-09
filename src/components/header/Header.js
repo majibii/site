@@ -240,7 +240,7 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* 🔥 NAVIGATION MOBILE - SUPPRESSION DES STYLES INLINE PROBLÉMATIQUES */}
+        {/* 🔥 NAVIGATION MOBILE - STYLES INLINE FORCÉS POUR COMBATTRE FRAMER MOTION */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
@@ -249,7 +249,21 @@ const Header = () => {
               initial="closed"
               animate="open"
               exit="closed"
-              // ✅ SUPPRESSION DE TOUS LES STYLES INLINE - on utilise uniquement le CSS
+              style={{
+                // 🔥 SOLUTION DE FORCE BRUTE - STYLES QUI NE PEUVENT PAS ÊTRE OVERRIDÉS
+                position: 'absolute',
+                top: '100%',
+                left: '0',
+                right: '0',
+                width: '100%',
+                backgroundColor: '#000000', // NOIR TOTAL
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                borderTop: '1px solid rgba(255, 255, 255, 0.2)',
+                padding: '1.5rem 2rem',
+                boxSizing: 'border-box',
+                zIndex: 1001
+              }}
             >
               {navigationLinks.map((link, index) => (
                 <motion.div key={index} variants={linkVariants}>
