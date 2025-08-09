@@ -117,6 +117,7 @@ const Header = () => {
     closed: {
       opacity: 0,
       height: 0,
+      backgroundColor: "rgba(0, 0, 0, 0)",
       transition: {
         duration: 0.3,
         when: "afterChildren",
@@ -125,6 +126,7 @@ const Header = () => {
     open: {
       opacity: 1,
       height: "auto",
+      backgroundColor: "rgba(0, 0, 0, 0.9)", // AJOUT : Fond noir dans Framer Motion !
       transition: {
         duration: 0.3,
         when: "beforeChildren",
