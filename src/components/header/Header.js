@@ -8,16 +8,16 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 1000, // Assure que le header reste au-dessus du contenu
+    zIndex: 1000,
     padding: '1rem 2rem',
     background: 'rgba(0, 0, 0, 0.3)',
     backdropFilter: 'blur(2px)',
     WebkitBackdropFilter: 'blur(2px)',
     borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
     transition: 'all 0.3s ease',
-    height: '80px', // AJOUT : Hauteur fixe pour éviter les variations
+    height: '80px',
     display: 'flex',
-    alignItems: 'center', // AJOUT : Centre verticalement le contenu
+    alignItems: 'center',
     '&.scrolled': {
       background: 'rgba(0, 0, 0, 0.5)',
       backdropFilter: 'blur(3px)',
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '@media (max-width: 768px)': {
       padding: '0.75rem 1rem',
-      height: '70px', // AJOUT : Hauteur fixe pour mobile aussi
+      height: '70px',
     },
   },
   nav: {
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '1400px',
     margin: '0 auto',
     width: '100%',
-    height: '100%', // AJOUT : Prend toute la hauteur du header
+    height: '100%',
   },
   logo: {
     fontSize: '1rem',
@@ -45,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     textDecoration: 'none',
     transition: 'all 0.3s ease',
+    // MODIFICATION : Décaler complètement à gauche
+    marginLeft: '0',
     '&:hover': {
       opacity: 1,
       color: '#fafafa',
@@ -53,38 +55,37 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-  // CORRECTION DU LOGO CIRCULAIRE - Le problème principal !
   circularLogo: {
     display: 'none',
     '@media (max-width: 768px)': {
-      display: 'flex', // CHANGÉ de 'block' à 'flex'
-      alignItems: 'center', // AJOUT : Centre le logo verticalement
-      justifyContent: 'center', // AJOUT : Centre le logo horizontalement
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       position: 'relative',
-      width: '50px', // RÉDUIT de 60px à 50px pour éviter le débordement
-      height: '50px', // RÉDUIT de 60px à 50px
+      width: '50px',
+      height: '50px',
       cursor: 'pointer',
-      flexShrink: 0, // AJOUT : Empêche le rétrécissement
+      flexShrink: 0,
     },
   },
   circularText: {
     position: 'absolute',
     width: '100%',
     height: '100%',
-    fontSize: '10px', // RÉDUIT de 11px à 10px
+    fontSize: '10px',
     fontWeight: 600,
     color: 'rgba(250, 250, 250, 0.9)',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
-    top: '50%', // AJOUT : Centre verticalement
-    left: '50%', // AJOUT : Centre horizontalement  
-    transform: 'translate(-50%, -50%)', // AJOUT : Centre parfaitement
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   },
   charSpan: {
     position: 'absolute',
     left: '50%',
-    transformOrigin: '0 25px', // AJOUT : Ajusté pour la nouvelle taille (50px/2)
+    transformOrigin: '0 25px',
   },
   navLinks: {
     display: 'flex',
@@ -122,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    flexShrink: 0, // AJOUT : Empêche le rétrécissement
+    flexShrink: 0,
     '&:hover': {
       background: 'rgba(255, 255, 255, 0.2)',
       borderColor: 'rgba(255, 255, 255, 0.3)',
@@ -170,7 +171,6 @@ const CircularText = ({ text, spinDuration = 20, onHover, className = '', onClic
   const classes = useStyles();
   const [isHovered, setIsHovered] = useState(false);
 
-  // Configuration des animations selon le comportement hover
   const getAnimationConfig = () => {
     const baseConfig = {
       rotate: 360,
@@ -272,10 +272,10 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Données des liens de navigation
+  // MODIFICATION : Mise à jour des liens de navigation
   const navigationLinks = [
     { href: '/', label: 'eggon' },
-    { href: '/nog-lab', label: 'N.O.G Lab' },
+    { href: '/nog-lab', label: 'Lab' }, // Changé de "N.O.G Lab" à "Lab"
     { href: '/learn', label: 'Learn' }
   ];
 
@@ -355,7 +355,7 @@ const Header = () => {
   return (
     <header className={`${classes.header} ${isScrolled ? 'scrolled' : ''}`}>
       <nav className={classes.nav}>
-        {/* Logo desktop */}
+        {/* Logo desktop - MODIFICATION : Décalé complètement à gauche */}
         <motion.a 
           href="/" 
           className={classes.logo}
