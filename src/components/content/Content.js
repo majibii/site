@@ -289,7 +289,7 @@ export const Content = () => {
     };
 
     return (
-        {/* CORRECTION : Ajout de disableGutters pour supprimer les paddings automatiques */}
+        // CORRECTION : Ajout de disableGutters pour supprimer les paddings automatiques
         <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
             <div className={classes.contentWrapper}>
                 <div className={classes.interactivePhrase}>
