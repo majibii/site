@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     zIndex: 1000,
     padding: '1rem 2rem',
-    background: 'rgba(0, 0, 0, 0.3)', // Transparence unifiée comme NOGLab
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+    background: 'rgba(0, 0, 0, 0.1)', // Très transparent pour lire à travers
+    backdropFilter: 'blur(8px)', // Blur réduit
+    WebkitBackdropFilter: 'blur(8px)',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.05)', // Bordure plus subtile
     transition: 'all 0.3s ease',
     '&.scrolled': {
-      background: 'rgba(0, 0, 0, 0.5)', // Plus opaque au scroll mais reste cohérent
-      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+      background: 'rgba(0, 0, 0, 0.2)', // Reste transparent même au scroll
+      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', // Ombre plus douce
     },
     '@media (max-width: 768px)': {
       padding: '0.75rem 1rem',
@@ -128,10 +128,10 @@ const useStyles = makeStyles((theme) => ({
     top: '100%',
     left: 0,
     right: 0,
-    background: 'rgba(0, 0, 0, 0.8)', // Cohérent avec la nouvelle transparence
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
-    borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+    background: 'rgba(0, 0, 0, 0.4)', // Cohérent avec la nouvelle transparence
+    backdropFilter: 'blur(8px)',
+    WebkitBackdropFilter: 'blur(8px)',
+    borderTop: '1px solid rgba(255, 255, 255, 0.05)',
     padding: '1.5rem 2rem',
   },
   mobileNavLink: {
