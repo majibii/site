@@ -268,10 +268,8 @@ const Header = () => {
                 left: 0,
                 right: 0,
                 width: '100%',
-                background: 'rgba(0, 0, 0, 0.9)',
-                backdropFilter: 'blur(3px)',
-                WebkitBackdropFilter: 'blur(3px)',
-                borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                background: '#000000', // NOIR OPAQUE TOTAL
+                border: '2px solid red', // TEST : Bordure rouge pour voir si l'élément existe
                 padding: '1.5rem 2rem',
                 boxSizing: 'border-box',
                 zIndex: 1001
