@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: 0,
     right: 0,
+    width: '100vw', // AJOUT : Force la largeur complète
     zIndex: 1000,
     padding: '1rem 2rem',
     background: 'rgba(0, 0, 0, 0.3)',
@@ -18,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     height: '80px',
     display: 'flex',
     alignItems: 'center',
+    // AJOUT : Assure que le header ne soit pas affecté par d'autres conteneurs
+    margin: 0,
+    boxSizing: 'border-box',
     '&.scrolled': {
       background: 'rgba(0, 0, 0, 0.5)',
       backdropFilter: 'blur(3px)',
@@ -37,6 +41,8 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
     width: '100%',
     height: '100%',
+    // AJOUT : Assure que la nav prend toute la largeur disponible
+    boxSizing: 'border-box',
   },
   logo: {
     fontSize: '1rem',
@@ -45,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     textDecoration: 'none',
     transition: 'all 0.3s ease',
-    // MODIFICATION : Décaler complètement à gauche
     marginLeft: '0',
     '&:hover': {
       opacity: 1,
@@ -143,11 +148,13 @@ const useStyles = makeStyles((theme) => ({
     top: '100%',
     left: 0,
     right: 0,
+    width: '100%', // AJOUT : Force la largeur complète
     background: 'rgba(0, 0, 0, 0.6)',
     backdropFilter: 'blur(2px)',
     WebkitBackdropFilter: 'blur(2px)',
     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
     padding: '1.5rem 2rem',
+    boxSizing: 'border-box', // AJOUT : Include le padding dans la largeur
   },
   mobileNavLink: {
     display: 'block',
@@ -272,10 +279,9 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // MODIFICATION : Mise à jour des liens de navigation
   const navigationLinks = [
     { href: '/', label: 'eggon' },
-    { href: '/nog-lab', label: 'Lab' }, // Changé de "N.O.G Lab" à "Lab"
+    { href: '/nog-lab', label: 'Lab' },
     { href: '/learn', label: 'Learn' }
   ];
 
@@ -355,7 +361,7 @@ const Header = () => {
   return (
     <header className={`${classes.header} ${isScrolled ? 'scrolled' : ''}`}>
       <nav className={classes.nav}>
-        {/* Logo desktop - MODIFICATION : Décalé complètement à gauche */}
+        {/* Logo desktop */}
         <motion.a 
           href="/" 
           className={classes.logo}
