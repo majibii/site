@@ -74,3 +74,13 @@ header {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+
+/* CORRECTION : Force la transparence pour tous les éléments nav dans le header */
+header nav,
+header nav *,
+.MuiAppBar-root,
+.MuiToolbar-root {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
