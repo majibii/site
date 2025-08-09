@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/header/Header';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
-import LeranSection from '../components/noglab/LearnSection';
+import LeranSection from '../components/Learn/LearnSection';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
