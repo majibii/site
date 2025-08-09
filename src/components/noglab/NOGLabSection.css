@@ -82,10 +82,10 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  color: var(--foreground-default);
   position: relative;
   z-index: 2;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  color: inherit; /* Hérite de la couleur du thème Material-UI */
 }
 
 /* Body text matching site typography */
@@ -107,14 +107,14 @@
 /* Bold text styling for quoted text */
 .noglab-bold-text {
   font-weight: 700;
-  color: inherit; /* Hérite de la couleur du thème Material-UI */
+  color: var(--foreground-default);
 }
 
 /* Special styling for principle titles */
 .noglab-principle-title {
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   line-height: 1.8;
-  color: inherit; /* Hérite de la couleur du thème Material-UI */
+  color: var(--foreground-default);
   margin-bottom: 0.5rem;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
@@ -132,9 +132,22 @@
   opacity: 0.8;
 }
 
-/* Variables dynamiques basées sur le thème Material-UI */
+/* Theme-aware CSS custom properties */
+[data-theme="light"] .noglab-section-subtitle-text,
+body[data-theme="light"] .noglab-section-subtitle-text {
+  --foreground-default: #000000;
+  --primary-main: #007bff;
+}
+
+[data-theme="dark"] .noglab-section-subtitle-text,
+body[data-theme="dark"] .noglab-section-subtitle-text {
+  --foreground-default: #ffffff;
+  --primary-main: #007bff;
+}
+
+/* Fallback for browsers that don't support CSS custom properties */
 .noglab-section-subtitle-text {
-  color: #ffffff; /* Blanc par défaut pour le thème sombre */
+  color: #ffffff;
 }
 
 .noglab-bold-text {
@@ -143,10 +156,4 @@
 
 .noglab-design-partner-link {
   color: #007bff;
-}
-
-/* Adaptation automatique selon le thème Material-UI */
-.noglab-section-subtitle-text,
-.noglab-bold-text {
-  color: inherit; /* Hérite de la couleur du parent définie par Material-UI */
 }
