@@ -240,7 +240,7 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* 🔥 NAVIGATION MOBILE - STYLES INLINE FORCÉS POUR COMBATTRE FRAMER MOTION */}
+        {/* 🔥 NAVIGATION MOBILE - DOUBLE CONTENEUR POUR FORCER LE FOND */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
@@ -250,35 +250,42 @@ const Header = () => {
               animate="open"
               exit="closed"
               style={{
-                // 🔥 SOLUTION GARANTIE - FOND NOIR COMPLET SANS TRANSPARENCE
                 position: 'absolute',
                 top: '100%',
                 left: '0',
                 right: '0',
                 width: '100%',
-                backgroundColor: '#000000', // NOIR TOTAL 100% - pas de transparence
+                backgroundColor: '#000000', // FOND NOIR EXTERNE
                 borderTop: '1px solid rgba(255, 255, 255, 0.3)',
-                padding: '1.5rem 2rem',
                 boxSizing: 'border-box',
                 zIndex: 1001,
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.8)' // Ombre forte pour bien séparer
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.8)',
+                padding: '0' // Pas de padding sur le conteneur externe
               }}
             >
-              {navigationLinks.map((link, index) => (
-                <motion.div key={index} variants={linkVariants}>
-                  <motion.a 
-                    href={link.href} 
-                    className="eggon-mobile-nav-link"
-                    onClick={handleLinkClick}
-                    whileHover={{ 
-                      color: '#fafafa',
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)'
-                    }}
-                  >
-                    {link.label}
-                  </motion.a>
-                </motion.div>
-              ))}
+              {/* 🚨 CONTENEUR INTERNE AVEC FOND FORCÉ */}
+              <div style={{
+                backgroundColor: '#000000', // FOND NOIR INTERNE DOUBLÉ
+                padding: '1.5rem 2rem',
+                width: '100%',
+                minHeight: '200px' // Hauteur minimum pour voir le fond
+              }}>
+                {navigationLinks.map((link, index) => (
+                  <motion.div key={index} variants={linkVariants}>
+                    <motion.a 
+                      href={link.href} 
+                      className="eggon-mobile-nav-link"
+                      onClick={handleLinkClick}
+                      whileHover={{ 
+                        color: '#fafafa',
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)'
+                      }}
+                    >
+                      {link.label}
+                    </motion.a>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
