@@ -8,21 +8,25 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 1000,
+    zIndex: 1000, // Assure que le header reste au-dessus du contenu
     padding: '1rem 2rem',
-    background: 'rgba(0, 0, 0, 0.3)', // Plus opaque pour être bien visible
-    backdropFilter: 'blur(2px)', // Flou très fin pour la lisibilité
-    WebkitBackdropFilter: 'blur(2px)', // Support Safari
-    borderBottom: '1px solid rgba(255, 255, 255, 0.1)', // Bordure plus visible
+    background: 'rgba(0, 0, 0, 0.3)',
+    backdropFilter: 'blur(2px)',
+    WebkitBackdropFilter: 'blur(2px)',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
     transition: 'all 0.3s ease',
+    height: '80px', // AJOUT : Hauteur fixe pour éviter les variations
+    display: 'flex',
+    alignItems: 'center', // AJOUT : Centre verticalement le contenu
     '&.scrolled': {
-      background: 'rgba(0, 0, 0, 0.5)', // Plus foncé au scroll
-      backdropFilter: 'blur(3px)', // Légèrement plus de flou au scroll
+      background: 'rgba(0, 0, 0, 0.5)',
+      backdropFilter: 'blur(3px)',
       WebkitBackdropFilter: 'blur(3px)',
-      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)', // Ombre plus marquée
+      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
     },
     '@media (max-width: 768px)': {
       padding: '0.75rem 1rem',
+      height: '70px', // AJOUT : Hauteur fixe pour mobile aussi
     },
   },
   nav: {
@@ -32,11 +36,12 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '1400px',
     margin: '0 auto',
     width: '100%',
+    height: '100%', // AJOUT : Prend toute la hauteur du header
   },
   logo: {
     fontSize: '1rem',
     fontWeight: 500,
-    color: 'rgba(250, 250, 250, 0.9)', // Plus visible
+    color: 'rgba(250, 250, 250, 0.9)',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     textDecoration: 'none',
     transition: 'all 0.3s ease',
@@ -48,32 +53,38 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-  // Logo circulaire pour mobile
+  // CORRECTION DU LOGO CIRCULAIRE - Le problème principal !
   circularLogo: {
     display: 'none',
     '@media (max-width: 768px)': {
-      display: 'block',
+      display: 'flex', // CHANGÉ de 'block' à 'flex'
+      alignItems: 'center', // AJOUT : Centre le logo verticalement
+      justifyContent: 'center', // AJOUT : Centre le logo horizontalement
       position: 'relative',
-      width: '60px',
-      height: '60px',
+      width: '50px', // RÉDUIT de 60px à 50px pour éviter le débordement
+      height: '50px', // RÉDUIT de 60px à 50px
       cursor: 'pointer',
+      flexShrink: 0, // AJOUT : Empêche le rétrécissement
     },
   },
   circularText: {
     position: 'absolute',
     width: '100%',
     height: '100%',
-    fontSize: '11px',
+    fontSize: '10px', // RÉDUIT de 11px à 10px
     fontWeight: 600,
-    color: 'rgba(250, 250, 250, 0.9)', // Plus visible
+    color: 'rgba(250, 250, 250, 0.9)',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
+    top: '50%', // AJOUT : Centre verticalement
+    left: '50%', // AJOUT : Centre horizontalement  
+    transform: 'translate(-50%, -50%)', // AJOUT : Centre parfaitement
   },
   charSpan: {
     position: 'absolute',
     left: '50%',
-    transformOrigin: '0 30px',
+    transformOrigin: '0 25px', // AJOUT : Ajusté pour la nouvelle taille (50px/2)
   },
   navLinks: {
     display: 'flex',
@@ -88,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '0.75rem 1.5rem',
-    color: 'rgba(250, 250, 250, 0.9)', // Plus visible
+    color: 'rgba(250, 250, 250, 0.9)',
     textDecoration: 'none',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     fontSize: '1rem',
@@ -111,6 +122,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
+    flexShrink: 0, // AJOUT : Empêche le rétrécissement
     '&:hover': {
       background: 'rgba(255, 255, 255, 0.2)',
       borderColor: 'rgba(255, 255, 255, 0.3)',
@@ -130,16 +142,16 @@ const useStyles = makeStyles((theme) => ({
     top: '100%',
     left: 0,
     right: 0,
-    background: 'rgba(0, 0, 0, 0.6)', // Plus opaque, avec flou fin
-    backdropFilter: 'blur(2px)', // Flou très fin
-    WebkitBackdropFilter: 'blur(2px)', // Support Safari
+    background: 'rgba(0, 0, 0, 0.6)',
+    backdropFilter: 'blur(2px)',
+    WebkitBackdropFilter: 'blur(2px)',
     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
     padding: '1.5rem 2rem',
   },
   mobileNavLink: {
     display: 'block',
     padding: '1rem 1.5rem',
-    color: 'rgba(250, 250, 250, 0.9)', // Plus visible
+    color: 'rgba(250, 250, 250, 0.9)',
     textDecoration: 'none',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     fontSize: '1rem',
