@@ -94,9 +94,21 @@ const Header = () => {
       setIsScrolled(scrollTop > 50);
     };
 
+    // 🔥 NOUVEAU : Ferme le menu mobile si on resize vers desktop
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobileMenuOpen]); // 🎯 Dépendance ajoutée
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -255,20 +267,27 @@ const Header = () => {
                 left: '0',
                 right: '0',
                 width: '100%',
-                backgroundColor: '#000000', // FOND NOIR EXTERNE
-                borderTop: '1px solid rgba(255, 255, 255, 0.3)',
+                // 🎯 ADAPTATION DYNAMIQUE : même style que le header actuel (scrollé ou pas)
+                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.3)',
+                backdropFilter: isScrolled ? 'blur(3px)' : 'blur(2px)',
+                WebkitBackdropFilter: isScrolled ? 'blur(3px)' : 'blur(2px)',
+                borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 boxSizing: 'border-box',
                 zIndex: 1001,
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.8)',
-                padding: '0' // Pas de padding sur le conteneur externe
+                padding: '0',
+                // 🔥 MOBILE ONLY : disparaît automatiquement en desktop
+                display: 'block'
               }}
             >
-              {/* 🚨 CONTENEUR INTERNE AVEC FOND FORCÉ */}
+            >
+              {/* 🎯 CONTENEUR INTERNE AVEC MÊME STYLE QUE LE HEADER */}
               <div style={{
-                backgroundColor: '#000000', // FOND NOIR INTERNE DOUBLÉ
+                // 🎯 ADAPTATION DYNAMIQUE : même transparence et blur que le header actuel
+                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.3)',
+                backdropFilter: isScrolled ? 'blur(3px)' : 'blur(2px)',
+                WebkitBackdropFilter: isScrolled ? 'blur(3px)' : 'blur(2px)',
                 padding: '1.5rem 2rem',
-                width: '100%',
-                minHeight: '200px' // Hauteur minimum pour voir le fond
+                width: '100%'
               }}>
                 {navigationLinks.map((link, index) => (
                   <motion.div key={index} variants={linkVariants}>
