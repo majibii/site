@@ -16,27 +16,61 @@ html {
     overflow: scroll;
     overflow-x: hidden;
     font-size: 16px;
+    /* AJOUT : Reset global pour éviter les conflits */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 body {
     transition: all 0.5s ease;
+    /* AJOUT : Reset pour éviter les débordements */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 p {
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
 }
-/* Ajoutez ce CSS global dans src/index.css */
+
+/* AJOUT : Reset global pour tous les éléments */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  overflow-x: hidden; /* Empêche le scroll horizontal sur mobile */
-}
-
-/* Assure que tous les containers ne débordent pas */
+/* CORRECTION : Assure que tous les containers ne débordent pas */
 .header, 
 .noglab-section, 
 .learn-section {
   max-width: 100vw;
   overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* AJOUT : Force le header à prendre toute la largeur sur toutes les pages */
+header {
+  width: 100vw !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* AJOUT : Assure que le root et les containers principaux prennent toute la largeur */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* AJOUT : Reset pour éviter les conflits de positionnement */
+.MuiContainer-root {
+  max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
