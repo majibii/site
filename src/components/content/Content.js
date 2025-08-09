@@ -12,10 +12,17 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         maxWidth: "1600px",
         padding: "0 1rem",
+        // CORRECTION : Force les paddings à zéro pour éviter le décalage
+        paddingLeft: "1rem !important",
+        paddingRight: "1rem !important",
+        marginLeft: "auto !important",
+        marginRight: "auto !important",
         "@media (max-width: 768px)": {
             flexDirection: "column",
             gap: "3rem",
             padding: "0 1rem",
+            paddingLeft: "1rem !important",
+            paddingRight: "1rem !important",
         },
     },
     contentWrapper: {
@@ -249,13 +256,11 @@ export const Content = () => {
     const [selectedOption, setSelectedOption] = useState("AI Agents");
     const dropdownRef = useRef(null);
 
-    // MODIFICATION : Mise à jour des options du dropdown selon Étape 1.3
     const dropdownOptions = [
         { label: "AI Agents", path: "/" },
         { label: "Future AI", path: "/nog-lab" },
     ];
 
-    // Fermer le dropdown en cliquant à l'extérieur
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -276,19 +281,17 @@ export const Content = () => {
     const handleOptionClick = (option) => {
         setSelectedOption(option.label);
         setIsDropdownOpen(false);
-        // Rediriger vers la page correspondante
         window.location.href = option.path;
     };
 
-    // MODIFICATION : Fonction pour gérer le clic vers la page Lab (Étape 1.4)
     const handleLabClick = () => {
         window.location.href = '/nog-lab';
     };
 
     return (
-        <Container component="main" className={`${classes.main}`} maxWidth={false}>
+        {/* CORRECTION : Ajout de disableGutters pour supprimer les paddings automatiques */}
+        <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
             <div className={classes.contentWrapper}>
-                {/* Nouvelle phrase interactive */}
                 <div className={classes.interactivePhrase}>
                     → EggOn Make your{' '}
                     <div className={classes.dropdownContainer} ref={dropdownRef}>
@@ -329,7 +332,6 @@ export const Content = () => {
                     <Button className={classes.primaryButton}>
                         Start building
                     </Button>
-                    {/* MODIFICATION : Lien vers page Lab (Étape 1.4) */}
                     <button className={classes.linkButton} onClick={handleLabClick}>
                         → EggOn Lab — The team dedicated to making AI agents fully insurable.
                     </button>
