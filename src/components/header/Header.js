@@ -250,19 +250,18 @@ const Header = () => {
               animate="open"
               exit="closed"
               style={{
-                // 🔥 SOLUTION DE FORCE BRUTE - STYLES QUI NE PEUVENT PAS ÊTRE OVERRIDÉS
+                // 🔥 SOLUTION GARANTIE - FOND NOIR COMPLET SANS TRANSPARENCE
                 position: 'absolute',
                 top: '100%',
                 left: '0',
                 right: '0',
                 width: '100%',
-                backgroundColor: '#000000', // NOIR TOTAL
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                borderTop: '1px solid rgba(255, 255, 255, 0.2)',
+                backgroundColor: '#000000', // NOIR TOTAL 100% - pas de transparence
+                borderTop: '1px solid rgba(255, 255, 255, 0.3)',
                 padding: '1.5rem 2rem',
                 boxSizing: 'border-box',
-                zIndex: 1001
+                zIndex: 1001,
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.8)' // Ombre forte pour bien séparer
               }}
             >
               {navigationLinks.map((link, index) => (
