@@ -37,25 +37,6 @@ p {
   box-sizing: border-box;
 }
 
-/* CORRECTION DÉFINITIVE DU HEADER : Force le header à prendre toute la largeur */
-header {
-  width: 100vw !important;
-  left: 0 !important;
-  right: 0 !important;
-  margin: 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* Force la transparence pour tous les éléments nav dans le header */
-header nav,
-header nav *,
-.MuiAppBar-root,
-.MuiToolbar-root {
-  background: transparent !important;
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-}
-
 /* Assure que le root prend toute la largeur */
 #root {
   width: 100%;
@@ -65,7 +46,7 @@ header nav *,
   overflow-x: hidden;
 }
 
-/* CORRECTION SPÉCIFIQUE : Gère les containers Material-UI seulement pour le contenu, pas le header */
+/* Gère les containers Material-UI pour le contenu principal */
 main.MuiContainer-root {
   max-width: 1600px !important;
   margin: 0 auto !important;
@@ -79,126 +60,4 @@ main.MuiContainer-root {
   max-width: 100vw;
   overflow-x: hidden;
   box-sizing: border-box;
-}
-/* CORRECTION SPÉCIFIQUE : Force l'alignement des menus sur les pages Lab et Learn */
-
-/* Pour les pages Lab et Learn uniquement - force le nav à s'étendre sur toute la largeur */
-body:not(.home-page) header nav {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin: 0 !important;
-  padding: 0 2rem !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-}
-
-/* Force les liens de navigation à se positionner à droite */
-body:not(.home-page) .navLinks,
-body:not(.home-page) [class*="navLinks"] {
-  margin-left: auto !important;
-  display: flex !important;
-  gap: 2.5rem !important;
-}
-
-/* Assure que le logo reste à gauche */
-body:not(.home-page) [class*="logo"],
-body:not(.home-page) a[href="/"] {
-  margin-right: auto !important;
-}
-
-/* Alternative : Si la classe spécifique n'est pas reconnue, on force directement */
-.learn-section header nav,
-.noglab-section header nav {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin: 0 !important;
-  padding: 0 2rem !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  box-sizing: border-box !important;
-}
-
-/* Force spécifiquement l'alignement des éléments sur ces pages */
-.learn-section header nav > *:last-child,
-.noglab-section header nav > *:last-child {
-  margin-left: auto !important;
-}
-
-/* Reset pour éviter les conflits de container */
-.learn-section header,
-.noglab-section header {
-  width: 100vw !important;
-  left: 0 !important;
-  right: 0 !important;
-  position: fixed !important;
-  top: 0 !important;
-}
-
-/* Mobile - assure la cohérence */
-@media (max-width: 768px) {
-  body:not(.home-page) header nav,
-  .learn-section header nav,
-  .noglab-section header nav {
-    padding: 0.75rem 1rem !important;
-  }
-}
-/* CORRECTION CRITIQUE : S'assurer que le header a toujours la bonne structure */
-
-/* Si jamais le nav récupère les styles du header par erreur, on le force à être dans un header */
-nav.jss4,
-nav[class*="header"] {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  background: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Force le header à avoir les bons styles même si les classes changent */
-header {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: 100vw !important;
-  z-index: 1000 !important;
-  background: rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(2px) !important;
-  -webkit-backdrop-filter: blur(2px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  height: 80px !important;
-  display: flex !important;
-  align-items: center !important;
-  padding: 1rem 2rem !important;
-  box-sizing: border-box !important;
-  margin: 0 !important;
-}
-
-/* Mobile header */
-@media (max-width: 768px) {
-  header {
-    height: 70px !important;
-    padding: 0.75rem 1rem !important;
-  }
-}
-
-/* Force le nav à être correctement contenu dans le header */
-header nav {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: transparent !important;
-  padding: 0 !important;
-}
-
-/* S'assurer que les liens de navigation sont bien alignés à droite */
-header nav > div:last-child {
-  margin-left: auto;
 }
