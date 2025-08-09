@@ -84,3 +84,33 @@ header nav *,
   background-color: transparent !important;
   backdrop-filter: none !important;
 }
+
+/* CORRECTION DÉFINITIVE : Supprime le padding des conteneurs Material-UI qui créent le décalage */
+.MuiContainer-root {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* CORRECTION : Assure que le contenu principal ne crée pas de décalage */
+main.MuiContainer-root {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* CORRECTION SPÉCIFIQUE : Target le problème exact identifié dans le HTML */
+.jss17 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* CORRECTION : Force tous les containers Material-UI à ne pas déborder */
+.MuiContainer-root.jss17 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  max-width: 1600px !important;
+  margin: auto !important;
+}
