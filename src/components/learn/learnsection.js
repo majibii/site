@@ -1,7 +1,7 @@
 import React from 'react';
-import './learnSection.css';
+import './learnsection.css';
 
-const learnSection = () => {
+const LearnSection = () => {
   return (
     <div className="learn-section">
       <div className="learn-container">
@@ -92,7 +92,7 @@ const learnSection = () => {
         </p>
 
         <div className="learn-principle-title">
-          <span className="noglab-bold-text">Speed</span>
+          <span className="learn-bold-text">Speed</span>
         </div>
         <p className="learn-body-text">
           Compliance must not slow innovation. Explainable AI should be as fast as it is powerful, accelerating adoption while building trust.
@@ -106,11 +106,11 @@ const learnSection = () => {
         </div>
 
         <p className="learn-body-text">
-          <span className="noglab-bold-text">Engineering and product co-design</span> enable iterative improvement through deployment, while great products and partner feedback strengthen each other. Products keep us grounded in reality and guide us to solve the most impactful problems with our design partners.
+          <span className="learn-bold-text">Engineering and product co-design</span> enable iterative improvement through deployment, while great products and partner feedback strengthen each other. Products keep us grounded in reality and guide us to solve the most impactful problems with our design partners.
         </p>
 
         <p className="learn-body-text">
-          <span className="noglab-bold-text">Empirical and iterative approach</span> to explainable AI is the most effective and reliable measures come from a combination of proactive development and feedback from careful real-world testing with experienced professionals.
+          <span className="learn-bold-text">Empirical and iterative approach</span> to explainable AI is the most effective and reliable measures come from a combination of proactive development and feedback from careful real-world testing with experienced professionals.
         </p>
 
         <p className="learn-body-text">
@@ -129,7 +129,7 @@ const learnSection = () => {
         </div>
 
         <p className="learn-body-text">
-          we will focus on understanding how our systems create genuine value in the real world. The most important breakthroughs often come from rethinking our objectives, not just optimizing existing metrics.
+          We will focus on understanding how our systems create genuine value in the real world. The most important breakthroughs often come from rethinking our objectives, not just optimizing existing metrics.
         </p>
 
         {/* Subtitle 6 */}
@@ -140,11 +140,11 @@ const learnSection = () => {
         </div>
 
         <p className="learn-body-text">
-          If you are a law firm or compliance professional interested in becoming a design partner, click here: <span className="noglab-design-partner-link">Be Design Partners</span>.
+          If you are a law firm or compliance professional interested in becoming a design partner, click here: <span className="learn-design-partner-link">Be Design Partners</span>.
         </p>
       </div>
     </div>
   );
 };
 
-export default learnsection;
+export default LearnSection;
