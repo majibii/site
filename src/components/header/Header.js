@@ -147,9 +147,10 @@ const Header = () => {
   };
 
   const underlineVariants = {
-    closed: { width: "0%" },
+    closed: { width: "0px", opacity: 0 },
     open: { 
-      width: "30%", // RÉDUIT : Plus petit pour un effet crochet
+      width: "20px", // Taille fixe pour les traits décoratifs
+      opacity: 1,
       transition: { 
         delay: 0.2,
         duration: 0.4,
@@ -269,21 +270,37 @@ const Header = () => {
                     className="eggon-mobile-nav-link"
                     onClick={handleLinkClick}
                     whileHover={{ 
-                      x: 10,
-                      color: '#fafafa',
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)'
+                      scale: 1.02,
+                      backgroundColor: 'rgba(252, 233, 107, 0.1)'
                     }}
                     style={{ position: 'relative' }}
                   >
-                    {link.label}
+                    {/* Trait décoratif de chaque côté */}
                     <motion.div
                       style={{
                         position: 'absolute',
-                        top: '0.5rem', // CHANGÉ : Trait AU-DESSUS du titre
-                        left: '50%',
+                        top: '50%',
+                        left: '2rem',
+                        width: '20px',
                         height: '2px',
-                        background: 'linear-gradient(90deg, #fafafa, rgba(250, 250, 250, 0.6))',
-                        transform: 'translateX(-50%)',
+                        background: 'linear-gradient(90deg, #fce96b, rgba(252, 233, 107, 0.4))',
+                        transform: 'translateY(-50%)',
+                        borderRadius: '1px',
+                      }}
+                      variants={underlineVariants}
+                      initial="closed"
+                      animate="open"
+                    />
+                    <span style={{ margin: '0 3rem' }}>{link.label}</span>
+                    <motion.div
+                      style={{
+                        position: 'absolute',
+                        top: '50%',
+                        right: '2rem',
+                        width: '20px',
+                        height: '2px',
+                        background: 'linear-gradient(90deg, rgba(252, 233, 107, 0.4), #fce96b)',
+                        transform: 'translateY(-50%)',
                         borderRadius: '1px',
                       }}
                       variants={underlineVariants}
