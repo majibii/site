@@ -10,14 +10,13 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     zIndex: 1000,
     padding: '1rem 2rem',
-    background: 'rgba(0, 0, 0, 0.1)', // Très transparent pour lire à travers
-    backdropFilter: 'blur(8px)', // Blur réduit
-    WebkitBackdropFilter: 'blur(8px)',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.05)', // Bordure plus subtile
+    background: 'rgba(0, 0, 0, 0.3)', // Plus opaque pour être bien visible
+    // Suppression de backdrop-filter et WebkitBackdropFilter
+    borderBottom: '1px solid rgba(255, 255, 255, 0.1)', // Bordure plus visible
     transition: 'all 0.3s ease',
     '&.scrolled': {
-      background: 'rgba(0, 0, 0, 0.2)', // Reste transparent même au scroll
-      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', // Ombre plus douce
+      background: 'rgba(0, 0, 0, 0.5)', // Plus foncé au scroll
+      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)', // Ombre plus marquée
     },
     '@media (max-width: 768px)': {
       padding: '0.75rem 1rem',
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     fontSize: '1rem',
     fontWeight: 500,
-    color: 'rgba(250, 250, 250, 0.8)',
+    color: 'rgba(250, 250, 250, 0.9)', // Plus visible
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     textDecoration: 'none',
     transition: 'all 0.3s ease',
@@ -63,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     fontSize: '11px',
     fontWeight: 600,
-    color: 'rgba(250, 250, 250, 0.8)',
+    color: 'rgba(250, 250, 250, 0.9)', // Plus visible
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
@@ -86,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     padding: '0.75rem 1.5rem',
-    color: 'rgba(250, 250, 250, 0.8)',
+    color: 'rgba(250, 250, 250, 0.9)', // Plus visible
     textDecoration: 'none',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     fontSize: '1rem',
@@ -104,14 +103,14 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     width: '2.5rem',
     height: '2.5rem',
-    background: 'rgba(255, 255, 255, 0.08)',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
+    background: 'rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     '&:hover': {
-      background: 'rgba(255, 255, 255, 0.15)',
-      borderColor: 'rgba(255, 255, 255, 0.2)',
+      background: 'rgba(255, 255, 255, 0.2)',
+      borderColor: 'rgba(255, 255, 255, 0.3)',
     },
     '@media (max-width: 768px)': {
       display: 'flex',
@@ -128,16 +127,14 @@ const useStyles = makeStyles((theme) => ({
     top: '100%',
     left: 0,
     right: 0,
-    background: 'rgba(0, 0, 0, 0.4)', // Cohérent avec la nouvelle transparence
-    backdropFilter: 'blur(8px)',
-    WebkitBackdropFilter: 'blur(8px)',
-    borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+    background: 'rgba(0, 0, 0, 0.6)', // Plus opaque, sans blur
+    borderTop: '1px solid rgba(255, 255, 255, 0.1)',
     padding: '1.5rem 2rem',
   },
   mobileNavLink: {
     display: 'block',
     padding: '1rem 1.5rem',
-    color: 'rgba(250, 250, 250, 0.8)',
+    color: 'rgba(250, 250, 250, 0.9)', // Plus visible
     textDecoration: 'none',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     fontSize: '1rem',
