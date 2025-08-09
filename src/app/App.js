@@ -7,6 +7,7 @@ import { logCredits } from "../utils/logCredits";
 import { Home } from "../pages/Home";
 
 const Resume = lazy(() => import("../pages/Resume"));
+const NOGLab = lazy(() => import("../pages/NOGLab"));
 const PageNotFound = lazy(() => import("../pages/PageNotFound"));
 
 export const App = () => {
@@ -20,6 +21,7 @@ export const App = () => {
                 <Switch>
                     {/* Utilise directement Home qui contient déjà toutes les sections */}
                     <Route path="/" exact component={Home} />
+                    <Route path="/nog-lab" component={NOGLab} />
                     <Route path="/resume" component={Resume} />
                     <Route path="*" component={PageNotFound} />
                 </Switch>
