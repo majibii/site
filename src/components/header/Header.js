@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     left: 0,
     right: 0,
-    width: '100vw', // AJOUT : Force la largeur complète
+    width: '100vw',
     zIndex: 1000,
     padding: '1rem 2rem',
     background: 'rgba(0, 0, 0, 0.3)',
@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     height: '80px',
     display: 'flex',
     alignItems: 'center',
-    // AJOUT : Assure que le header ne soit pas affecté par d'autres conteneurs
     margin: 0,
     boxSizing: 'border-box',
     '&.scrolled': {
@@ -42,9 +41,16 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
     boxSizing: 'border-box',
-    // CORRECTION : Force un arrière-plan transparent pour éviter le rectangle noir
     backgroundColor: 'transparent !important',
     background: 'none !important',
+  },
+  // AJOUT : Style spécifique pour forcer l'alignement sur Lab et Learn
+  navForceAlignment: {
+    width: '100vw !important',
+    maxWidth: '100vw !important',
+    margin: '0 !important',
+    padding: '0 2rem !important',
+    justifyContent: 'space-between !important',
   },
   logo: {
     fontSize: '1rem',
@@ -98,6 +104,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     gap: '2.5rem',
+    // AJOUT : Force l'alignement à droite
+    marginLeft: 'auto',
     '@media (max-width: 768px)': {
       display: 'none',
     },
@@ -131,6 +139,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     flexShrink: 0,
+    marginLeft: 'auto', // AJOUT : Force à droite
     '&:hover': {
       background: 'rgba(255, 255, 255, 0.2)',
       borderColor: 'rgba(255, 255, 255, 0.3)',
@@ -150,13 +159,13 @@ const useStyles = makeStyles((theme) => ({
     top: '100%',
     left: 0,
     right: 0,
-    width: '100%', // AJOUT : Force la largeur complète
+    width: '100%',
     background: 'rgba(0, 0, 0, 0.6)',
     backdropFilter: 'blur(2px)',
     WebkitBackdropFilter: 'blur(2px)',
     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
     padding: '1.5rem 2rem',
-    boxSizing: 'border-box', // AJOUT : Include le padding dans la largeur
+    boxSizing: 'border-box',
   },
   mobileNavLink: {
     display: 'block',
@@ -175,7 +184,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// Composant CircularText avec Framer Motion
+// Composant CircularText avec Framer Motion (inchangé)
 const CircularText = ({ text, spinDuration = 20, onHover, className = '', onClick }) => {
   const classes = useStyles();
   const [isHovered, setIsHovered] = useState(false);
@@ -263,6 +272,10 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // AJOUT : Détection de la page courante
+  const currentPath = window.location.pathname;
+  const isLabOrLearnPage = currentPath.includes('/nog-lab') || currentPath.includes('/learn');
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -287,7 +300,7 @@ const Header = () => {
     { href: '/learn', label: 'Learn' }
   ];
 
-  // Variants pour les animations Framer Motion
+  // Variants pour les animations Framer Motion (inchangés)
   const menuVariants = {
     closed: {
       opacity: 0,
@@ -362,7 +375,7 @@ const Header = () => {
 
   return (
     <header className={`${classes.header} ${isScrolled ? 'scrolled' : ''}`}>
-      <nav className={classes.nav}>
+      <nav className={`${classes.nav} ${isLabOrLearnPage ? classes.navForceAlignment : ''}`}>
         {/* Logo desktop */}
         <motion.a 
           href="/" 
