@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       padding: '0 1rem',
     },
   },
-  // Main title with shiny effect
+  // Main title with shiny effect - same as "MAKE AI agents your competitive advantage"
   shinyTitle: {
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     fontWeight: '700',
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
       background: 'none',
     },
   },
-  // Subtitle with horizontal lines (same as "What are agents?")
+  // Subtitle with horizontal lines - same as "What are agents?"
   sectionSubtitle: {
     position: 'relative',
     textAlign: 'center',
@@ -97,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 0,
     },
   },
-  // Bold text styling
+  // Bold text styling for quoted text
   boldText: {
     fontWeight: '700',
     color: theme.palette.foreground.default,
@@ -160,7 +160,7 @@ export const NOGLab = () => {
           {/* Subtitle 1 */}
           <div className={classes.sectionSubtitle}>
             <span className={classes.sectionSubtitleText}>
-              <span className={classes.boldText}>Legitimacy in AI Is About More Than Right or Wrong Answers</span>
+              Legitimacy in AI Is About More Than Right or Wrong Answers
             </span>
           </div>
 
@@ -185,7 +185,7 @@ export const NOGLab = () => {
           {/* Subtitle 2 */}
           <div className={classes.sectionSubtitle}>
             <span className={classes.sectionSubtitleText}>
-              <span className={classes.boldText}>AI That Works for Everyone</span>
+              AI That Works for Everyone
             </span>
           </div>
 
@@ -202,7 +202,7 @@ export const NOGLab = () => {
           {/* Subtitle 3 */}
           <div className={classes.sectionSubtitle}>
             <span className={classes.sectionSubtitleText}>
-              <span className={classes.boldText}>Solid Legitimacy Matters</span>
+              Solid Legitimacy Matters
             </span>
           </div>
 
@@ -237,7 +237,7 @@ export const NOGLab = () => {
           {/* Subtitle 4 */}
           <div className={classes.sectionSubtitle}>
             <span className={classes.sectionSubtitleText}>
-              <span className={classes.boldText}>Growth Step by Step</span>
+              Growth Step by Step
             </span>
           </div>
 
@@ -260,7 +260,7 @@ export const NOGLab = () => {
           {/* Subtitle 5 */}
           <div className={classes.sectionSubtitle}>
             <span className={classes.sectionSubtitleText}>
-              <span className={classes.boldText}>Measure what truly matters</span>
+              Measure what truly matters
             </span>
           </div>
 
@@ -271,7 +271,7 @@ export const NOGLab = () => {
           {/* Subtitle 6 */}
           <div className={classes.sectionSubtitle}>
             <span className={classes.sectionSubtitleText}>
-              <span className={classes.boldText}>Be Design Partners</span>
+              Be Design Partners
             </span>
           </div>
 
