@@ -44,14 +44,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'transparent !important',
     background: 'none !important',
   },
-  // AJOUT : Style spécifique pour forcer l'alignement sur Lab et Learn
-  navForceAlignment: {
-    width: '100vw !important',
-    maxWidth: '100vw !important',
-    margin: '0 !important',
-    padding: '0 2rem !important',
-    justifyContent: 'space-between !important',
-  },
   logo: {
     fontSize: '1rem',
     fontWeight: 500,
@@ -104,8 +96,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     gap: '2.5rem',
-    // AJOUT : Force l'alignement à droite
-    marginLeft: 'auto',
     '@media (max-width: 768px)': {
       display: 'none',
     },
@@ -139,7 +129,6 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     transition: 'all 0.3s ease',
     flexShrink: 0,
-    marginLeft: 'auto', // AJOUT : Force à droite
     '&:hover': {
       background: 'rgba(255, 255, 255, 0.2)',
       borderColor: 'rgba(255, 255, 255, 0.3)',
@@ -184,7 +173,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// Composant CircularText avec Framer Motion (inchangé)
+// Composant CircularText avec Framer Motion
 const CircularText = ({ text, spinDuration = 20, onHover, className = '', onClick }) => {
   const classes = useStyles();
   const [isHovered, setIsHovered] = useState(false);
@@ -272,10 +261,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // AJOUT : Détection de la page courante
-  const currentPath = window.location.pathname;
-  const isLabOrLearnPage = currentPath.includes('/nog-lab') || currentPath.includes('/learn');
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -300,7 +285,7 @@ const Header = () => {
     { href: '/learn', label: 'Learn' }
   ];
 
-  // Variants pour les animations Framer Motion (inchangés)
+  // Variants pour les animations Framer Motion
   const menuVariants = {
     closed: {
       opacity: 0,
@@ -373,9 +358,10 @@ const Header = () => {
     }
   };
 
+  // CORRECTION CRITIQUE : S'assurer que le header est TOUJOURS rendu avec la même structure
   return (
     <header className={`${classes.header} ${isScrolled ? 'scrolled' : ''}`}>
-      <nav className={`${classes.nav} ${isLabOrLearnPage ? classes.navForceAlignment : ''}`}>
+      <nav className={classes.nav}>
         {/* Logo desktop */}
         <motion.a 
           href="/" 
