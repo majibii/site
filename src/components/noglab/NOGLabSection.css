@@ -4,12 +4,12 @@
   background-color: transparent;
   z-index: 1;
   margin: 0;
-  padding: 120px 0 80px 0;
+  padding: 80px 0 80px 0; /* MODIFIÉ : 80px au lieu de 120px pour correspondre au header */
 }
 
 @media (max-width: 768px) {
   .noglab-section {
-    padding: 100px 0 60px 0;
+    padding: 70px 0 60px 0; /* MODIFIÉ : 70px au lieu de 100px pour correspondre au header mobile */
   }
 }
 
