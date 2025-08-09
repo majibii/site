@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './Header.css'; // CHANGEMENT : Utilisation d'un fichier CSS séparé au lieu de makeStyles
+import './Header.css';
 
 // Composant CircularText avec Framer Motion
 const CircularText = ({ text, spinDuration = 20, onHover, className = '', onClick }) => {
@@ -112,7 +112,7 @@ const Header = () => {
     { href: '/learn', label: 'Learn' }
   ];
 
-  // Variants pour les animations Framer Motion
+  // Variants pour les belles animations Framer Motion
   const menuVariants = {
     closed: {
       opacity: 0,
@@ -228,7 +228,7 @@ const Header = () => {
           ))}
         </div>
 
-        {/* Bouton hamburger mobile */}
+        {/* Bouton hamburger mobile avec transformation en croix */}
         <motion.div 
           className="eggon-mobile-menu-toggle" 
           onClick={toggleMobileMenu}
@@ -252,7 +252,7 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* Navigation mobile */}
+        {/* Navigation mobile avec animations et traits en crochet */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
