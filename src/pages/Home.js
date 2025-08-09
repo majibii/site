@@ -11,6 +11,7 @@ import CollectionSection from '../components/collection/CollectionSection';
 import LegalStackSection from '../components/legalStack/LegalStackSection';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 
+// UNE SEULE DÉCLARATION useStyles - Suppression du doublon
 const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
@@ -27,45 +28,11 @@ const useStyles = makeStyles(() => ({
     backgroundColor: 'transparent',
     zIndex: 1,
     margin: 0,
-    padding: '80px 0 0 0', // Add top padding to account for fixed header
+    paddingTop: '80px', // CORRIGÉ : Correspond exactement à la hauteur du header
     display: 'flex',
     flexDirection: 'column',
     '@media (max-width: 768px)': {
-      padding: '70px 0 0 0',
-    },
-  },
-  contentSection: {
-    width: '100%',
-    position: 'relative',
-    backgroundColor: 'transparent',
-    zIndex: 1,
-    margin: 0,
-    padding: 0
-  }
-}));
-
-/* Ajout de padding-top consistent */
-const useStyles = makeStyles(() => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
-    margin: 0,
-    padding: 0,
-    position: 'relative',
-  },
-  homeSection: {
-    minHeight: '100vh',
-    width: '100%',
-    position: 'relative',
-    backgroundColor: 'transparent',
-    zIndex: 1,
-    margin: 0,
-    paddingTop: '80px', // MODIFIÉ : Correspond exactement à la hauteur du header
-    display: 'flex',
-    flexDirection: 'column',
-    '@media (max-width: 768px)': {
-      paddingTop: '70px', // MODIFIÉ : Correspond à la hauteur mobile du header
+      paddingTop: '70px', // CORRIGÉ : Correspond à la hauteur mobile du header
     },
   },
   contentSection: {
