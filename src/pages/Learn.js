@@ -4,7 +4,7 @@ import LearnSection from '../components/learn/learnsection';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 import { makeStyles } from '@material-ui/core/styles';
 
-// MODIFICATION Étape 3 : Ajout des styles pour correspondre à la page eggon
+// CORRECTION : Styles identiques à la page Home pour uniformiser le header
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -13,9 +13,6 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     padding: 0,
     position: 'relative',
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.foreground.default,
-    minHeight: '100vh',
   },
   contentSection: {
     width: '100%',
@@ -24,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     margin: 0,
     padding: 0,
+    // AJOUT : Padding top pour compenser la hauteur du header comme sur Home
+    paddingTop: '80px',
+    '@media (max-width: 768px)': {
+      paddingTop: '70px',
+    },
   }
 }));
 
@@ -32,7 +34,6 @@ export const Learn = () => {
     
     return (
         <div className={classes.root}>
-            {/* MODIFICATION Étape 3.1 : Utilisation du même Header que la page eggon */}
             <Header />
             <ThemeToggle />
             
