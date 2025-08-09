@@ -5,8 +5,8 @@ import { ThemeProvider } from "../components/theme/ThemeProvider";
 import { CssBaseline } from "@material-ui/core";
 import { logCredits } from "../utils/logCredits";
 import { Home } from "../pages/Home";
-import { Resume } from "../pages/Resume";
 import { NOGLab } from "../pages/NOGLab";
+import { Learn } from "../pages/Learn";
 import { PageNotFound } from "../pages/PageNotFound";
 
 export const App = () => {
