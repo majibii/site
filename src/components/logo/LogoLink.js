@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
             opacity: 1,
             color: theme.palette.primary.main,
         },
+        // MODIFICATION Étape 1.1 : Masquer le texte "EggOn Technology" hors header
+        display: "none",
     },
 }));
 
