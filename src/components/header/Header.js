@@ -117,7 +117,6 @@ const Header = () => {
     closed: {
       opacity: 0,
       height: 0,
-      backgroundColor: "rgba(0, 0, 0, 0)",
       transition: {
         duration: 0.3,
         when: "afterChildren",
@@ -126,7 +125,6 @@ const Header = () => {
     open: {
       opacity: 1,
       height: "auto",
-      backgroundColor: "rgba(0, 0, 0, 0.9)", // AJOUT : Fond noir dans Framer Motion !
       transition: {
         duration: 0.3,
         when: "beforeChildren",
@@ -255,7 +253,7 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* Navigation mobile avec animations et traits en crochet */}
+        {/* Navigation mobile avec animations et fond noir forcé */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
@@ -264,6 +262,20 @@ const Header = () => {
               initial="closed"
               animate="open"
               exit="closed"
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                right: 0,
+                width: '100%',
+                background: 'rgba(0, 0, 0, 0.9)',
+                backdropFilter: 'blur(3px)',
+                WebkitBackdropFilter: 'blur(3px)',
+                borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                padding: '1.5rem 2rem',
+                boxSizing: 'border-box',
+                zIndex: 1001
+              }}
             >
               {navigationLinks.map((link, index) => (
                 <motion.div key={index} variants={linkVariants}>
