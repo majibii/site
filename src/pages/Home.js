@@ -44,6 +44,40 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+/* Ajout de padding-top consistent */
+const useStyles = makeStyles(() => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+    position: 'relative',
+  },
+  homeSection: {
+    minHeight: '100vh',
+    width: '100%',
+    position: 'relative',
+    backgroundColor: 'transparent',
+    zIndex: 1,
+    margin: 0,
+    paddingTop: '80px', // MODIFIÉ : Correspond exactement à la hauteur du header
+    display: 'flex',
+    flexDirection: 'column',
+    '@media (max-width: 768px)': {
+      paddingTop: '70px', // MODIFIÉ : Correspond à la hauteur mobile du header
+    },
+  },
+  contentSection: {
+    width: '100%',
+    position: 'relative',
+    backgroundColor: 'transparent',
+    zIndex: 1,
+    margin: 0,
+    padding: 0
+  }
+}));
+
 export const Home = () => {
   const classes = useStyles();
   
