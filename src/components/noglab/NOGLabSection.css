@@ -76,7 +76,7 @@
 }
 
 .noglab-section-subtitle-text {
-  background-color: var(--background-default);
+  background-color: transparent;
   padding: 0 2rem;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
@@ -135,21 +135,18 @@
 /* Theme-aware CSS custom properties */
 [data-theme="light"] .noglab-section-subtitle-text,
 body[data-theme="light"] .noglab-section-subtitle-text {
-  --background-default: #ffffff;
   --foreground-default: #000000;
   --primary-main: #007bff;
 }
 
 [data-theme="dark"] .noglab-section-subtitle-text,
 body[data-theme="dark"] .noglab-section-subtitle-text {
-  --background-default: #000000;
   --foreground-default: #ffffff;
   --primary-main: #007bff;
 }
 
 /* Fallback for browsers that don't support CSS custom properties */
 .noglab-section-subtitle-text {
-  background-color: #000000; /* Default to dark theme */
   color: #ffffff;
 }
 
