@@ -1,4 +1,14 @@
-/* HEADER STYLES - CLASSES STABLES SANS JSS */
+/* Force le logo à rester tout à gauche en mobile */
+@media (max-width: 768px) {
+  .eggon-nav {
+    justify-content: flex-start !important; /* Force l'alignement à gauche */
+    gap: 1rem; /* Espace entre logo et hamburger */
+  }
+  
+  .eggon-mobile-menu-toggle {
+    margin-left: auto; /* Pousse le hamburger à droite */
+  }
+}/* HEADER STYLES - CLASSES STABLES SANS JSS */
 
 .eggon-header {
   position: fixed;
@@ -81,7 +91,7 @@
     height: 50px;
     cursor: pointer;
     flex-shrink: 0;
-    margin: 0 auto; /* Centre le logo dans son conteneur */
+    margin-right: auto; /* Pousse le logo tout à gauche */
   }
 }
 
@@ -171,21 +181,21 @@
   transition: all 0.3s ease;
 }
 
-/* MENU MOBILE DÉROULANT - FOND NOIR AVEC BLUR COMME LE HEADER */
+/* MENU MOBILE DÉROULANT - FOND NOIR OPAQUE AVEC BLUR FORT */
 .eggon-mobile-nav {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.85); /* Plus opaque pour mieux lire */
+  backdrop-filter: blur(10px); /* Blur plus fort */
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1.5rem 2rem;
   box-sizing: border-box;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Ombre plus forte */
 }
 
 .eggon-mobile-nav-link {
