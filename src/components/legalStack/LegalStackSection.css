@@ -3,7 +3,7 @@
   overflow: hidden;
 }
 
-/* Correction globale pour éviter tous les rectangles noirs/colorés dans les cartes */
+/* Correction globale RENFORCÉE pour éviter tous les rectangles noirs/colorés */
 .benefit-card,
 .benefit-card *,
 .benefit-card *::before,
@@ -12,13 +12,15 @@
 .benefit-card span,
 .benefit-card h3,
 .benefit-card p,
-.benefit-card svg {
+.benefit-card svg,
+.benefit-card button {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
 }
 
+/* États hover - FORCER la transparence */
 .benefit-card:hover,
 .benefit-card:hover *,
 .benefit-card:hover *::before,
@@ -27,16 +29,23 @@
 .benefit-card:hover span,
 .benefit-card:hover h3,
 .benefit-card:hover p,
-.benefit-card:hover svg {
+.benefit-card:hover svg,
+.benefit-card:hover button {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
+  box-shadow: none !important;
 }
 
+/* États focus - FORCER la transparence */
 .benefit-card:focus,
 .benefit-card:focus *,
 .benefit-card:focus *::before,
-.benefit-card:focus *::after {
+.benefit-card:focus *::after,
+.benefit-card *:focus,
+.benefit-card *:focus *,
+.benefit-card *:focus::before,
+.benefit-card *:focus::after {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
@@ -44,41 +53,99 @@
   box-shadow: none !important;
 }
 
+/* États active - FORCER la transparence */
 .benefit-card:active,
 .benefit-card:active *,
 .benefit-card:active *::before,
-.benefit-card:active *::after {
+.benefit-card:active *::after,
+.benefit-card *:active,
+.benefit-card *:active * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Forcer TOUS les divs à être transparents */
+.benefit-card div[style],
+.benefit-card div,
+.legal-stack-section div[style*="background"],
+.legal-stack-section div {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
 }
 
-/* Correction pour les composants stack également */
-.legal-stack-section div[style*="background"] {
-  background: transparent !important;
-  background-color: transparent !important;
-}
-
+/* Correction spéciale pour les composants stack */
 .legal-stack-section div[style*="background"]:hover {
   background: rgba(255, 255, 255, 0.08) !important;
   background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Empêcher la sélection de créer des backgrounds */
-.benefit-card ::selection {
+/* Empêcher TOUTE sélection de créer des backgrounds */
+.benefit-card ::selection,
+.legal-stack-section ::selection {
   background: rgba(252, 233, 107, 0.3) !important;
   color: #fafafa !important;
 }
 
-.benefit-card ::-moz-selection {
+.benefit-card ::-moz-selection,
+.legal-stack-section ::-moz-selection {
   background: rgba(252, 233, 107, 0.3) !important;
   color: #fafafa !important;
 }
 
-/* Style pour les cercles d'icones pour s'assurer qu'ils restent visibles */
-.benefit-card div[style*="border-radius: 50%"] {
+/* Style pour les cercles d'icônes - SEUL élément autorisé à avoir un background */
+.benefit-card div[style*="border-radius: 50%"],
+.benefit-card div[style*="borderRadius"] {
   background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
   border: 2px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* CORRECTION SPÉCIALE pour Material-UI et autres frameworks */
+.benefit-card .MuiPaper-root,
+.benefit-card .MuiCard-root,
+.benefit-card .MuiBox-root,
+.benefit-card [class*="makeStyles"],
+.benefit-card [class*="jss"],
+.legal-stack-section .MuiPaper-root,
+.legal-stack-section .MuiCard-root,
+.legal-stack-section .MuiBox-root,
+.legal-stack-section [class*="makeStyles"],
+.legal-stack-section [class*="jss"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Correction pour les pseudo-éléments qui peuvent créer des overlays */
+.benefit-card *::before,
+.benefit-card *::after,
+.legal-stack-section *::before,
+.legal-stack-section *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  content: none !important;
+}
+
+/* Correction pour les éléments inline avec styles */
+.benefit-card [style*="background"],
+.legal-stack-section [style*="background"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Correction pour les gradients et linear-gradient */
+.benefit-card [style*="linear-gradient"],
+.benefit-card [style*="radial-gradient"],
+.legal-stack-section [style*="linear-gradient"],
+.legal-stack-section [style*="radial-gradient"] {
+  background: transparent !important;
+  background-image: none !important;
 }
 
 /* Responsive adjustments */
