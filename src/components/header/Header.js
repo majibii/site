@@ -121,7 +121,8 @@ const Header = () => {
   const navigationLinks = [
     { href: '/', label: 'eggon' },
     { href: '/nog-lab', label: 'Lab' },
-    { href: '/learn', label: 'Learn' }
+    { href: '/learn', label: 'Learn' },
+    { href: '/contact', label: 'Contact' }
   ];
 
   // Variants pour les belles animations Framer Motion

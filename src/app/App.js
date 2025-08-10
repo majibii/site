@@ -7,6 +7,7 @@ import { logCredits } from "../utils/logCredits";
 import { Home } from "../pages/Home";
 import { NOGLab } from "../pages/NOGLab";
 import { Learn } from "../pages/Learn";
+import { Contact } from "../pages/Contact";
 import { PageNotFound } from "../pages/PageNotFound";
 
 export const App = () => {
@@ -21,6 +22,7 @@ export const App = () => {
                     <Route path="/" exact component={Home} />
                     <Route path="/nog-lab" component={NOGLab} />
                     <Route path="/learn" component={Learn} />
+                    <Route path="/contact" component={Contact} />
                     <Route path="*" component={PageNotFound} />
                 </Switch>
             </Router>

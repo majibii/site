@@ -82,8 +82,7 @@ const Footer = () => {
                 className="footer-link"
                 onClick={(e) => {
                   e.preventDefault();
-                  // TODO: Ajouter la navigation vers la page contact quand elle sera créée
-                  console.log('Contact page - à implémenter');
+                  handleNavigation('/contact');
                 }}
               >
                 Contact
