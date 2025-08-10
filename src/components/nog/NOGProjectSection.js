@@ -30,6 +30,27 @@ const NOGProjectSection = () => {
     return index * 0.05; // 50ms entre chaque caractère
   };
 
+  // Fonctions de hover pour les boutons SANS créer de rectangles
+  const handleButtonMouseEnter = (e) => {
+    const button = e.currentTarget;
+    button.style.setProperty('transform', 'translateY(-2px)', 'important');
+    button.style.setProperty('border-color', '#fce96b', 'important');
+    button.style.setProperty('color', '#fce96b', 'important');
+    button.style.setProperty('background', 'rgba(252, 233, 107, 0.1)', 'important');
+    button.style.setProperty('background-color', 'rgba(252, 233, 107, 0.1)', 'important');
+    button.style.setProperty('background-image', 'none', 'important');
+  };
+
+  const handleButtonMouseLeave = (e) => {
+    const button = e.currentTarget;
+    button.style.setProperty('transform', 'translateY(0)', 'important');
+    button.style.setProperty('border-color', 'rgba(255, 255, 255, 0.3)', 'important');
+    button.style.setProperty('color', '#fafafa', 'important');
+    button.style.setProperty('background', 'transparent', 'important');
+    button.style.setProperty('background-color', 'transparent', 'important');
+    button.style.setProperty('background-image', 'none', 'important');
+  };
+
   return (
     <section
       style={{
@@ -38,6 +59,8 @@ const NOGProjectSection = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'transparent',
+        background: 'transparent',
+        backgroundImage: 'none',
         padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
         position: 'relative',
         boxSizing: 'border-box',
@@ -51,7 +74,10 @@ const NOGProjectSection = () => {
           width: '100%',
           maxWidth: '1200px',
           position: 'relative',
-          zIndex: 1
+          zIndex: 1,
+          background: 'transparent',
+          backgroundColor: 'transparent',
+          backgroundImage: 'none'
         }}
       >
         <div
@@ -64,11 +90,12 @@ const NOGProjectSection = () => {
             margin: '0 auto',
             textAlign: 'center',
             padding: 'clamp(1.5rem, 4vw, 2rem)',
-            background: 'rgba(255, 255, 255, 0.08)',
-            backdropFilter: 'blur(20px)',
+            background: 'none',
+            backgroundColor: 'transparent',
+            backgroundImage: 'none',
             border: '1px solid rgba(255, 255, 255, 0.15)',
             borderRadius: '16px',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+            boxShadow: 'none',
             minHeight: 'clamp(6rem, 15vh, 8rem)',
             display: 'flex',
             flexDirection: 'column',
@@ -85,11 +112,17 @@ const NOGProjectSection = () => {
             flexWrap: 'wrap',
             gap: 'clamp(0.2rem, 1vw, 0.5rem)',
             textAlign: 'center',
-            width: '100%'
+            width: '100%',
+            background: 'transparent',
+            backgroundColor: 'transparent',
+            backgroundImage: 'none'
           }}>
             <span style={{ 
               display: 'inline-block',
-              marginRight: 'clamp(0.3rem, 1vw, 0.5rem)'
+              marginRight: 'clamp(0.3rem, 1vw, 0.5rem)',
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              backgroundImage: 'none'
             }}>
               Right now, clients are asking the eggon team to
             </span>
@@ -104,6 +137,8 @@ const NOGProjectSection = () => {
               position: 'relative',
               lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
               backgroundColor: 'transparent',
+              background: 'transparent',
+              backgroundImage: 'none',
               border: 'none'
             }}>
               <AnimatePresence mode="wait" initial={false}>
@@ -115,7 +150,10 @@ const NOGProjectSection = () => {
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    whiteSpace: 'nowrap'
+                    whiteSpace: 'nowrap',
+                    background: 'transparent',
+                    backgroundColor: 'transparent',
+                    backgroundImage: 'none'
                   }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -148,7 +186,9 @@ const NOGProjectSection = () => {
                         fontWeight: '600',
                         display: 'inline-block',
                         lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
-                        backgroundColor: 'transparent'
+                        backgroundColor: 'transparent',
+                        background: 'transparent',
+                        backgroundImage: 'none'
                       }}
                     >
                       {char === ' ' ? '\u00A0' : char}
@@ -168,7 +208,10 @@ const NOGProjectSection = () => {
               justifyContent: 'flex-end',
               flexWrap: 'wrap',
               gap: 'clamp(0.8rem, 2vw, 1.2rem)',
-              width: '100%'
+              width: '100%',
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              backgroundImage: 'none'
             }}
           >
             <div
@@ -178,7 +221,10 @@ const NOGProjectSection = () => {
                 fontWeight: '600',
                 fontFamily: '"Inter", sans-serif',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em'
+                letterSpacing: '0.05em',
+                background: 'transparent',
+                backgroundColor: 'transparent',
+                backgroundImage: 'none'
               }}
             >
               Get Examples
@@ -191,6 +237,8 @@ const NOGProjectSection = () => {
                 fontWeight: '600',
                 color: '#fafafa',
                 backgroundColor: 'transparent',
+                background: 'transparent',
+                backgroundImage: 'none',
                 border: '2px solid rgba(255, 255, 255, 0.3)',
                 borderRadius: '50px',
                 cursor: 'pointer',
@@ -198,23 +246,13 @@ const NOGProjectSection = () => {
                 fontFamily: '"Inter", sans-serif',
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
-                backdropFilter: 'blur(10px)',
                 position: 'relative',
                 overflow: 'hidden',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                boxShadow: 'none'
               }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.borderColor = '#fce96b';
-                e.target.style.color = '#fce96b';
-                e.target.style.backgroundColor = 'rgba(252, 233, 107, 0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                e.target.style.color = '#fafafa';
-                e.target.style.backgroundColor = 'transparent';
-              }}
+              onMouseEnter={handleButtonMouseEnter}
+              onMouseLeave={handleButtonMouseLeave}
             >
               Use Cases Agent
             </button>
@@ -226,6 +264,8 @@ const NOGProjectSection = () => {
                 fontWeight: '600',
                 color: '#fafafa',
                 backgroundColor: 'transparent',
+                background: 'transparent',
+                backgroundImage: 'none',
                 border: '2px solid rgba(255, 255, 255, 0.3)',
                 borderRadius: '50px',
                 cursor: 'pointer',
@@ -233,23 +273,13 @@ const NOGProjectSection = () => {
                 fontFamily: '"Inter", sans-serif',
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
-                backdropFilter: 'blur(10px)',
                 position: 'relative',
                 overflow: 'hidden',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                boxShadow: 'none'
               }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.borderColor = '#fce96b';
-                e.target.style.color = '#fce96b';
-                e.target.style.backgroundColor = 'rgba(252, 233, 107, 0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                e.target.style.color = '#fafafa';
-                e.target.style.backgroundColor = 'transparent';
-              }}
+              onMouseEnter={handleButtonMouseEnter}
+              onMouseLeave={handleButtonMouseLeave}
             >
               IA Academy Program
             </button>
@@ -263,7 +293,10 @@ const NOGProjectSection = () => {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '1rem',
-              width: '100%'
+              width: '100%',
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              backgroundImage: 'none'
             }}
           >
             <div
@@ -273,7 +306,10 @@ const NOGProjectSection = () => {
                 fontWeight: '600',
                 fontFamily: '"Inter", sans-serif',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em'
+                letterSpacing: '0.05em',
+                background: 'transparent',
+                backgroundColor: 'transparent',
+                backgroundImage: 'none'
               }}
             >
               Get Examples
@@ -284,7 +320,10 @@ const NOGProjectSection = () => {
               flexDirection: 'column',
               gap: '0.8rem',
               width: '100%',
-              maxWidth: '280px'
+              maxWidth: '280px',
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              backgroundImage: 'none'
             }}>
               <button
                 style={{
@@ -293,6 +332,8 @@ const NOGProjectSection = () => {
                   fontWeight: '600',
                   color: '#fafafa',
                   backgroundColor: 'transparent',
+                  background: 'transparent',
+                  backgroundImage: 'none',
                   border: '2px solid rgba(255, 255, 255, 0.3)',
                   borderRadius: '50px',
                   cursor: 'pointer',
@@ -300,19 +341,11 @@ const NOGProjectSection = () => {
                   fontFamily: '"Inter", sans-serif',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em',
-                  backdropFilter: 'blur(10px)',
-                  width: '100%'
+                  width: '100%',
+                  boxShadow: 'none'
                 }}
-                onMouseEnter={(e) => {
-                  e.target.style.borderColor = '#fce96b';
-                  e.target.style.color = '#fce96b';
-                  e.target.style.backgroundColor = 'rgba(252, 233, 107, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                  e.target.style.color = '#fafafa';
-                  e.target.style.backgroundColor = 'transparent';
-                }}
+                onMouseEnter={handleButtonMouseEnter}
+                onMouseLeave={handleButtonMouseLeave}
               >
                 Use Cases Agent
               </button>
@@ -324,6 +357,8 @@ const NOGProjectSection = () => {
                   fontWeight: '600',
                   color: '#fafafa',
                   backgroundColor: 'transparent',
+                  background: 'transparent',
+                  backgroundImage: 'none',
                   border: '2px solid rgba(255, 255, 255, 0.3)',
                   borderRadius: '50px',
                   cursor: 'pointer',
@@ -331,19 +366,11 @@ const NOGProjectSection = () => {
                   fontFamily: '"Inter", sans-serif',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em',
-                  backdropFilter: 'blur(10px)',
-                  width: '100%'
+                  width: '100%',
+                  boxShadow: 'none'
                 }}
-                onMouseEnter={(e) => {
-                  e.target.style.borderColor = '#fce96b';
-                  e.target.style.color = '#fce96b';
-                  e.target.style.backgroundColor = 'rgba(252, 233, 107, 0.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                  e.target.style.color = '#fafafa';
-                  e.target.style.backgroundColor = 'transparent';
-                }}
+                onMouseEnter={handleButtonMouseEnter}
+                onMouseLeave={handleButtonMouseLeave}
               >
                 IA Academy Program
               </button>
@@ -357,7 +384,10 @@ const NOGProjectSection = () => {
             display: 'flex',
             justifyContent: 'center',
             gap: 'clamp(0.3rem, 1vw, 0.5rem)',
-            marginTop: 'clamp(1.5rem, 3vw, 2rem)'
+            marginTop: 'clamp(1.5rem, 3vw, 2rem)',
+            background: 'transparent',
+            backgroundColor: 'transparent',
+            backgroundImage: 'none'
           }}
         >
           {lines.map((_, index) => (
@@ -367,6 +397,8 @@ const NOGProjectSection = () => {
                 width: index === currentLineIndex ? 'clamp(1.5rem, 3vw, 2rem)' : 'clamp(0.4rem, 1vw, 0.5rem)',
                 height: 'clamp(0.3rem, 1vw, 0.5rem)',
                 backgroundColor: index === currentLineIndex ? '#fce96b' : 'rgba(255, 255, 255, 0.3)',
+                background: index === currentLineIndex ? '#fce96b' : 'rgba(255, 255, 255, 0.3)',
+                backgroundImage: 'none',
                 borderRadius: '1rem',
                 transition: 'all 0.5s ease'
               }}
