@@ -203,30 +203,37 @@ const useStyles = makeStyles((theme) => ({
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minWidth: '180px',
+        minWidth: '220px',
         
-        // Flèche initiale (à droite)
-        '&::after': {
-            content: '"→"',
-            position: 'absolute',
-            right: '1.5rem',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            fontSize: '1rem',
+        // Texte du bouton
+        '& .button-text': {
+            position: 'relative',
+            zIndex: 2,
             transition: 'all 0.4s ease-out',
-            opacity: 1,
+            transform: 'translateX(0)',
         },
         
-        // Flèche cachée (à gauche)
+        // Flèche initiale (à droite du texte)
+        '&::after': {
+            content: '"——→"',
+            marginLeft: '0.75rem',
+            fontSize: '0.9rem',
+            transition: 'all 0.4s ease-out',
+            opacity: 1,
+            transform: 'translateX(0)',
+        },
+        
+        // Flèche cachée (à gauche dans le bouton)
         '&::before': {
-            content: '"→"',
+            content: '"——→"',
             position: 'absolute',
-            left: '-2rem',
+            left: '1rem',
             top: '50%',
             transform: 'translateY(-50%)',
-            fontSize: '1rem',
+            fontSize: '0.9rem',
             transition: 'all 0.4s ease-out',
             opacity: 0,
+            zIndex: 1,
         },
         
         '&:hover': {
@@ -235,15 +242,19 @@ const useStyles = makeStyles((theme) => ({
             transform: 'translateY(-2px)',
             boxShadow: '0 8px 25px rgba(252, 233, 107, 0.4)',
             
-            // Animation de la flèche de droite
-            '&::after': {
-                right: '-2rem',
-                opacity: 0,
+            // Le texte se décale vers la droite pour faire place à la flèche
+            '& .button-text': {
+                transform: 'translateX(1rem)',
             },
             
-            // Animation de la flèche de gauche
+            // Animation de la flèche de droite (disparaît)
+            '&::after': {
+                opacity: 0,
+                transform: 'translateX(1rem)',
+            },
+            
+            // Animation de la flèche de gauche (apparaît dans le bouton)
             '&::before': {
-                left: '1.5rem',
                 opacity: 1,
             },
         },
@@ -253,8 +264,14 @@ const useStyles = makeStyles((theme) => ({
         },
         
         "@media (max-width: 768px)": {
-            minWidth: '160px',
+            minWidth: '200px',
             fontSize: '0.8rem',
+            
+            '&:hover': {
+                '& .button-text': {
+                    transform: 'translateX(0.8rem)',
+                },
+            },
         },
     },
     secondaryButton: {
@@ -380,7 +397,7 @@ export const Content = () => {
                 </Typography>
                 <div className={classes.buttonContainer}>
                     <button className={classes.primaryButton}>
-                        Start building
+                        <span className="button-text">Start building</span>
                     </button>
                     <button className={classes.linkButton} onClick={handleLabClick}>
                         → EggOn Lab — The team dedicated to making AI agents fully insurable.
