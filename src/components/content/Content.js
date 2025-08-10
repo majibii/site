@@ -276,12 +276,12 @@ const useStyles = makeStyles((theme) => ({
             alignItems: 'center',
         },
         
-        // Flèche noire pour le hover (cachée à gauche)
+        // Flèche noire pour le hover (cachée à gauche du texte)
         '& .arrow-left': {
             position: 'absolute',
-            left: '12px',
+            left: '50%',
             top: '50%',
-            transform: 'translateY(-50%)',
+            transform: 'translate(-50%, -50%)',
             transition: 'all 0.4s ease-out',
             opacity: 0,
             flexShrink: 0,
@@ -293,9 +293,9 @@ const useStyles = makeStyles((theme) => ({
             background: '#fce96b',
             color: '#2f2f2e',
             
-            // Le texte se décale pour respecter l'espace avec la flèche de gauche
+            // Le texte se repositionne à droite du centre
             '& .button-text': {
-                transform: 'translateX(11px)', // Centrage optimal pour équilibrer les deux flèches
+                transform: 'translateX(11px)', // Position du texte à droite de la flèche
             },
             
             // La flèche de droite disparaît
@@ -304,9 +304,10 @@ const useStyles = makeStyles((theme) => ({
                 transform: 'translateX(8px)',
             },
             
-            // La flèche de gauche apparaît
+            // La flèche de gauche apparaît à gauche du centre
             '& .arrow-left': {
                 opacity: 1,
+                transform: 'translate(-78px, -50%)', // Position à gauche pour centrer l'ensemble
             },
         },
         
