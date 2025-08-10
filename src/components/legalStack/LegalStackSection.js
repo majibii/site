@@ -94,38 +94,38 @@ const LegalStackSection = () => {
     }
   ];
 
-  const stackComponents = [
-    {
-      badge: "N.O.G.",
-      title: "Nested Orchestration and Governance",
-      category: "ORCHESTRATION",
-      description: "Manage persistent, traceable and audited agent graphs. Native support for conversational contexts and inter-agent collaborations."
-    },
-    {
-      badge: "LangChain",
-      title: "Native Connectors",
-      category: "INTEGRATIONS",
-      description: "Integrate LLMs, contractual databases, business tools or providers (iManage, Jina AI, Pinecone, etc.) without technical friction."
-    },
-    {
-      badge: "EAN-GOV 128",
-      title: "Barcode for each execution",
-      category: "GOVERNANCE & TRACE",
-      description: "Each agent emits a structured barcode including: LLM model, prompt, agent code, provider audit, country, expiry date, result number, etc."
-    },
-    {
-      badge: "LangSmith",
-      title: "Supervision and evaluation",
-      category: "OBSERVABILITY",
-      description: "Run analysis, qualitative evaluation, and reporting of errors or behavioral drift for compliance and continuous improvement purposes."
-    },
-    {
-      badge: "N.O.G. Platform",
-      title: "Secure publication",
-      category: "DEPLOYMENT",
-      description: "Deploy your agents on a compliant platform, with lifecycle management, access control and certified logging."
-    }
-  ];
+  const stackComponents = [ 
+  {
+    badge: "RAG",
+    title: "Connect Your Internal Databases to a Large Model (RAG)",
+    category: "RAG INTEGRATION",
+    description: "We enable seamless connections between your internal databases and large models, utilizing Retrieval Augmented Generation (RAG) for enhanced knowledge extraction while maintaining security and confidentiality."
+  },
+  {
+    badge: "AI Agent",
+    title: "Build AI Agents",
+    category: "AGENT CREATION",
+    description: "We build advanced AI agents using Microsoft Azure Studio, creating tailored solutions that meet specific client needs. Our agents can be deployed in cloud or on-prem environments, leveraging locally stored language models to handle sensitive documents securely."
+  },
+  {
+    badge: "Custom Agent",
+    title: "Build Custom Agents",
+    category: "CUSTOMIZATION",
+    description: "If needed, we develop custom agents that seamlessly integrate with your specific tools and systems. These agents can be deployed in on-prem environments, using locally stored language models to process confidential files securely."
+  },
+  {
+    badge: "AI Integration",
+    title: "Total AI Custom Solutions",
+    category: "INTEGRATIONS",
+    description: "We specialize in integrating agents with large language model APIs while ensuring the highest standards of data security and confidentiality. For confidential tasks, we can deploy local models like GPT OSS or Mistral."
+  },
+  {
+    badge: "Chatbot",
+    title: "Chatbot Interface & API Connectivity",
+    category: "CHATBOT",
+    description: "Our chatbot interface connects to your vector databases via API, allowing for enhanced search capabilities, personalized responses, and dynamic data retrieval. It can be used to automatically analyze contracts, process legal documents, or even assist in real-time legal decision-making."
+  }
+];
 
   return (
     <section 
