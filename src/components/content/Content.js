@@ -2,6 +2,45 @@ import React, { useState, useRef, useEffect } from "react";
 import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+// Composants de flèches
+const YellowArrow = ({ className }) => (
+    <svg 
+        className={className}
+        width="16" 
+        height="16" 
+        viewBox="0 0 16 16" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path 
+            d="M6 3l5 5-5 5" 
+            stroke="#fce96b" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+const BlackArrow = ({ className }) => (
+    <svg 
+        className={className}
+        width="16" 
+        height="16" 
+        viewBox="0 0 16 16" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path 
+            d="M6 3l5 5-5 5" 
+            stroke="#2f2f2e" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
 const useStyles = makeStyles((theme) => ({
     main: {
         marginTop: "auto",
@@ -191,7 +230,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: '700',
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         letterSpacing: '0.1em',
-        textTransform: 'none', // Changé pour permettre la casse personnalisée
+        textTransform: 'none',
         background: 'transparent',
         color: '#fce96b',
         border: '1px solid #fce96b',
@@ -204,40 +243,48 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         minWidth: '220px',
+        height: '48px',
+        
+        // Conteneur pour le contenu du bouton
+        '& .button-content': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            height: '100%',
+            position: 'relative',
+            zIndex: 2,
+        },
         
         // Texte du bouton
         '& .button-text': {
             position: 'relative',
-            zIndex: 2,
             transition: 'all 0.4s ease-out',
             transform: 'translateX(0)',
-        },
-        
-        // Flèche initiale (à droite du texte)
-        '&::after': {
-            content: '"————→"',
-            marginLeft: '0.75rem',
-            fontSize: '0.9rem',
-            transition: 'all 0.4s ease-out',
-            opacity: 1,
-            transform: 'translateX(0)',
-            lineHeight: '1',
             display: 'flex',
             alignItems: 'center',
         },
         
-        // Flèche cachée (à gauche dans le bouton)
-        '&::before': {
-            content: '"————→"',
+        // Flèche jaune par défaut (à droite)
+        '& .arrow-right': {
+            marginLeft: '8px',
+            transition: 'all 0.4s ease-out',
+            opacity: 1,
+            transform: 'translateX(0)',
+            flexShrink: 0,
+            display: 'flex',
+            alignItems: 'center',
+        },
+        
+        // Flèche noire pour le hover (cachée à gauche)
+        '& .arrow-left': {
             position: 'absolute',
-            left: '1rem',
+            left: '16px',
             top: '50%',
             transform: 'translateY(-50%)',
-            fontSize: '0.9rem',
             transition: 'all 0.4s ease-out',
             opacity: 0,
-            zIndex: 1,
-            lineHeight: '1',
+            flexShrink: 0,
             display: 'flex',
             alignItems: 'center',
         },
@@ -247,19 +294,19 @@ const useStyles = makeStyles((theme) => ({
             color: '#2f2f2e',
             boxShadow: '0 8px 25px rgba(252, 233, 107, 0.4)',
             
-            // Le texte se décale plus vers la droite
+            // Le texte se décale vers la droite
             '& .button-text': {
-                transform: 'translateX(1.8rem)',
+                transform: 'translateX(16px)',
             },
             
-            // Animation de la flèche de droite (disparaît)
-            '&::after': {
+            // La flèche de droite disparaît
+            '& .arrow-right': {
                 opacity: 0,
-                transform: 'translateX(1rem)',
+                transform: 'translateX(8px)',
             },
             
-            // Animation de la flèche de gauche (apparaît dans le bouton)
-            '&::before': {
+            // La flèche de gauche apparaît
+            '& .arrow-left': {
                 opacity: 1,
             },
         },
@@ -274,7 +321,7 @@ const useStyles = makeStyles((theme) => ({
             
             '&:hover': {
                 '& .button-text': {
-                    transform: 'translateX(1.5rem)',
+                    transform: 'translateX(12px)',
                 },
             },
         },
@@ -402,7 +449,13 @@ export const Content = () => {
                 </Typography>
                 <div className={classes.buttonContainer}>
                     <button className={classes.primaryButton}>
-                        <span className="button-text">Start building</span>
+                        <div className="button-content">
+                            <BlackArrow className="arrow-left" />
+                            <span className="button-text">
+                                Start building
+                                <YellowArrow className="arrow-right" />
+                            </span>
+                        </div>
                     </button>
                     <button className={classes.linkButton} onClick={handleLabClick}>
                         → EggOn Lab — The team dedicated to making AI agents fully insurable.
