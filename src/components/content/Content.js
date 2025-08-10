@@ -293,9 +293,9 @@ const useStyles = makeStyles((theme) => ({
             background: '#fce96b',
             color: '#2f2f2e',
             
-            // Le texte se repositionne à droite du centre
+            // Le texte se repositionne plus à droite pour centrer l'ensemble
             '& .button-text': {
-                transform: 'translateX(11px)', // Position du texte à droite de la flèche
+                transform: 'translateX(22px)', // Décalage plus important pour centrer l'ensemble
             },
             
             // La flèche de droite disparaît
@@ -304,10 +304,10 @@ const useStyles = makeStyles((theme) => ({
                 transform: 'translateX(8px)',
             },
             
-            // La flèche de gauche apparaît à gauche du centre
+            // La flèche de gauche apparaît avec position ajustée pour le centrage
             '& .arrow-left': {
                 opacity: 1,
-                transform: 'translate(-78px, -50%)', // Position à gauche pour centrer l'ensemble
+                transform: 'translate(-67px, -50%)', // Position ajustée pour centrer l'ensemble
             },
         },
         
@@ -321,7 +321,7 @@ const useStyles = makeStyles((theme) => ({
             
             '&:hover': {
                 '& .button-text': {
-                    transform: 'translateX(11px)', // Même valeur pour mobile
+                    transform: 'translateX(22px)', // Même ajustement pour mobile
                 },
             },
         },
