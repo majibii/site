@@ -1,438 +1,373 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Typography, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './CollectionSection.css';
 
-// Pas besoin de composants SVG, on utilise juste le caractère Unicode comme dans Get Pricing
+const legalPrompts = [
+  // LEGAL
+  {
+    title: "AI Contract Analysis",
+    context: "Legal / Risk Review",
+    body: "Analyze a commercial contract and flag clauses that present legal risk (e.g. indemnities, termination, governing law). Output a summary with explanations and suggestions."
+  },
+  {
+    title: "AI Case Law Research",
+    context: "Legal / Case Search",
+    body: "Search and summarize case law relevant to a given legal question, including links and jurisdiction-specific reasoning."
+  },
 
-const useStyles = makeStyles((theme) => ({
-    main: {
-        marginTop: "auto",
-        marginBottom: "auto",
-        display: "flex",
-        alignItems: "center",
-        gap: "4rem",
-        width: "100%",
-        maxWidth: "1600px",
-        padding: "0 1rem",
-        marginLeft: "auto",
-        marginRight: "auto",
-        "@media (max-width: 768px)": {
-            flexDirection: "column",
-            gap: "3rem",
-            padding: "0 1rem",
-        },
-    },
-    contentWrapper: {
-        flex: "1 1 45%",
-        minWidth: "0",
-        paddingLeft: "6rem",
-        paddingRight: "3rem",
-        "@media (max-width: 1200px)": {
-            paddingLeft: "4rem",
-        },
-        "@media (max-width: 768px)": {
-            paddingLeft: "0",
-            paddingRight: "0",
-            flex: "1 1 auto",
-            textAlign: "center",
-        },
-    },
-    imageWrapper: {
-        flex: "1 1 55%",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
-        paddingTop: "2rem",
-        paddingLeft: "3rem",
-        paddingRight: "2rem",
-        "@media (max-width: 1200px)": {
-            paddingRight: "1.5rem",
-            paddingTop: "1rem",
-        },
-        "@media (max-width: 768px)": {
-            width: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-            paddingLeft: "0",
-            paddingRight: "0",
-            paddingTop: "0",
-            flex: "1 1 auto",
-        },
-    },
-    heroImage: {
-        height: "auto",
-        maxWidth: "100%",
-        width: "auto",
-        maxHeight: "850px",
-        objectFit: "contain",
-        "@media (max-width: 1200px)": {
-            maxHeight: "750px",
-        },
-        "@media (max-width: 768px)": {
-            maxHeight: "500px",
-        },
-    },
-    interactivePhrase: {
-        background: 'none',
-        border: 'none',
-        color: 'rgba(250, 250, 250, 0.8)',
-        fontSize: '0.9rem',
-        fontWeight: '500',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-        textDecoration: 'none',
-        textAlign: 'left',
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        marginBottom: '1.5rem',
-        display: 'block',
-        position: 'relative',
-        '&:hover': {
-            color: '#fafafa',
-        },
-        "@media (max-width: 768px)": {
-            fontSize: '0.85rem',
-            textAlign: 'center',
-        },
-    },
-    dropdownContainer: {
-        position: 'relative',
-        display: 'inline',
-    },
-    dynamicWord: {
-        position: 'relative',
-        cursor: 'pointer',
-        '&:hover': {
-            color: '#fafafa',
-        },
-    },
-    chevronDown: {
-        marginRight: '4px',
-        fontSize: '0.75em',
-        opacity: 0.7,
-        transition: 'all 0.3s ease',
-    },
-    dropdown: {
-        position: 'absolute',
-        top: '100%',
-        left: '0',
-        background: 'rgba(47, 47, 46, 0.95)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        border: '1px solid rgba(255, 255, 255, 0.2)',
-        borderRadius: '8px',
-        padding: '0.5rem 0',
-        minWidth: '140px',
-        zIndex: 1000,
-        boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)',
-        marginTop: '4px',
-    },
-    dropdownItem: {
-        display: 'block',
-        padding: '0.75rem 1rem',
-        color: 'rgba(250, 250, 250, 0.8)',
-        textDecoration: 'none',
-        fontSize: '0.9rem',
-        fontWeight: '500',
-        transition: 'all 0.2s ease',
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        '&:hover': {
-            background: 'rgba(255, 255, 255, 0.1)',
-            color: '#fafafa',
-        },
-    },
-    shinyTitle: {
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '700',
-        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
-        lineHeight: '1.1',
-        color: '#b5b5b5a4',
-        background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
-        backgroundSize: '200% 100%',
-        WebkitBackgroundClip: 'text',
-        backgroundClip: 'text',
-        animation: '$shine 5s linear infinite',
-        textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
-        textAlign: "left",
-        '&.disabled': {
-            animation: 'none',
-            color: '#fafafa',
-            background: 'none',
-        },
-        "@media (max-width: 768px)": {
-            textAlign: "center",
-        },
-    },
-    subtitle: {
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '500',
-        fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-        lineHeight: '1.6',
-        color: 'rgba(250, 250, 250, 0.9)',
-        marginBottom: '2rem',
-        textAlign: "left",
-        "@media (max-width: 768px)": {
-            textAlign: "center",
-        },
-    },
-    buttonContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1.5rem',
-        alignItems: 'flex-start',
-        flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-        marginTop: '2rem',
-        "@media (max-width: 768px)": {
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-    },
-    // Bouton "Start building" - garder l'effet original mais avec les flèches
-    primaryButton: {
-        padding: '0.6rem 1.5rem',
-        fontSize: '0.85rem',
-        fontWeight: '700',
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        letterSpacing: '0.1em',
-        textTransform: 'none',
-        background: 'transparent',
-        color: '#fce96b',
-        border: '1px solid #fce96b',
-        borderRadius: '50px',
-        cursor: 'pointer',
-        position: 'relative',
-        overflow: 'hidden',
-        transition: 'all 0.4s ease-out',
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minWidth: '180px',
-        height: '40px',
-        
-        // Conteneur pour le contenu du bouton
-        '& .button-content': {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '100%',
-            height: '100%',
-            position: 'relative',
-            zIndex: 2,
-        },
-        
-        // Texte du bouton
-        '& .button-text': {
-            position: 'relative',
-            transition: 'all 0.4s ease-out',
-            transform: 'translateX(0)',
-            display: 'flex',
-            alignItems: 'center',
-        },
-        
-        // Flèche par défaut (à droite) - comme dans Get Pricing
-        '& .arrow-right': {
-            marginLeft: '8px',
-            transition: 'all 0.4s ease-out',
-            opacity: 1,
-            transform: 'translateX(0)',
-            flexShrink: 0,
-            display: 'flex',
-            alignItems: 'center',
-        },
-        
-        // Flèche pour le hover (cachée à gauche du texte)
-        '& .arrow-left': {
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
-            transition: 'all 0.4s ease-out',
-            opacity: 0,
-            flexShrink: 0,
-            display: 'flex',
-            alignItems: 'center',
-        },
-        
-        '&:hover': {
-            background: '#fce96b',
-            color: '#2f2f2e',
+  // PRODUCTIVITY
+  {
+    title: "AI Meeting Prep Agent",
+    context: "Productivity / Team Support",
+    body: "Prepare structured meeting packs for internal teams including agenda, links, previous action items, and a summary of relevant updates."
+  },
+  {
+    title: "AI Wiki Builder",
+    context: "Internal Knowledge / Documentation",
+    body: "Build and update a private internal wiki by scanning documents and internal conversations. Automatically tag and categorize entries."
+  },
+
+  // COMPLIANCE
+  {
+    title: "Audit Trail Review Agent",
+    context: "Compliance / Cybersecurity",
+    body: "Analyze audit logs and identify anomalies or risks. Generate compliance-ready summaries and flag irregularities."
+  },
+  {
+    title: "Supplier Compliance Monitor",
+    context: "Compliance / Procurement",
+    body: "Track supplier certifications and regulatory documents. Alert on missing files, expired documents, or inconsistent legal status."
+  },
+
+  // BUSINESS OPS
+  {
+    title: "AI Quotation Agent",
+    context: "Sales / B2B Quoting",
+    body: "Generate and send client-ready professional quotations based on product configurations, pricing rules, and customer data."
+  },
+  {
+    title: "Client Onboarding Agent",
+    context: "Operations / Customer Management",
+    body: "Automate the onboarding of new clients by generating checklists, requesting documents, verifying completeness, and storing profiles."
+  },
+
+  // STRATEGY / R&D
+  {
+    title: "Tech Intelligence Agent",
+    context: "R&D / Strategy",
+    body: "Every week, summarize key news and trends in a selected technology sector, including key sources, highlights, and regulatory updates."
+  },
+
+  // PUBLIC SECTOR / TENDERS
+  {
+    title: "RFP Drafting Agent",
+    context: "Public Sector / Tenders",
+    body: "Assist teams in answering public RFPs by drafting structured responses using past documents and regulatory templates."
+  },
+
+  // ADDITIONAL
+  {
+    title: "ESG Compliance Agent",
+    context: "Sustainability / Governance",
+    body: "Monitor environmental, social, and governance criteria across suppliers and internal reports. Alert on non-compliance and prepare ESG audit summaries."
+  },
+  {
+    title: "Data Privacy Audit Agent",
+    context: "Legal / GDPR",
+    body: "Review internal processes for data privacy compliance (GDPR/CCPA). Generate a report on data usage, consent collection, and breach risk exposure."
+  }
+];
+
+const CollectionSection = () => {
+  const sectionRef = useRef(null);
+  // Remplace useId() par useState pour React 16
+  const [uniqueId] = useState(() => `collection-${Math.random().toString(36).substr(2, 9)}`);
+  const [selectedPrompt, setSelectedPrompt] = useState(null);
+  const [editedPrompt, setEditedPrompt] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleCardClick = (prompt) => {
+    setSelectedPrompt(prompt);
+    setEditedPrompt(prompt.body);
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setTimeout(() => {
+      setSelectedPrompt(null);
+      setEditedPrompt('');
+    }, 300);
+  };
+
+  const handleSubmit = () => {
+    // Save the modified prompt
+    console.log('Modified prompt:', editedPrompt);
+    
+    // Redirect to hub
+    window.location.href = '/hub'; // Adjust URL according to your routing
+    
+    handleCloseDialog();
+  };
+
+  const PromptIcon = () => (
+    <svg 
+      width="20" 
+      height="20" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2"
+      className="prompt-icon"
+    >
+      <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+    </svg>
+  );
+
+  return (
+    <>
+      <section ref={sectionRef} className="collection-section">
+        <div className="collection-content">
+          <div className="collection-header">
+            <h3 className="section-label">COLLECTION</h3>
             
-            // Le texte se repositionne avec un espacement cohérent
-            '& .button-text': {
-                transform: 'translateX(16px)',
-            },
+            <h2 className="collection-title">
+              CASE STUDIES
+            </h2>
+
+            <p className="collection-intro">
+              Firms are choosing to build with EggOn for unfair competitive advantage.
+                Our agents are trusted by forward-thinking companies across legal, aerospace & Finance. Stay updated — ask for 
+                a pricing.
+            </p>
+
+            <button className="early-access-button">
+              <div className="button-content">
+                <span className="arrow-left">→</span>
+                <span className="button-text">
+                  Get Pricing
+                  <span className="arrow-right">→</span>
+                </span>
+              </div>
+            </button>
+          </div>
+
+          <div className="cards-container">
+            <div className="cards-row top">
+              {legalPrompts.slice(0, 6).map((prompt, index) => (
+                <div 
+                  key={index} 
+                  className="prompt-card"
+                  onClick={() => handleCardClick(prompt)}
+                >
+                  <div className="card-context">{prompt.context}</div>
+                  <h3 className="card-title">{prompt.title}</h3>
+                  <div className="card-body">{prompt.body}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Time Indicator */}
+            <div className="time-indicator">
+              <div className="year-text">2025</div>
+              <div className="last-update-text">last update</div>
+            </div>
+
+            <div className="cards-row bottom">
+              {legalPrompts.slice(6, 12).map((prompt, index) => (
+                <div 
+                  key={index} 
+                  className="prompt-card"
+                  onClick={() => handleCardClick(prompt)}
+                >
+                  <div className="card-context">{prompt.context}</div>
+                  <h3 className="card-title">{prompt.title}</h3>
+                  <div className="card-body">{prompt.body}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Editorial Section */}
+          <div className="editorial-section">
+            <div className="editorial-line">
+              <span className="editorial-title">WHAT ARE AGENTS?</span>
+            </div>
             
-            // La flèche de droite disparaît
-            '& .arrow-right': {
-                opacity: 0,
-                transform: 'translateX(8px)',
-            },
+            <div className="editorial-content">
+              <p>
+                The "Agent" can be defined in several ways. Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks. 
+                Others use the term to describe more prescriptive implementations that follow predefined workflows. 
+                At EggOn, we categorize all these variations as agentic systems, but we draw an important architectural distinction between workflows and agents:
+              </p>
+              <p>
+                - Workflows are systems where LLMs and tools are orchestrated through predefined code paths.
+                - Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.
+              </p>
+              <p>
+                When building applications with LLMs, we recommend starting with the simplest possible solution and only increasing complexity when necessary. 
+                In many cases, this means not building agentic systems at all. Often, optimizing single LLM calls with retrieval and in-context examples provides sufficient performance.
+                When more complexity is warranted, workflows offer predictability and consistency for well-defined tasks, while agents are better suited for scenarios that require flexibility and model-driven decision-making at scale.
+
+                Let our AI engineers guide you toward the most efficient architecture—and deliver the right system, in production, for your needs.
+              </p>
+            </div>
+          </div>
+
+          {/* Benefits Section */}
+          <div className="benefits-section">
+            <div className="benefits-title-line">
+              <span className="benefits-title">BENEFITS FOR HOLDERS</span>
+            </div>
             
-            // La flèche de gauche apparaît avec position ajustée pour le même espacement
-            '& .arrow-left': {
-                opacity: 1,
-                transform: 'translate(-56px, -50%)',
-            },
-        },
-        
-        '&:active': {
-            transform: 'translateY(-1px)',
-        },
-        
-        "@media (max-width: 768px)": {
-            minWidth: '160px',
-            fontSize: '0.8rem',
-            
-            '&:hover': {
-                '& .button-text': {
-                    transform: 'translateX(16px)', // Même ajustement pour mobile
-                },
-            },
-        },
-    },
-    secondaryButton: {
-        padding: '1rem 2rem',
-        fontSize: '1rem',
-        fontWeight: '600',
-        background: 'rgba(255, 255, 255, 0.1)',
-        color: '#fafafa',
-        border: '1px solid rgba(255, 255, 255, 0.3)',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-        '&:hover': {
-            background: 'rgba(255, 255, 255, 0.2)',
-            transform: 'translateY(-2px)',
-            boxShadow: '0 8px 25px rgba(255, 255, 255, 0.1)',
-        },
-    },
-    linkButton: {
-        background: 'none',
-        border: 'none',
-        color: 'rgba(250, 250, 250, 0.8)',
-        fontSize: '0.9rem',
-        fontWeight: '500',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-        textDecoration: 'none',
-        textAlign: 'left',
-        '&:hover': {
-            color: '#fafafa',
-        },
-        "@media (max-width: 768px)": {
-            fontSize: '0.85rem',
-            textAlign: 'center',
-        },
-    },
-    '@keyframes shine': {
-        '0%': {
-            backgroundPosition: '-200% 0',
-        },
-        '100%': {
-            backgroundPosition: '200% 0',
-        },
-    },
-}));
+            <div className="benefits-list">
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+                  </svg>
+                </div>
+                <span>Contribute to the evolution of legal prompting strategies and frameworks</span>
+              </div>
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+                    <circle cx="16" cy="11" r="3"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                  </svg>
+                </div>
+                <span>Access a free hub for share prompts and work for transparency</span>
+              </div>
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <circle cx="12" cy="16" r="1"/>
+                    <path d="M7 11V7A5 5 0 0 1 17 7V11"/>
+                  </svg>
+                </div>
+                <span>Create your prompts in private and keep your strategy</span>
+              </div>
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
+                  </svg>
+                </div>
+                <span>Enjoy early access to new prompt collections, the legal agents will coming soon</span>
+              </div>
+              <div className="benefits-item">
+                <div className="benefit-icon-circle">
+                  <svg className="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2V6"/>
+                    <path d="M12 18V22"/>
+                    <path d="M4.93 4.93L7.76 7.76"/>
+                    <path d="M16.24 16.24L19.07 19.07"/>
+                    <path d="M2 12H6"/>
+                    <path d="M18 12H22"/>
+                    <path d="M4.93 19.07L7.76 16.24"/>
+                    <path d="M16.24 7.76L19.07 4.93"/>
+                  </svg>
+                </div>
+                <span>Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-export const Content = () => {
-    const classes = useStyles();
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState("AI Agents");
-    const dropdownRef = useRef(null);
-
-    const dropdownOptions = [
-        { label: "AI Agents", path: "/" },
-        { label: "Future AI", path: "/nog-lab" },
-    ];
-
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsDropdownOpen(false);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
-    const handleDropdownToggle = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const handleOptionClick = (option) => {
-        setSelectedOption(option.label);
-        setIsDropdownOpen(false);
-        window.location.href = option.path;
-    };
-
-    const handleLabClick = () => {
-        window.location.href = '/nog-lab';
-    };
-
-    return (
-        <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
-            <div className={classes.contentWrapper}>
-                <div className={classes.interactivePhrase}>
-                    → EggOn Make your{' '}
-                    <div className={classes.dropdownContainer} ref={dropdownRef}>
-                        <span 
-                            className={classes.dynamicWord}
-                            onClick={handleDropdownToggle}
-                        >
-                            <span className={classes.chevronDown}>▼</span>
-                            {selectedOption}
-                        </span>
-                        {isDropdownOpen && (
-                            <div className={classes.dropdown}>
-                                {dropdownOptions.map((option, index) => (
-                                    <a
-                                        key={index}
-                                        href="#"
-                                        className={classes.dropdownItem}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            handleOptionClick(option);
-                                        }}
-                                    >
-                                        {option.label}
-                                    </a>
-                                ))}
-                            </div>
-                        )}
+        {/* Modal Dialog with animation */}
+        <AnimatePresence>
+          {isDialogOpen && selectedPrompt && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="modal-overlay"
+              onClick={handleCloseDialog}
+            >
+              <motion.div
+                initial={{ 
+                  opacity: 0,
+                  scale: 0.3,
+                  x: '-50%',
+                  y: '-50%'
+                }}
+                animate={{ 
+                  opacity: 1,
+                  scale: 1,
+                  x: 0,
+                  y: 0
+                }}
+                exit={{ 
+                  opacity: 0,
+                  scale: 0.3,
+                  x: '-50%',
+                  y: '-50%'
+                }}
+                transition={{ 
+                  type: 'spring', 
+                  bounce: 0.05, 
+                  duration: 0.4 
+                }}
+                className="modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="modal-header">
+                  <div className="modal-title-section">
+                    <div className="modal-context">
+                      {selectedPrompt.context}
                     </div>
+                    <h2 className="modal-title">
+                      {selectedPrompt.title}
+                    </h2>
+                  </div>
+                  <button
+                    className="close-button"
+                    onClick={handleCloseDialog}
+                    aria-label="close"
+                  >
+                    ×
+                  </button>
                 </div>
-
-                <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
-                    Make AI agents your {'\n'}competitive advantage
-                </Typography>
-                <Typography variant="h5" component="h2" className={classes.subtitle}>
-                    Securely connect AI to your company's knowledge{'\n'}with agents that plan, act, and empower every team with trusted.
-                </Typography>
-                <div className={classes.buttonContainer}>
-                    <button className={classes.primaryButton}>
-                        <div className="button-content">
-                            <span className="arrow-left">→</span>
-                            <span className="button-text">
-                                Start building
-                                <span className="arrow-right">→</span>
-                            </span>
-                        </div>
+                
+                <div className="modal-body">
+                  <div className="prompt-textarea-container">
+                    <PromptIcon />
+                    <textarea
+                      className="prompt-textarea"
+                      value={editedPrompt}
+                      onChange={(e) => setEditedPrompt(e.target.value)}
+                      placeholder="Modifiez votre prompt ici..."
+                      autoFocus
+                    />
+                  </div>
+                  
+                  <div className="modal-actions">
+                    <button
+                      className="action-button cancel-button"
+                      onClick={handleCloseDialog}
+                    >
+                      Annuler
                     </button>
-                    <button className={classes.linkButton} onClick={handleLabClick}>
-                        → EggOn Lab — The team dedicated to making AI agents fully insurable.
+                    <button
+                      className="action-button submit-button"
+                      onClick={handleSubmit}
+                    >
+                      Submit →
                     </button>
+                  </div>
                 </div>
-            </div>
-            <div className={classes.imageWrapper}>
-                <img 
-                    src="/Site web NOG.png" 
-                    alt="N.O.G. Platform Interface" 
-                    className={classes.heroImage}
-                />
-            </div>
-        </Container>
-    );
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </section>
+    </>
+  );
 };
+
+// Export par défaut pour que l'import fonctionne
+export default CollectionSection;
