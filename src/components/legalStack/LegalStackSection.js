@@ -15,80 +15,18 @@ const LegalStackSection = () => {
 
   const benefits = [
     {
-      icon: (
-        <svg 
-          width="24" 
-          height="24"
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2"
-          style={{ color: '#fafafa' }}
-        >
-          <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
-          <path d="M8 21v-4a2 2 0 012-2h4a2 2 0 012 2v4"/>
-          <path d="M3 10h18"/>
-          <path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
-        </svg>
-      ),
       title: "Connected to Your World",
       description: "We build AI agents exclusively for legal and defense — no gimmicks, just secure, usable workflows tailored to your enterprise, by a team with real experience in your field."
     },
     {
-      icon: (
-        <svg 
-          width="24" 
-          height="24"
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2"
-          style={{ color: '#fafafa' }}
-        >
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
-        </svg>
-      ),
       title: "Solves Your Toughest Challenges",
       description: "From simple tasks to complex reasoning, we connect your documents, tools, and AI with ROI in mind — and we stay aligned with your mission."
     },
     {
-      icon: (
-        <svg 
-          width="24" 
-          height="24"
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2"
-          style={{ color: '#fafafa' }}
-        >
-          <path d="M9 12l2 2 4-4"/>
-          <circle cx="12" cy="12" r="10"/>
-        </svg>
-      ),
       title: "From Complexity to Clarity",
       description: "We transform legal and technical complexity into clear, actionable outputs — with an experienced team that manages the project and stays by your side."
     },
     {
-      icon: (
-        <svg 
-          width="24" 
-          height="24"
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2"
-          style={{ color: '#fafafa' }}
-        >
-          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-          <line x1="8" y1="21" x2="16" y2="21"/>
-          <line x1="12" y1="17" x2="12" y2="21"/>
-          <path d="M6 8h12"/>
-          <path d="M6 12h8"/>
-        </svg>
-      ),
       title: "Real AI Engineering",
       description: "We build, develop, and deploy real AI systems. Whether from a simple agent in your Copilot Studio to a more complex AI using our custom chat interface, private API, and a vector database built for you — we deliver what works: fast, reliable, and integrated."
     }
@@ -133,6 +71,82 @@ const stackComponents = [
     }
   ];
 
+  // Fonction pour gérer le hover sans créer de rectangles
+  const handleCardMouseEnter = (e) => {
+    e.stopPropagation();
+    const card = e.currentTarget;
+    
+    // Appliquer SEULEMENT les transformations et bordures
+    card.style.setProperty('transform', 'translateY(-5px)', 'important');
+    card.style.setProperty('box-shadow', '0 12px 40px rgba(0, 0, 0, 0.4)', 'important');
+    card.style.setProperty('border-color', 'rgba(255, 255, 255, 0.25)', 'important');
+    
+    // FORCER la transparence complète
+    card.style.setProperty('background', 'none', 'important');
+    card.style.setProperty('background-color', 'transparent', 'important');
+    card.style.setProperty('background-image', 'none', 'important');
+    
+    // FORCER tous les éléments enfants à rester transparents
+    const allChildren = card.querySelectorAll('*');
+    allChildren.forEach(child => {
+      // Ne pas toucher aux éléments qui ont explicitement besoin d'un background
+      if (!child.style.borderRadius || !child.style.borderRadius.includes('50%')) {
+        child.style.setProperty('background', 'transparent', 'important');
+        child.style.setProperty('background-color', 'transparent', 'important');
+        child.style.setProperty('background-image', 'none', 'important');
+        child.style.setProperty('box-shadow', 'none', 'important');
+      }
+    });
+  };
+
+  const handleCardMouseLeave = (e) => {
+    e.stopPropagation();
+    const card = e.currentTarget;
+    
+    // Remettre les styles de base
+    card.style.setProperty('transform', 'translateY(0)', 'important');
+    card.style.setProperty('box-shadow', 'none', 'important');
+    card.style.setProperty('border-color', 'rgba(255, 255, 255, 0.15)', 'important');
+    
+    // Maintenir la transparence
+    card.style.setProperty('background', 'none', 'important');
+    card.style.setProperty('background-color', 'transparent', 'important');
+    card.style.setProperty('background-image', 'none', 'important');
+    
+    // Garder les enfants transparents
+    const allChildren = card.querySelectorAll('*');
+    allChildren.forEach(child => {
+      if (!child.style.borderRadius || !child.style.borderRadius.includes('50%')) {
+        child.style.setProperty('background', 'transparent', 'important');
+        child.style.setProperty('background-color', 'transparent', 'important');
+        child.style.setProperty('background-image', 'none', 'important');
+        child.style.setProperty('box-shadow', 'none', 'important');
+      }
+    });
+  };
+
+  // Fonction pour gérer le hover des composants stack
+  const handleStackMouseEnter = (e) => {
+    const element = e.currentTarget;
+    element.style.setProperty('background', 'rgba(255, 255, 255, 0.1)', 'important');
+    element.style.setProperty('border-color', 'rgba(255, 255, 255, 0.2)', 'important');
+    
+    // Forcer tous les enfants à rester transparents
+    const allChildren = element.querySelectorAll('*');
+    allChildren.forEach(child => {
+      if (!child.matches('[style*="rgba(252, 233, 107"]')) { // Garder les badges
+        child.style.setProperty('background', 'transparent', 'important');
+        child.style.setProperty('background-color', 'transparent', 'important');
+      }
+    });
+  };
+
+  const handleStackMouseLeave = (e) => {
+    const element = e.currentTarget;
+    element.style.setProperty('background', 'rgba(255, 255, 255, 0.06)', 'important');
+    element.style.setProperty('border-color', 'rgba(255, 255, 255, 0.1)', 'important');
+  };
+
   return (
     <section 
       ref={sectionRef} 
@@ -173,7 +187,8 @@ const stackComponents = [
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               marginBottom: '1.5rem',
-              textDecoration: 'underline'
+              textDecoration: 'underline',
+              background: 'transparent'
             }}
           >
             WHY EGGON
@@ -186,7 +201,8 @@ const stackComponents = [
               color: '#fafafa',
               lineHeight: '1.1',
               marginBottom: '2rem',
-              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)'
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
+              background: 'transparent'
             }}
           >
             Trust a team with expertise in your field
@@ -198,7 +214,8 @@ const stackComponents = [
               color: 'rgba(250, 250, 250, 0.9)',
               lineHeight: '1.6',
               maxWidth: '80ch',
-              margin: '0 auto'
+              margin: '0 auto',
+              background: 'transparent'
             }}
           >
             Eggon combines deep legal expertise with real AI engineering to deliver trusted, integrated solutions tailored to your operational challenges.
@@ -220,8 +237,9 @@ const stackComponents = [
               key={index}
               style={{
                 padding: 'clamp(1.8rem, 3vw, 2.4rem)',
-                background: 'transparent !important',
-                backdropFilter: 'blur(20px)',
+                background: 'none',
+                backgroundColor: 'transparent',
+                backgroundImage: 'none',
                 border: '2px solid rgba(255, 255, 255, 0.15)',
                 borderRadius: '16px',
                 transition: 'all 0.3s ease',
@@ -229,36 +247,21 @@ const stackComponents = [
                 minHeight: '280px',
                 display: 'flex',
                 flexDirection: 'column',
-                position: 'relative'
+                position: 'relative',
+                boxShadow: 'none'
               }}
               className="benefit-card"
-              onMouseEnter={(e) => {
-                e.stopPropagation();
-                const card = e.currentTarget;
-                card.style.transform = 'translateY(-5px)';
-                card.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.4)';
-                card.style.borderColor = 'rgba(255, 255, 255, 0.25)';
-                // Forcer tous les éléments enfants à rester transparents
-                const allChildren = card.querySelectorAll('*');
-                allChildren.forEach(child => {
-                  child.style.background = 'transparent';
-                  child.style.backgroundColor = 'transparent';
-                });
-              }}
-              onMouseLeave={(e) => {
-                e.stopPropagation();
-                const card = e.currentTarget;
-                card.style.transform = 'translateY(0)';
-                card.style.boxShadow = 'none';
-                card.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-              }}
+              onMouseEnter={handleCardMouseEnter}
+              onMouseLeave={handleCardMouseLeave}
             >
               <div 
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: '1.5rem'
+                  marginBottom: '1.5rem',
+                  background: 'transparent',
+                  backgroundColor: 'transparent'
                 }}
               >
                 <div 
@@ -267,6 +270,7 @@ const stackComponents = [
                     height: '60px',
                     borderRadius: '50%',
                     background: 'rgba(255, 255, 255, 0.1)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     border: '2px solid rgba(255, 255, 255, 0.2)',
                     display: 'flex',
                     alignItems: 'center',
@@ -274,18 +278,41 @@ const stackComponents = [
                     flexShrink: 0
                   }}
                 >
-                  {benefit.icon}
+                  {/* Icône SVG simple sans background */}
+                  <svg 
+                    width="24" 
+                    height="24"
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                    style={{ 
+                      color: '#fafafa',
+                      background: 'transparent',
+                      backgroundColor: 'transparent'
+                    }}
+                  >
+                    <circle cx="12" cy="12" r="10" style={{ background: 'transparent' }}/>
+                    <path d="M8 12l2 2 4-4" style={{ background: 'transparent' }}/>
+                  </svg>
                 </div>
               </div>
               
-              <div style={{ flex: 1, textAlign: 'center' }}>
+              <div style={{ 
+                flex: 1, 
+                textAlign: 'center',
+                background: 'transparent',
+                backgroundColor: 'transparent'
+              }}>
                 <h3 
                   style={{
                     fontSize: 'clamp(1.2rem, 2vw, 1.4rem)',
                     fontWeight: '700',
                     color: '#fafafa',
                     marginBottom: '1.2rem',
-                    lineHeight: '1.3'
+                    lineHeight: '1.3',
+                    background: 'transparent',
+                    backgroundColor: 'transparent'
                   }}
                 >
                   {benefit.title}
@@ -297,7 +324,9 @@ const stackComponents = [
                     color: 'rgba(250, 250, 250, 0.85)',
                     lineHeight: '1.6',
                     textAlign: 'left',
-                    margin: 0
+                    margin: 0,
+                    background: 'transparent',
+                    backgroundColor: 'transparent'
                   }}
                 >
                   {benefit.description}
@@ -322,7 +351,8 @@ const stackComponents = [
               textAlign: 'center',
               marginBottom: 'clamp(3rem, 6vh, 4rem)',
               textTransform: 'uppercase',
-              letterSpacing: '0.1em'
+              letterSpacing: '0.1em',
+              background: 'transparent'
             }}
           >
             THE LEGAL AGENT STACK
@@ -342,27 +372,30 @@ const stackComponents = [
                 key={index}
                 style={{
                   padding: 'clamp(1.5rem, 3vw, 2rem)',
-                  background: 'rgba(255, 255, 255, 0.06)',
-                  backdropFilter: 'blur(20px)',
+                  background: 'none',
+                  backgroundColor: 'transparent',
+                  backgroundImage: 'none',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   borderRadius: '12px',
                   transition: 'all 0.3s ease',
-                  position: 'relative'
+                  position: 'relative',
+                  boxShadow: 'none'
                 }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.1)';
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.06)';
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                }}
+                onMouseEnter={handleStackMouseEnter}
+                onMouseLeave={handleStackMouseLeave}
               >
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  gap: '1.5rem',
+                  background: 'transparent',
+                  backgroundColor: 'transparent'
+                }}>
                   <div 
                     style={{
                       padding: '0.5rem 1rem',
                       background: 'rgba(252, 233, 107, 0.2)',
+                      backgroundColor: 'rgba(252, 233, 107, 0.2)',
                       border: '1px solid rgba(252, 233, 107, 0.4)',
                       borderRadius: '20px',
                       fontSize: '0.8rem',
@@ -377,7 +410,11 @@ const stackComponents = [
                     {component.badge}
                   </div>
                   
-                  <div style={{ flex: 1 }}>
+                  <div style={{ 
+                    flex: 1,
+                    background: 'transparent',
+                    backgroundColor: 'transparent'
+                  }}>
                     <div 
                       style={{
                         fontSize: '0.8rem',
@@ -385,7 +422,9 @@ const stackComponents = [
                         textTransform: 'uppercase',
                         letterSpacing: '0.1em',
                         marginBottom: '0.5rem',
-                        fontWeight: '500'
+                        fontWeight: '500',
+                        background: 'transparent',
+                        backgroundColor: 'transparent'
                       }}
                     >
                       {component.category}
@@ -397,7 +436,9 @@ const stackComponents = [
                         fontWeight: '700',
                         color: '#fafafa',
                         marginBottom: '0.8rem',
-                        lineHeight: '1.3'
+                        lineHeight: '1.3',
+                        background: 'transparent',
+                        backgroundColor: 'transparent'
                       }}
                     >
                       {component.title}
@@ -408,7 +449,9 @@ const stackComponents = [
                         fontSize: 'clamp(0.9rem, 1.8vw, 1rem)',
                         color: 'rgba(250, 250, 250, 0.8)',
                         lineHeight: '1.5',
-                        margin: 0
+                        margin: 0,
+                        background: 'transparent',
+                        backgroundColor: 'transparent'
                       }}
                     >
                       {component.description}
