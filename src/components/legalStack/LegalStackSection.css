@@ -3,21 +3,34 @@
   overflow: hidden;
 }
 
-/* Correction pour éviter les rectangles noirs dans les cartes */
+/* Correction globale pour éviter tous les rectangles noirs/colorés dans les cartes */
 .benefit-card,
 .benefit-card *,
 .benefit-card *::before,
-.benefit-card *::after {
+.benefit-card *::after,
+.benefit-card div,
+.benefit-card span,
+.benefit-card h3,
+.benefit-card p,
+.benefit-card svg {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
 .benefit-card:hover,
 .benefit-card:hover *,
 .benefit-card:hover *::before,
-.benefit-card:hover *::after {
+.benefit-card:hover *::after,
+.benefit-card:hover div,
+.benefit-card:hover span,
+.benefit-card:hover h3,
+.benefit-card:hover p,
+.benefit-card:hover svg {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
 }
 
 .benefit-card:focus,
@@ -26,7 +39,9 @@
 .benefit-card:focus *::after {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
   outline: none !important;
+  box-shadow: none !important;
 }
 
 .benefit-card:active,
@@ -35,17 +50,35 @@
 .benefit-card:active *::after {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Correction pour les composants stack également */
+.legal-stack-section div[style*="background"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.legal-stack-section div[style*="background"]:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Empêcher la sélection de créer des backgrounds */
 .benefit-card ::selection {
-  background: #fce96b !important;
+  background: rgba(252, 233, 107, 0.3) !important;
   color: #fafafa !important;
 }
 
 .benefit-card ::-moz-selection {
-  background: #fce96b !important;
+  background: rgba(252, 233, 107, 0.3) !important;
   color: #fafafa !important;
+}
+
+/* Style pour les cercles d'icones pour s'assurer qu'ils restent visibles */
+.benefit-card div[style*="border-radius: 50%"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 /* Responsive adjustments */
