@@ -142,7 +142,13 @@ const CollectionSection = () => {
             </p>
 
             <button className="early-access-button">
-              Get Pricing <span>→</span>
+              <div className="button-content">
+                <span className="arrow-left">→</span>
+                <span className="button-text">
+                  Get Pricing
+                  <span className="arrow-right">→</span>
+                </span>
+              </div>
             </button>
           </div>
 
