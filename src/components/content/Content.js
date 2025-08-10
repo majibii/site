@@ -2,45 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-// Composant de flèche jaune (identique à celle de CollectionSection)
-const YellowArrow = ({ className }) => (
-    <svg 
-        className={className}
-        width="14" 
-        height="14" 
-        viewBox="0 0 16 16" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-    >
-        <path 
-            d="M6 3l5 5-5 5" 
-            stroke="#fce96b" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-        />
-    </svg>
-);
-
-// Composant de flèche noire (identique à celle de CollectionSection)
-const BlackArrow = ({ className }) => (
-    <svg 
-        className={className}
-        width="14" 
-        height="14" 
-        viewBox="0 0 16 16" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-    >
-        <path 
-            d="M6 3l5 5-5 5" 
-            stroke="#2f2f2e" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-        />
-    </svg>
-);
+// Pas besoin de composants SVG, on utilise juste le caractère Unicode comme dans Get Pricing
 
 const useStyles = makeStyles((theme) => ({
     main: {
@@ -267,7 +229,7 @@ const useStyles = makeStyles((theme) => ({
             alignItems: 'center',
         },
         
-        // Flèche jaune par défaut (à droite)
+        // Flèche par défaut (à droite) - comme dans Get Pricing
         '& .arrow-right': {
             marginLeft: '8px',
             transition: 'all 0.4s ease-out',
@@ -278,7 +240,7 @@ const useStyles = makeStyles((theme) => ({
             alignItems: 'center',
         },
         
-        // Flèche noire pour le hover (cachée à gauche du texte)
+        // Flèche pour le hover (cachée à gauche du texte)
         '& .arrow-left': {
             position: 'absolute',
             left: '50%',
@@ -452,10 +414,10 @@ export const Content = () => {
                 <div className={classes.buttonContainer}>
                     <button className={classes.primaryButton}>
                         <div className="button-content">
-                            <BlackArrow className="arrow-left" />
+                            <span className="arrow-left">→</span>
                             <span className="button-text">
                                 Start building
-                                <YellowArrow className="arrow-right" />
+                                <span className="arrow-right">→</span>
                             </span>
                         </div>
                     </button>
