@@ -94,36 +94,42 @@ const LegalStackSection = () => {
     }
   ];
 
-  const stackComponents = [
+const stackComponents = [
     {
-      badge: "N.O.G.",
-      title: "Nested Orchestration and Governance",
-      category: "ORCHESTRATION",
-      description: "Manage persistent, traceable and audited agent graphs. Native support for conversational contexts and inter-agent collaborations."
+      badge: "RAG",
+      title: "Connect Your Internal Databases to a Large Model (RAG)",
+      category: "DATA INTEGRATION",
+      description: "We connect your case files, contracts, and legal databases directly to AI models. Your confidential data stays secure while you get instant answers from your entire knowledge base."
     },
     {
-      badge: "LangChain",
-      title: "Native Connectors",
-      category: "INTEGRATIONS",
-      description: "Integrate LLMs, contractual databases, business tools or providers (iManage, Jina AI, Pinecone, etc.) without technical friction."
+      badge: "Azure Studio",
+      title: "Build AI Agents",
+      category: "AI DEVELOPMENT",
+      description: "We create AI agents using Microsoft Azure Studio that handle your specific legal workflows. Deploy in your office or cloud - your choice. Process sensitive documents with models that never leave your infrastructure."
     },
     {
-      badge: "EAN-GOV 128",
-      title: "Barcode for each execution",
-      category: "GOVERNANCE & TRACE",
-      description: "Each agent emits a structured barcode including: LLM model, prompt, agent code, provider audit, country, expiry date, result number, etc."
+      badge: "Custom Dev",
+      title: "Build Custom Agents",
+      category: "CUSTOM SOLUTIONS",
+      description: "Need something specific? We build custom agents that integrate with your existing tools (case management, billing, document review). Everything runs on your servers for maximum confidentiality."
     },
     {
-      badge: "LangSmith",
-      title: "Supervision and evaluation",
-      category: "OBSERVABILITY",
-      description: "Run analysis, qualitative evaluation, and reporting of errors or behavioral drift for compliance and continuous improvement purposes."
+      badge: "API Connect",
+      title: "Chatbot Interface & API Connectivity",
+      category: "INTERFACE & APIs",
+      description: "Ask questions in plain language, get instant answers from all your files. Auto-analyze contracts, process legal documents, assist with legal research. Works with your existing databases."
     },
     {
-      badge: "N.O.G. Platform",
-      title: "Secure publication",
-      category: "DEPLOYMENT",
-      description: "Deploy your agents on a compliant platform, with lifecycle management, access control and certified logging."
+      badge: "AI Solutions",
+      title: "Total AI Custom Solutions",
+      category: "INTEGRATION",
+      description: "Full AI integration with your practice. For sensitive work, we use local models (GPT OSS, Mistral) that never send data externally. Complete confidentiality guaranteed."
+    },
+    {
+      badge: "Microsoft Fabric",
+      title: "Microsoft Fabric Components",
+      category: "DATA PLATFORM",
+      description: "Unified data platform connecting all your sources - from case files to billing data. Real-time analytics, secure cloud storage, seamless integration with existing Microsoft tools."
     }
   ];
 
