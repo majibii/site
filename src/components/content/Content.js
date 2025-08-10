@@ -225,7 +225,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     primaryButton: {
-        padding: '0.8rem 2rem',
+        padding: '0.6rem 1.5rem',
         fontSize: '0.85rem',
         fontWeight: '700',
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -242,8 +242,8 @@ const useStyles = makeStyles((theme) => ({
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minWidth: '220px',
-        height: '48px',
+        minWidth: '180px',
+        height: '40px',
         
         // Conteneur pour le contenu du bouton
         '& .button-content': {
@@ -279,7 +279,7 @@ const useStyles = makeStyles((theme) => ({
         // Flèche noire pour le hover (cachée à gauche)
         '& .arrow-left': {
             position: 'absolute',
-            left: '16px',
+            left: '12px',
             top: '50%',
             transform: 'translateY(-50%)',
             transition: 'all 0.4s ease-out',
@@ -295,7 +295,7 @@ const useStyles = makeStyles((theme) => ({
             
             // Le texte se décale pour respecter l'espace avec la flèche de gauche
             '& .button-text': {
-                transform: 'translateX(22px)', // 16px (position flèche) + 14px (largeur flèche) + 8px (marge) - 16px (position initiale) = 22px
+                transform: 'translateX(18px)', // 12px (position flèche) + 14px (largeur flèche) + 8px (marge) = 34px total - 16px position initiale = 18px
             },
             
             // La flèche de droite disparaît
@@ -315,12 +315,12 @@ const useStyles = makeStyles((theme) => ({
         },
         
         "@media (max-width: 768px)": {
-            minWidth: '200px',
+            minWidth: '160px',
             fontSize: '0.8rem',
             
             '&:hover': {
                 '& .button-text': {
-                    transform: 'translateX(20px)', // Adaptation mobile
+                    transform: 'translateX(16px)', // Adaptation mobile
                 },
             },
         },
