@@ -6,8 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const YellowArrow = ({ className }) => (
     <svg 
         className={className}
-        width="16" 
-        height="16" 
+        width="14" 
+        height="14" 
         viewBox="0 0 16 16" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
@@ -25,8 +25,8 @@ const YellowArrow = ({ className }) => (
 const BlackArrow = ({ className }) => (
     <svg 
         className={className}
-        width="16" 
-        height="16" 
+        width="14" 
+        height="14" 
         viewBox="0 0 16 16" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
@@ -292,11 +292,10 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             background: '#fce96b',
             color: '#2f2f2e',
-            boxShadow: '0 8px 25px rgba(252, 233, 107, 0.4)',
             
-            // Le texte se décale vers la droite
+            // Le texte se décale pour respecter l'espace avec la flèche de gauche
             '& .button-text': {
-                transform: 'translateX(16px)',
+                transform: 'translateX(22px)', // 16px (position flèche) + 14px (largeur flèche) + 8px (marge) - 16px (position initiale) = 22px
             },
             
             // La flèche de droite disparaît
@@ -321,7 +320,7 @@ const useStyles = makeStyles((theme) => ({
             
             '&:hover': {
                 '& .button-text': {
-                    transform: 'translateX(12px)',
+                    transform: 'translateX(20px)', // Adaptation mobile
                 },
             },
         },
