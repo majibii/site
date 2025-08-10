@@ -191,7 +191,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: '700',
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         letterSpacing: '0.1em',
-        textTransform: 'uppercase',
+        textTransform: 'none', // Changé pour permettre la casse personnalisée
         background: 'transparent',
         color: '#fce96b',
         border: '1px solid #fce96b',
@@ -215,17 +215,20 @@ const useStyles = makeStyles((theme) => ({
         
         // Flèche initiale (à droite du texte)
         '&::after': {
-            content: '"——→"',
+            content: '"————→"',
             marginLeft: '0.75rem',
             fontSize: '0.9rem',
             transition: 'all 0.4s ease-out',
             opacity: 1,
             transform: 'translateX(0)',
+            lineHeight: '1',
+            display: 'flex',
+            alignItems: 'center',
         },
         
         // Flèche cachée (à gauche dans le bouton)
         '&::before': {
-            content: '"——→"',
+            content: '"————→"',
             position: 'absolute',
             left: '1rem',
             top: '50%',
@@ -234,17 +237,19 @@ const useStyles = makeStyles((theme) => ({
             transition: 'all 0.4s ease-out',
             opacity: 0,
             zIndex: 1,
+            lineHeight: '1',
+            display: 'flex',
+            alignItems: 'center',
         },
         
         '&:hover': {
             background: '#fce96b',
             color: '#2f2f2e',
-            transform: 'translateY(-2px)',
             boxShadow: '0 8px 25px rgba(252, 233, 107, 0.4)',
             
-            // Le texte se décale vers la droite pour faire place à la flèche
+            // Le texte se décale plus vers la droite
             '& .button-text': {
-                transform: 'translateX(1rem)',
+                transform: 'translateX(1.8rem)',
             },
             
             // Animation de la flèche de droite (disparaît)
@@ -269,7 +274,7 @@ const useStyles = makeStyles((theme) => ({
             
             '&:hover': {
                 '& .button-text': {
-                    transform: 'translateX(0.8rem)',
+                    transform: 'translateX(1.5rem)',
                 },
             },
         },
