@@ -1,7 +1,7 @@
 /* Section principale avec gestion responsive */
 .nog-project-section {
   min-height: 100vh;
-  height: auto; /* Permet à la section de grandir */
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@
   padding: clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem);
   position: relative;
   box-sizing: border-box;
-  overflow: hidden; /* Évite les débordements horizontaux */
+  overflow: hidden;
 }
 
 /* Container principal centré */
@@ -124,6 +124,130 @@
   margin-bottom: 0;
 }
 
+/* ===== CORRECTIONS POUR LES RECTANGLES INDÉSIRABLES ===== */
+
+/* Forcer TOUS les éléments à être transparents dans NOGProjectSection */
+.nog-project-section,
+.nog-project-section *,
+.nog-project-section *::before,
+.nog-project-section *::after,
+.nog-project-section div,
+.nog-project-section span,
+.nog-project-section button,
+.nog-project-section p {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* États hover - FORCER la transparence pour tout sauf les boutons */
+.nog-project-section:hover,
+.nog-project-section:hover *:not(button),
+.nog-project-section:hover *:not(button)::before,
+.nog-project-section:hover *:not(button)::after,
+.nog-project-section:hover div:not(button),
+.nog-project-section:hover span:not(button) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* États focus - FORCER la transparence */
+.nog-project-section:focus,
+.nog-project-section:focus *,
+.nog-project-section *:focus,
+.nog-project-section *:focus *,
+.nog-project-section *:focus::before,
+.nog-project-section *:focus::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* États active - FORCER la transparence */
+.nog-project-section:active,
+.nog-project-section:active *:not(button),
+.nog-project-section *:active:not(button),
+.nog-project-section *:active:not(button) * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Correction pour Material-UI et autres frameworks */
+.nog-project-section .MuiPaper-root,
+.nog-project-section .MuiCard-root,
+.nog-project-section .MuiBox-root,
+.nog-project-section [class*="makeStyles"],
+.nog-project-section [class*="jss"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Forcer TOUS les divs à être transparents SAUF les conteneurs spécifiques */
+.nog-project-section div[style]:not([style*="border-radius"]),
+.nog-project-section div {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Exception UNIQUEMENT pour les éléments qui DOIVENT avoir un background */
+.nog-project-section div[style*="background: rgba(255, 255, 255, 0.08)"],
+.nog-project-section div[style*="backgroundColor: rgba(255, 255, 255, 0.08)"],
+.nog-project-section div[style*="background: rgba(252, 233, 107"] {
+  /* Ces éléments gardent leur background car c'est voulu */
+}
+
+/* Correction pour les éléments avec styles inline indésirables */
+.nog-project-section [style*="background"]:not([style*="rgba(255, 255, 255, 0.08)"]):not([style*="rgba(252, 233, 107"]) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Correction pour les gradients */
+.nog-project-section [style*="linear-gradient"],
+.nog-project-section [style*="radial-gradient"] {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Empêcher la sélection de créer des backgrounds */
+.nog-project-section ::selection {
+  background: rgba(252, 233, 107, 0.3) !important;
+  color: #fafafa !important;
+}
+
+.nog-project-section ::-moz-selection {
+  background: rgba(252, 233, 107, 0.3) !important;
+  color: #fafafa !important;
+}
+
+/* Correction pour les pseudo-éléments */
+.nog-project-section *::before,
+.nog-project-section *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Styles spécifiques pour les boutons (ils peuvent garder leurs effets hover) */
+.nog-project-section button {
+  /* Les boutons gardent leurs styles d'origine */
+}
+
+.nog-project-section button:hover {
+  /* Les effets hover des boutons sont préservés */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .nog-project-section {
@@ -135,7 +259,6 @@
     max-width: 95%;
   }
   
-  /* Masquer les motifs sur mobile */
   .nog-pattern {
     display: none;
   }
