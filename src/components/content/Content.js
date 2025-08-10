@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-// Composants de flèches
+// Composant de flèche jaune (identique à celle de CollectionSection)
 const YellowArrow = ({ className }) => (
     <svg 
         className={className}
@@ -22,6 +22,7 @@ const YellowArrow = ({ className }) => (
     </svg>
 );
 
+// Composant de flèche noire (identique à celle de CollectionSection)
 const BlackArrow = ({ className }) => (
     <svg 
         className={className}
@@ -224,6 +225,7 @@ const useStyles = makeStyles((theme) => ({
             justifyContent: 'center',
         },
     },
+    // Bouton "Start building" - garder l'effet original mais avec les flèches
     primaryButton: {
         padding: '0.6rem 1.5rem',
         fontSize: '0.85rem',
