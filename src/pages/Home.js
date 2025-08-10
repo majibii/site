@@ -10,6 +10,7 @@ import NOGProjectSection from '../components/nog/NOGProjectSection';
 import CollectionSection from '../components/collection/CollectionSection';
 import LegalStackSection from '../components/legalStack/LegalStackSection';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
+import Footer from '../components/footer/Footer';
 
 // UNE SEULE DÉCLARATION useStyles - Suppression du doublon
 const useStyles = makeStyles(() => ({
@@ -75,6 +76,8 @@ export const Home = () => {
       <div className={classes.contentSection}>
         <CollectionSection />
       </div>
+
+      <Footer />
     </div>
   );
 };

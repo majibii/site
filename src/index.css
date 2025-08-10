@@ -61,3 +61,15 @@ main.MuiContainer-root {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
+/* Assure que le body prend toute la hauteur pour le footer */
+html, body, #root {
+  min-height: 100vh;
+}
+
+/* Flex layout pour pousser le footer en bas */
+#root > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
