@@ -295,7 +295,7 @@ const useStyles = makeStyles((theme) => ({
             
             // Le texte se décale pour respecter l'espace avec la flèche de gauche
             '& .button-text': {
-                transform: 'translateX(18px)', // 12px (position flèche) + 14px (largeur flèche) + 8px (marge) = 34px total - 16px position initiale = 18px
+                transform: 'translateX(20px)', // 12px (position flèche) + 14px (largeur flèche) + 8px (marge) - 14px (largeur flèche droite) = 20px
             },
             
             // La flèche de droite disparaît
@@ -320,7 +320,7 @@ const useStyles = makeStyles((theme) => ({
             
             '&:hover': {
                 '& .button-text': {
-                    transform: 'translateX(16px)', // Adaptation mobile
+                    transform: 'translateX(18px)', // Adaptation mobile pour maintenir l'espacement
                 },
             },
         },
