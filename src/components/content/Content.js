@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Typography, Container, Button } from "@material-ui/core";
+import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -186,19 +186,75 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     primaryButton: {
-        padding: '1rem 2rem',
-        fontSize: '1rem',
-        fontWeight: '600',
-        background: 'rgba(252, 233, 107, 0.9)',
-        color: '#2f2f2e',
-        border: 'none',
-        borderRadius: '8px',
+        padding: '0.8rem 2rem',
+        fontSize: '0.85rem',
+        fontWeight: '700',
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        letterSpacing: '0.1em',
+        textTransform: 'uppercase',
+        background: 'transparent',
+        color: '#fce96b',
+        border: '1px solid #fce96b',
+        borderRadius: '50px',
         cursor: 'pointer',
-        transition: 'all 0.3s ease',
+        position: 'relative',
+        overflow: 'hidden',
+        transition: 'all 0.4s ease-out',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minWidth: '180px',
+        
+        // Flèche initiale (à droite)
+        '&::after': {
+            content: '"→"',
+            position: 'absolute',
+            right: '1.5rem',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            fontSize: '1rem',
+            transition: 'all 0.4s ease-out',
+            opacity: 1,
+        },
+        
+        // Flèche cachée (à gauche)
+        '&::before': {
+            content: '"→"',
+            position: 'absolute',
+            left: '-2rem',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            fontSize: '1rem',
+            transition: 'all 0.4s ease-out',
+            opacity: 0,
+        },
+        
         '&:hover': {
             background: '#fce96b',
+            color: '#2f2f2e',
             transform: 'translateY(-2px)',
-            boxShadow: '0 8px 25px rgba(252, 233, 107, 0.3)',
+            boxShadow: '0 8px 25px rgba(252, 233, 107, 0.4)',
+            
+            // Animation de la flèche de droite
+            '&::after': {
+                right: '-2rem',
+                opacity: 0,
+            },
+            
+            // Animation de la flèche de gauche
+            '&::before': {
+                left: '1.5rem',
+                opacity: 1,
+            },
+        },
+        
+        '&:active': {
+            transform: 'translateY(-1px)',
+        },
+        
+        "@media (max-width: 768px)": {
+            minWidth: '160px',
+            fontSize: '0.8rem',
         },
     },
     secondaryButton: {
@@ -323,9 +379,9 @@ export const Content = () => {
                     Securely connect AI to your company's knowledge{'\n'}with agents that plan, act, and empower every team with trusted.
                 </Typography>
                 <div className={classes.buttonContainer}>
-                    <Button className={classes.primaryButton}>
+                    <button className={classes.primaryButton}>
                         Start building
-                    </Button>
+                    </button>
                     <button className={classes.linkButton} onClick={handleLabClick}>
                         → EggOn Lab — The team dedicated to making AI agents fully insurable.
                     </button>
