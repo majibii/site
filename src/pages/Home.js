@@ -7,7 +7,6 @@ import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
 import CollectionSection from '../components/collection/CollectionSection';
 import LegalStackSection from '../components/legalStack/LegalStackSection';
-import { ThemeToggle } from '../components/theme/ThemeToggle';
 import Footer from '../components/footer/Footer';
 import { Hidden } from '@material-ui/core';
 
