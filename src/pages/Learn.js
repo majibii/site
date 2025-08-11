@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/header/Header';
 import LearnSection from '../components/learn/learnsection';
-import { ThemeToggle } from '../components/theme/ThemeToggle';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/footer/Footer';
 
