@@ -9,7 +9,6 @@ const LegalStackSection = () => {
   const sectionRef = useRef(null);
   const isVisible = useInViewport(sectionRef, false, { threshold: 0.2 });
   const { scrollY } = useViewportScroll();
-  const { t } = useTranslation();
   
   // Effets parallax pour différents éléments
   const headerY = useTransform(scrollY, [0, 1000], [0, -25]);
