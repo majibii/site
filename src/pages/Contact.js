@@ -191,7 +191,7 @@ export const Contact = () => {
                         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif'
                       }}
                     >
-                      Name *
+                      {t('contact.form.name')} *
                     </label>
                     <input
                       type="text"
