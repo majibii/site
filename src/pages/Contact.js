@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/header/Header';
-import { ThemeToggle } from '../components/theme/ThemeToggle';
 import { makeStyles } from '@material-ui/core/styles';
 import { motion, AnimatePresence } from 'framer-motion';
 import Footer from '../components/footer/Footer';
