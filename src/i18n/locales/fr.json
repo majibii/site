@@ -10,11 +10,76 @@
     "subtitle": "Connectez l'IA en toute sécurité aux connaissances de votre entreprise avec des agents qui planifient, agissent et renforcent chaque équipe avec confiance.",
     "cta": "Commencer à construire",
     "labLink": "EggOn Lab — L'équipe dédiée à rendre les agents IA entièrement assurables."
-  },
+
+  {
   "collection": {
     "title": "ÉTUDES DE CAS",
     "subtitle": "Les entreprises choisissent de construire avec EggOn pour un avantage concurrentiel déloyal. Nos agents sont approuvés par des entreprises avant-gardistes dans le juridique, l'aérospatiale et la finance. Restez informé — demandez un devis.",
-    "cta": "Obtenir un devis"
+    "cta": "Obtenir un devis",
+    "prompts": {
+      "contractAnalysis": {
+        "title": "Analyse de Contrats IA",
+        "context": "Juridique / Révision des Risques",
+        "body": "Analyser un contrat commercial et signaler les clauses qui présentent un risque juridique (ex. indemnités, résiliation, droit applicable). Produire un résumé avec explications et suggestions."
+      },
+      "caseLawResearch": {
+        "title": "Recherche de Jurisprudence IA",
+        "context": "Juridique / Recherche de Cas",
+        "body": "Rechercher et résumer la jurisprudence pertinente à une question juridique donnée, incluant liens et raisonnement spécifique à la juridiction."
+      },
+      "meetingPrep": {
+        "title": "Agent de Préparation de Réunions IA",
+        "context": "Productivité / Support d'Équipe",
+        "body": "Préparer des packs de réunion structurés pour les équipes internes incluant agenda, liens, actions précédentes, et résumé des mises à jour pertinentes."
+      },
+      "wikiBuilder": {
+        "title": "Constructeur de Wiki IA",
+        "context": "Connaissances Internes / Documentation",
+        "body": "Construire et mettre à jour un wiki interne privé en scannant documents et conversations internes. Étiqueter et catégoriser automatiquement les entrées."
+      },
+      "auditTrail": {
+        "title": "Agent de Révision de Piste d'Audit",
+        "context": "Conformité / Cybersécurité",
+        "body": "Analyser les logs d'audit et identifier les anomalies ou risques. Générer des résumés prêts pour la conformité et signaler les irrégularités."
+      },
+      "supplierCompliance": {
+        "title": "Moniteur de Conformité Fournisseur",
+        "context": "Conformité / Achats",
+        "body": "Suivre les certifications fournisseurs et documents réglementaires. Alerter sur les fichiers manquants, documents expirés, ou statut juridique incohérent."
+      },
+      "quotationAgent": {
+        "title": "Agent de Devis IA",
+        "context": "Ventes / Devis B2B",
+        "body": "Générer et envoyer des devis professionnels prêts pour le client basés sur les configurations produit, règles de prix, et données client."
+      },
+      "clientOnboarding": {
+        "title": "Agent d'Intégration Client",
+        "context": "Opérations / Gestion Client",
+        "body": "Automatiser l'intégration de nouveaux clients en générant des listes de contrôle, demandant des documents, vérifiant la complétude, et stockant les profils."
+      },
+      "techIntelligence": {
+        "title": "Agent d'Intelligence Technologique",
+        "context": "R&D / Stratégie",
+        "body": "Chaque semaine, résumer les nouvelles et tendances clés dans un secteur technologique sélectionné, incluant sources clés, points saillants, et mises à jour réglementaires."
+      },
+      "rfpDrafting": {
+        "title": "Agent de Rédaction d'Appels d'Offres",
+        "context": "Secteur Public / Appels d'Offres",
+        "body": "Assister les équipes à répondre aux appels d'offres publics en rédigeant des réponses structurées utilisant des documents passés et templates réglementaires."
+      },
+      "esgCompliance": {
+        "title": "Agent de Conformité ESG",
+        "context": "Durabilité / Gouvernance",
+        "body": "Surveiller les critères environnementaux, sociaux et de gouvernance à travers fournisseurs et rapports internes. Alerter sur la non-conformité et préparer des résumés d'audit ESG."
+      },
+      "dataPrivacyAudit": {
+        "title": "Agent d'Audit de Confidentialité des Données",
+        "context": "Juridique / RGPD",
+        "body": "Réviser les processus internes pour la conformité à la confidentialité des données (RGPD/CCPA). Générer un rapport sur l'utilisation des données, collecte de consentement, et exposition au risque de violation."
+      }
+    }
+  }
+}
   },
   "legalStack": {
     "subtitle": "POURQUOI EGGON",
