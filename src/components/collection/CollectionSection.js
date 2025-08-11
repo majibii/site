@@ -3,82 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './CollectionSection.css';
 
-const legalPrompts = [
-  // LEGAL
-  {
-    title: "AI Contract Analysis",
-    context: "Legal / Risk Review",
-    body: "Analyze a commercial contract and flag clauses that present legal risk (e.g. indemnities, termination, governing law). Output a summary with explanations and suggestions."
-  },
-  {
-    title: "AI Case Law Research",
-    context: "Legal / Case Search",
-    body: "Search and summarize case law relevant to a given legal question, including links and jurisdiction-specific reasoning."
-  },
-
-  // PRODUCTIVITY
-  {
-    title: "AI Meeting Prep Agent",
-    context: "Productivity / Team Support",
-    body: "Prepare structured meeting packs for internal teams including agenda, links, previous action items, and a summary of relevant updates."
-  },
-  {
-    title: "AI Wiki Builder",
-    context: "Internal Knowledge / Documentation",
-    body: "Build and update a private internal wiki by scanning documents and internal conversations. Automatically tag and categorize entries."
-  },
-
-  // COMPLIANCE
-  {
-    title: "Audit Trail Review Agent",
-    context: "Compliance / Cybersecurity",
-    body: "Analyze audit logs and identify anomalies or risks. Generate compliance-ready summaries and flag irregularities."
-  },
-  {
-    title: "Supplier Compliance Monitor",
-    context: "Compliance / Procurement",
-    body: "Track supplier certifications and regulatory documents. Alert on missing files, expired documents, or inconsistent legal status."
-  },
-
-  // BUSINESS OPS
-  {
-    title: "AI Quotation Agent",
-    context: "Sales / B2B Quoting",
-    body: "Generate and send client-ready professional quotations based on product configurations, pricing rules, and customer data."
-  },
-  {
-    title: "Client Onboarding Agent",
-    context: "Operations / Customer Management",
-    body: "Automate the onboarding of new clients by generating checklists, requesting documents, verifying completeness, and storing profiles."
-  },
-
-  // STRATEGY / R&D
-  {
-    title: "Tech Intelligence Agent",
-    context: "R&D / Strategy",
-    body: "Every week, summarize key news and trends in a selected technology sector, including key sources, highlights, and regulatory updates."
-  },
-
-  // PUBLIC SECTOR / TENDERS
-  {
-    title: "RFP Drafting Agent",
-    context: "Public Sector / Tenders",
-    body: "Assist teams in answering public RFPs by drafting structured responses using past documents and regulatory templates."
-  },
-
-  // ADDITIONAL
-  {
-    title: "ESG Compliance Agent",
-    context: "Sustainability / Governance",
-    body: "Monitor environmental, social, and governance criteria across suppliers and internal reports. Alert on non-compliance and prepare ESG audit summaries."
-  },
-  {
-    title: "Data Privacy Audit Agent",
-    context: "Legal / GDPR",
-    body: "Review internal processes for data privacy compliance (GDPR/CCPA). Generate a report on data usage, consent collection, and breach risk exposure."
-  }
-];
-
 const CollectionSection = () => {
   const { t } = useTranslation();
   const sectionRef = useRef(null);
@@ -87,6 +11,82 @@ const CollectionSection = () => {
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [editedPrompt, setEditedPrompt] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const legalPrompts = [
+    // LEGAL
+    {
+      title: t('collection.prompts.contractAnalysis.title'),
+      context: t('collection.prompts.contractAnalysis.context'),
+      body: t('collection.prompts.contractAnalysis.body')
+    },
+    {
+      title: t('collection.prompts.caseLawResearch.title'),
+      context: t('collection.prompts.caseLawResearch.context'),
+      body: t('collection.prompts.caseLawResearch.body')
+    },
+
+    // PRODUCTIVITY
+    {
+      title: t('collection.prompts.meetingPrep.title'),
+      context: t('collection.prompts.meetingPrep.context'),
+      body: t('collection.prompts.meetingPrep.body')
+    },
+    {
+      title: t('collection.prompts.wikiBuilder.title'),
+      context: t('collection.prompts.wikiBuilder.context'),
+      body: t('collection.prompts.wikiBuilder.body')
+    },
+
+    // COMPLIANCE
+    {
+      title: t('collection.prompts.auditTrail.title'),
+      context: t('collection.prompts.auditTrail.context'),
+      body: t('collection.prompts.auditTrail.body')
+    },
+    {
+      title: t('collection.prompts.supplierCompliance.title'),
+      context: t('collection.prompts.supplierCompliance.context'),
+      body: t('collection.prompts.supplierCompliance.body')
+    },
+
+    // BUSINESS OPS
+    {
+      title: t('collection.prompts.quotationAgent.title'),
+      context: t('collection.prompts.quotationAgent.context'),
+      body: t('collection.prompts.quotationAgent.body')
+    },
+    {
+      title: t('collection.prompts.clientOnboarding.title'),
+      context: t('collection.prompts.clientOnboarding.context'),
+      body: t('collection.prompts.clientOnboarding.body')
+    },
+
+    // STRATEGY / R&D
+    {
+      title: t('collection.prompts.techIntelligence.title'),
+      context: t('collection.prompts.techIntelligence.context'),
+      body: t('collection.prompts.techIntelligence.body')
+    },
+
+    // PUBLIC SECTOR / TENDERS
+    {
+      title: t('collection.prompts.rfpDrafting.title'),
+      context: t('collection.prompts.rfpDrafting.context'),
+      body: t('collection.prompts.rfpDrafting.body')
+    },
+
+    // ADDITIONAL
+    {
+      title: t('collection.prompts.esgCompliance.title'),
+      context: t('collection.prompts.esgCompliance.context'),
+      body: t('collection.prompts.esgCompliance.body')
+    },
+    {
+      title: t('collection.prompts.dataPrivacyAudit.title'),
+      context: t('collection.prompts.dataPrivacyAudit.context'),
+      body: t('collection.prompts.dataPrivacyAudit.body')
+    }
+  ];
 
   const handleCardClick = (prompt) => {
     setSelectedPrompt(prompt);
@@ -131,7 +131,7 @@ const CollectionSection = () => {
       <section ref={sectionRef} className="collection-section">
         <div className="collection-content">
           <div className="collection-header">
-            <h3 className="section-label">COLLECTION</h3>
+            <h3 className="section-label">{t('collection.sectionLabel')}</h3>
             
             <h2 className="collection-title">
               {t('collection.title')}
@@ -170,7 +170,7 @@ const CollectionSection = () => {
             {/* Time Indicator */}
             <div className="time-indicator">
               <div className="year-text">2025</div>
-              <div className="last-update-text">last update</div>
+              <div className="last-update-text">{t('collection.lastUpdate')}</div>
             </div>
 
             <div className="cards-row bottom">
@@ -191,25 +191,18 @@ const CollectionSection = () => {
           {/* Editorial Section */}
           <div className="editorial-section">
             <div className="editorial-line">
-              <span className="editorial-title">WHAT ARE AGENTS?</span>
+              <span className="editorial-title">{t('collection.editorial.title')}</span>
             </div>
             
             <div className="editorial-content">
               <p>
-                The "Agent" can be defined in several ways. Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks. 
-                Others use the term to describe more prescriptive implementations that follow predefined workflows. 
-                At EggOn, we categorize all these variations as agentic systems, but we draw an important architectural distinction between workflows and agents:
+                {t('collection.editorial.paragraph1')}
               </p>
               <p>
-                - Workflows are systems where LLMs and tools are orchestrated through predefined code paths.
-                - Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.
+                {t('collection.editorial.paragraph2')}
               </p>
               <p>
-                When building applications with LLMs, we recommend starting with the simplest possible solution and only increasing complexity when necessary. 
-                In many cases, this means not building agentic systems at all. Often, optimizing single LLM calls with retrieval and in-context examples provides sufficient performance.
-                When more complexity is warranted, workflows offer predictability and consistency for well-defined tasks, while agents are better suited for scenarios that require flexibility and model-driven decision-making at scale.
-
-                Let our AI engineers guide you toward the most efficient architecture—and deliver the right system, in production, for your needs.
+                {t('collection.editorial.paragraph3')}
               </p>
             </div>
           </div>
@@ -217,7 +210,7 @@ const CollectionSection = () => {
           {/* Benefits Section */}
           <div className="benefits-section">
             <div className="benefits-title-line">
-              <span className="benefits-title">BENEFITS FOR HOLDERS</span>
+              <span className="benefits-title">{t('collection.benefits.title')}</span>
             </div>
             
             <div className="benefits-list">
@@ -227,7 +220,7 @@ const CollectionSection = () => {
                     <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
                   </svg>
                 </div>
-                <span>Contribute to the evolution of legal prompting strategies and frameworks</span>
+                <span>{t('collection.benefits.item1')}</span>
               </div>
               <div className="benefits-item">
                 <div className="benefit-icon-circle">
@@ -238,7 +231,7 @@ const CollectionSection = () => {
                     <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
                   </svg>
                 </div>
-                <span>Access a free hub for share prompts and work for transparency</span>
+                <span>{t('collection.benefits.item2')}</span>
               </div>
               <div className="benefits-item">
                 <div className="benefit-icon-circle">
@@ -248,7 +241,7 @@ const CollectionSection = () => {
                     <path d="M7 11V7A5 5 0 0 1 17 7V11"/>
                   </svg>
                 </div>
-                <span>Create your prompts in private and keep your strategy</span>
+                <span>{t('collection.benefits.item3')}</span>
               </div>
               <div className="benefits-item">
                 <div className="benefit-icon-circle">
@@ -256,7 +249,7 @@ const CollectionSection = () => {
                     <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
                   </svg>
                 </div>
-                <span>Enjoy early access to new prompt collections, the legal agents will coming soon</span>
+                <span>{t('collection.benefits.item4')}</span>
               </div>
               <div className="benefits-item">
                 <div className="benefit-icon-circle">
@@ -271,7 +264,7 @@ const CollectionSection = () => {
                     <path d="M16.24 7.76L19.07 4.93"/>
                   </svg>
                 </div>
-                <span>Unlock progressive roadmap features, including legal model, multiple integrations with legaltechs</span>
+                <span>{t('collection.benefits.item5')}</span>
               </div>
             </div>
           </div>
@@ -340,7 +333,7 @@ const CollectionSection = () => {
                       className="prompt-textarea"
                       value={editedPrompt}
                       onChange={(e) => setEditedPrompt(e.target.value)}
-                      placeholder="Modifiez votre prompt ici..."
+                      placeholder={t('collection.modal.placeholder')}
                       autoFocus
                     />
                   </div>
@@ -350,13 +343,13 @@ const CollectionSection = () => {
                       className="action-button cancel-button"
                       onClick={handleCloseDialog}
                     >
-                      Annuler
+                      {t('collection.modal.cancel')}
                     </button>
                     <button
                       className="action-button submit-button"
                       onClick={handleSubmit}
                     >
-                      Submit →
+                      {t('collection.modal.submit')} →
                     </button>
                   </div>
                 </div>
