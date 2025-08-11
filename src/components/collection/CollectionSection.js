@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import './CollectionSection.css';
-import { useTranslation } from 'react-i18next';
 
 const legalPrompts = [
   // LEGAL
