@@ -10,6 +10,9 @@ import { Learn } from "../pages/Learn";
 import { Contact } from "../pages/Contact";
 import { PageNotFound } from "../pages/PageNotFound";
 
+// 🌍 Import i18n pour activer les traductions
+import "../i18n/i18n";
+
 export const App = () => {
     logCredits();
     
