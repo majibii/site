@@ -36,7 +36,6 @@ export const Learn = () => {
     return (
         <div className={classes.root}>
             <Header />
-            <ThemeToggle />
             
             <div className={classes.contentSection}>
                 <LearnSection />

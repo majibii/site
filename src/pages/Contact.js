@@ -79,7 +79,6 @@ export const Contact = () => {
   return (
     <div className={classes.root}>
       <Header />
-      <ThemeToggle />
       
       <div className={classes.contentSection}>
         <section
@@ -191,7 +190,7 @@ export const Contact = () => {
                         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif'
                       }}
                     >
-                      {t('contact.form.name')} *
+                      Name *
                     </label>
                     <input
                       type="text"

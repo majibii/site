@@ -36,7 +36,6 @@ export const NOGLab = () => {
   return (
     <div className={classes.root}>
       <Header />
-      <ThemeToggle />
       
       <div className={classes.contentSection}>
         <NOGLabSection />
