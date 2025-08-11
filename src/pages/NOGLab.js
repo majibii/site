@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../components/header/Header';
-import { ThemeToggle } from '../components/theme/ThemeToggle';
 import NOGLabSection from '../components/noglab/NOGLabSection';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/footer/Footer';
