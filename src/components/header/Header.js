@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Header.css';
 
@@ -85,6 +86,7 @@ const CircularText = ({ text, spinDuration = 20, onHover, className = '', onClic
 };
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -119,10 +121,10 @@ const Header = () => {
   };
 
   const navigationLinks = [
-    { href: '/', label: 'eggon' },
-    { href: '/nog-lab', label: 'Lab' },
-    { href: '/learn', label: 'Learn' },
-    { href: '/contact', label: 'Contact' }
+    { href: '/', label: t('navigation.home') },
+    { href: '/nog-lab', label: t('navigation.lab') },
+    { href: '/learn', label: t('navigation.learn') },
+    { href: '/contact', label: t('navigation.contact') }
   ];
 
   // Variants pour les belles animations Framer Motion

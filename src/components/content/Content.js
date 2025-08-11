@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -317,6 +318,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Content = () => {
     const classes = useStyles();
+    const { t } = useTranslation();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("AI Agents");
     const dropdownRef = useRef(null);
@@ -387,23 +389,23 @@ export const Content = () => {
                 </div>
 
                 <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
-                    Make AI agents your {'\n'}competitive advantage
+                    {t('hero.title')}
                 </Typography>
                 <Typography variant="h5" component="h2" className={classes.subtitle}>
-                    Securely connect AI to your company's knowledge{'\n'}with agents that plan, act, and empower every team with trusted.
+                    {t('hero.subtitle')}
                 </Typography>
                 <div className={classes.buttonContainer}>
                     <button className={classes.primaryButton}>
                         <div className="button-content">
                             <span className="arrow-left">→</span>
                             <span className="button-text">
-                                Start building
+                                {t('hero.cta')}
                                 <span className="arrow-right">→</span>
                             </span>
                         </div>
                     </button>
                     <button className={classes.linkButton} onClick={handleLabClick}>
-                        → EggOn Lab — The team dedicated to making AI agents fully insurable.
+                        → {t('hero.labLink')}
                     </button>
                 </div>
             </div>

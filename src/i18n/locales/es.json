@@ -1,0 +1,52 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "lab": "Lab",
+    "learn": "Aprender",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Haz de los agentes IA tu ventaja competitiva",
+    "subtitle": "Conecta la IA de forma segura al conocimiento de tu empresa con agentes que planifican, actúan y empoderan a cada equipo con confianza.",
+    "cta": "Empezar a construir",
+    "labLink": "EggOn Lab — El equipo dedicado a hacer que los agentes IA sean completamente asegurables."
+  },
+  "collection": {
+    "title": "CASOS DE ESTUDIO",
+    "subtitle": "Las empresas eligen construir con EggOn para obtener una ventaja competitiva desleal. Nuestros agentes son confiables para empresas visionarias en legal, aeroespacial y finanzas. Mantente actualizado — solicita un presupuesto.",
+    "cta": "Obtener presupuesto"
+  },
+  "legalStack": {
+    "subtitle": "POR QUÉ EGGON",
+    "title": "Confía en un equipo con experiencia en tu campo",
+    "description": "Eggon combina experiencia legal profunda con ingeniería IA real para entregar soluciones integradas y confiables adaptadas a tus desafíos operacionales.",
+    "stackTitle": "LA PILA DE AGENTES LEGALES"
+  },
+  "contact": {
+    "title": "Construyamos el futuro juntos",
+    "subtitle": "¿Listo para hacer de los agentes IA tu ventaja competitiva? Ponte en contacto con nuestro equipo.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "company": "Empresa",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado exitosamente! Te responderemos pronto.",
+      "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo."
+    }
+  },
+  "footer": {
+    "copyright": "© EggOn Technology 2025",
+    "whyEggon": "Por qué EggOn",
+    "legal": "Legal",
+    "aboutUs": "Acerca de nosotros",
+    "futureAI": "IA del futuro",
+    "termsOfUse": "Términos de uso",
+    "privacyPolicy": "Política de privacidad",
+    "cookieChoices": "Opciones de cookies",
+    "dataProcessing": "Acuerdo de procesamiento de datos",
+    "legalNotice": "Aviso legal"
+  }
+}

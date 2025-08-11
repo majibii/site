@@ -1,0 +1,52 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "lab": "Lab",
+    "learn": "Apprendre",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Faites des agents IA votre avantage concurrentiel",
+    "subtitle": "Connectez l'IA en toute sécurité aux connaissances de votre entreprise avec des agents qui planifient, agissent et renforcent chaque équipe avec confiance.",
+    "cta": "Commencer à construire",
+    "labLink": "EggOn Lab — L'équipe dédiée à rendre les agents IA entièrement assurables."
+  },
+  "collection": {
+    "title": "ÉTUDES DE CAS",
+    "subtitle": "Les entreprises choisissent de construire avec EggOn pour un avantage concurrentiel déloyal. Nos agents sont approuvés par des entreprises avant-gardistes dans le juridique, l'aérospatiale et la finance. Restez informé — demandez un devis.",
+    "cta": "Obtenir un devis"
+  },
+  "legalStack": {
+    "subtitle": "POURQUOI EGGON",
+    "title": "Faites confiance à une équipe experte dans votre domaine",
+    "description": "Eggon combine une expertise juridique approfondie avec une véritable ingénierie IA pour fournir des solutions intégrées et fiables adaptées à vos défis opérationnels.",
+    "stackTitle": "LA PILE D'AGENTS JURIDIQUES"
+  },
+  "contact": {
+    "title": "Construisons l'avenir ensemble",
+    "subtitle": "Prêt à faire des agents IA votre avantage concurrentiel ? Contactez notre équipe.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "company": "Entreprise",
+      "subject": "Sujet",
+      "message": "Message",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès ! Nous vous répondrons bientôt.",
+      "error": "Échec de l'envoi du message. Veuillez réessayer."
+    }
+  },
+  "footer": {
+    "copyright": "© EggOn Technology 2025",
+    "whyEggon": "Pourquoi EggOn",
+    "legal": "Légal",
+    "aboutUs": "À propos",
+    "futureAI": "IA du futur",
+    "termsOfUse": "Conditions d'utilisation",
+    "privacyPolicy": "Politique de confidentialité",
+    "cookieChoices": "Choix des cookies",
+    "dataProcessing": "Accord de traitement des données",
+    "legalNotice": "Mentions légales"
+  }
+}

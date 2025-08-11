@@ -1,0 +1,52 @@
+{
+  "navigation": {
+    "home": "Home",
+    "lab": "Lab",
+    "learn": "Learn",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Make AI agents your competitive advantage",
+    "subtitle": "Securely connect AI to your company's knowledge with agents that plan, act, and empower every team with trusted.",
+    "cta": "Start building",
+    "labLink": "EggOn Lab — The team dedicated to making AI agents fully insurable."
+  },
+  "collection": {
+    "title": "CASE STUDIES",
+    "subtitle": "Firms are choosing to build with EggOn for unfair competitive advantage. Our agents are trusted by forward-thinking companies across legal, aerospace & Finance. Stay updated — ask for a pricing.",
+    "cta": "Get Pricing"
+  },
+  "legalStack": {
+    "subtitle": "WHY EGGON",
+    "title": "Trust a team with expertise in your field",
+    "description": "Eggon combines deep legal expertise with real AI engineering to deliver trusted, integrated solutions tailored to your operational challenges.",
+    "stackTitle": "THE LEGAL AGENT STACK"
+  },
+  "contact": {
+    "title": "Let's Build the Future Together",
+    "subtitle": "Ready to make AI agents your competitive advantage? Get in touch with our team.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "footer": {
+    "copyright": "© EggOn Technology 2025",
+    "whyEggon": "Why EggOn",
+    "legal": "Legal",
+    "aboutUs": "About Us",
+    "futureAI": "Future AI",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "cookieChoices": "Cookie Choices",
+    "dataProcessing": "Data Processing Agreement",
+    "legalNotice": "Legal Notice"
+  }
+}

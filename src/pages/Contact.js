@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Header from '../components/header/Header';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 import { makeStyles } from '@material-ui/core/styles';
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Contact = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -121,7 +123,7 @@ export const Contact = () => {
                   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif'
                 }}
               >
-                CONTACT
+                {t('navigation.contact').toUpperCase()}
               </h3>
               
               <h1
@@ -135,7 +137,7 @@ export const Contact = () => {
                   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif'
                 }}
               >
-                Let's Build the Future Together
+                {t('contact.title')}
               </h1>
 
               <p
@@ -148,7 +150,7 @@ export const Contact = () => {
                   fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif'
                 }}
               >
-                Ready to make AI agents your competitive advantage? Get in touch with our team.
+                {t('contact.subtitle')}
               </p>
             </motion.div>
 
