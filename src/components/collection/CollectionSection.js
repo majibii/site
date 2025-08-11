@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import './CollectionSection.css';
 
 const legalPrompts = [
@@ -79,6 +80,7 @@ const legalPrompts = [
 ];
 
 const CollectionSection = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   // Remplace useId() par useState pour React 16
   const [uniqueId] = useState(() => `collection-${Math.random().toString(36).substr(2, 9)}`);
@@ -132,20 +134,18 @@ const CollectionSection = () => {
             <h3 className="section-label">COLLECTION</h3>
             
             <h2 className="collection-title">
-              CASE STUDIES
+              {t('collection.title')}
             </h2>
 
             <p className="collection-intro">
-              Firms are choosing to build with EggOn for unfair competitive advantage.
-                Our agents are trusted by forward-thinking companies across legal, aerospace & Finance. Stay updated — ask for 
-                a pricing.
+              {t('collection.subtitle')}
             </p>
 
             <button className="early-access-button">
               <div className="button-content">
                 <span className="arrow-left">→</span>
                 <span className="button-text">
-                  Get Pricing
+                  {t('collection.cta')}
                   <span className="arrow-right">→</span>
                 </span>
               </div>

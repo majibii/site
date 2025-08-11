@@ -22,6 +22,129 @@
     "description": "Eggon combina experiencia legal profunda con ingeniería IA real para entregar soluciones integradas y confiables adaptadas a tus desafíos operacionales.",
     "stackTitle": "LA PILA DE AGENTES LEGALES"
   },
+  "learn": {
+    "title": "EggOn Lab en funcionamiento",
+    "intro1": "EggOn Lab se dedica a la gobernanza y trazabilidad de agentes de inteligencia artificial a través de un orquestador de próxima generación.",
+    "intro2": "Estamos construyendo un futuro donde los profesionales — especialmente en derecho, finanzas y salud — pueden desplegar agentes IA que estén certificados como conformes, auditables y asegurables.",
+    "intro3": "Somos ingenieros y constructores que hemos trabajado para algunas de las empresas tecnológicas más seguras, incluyendo iManage, y para líderes de la industria como Expertos en Sistemas de Trazabilidad e Ingenieros de Calidad.",
+    "legitimacy": {
+      "title": "La legitimidad en IA va más allá de respuestas correctas o incorrectas",
+      "paragraph1": "Las capacidades de IA avanzan a un ritmo sin precedentes, pero un problema mayor permanece: la opacidad.",
+      "paragraph2": "Esta opacidad es aún más preocupante cuando la IA entra en sectores que no son como ninguna otra industria: justicia y salud. Estos son los fundamentos de una sociedad libre y justa.",
+      "paragraph3": "Cada día, los tribunales toman decisiones que cambian el curso de vidas humanas. Tales decisiones exigen empatía, experiencia y contexto — pero también un proceso que se sienta legítimo para aquellos afectados.",
+      "paragraph4": "Ninguna familia debería preguntarse si perdió la custodia debido a un algoritmo mal calibrado. Ningún paciente debería dudar que su tratamiento fue decidido después de una evaluación humana genuina.",
+      "paragraph5": "El problema real no es simplemente si la IA da la respuesta correcta o incorrecta — es la duda. Y una vez que la duda se instala, erosiona la confianza y socava la legitimidad de nuestros sistemas."
+    },
+    "aiForEveryone": {
+      "title": "IA que funciona para todos",
+      "paragraph1": "El conocimiento de cómo operan y toman decisiones los agentes IA no debe permanecer concentrado en unos pocos laboratorios.",
+      "paragraph2": "Esta falta de transparencia ralentiza la adopción en profesiones de alta responsabilidad, y la ausencia de explicabilidad hace imposible asegurar los procesos impulsados por IA.",
+      "paragraph3": "Para cerrar esta brecha, creamos N.O.G (Nested Orchestration & Governance) — una plataforma diseñada para entender, auditar y certificar agentes IA."
+    },
+    "principles": {
+      "title": "La legitimidad sólida importa",
+      "explicability": {
+        "title": "Explicabilidad",
+        "description": "Cada tarea ejecutada por un agente IA debe ser comprensible y explicable. Los usuarios deben poder rastrear el razonamiento completo y verificar su legitimidad."
+      },
+      "accessibility": {
+        "title": "Accesibilidad",
+        "description": "La explicabilidad solo importa si se comparte. Los resultados y evidencia de apoyo deben ser fáciles de acceder para todos los impactados por una decisión."
+      },
+      "recall": {
+        "title": "Revocación",
+        "description": "Si se detecta sesgo, error o manipulación, el sistema debe permitir una revocación inmediata — igual que los retiros de productos en industrias críticas. La IA gobernada nunca debería ser irreversible."
+      },
+      "speed": {
+        "title": "Velocidad",
+        "description": "El cumplimiento no debe ralentizar la innovación. La IA explicable debería ser tan rápida como poderosa, acelerando la adopción mientras construye confianza."
+      }
+    },
+    "growth": {
+      "title": "Crecimiento paso a paso",
+      "paragraph1": "El co-diseño de ingeniería y producto permite mejora iterativa a través del despliegue, mientras que grandes productos y retroalimentación de socios se fortalecen mutuamente. Los productos nos mantienen anclados en la realidad y nos guían para resolver los problemas más impactantes con nuestros socios de diseño.",
+      "paragraph2": "El enfoque empírico e iterativo hacia la IA explicable es el más efectivo y las medidas confiables vienen de una combinación de desarrollo proactivo y retroalimentación de pruebas cuidadosas en el mundo real con profesionales experimentados.",
+      "paragraph3": "Planeamos contribuir a la legitimidad de IA (1) manteniendo una barra de seguridad alta — previniendo ataques, (2) compartiendo mejores prácticas y marcos para construir sistemas IA seguros con nuestros clientes, y (3) acelerando nuevos tipos de certificaciones en alineación compartiendo nuestros nuevos estándares de referencia y especificaciones de agentes.",
+      "paragraph4": "Creemos que los métodos desarrollados para los sistemas de hoy, como el red-teaming efectivo y monitoreo post-despliegue, proporcionan perspectivas valiosas que se extenderán a futuros sistemas más explicables."
+    },
+    "measure": {
+      "title": "Medir lo que realmente importa",
+      "description": "Nos enfocaremos en entender cómo nuestros sistemas crean valor genuino en el mundo real. Los avances más importantes a menudo vienen de repensar nuestros objetivos, no solo optimizar métricas existentes."
+    },
+    "partners": {
+      "title": "Ser socios de diseño",
+      "description": "Si eres un bufete de abogados o profesional de cumplimiento interesado en convertirte en socio de diseño, haz clic aquí: ",
+      "link": "Ser socios de diseño"
+    }
+  },
+  "nog": {
+    "intro": "Ahora mismo, los clientes están pidiendo al equipo eggon que",
+    "actions": [
+      "Construya agentes IA",
+      "Ingeniería de prompts",
+      "Asesore sobre seguridad IA",
+      "Conecte IA a datos",
+      "Entregue entrenamiento IA"
+    ],
+    "getExamples": "Obtener ejemplos",
+    "useCasesAgent": "Agente de casos de uso",
+    "academyProgram": "Programa Academia IA"
+  },
+  "noglab": {
+    "title": "EggOn Lab en funcionamiento",
+    "intro1": "EggOn Lab se dedica a la gobernanza y trazabilidad de agentes de inteligencia artificial a través de un orquestador de próxima generación.",
+    "intro2": "Estamos construyendo un futuro donde los profesionales — especialmente en derecho, finanzas y salud — pueden desplegar agentes IA que estén certificados como conformes, auditables y asegurables.",
+    "intro3": "Somos ingenieros y constructores que hemos trabajado para algunas de las empresas tecnológicas más seguras, incluyendo iManage, y para líderes de la industria como Expertos en Sistemas de Trazabilidad e Ingenieros de Calidad.",
+    "legitimacy": {
+      "title": "La legitimidad en IA va más allá de respuestas correctas o incorrectas",
+      "paragraph1": "Las capacidades de IA avanzan a un ritmo sin precedentes, pero un problema mayor permanece: la opacidad.",
+      "paragraph2": "Esta opacidad es aún más preocupante cuando la IA entra en sectores que no son como ninguna otra industria: justicia y salud. Estos son los fundamentos de una sociedad libre y justa.",
+      "paragraph3": "Cada día, los tribunales toman decisiones que cambian el curso de vidas humanas. Tales decisiones exigen empatía, experiencia y contexto — pero también un proceso que se sienta legítimo para aquellos afectados.",
+      "paragraph4": "Ninguna familia debería preguntarse si perdió la custodia debido a un algoritmo mal calibrado. Ningún paciente debería dudar que su tratamiento fue decidido después de una evaluación humana genuina.",
+      "paragraph5": "El problema real no es simplemente si la IA da la respuesta correcta o incorrecta — es la duda. Y una vez que la duda se instala, erosiona la confianza y socava la legitimidad de nuestros sistemas."
+    },
+    "aiForEveryone": {
+      "title": "IA que funciona para todos",
+      "paragraph1": "El conocimiento de cómo operan y toman decisiones los agentes IA no debe permanecer concentrado en unos pocos laboratorios.",
+      "paragraph2": "Esta falta de transparencia ralentiza la adopción en profesiones de alta responsabilidad, y la ausencia de explicabilidad hace imposible asegurar los procesos impulsados por IA.",
+      "paragraph3": "Para cerrar esta brecha, creamos N.O.G (Nested Orchestration & Governance) — una plataforma diseñada para entender, auditar y certificar agentes IA."
+    },
+    "principles": {
+      "title": "La legitimidad sólida importa",
+      "explicability": {
+        "title": "Explicabilidad",
+        "description": "Cada tarea ejecutada por un agente IA debe ser comprensible y explicable. Los usuarios deben poder rastrear el razonamiento completo y verificar su legitimidad."
+      },
+      "accessibility": {
+        "title": "Accesibilidad",
+        "description": "La explicabilidad solo importa si se comparte. Los resultados y evidencia de apoyo deben ser fáciles de acceder para todos los impactados por una decisión."
+      },
+      "recall": {
+        "title": "Revocación",
+        "description": "Si se detecta sesgo, error o manipulación, el sistema debe permitir una revocación inmediata — igual que los retiros de productos en industrias críticas. La IA gobernada nunca debería ser irreversible."
+      },
+      "speed": {
+        "title": "Velocidad",
+        "description": "El cumplimiento no debe ralentizar la innovación. La IA explicable debería ser tan rápida como poderosa, acelerando la adopción mientras construye confianza."
+      }
+    },
+    "growth": {
+      "title": "Crecimiento paso a paso",
+      "paragraph1": "El co-diseño de ingeniería y producto permite mejora iterativa a través del despliegue, mientras que grandes productos y retroalimentación de socios se fortalecen mutuamente. Los productos nos mantienen anclados en la realidad y nos guían para resolver los problemas más impactantes con nuestros socios de diseño.",
+      "paragraph2": "El enfoque empírico e iterativo hacia la IA explicable es el más efectivo y las medidas confiables vienen de una combinación de desarrollo proactivo y retroalimentación de pruebas cuidadosas en el mundo real con profesionales experimentados.",
+      "paragraph3": "Planeamos contribuir a la legitimidad de IA (1) manteniendo una barra de seguridad alta — previniendo ataques, (2) compartiendo mejores prácticas y marcos para construir sistemas IA seguros con nuestros clientes, y (3) acelerando nuevos tipos de certificaciones en alineación compartiendo nuestros nuevos estándares de referencia y especificaciones de agentes.",
+      "paragraph4": "Creemos que los métodos desarrollados para los sistemas de hoy, como el red-teaming efectivo y monitoreo post-despliegue, proporcionan perspectivas valiosas que se extenderán a futuros sistemas más explicables."
+    },
+    "measure": {
+      "title": "Medir lo que realmente importa",
+      "description": "nos enfocaremos en entender cómo nuestros sistemas crean valor genuino en el mundo real. Los avances más importantes a menudo vienen de repensar nuestros objetivos, no solo optimizar métricas existentes."
+    },
+    "partners": {
+      "title": "Ser socios de diseño",
+      "description": "Si eres un bufete de abogados o profesional de cumplimiento interesado en convertirte en socio de diseño, haz clic aquí: ",
+      "link": "Ser socios de diseño"
+    }
+  },
   "contact": {
     "title": "Construyamos el futuro juntos",
     "subtitle": "¿Listo para hacer de los agentes IA tu ventaja competitiva? Ponte en contacto con nuestro equipo.",
