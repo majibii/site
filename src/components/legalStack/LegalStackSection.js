@@ -3,7 +3,6 @@ import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useInViewport } from '../../hooks/useInViewport';
 import './LegalStackSection.css';
-import { useTranslation } from 'react-i18next';
 
 const LegalStackSection = () => {
   const { t } = useTranslation();
