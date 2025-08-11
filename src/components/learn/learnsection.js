@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './learnsection.css';
-import { useTranslation } from 'react-i18next';
 
 const LearnSection = () => {
   const { t } = useTranslation();
