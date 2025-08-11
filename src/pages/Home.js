@@ -58,7 +58,6 @@ export const Home = () => {
         </Hidden>
       </div>
 
-      <ThemeToggle />
 
       <div className={classes.contentSection}>
         <NOGProjectSection />

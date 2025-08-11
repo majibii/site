@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './Footer.css';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const handleNavigation = (path) => {
     window.location.href = path;
   };
@@ -59,7 +61,7 @@ const Footer = () => {
           
           {/* Copyright */}
           <p className="footer-copyright">
-            © EggOn Technology 2025
+            {t('footer.copyright')}
           </p>
         </div>
 
@@ -67,7 +69,7 @@ const Footer = () => {
         <div className="footer-right">
           {/* First column - Why EggOn */}
           <div className="footer-column">
-            <h4 className="footer-column-title">Why EggOn</h4>
+            <h4 className="footer-column-title">{t('footer.whyEggon')}</h4>
             <ul className="footer-links">
               <li>
                 <a 
@@ -78,7 +80,7 @@ const Footer = () => {
                     handleNavigation('/');
                   }}
                 >
-                  About Us
+                  {t('footer.aboutUs')}
                 </a>
               </li>
               <li>
@@ -90,7 +92,7 @@ const Footer = () => {
                     handleNavigation('/nog-lab');
                   }}
                 >
-                  Future AI
+                  {t('footer.futureAI')}
                 </a>
               </li>
               <li>
@@ -102,7 +104,7 @@ const Footer = () => {
                     handleNavigation('/learn');
                   }}
                 >
-                  Learn
+                  {t('navigation.learn')}
                 </a>
               </li>
               <li>
@@ -114,7 +116,7 @@ const Footer = () => {
                     handleNavigation('/contact');
                   }}
                 >
-                  Contact
+                  {t('navigation.contact')}
                 </a>
               </li>
             </ul>
@@ -122,7 +124,7 @@ const Footer = () => {
 
           {/* Second column - Legal */}
           <div className="footer-column">
-            <h4 className="footer-column-title">Legal</h4>
+            <h4 className="footer-column-title">{t('footer.legal')}</h4>
             <ul className="footer-links">
               <li>
                 <a 
@@ -133,7 +135,7 @@ const Footer = () => {
                     console.log('Terms of Use - to be implemented');
                   }}
                 >
-                  Terms of Use
+                  {t('footer.termsOfUse')}
                 </a>
               </li>
               <li>
@@ -145,7 +147,7 @@ const Footer = () => {
                     console.log('Privacy Policy - to be implemented');
                   }}
                 >
-                  Privacy Policy
+                  {t('footer.privacyPolicy')}
                 </a>
               </li>
               <li>
@@ -157,7 +159,7 @@ const Footer = () => {
                     console.log('Cookie Choices - to be implemented');
                   }}
                 >
-                  Cookie Choices
+                  {t('footer.cookieChoices')}
                 </a>
               </li>
               <li>
@@ -169,7 +171,7 @@ const Footer = () => {
                     console.log('Data Processing Agreement - to be implemented');
                   }}
                 >
-                  Data Processing Agreement
+                  {t('footer.dataProcessing')}
                 </a>
               </li>
               <li>
@@ -181,7 +183,7 @@ const Footer = () => {
                     console.log('Legal Notice - to be implemented');
                   }}
                 >
-                  Legal Notice
+                  {t('footer.legalNotice')}
                 </a>
               </li>
             </ul>
