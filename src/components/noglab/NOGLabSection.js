@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './NOGLabSection.css';
 import { useTranslation } from 'react-i18next';
 
@@ -9,140 +10,140 @@ const NOGLabSection = () => {
       <div className="noglab-container">
         {/* Main Title */}
         <h1 className="noglab-shiny-title">
-          {t('learn.title')}
+          {t('noglab.title')}
         </h1>
 
         {/* Introduction */}
         <p className="noglab-body-text">
-          {t('learn.intro1')}
+          {t('noglab.intro1')}
         </p>
         <p className="noglab-body-text">
-          {t('learn.intro2')}
+          {t('noglab.intro2')}
         </p>
         <p className="noglab-body-text">
-          {t('learn.intro3')}
+          {t('noglab.intro3')}
         </p>
 
         {/* Subtitle 1 */}
         <div className="noglab-section-subtitle">
           <span className="noglab-section-subtitle-text">
-            {t('learn.subtitle1')}
+            {t('noglab.legitimacy.title')}
           </span>
         </div>
 
         <p className="noglab-body-text">
-          {t('learn.body1')}
+          {t('noglab.legitimacy.paragraph1')}
         </p>
 
         <p className="noglab-body-text">
-          {t('learn.body2')}
+          {t('noglab.legitimacy.paragraph2')}
         </p>
         <p className="noglab-body-text">
-          {t('learn.body3')}
+          {t('noglab.legitimacy.paragraph3')}
         </p>
         <p className="noglab-body-text">
-          {t('learn.body4')}
+          {t('noglab.legitimacy.paragraph4')}
         </p>
 
         <p className="noglab-body-text">
-          {t('learn.body5')}
+          {t('noglab.legitimacy.paragraph5')}
         </p>
 
         {/* Subtitle 2 */}
         <div className="noglab-section-subtitle">
           <span className="noglab-section-subtitle-text">
-            {t('learn.subtitle2')}
+            {t('noglab.aiForEveryone.title')}
           </span>
         </div>
 
         <p className="noglab-body-text">
-          {t('learn.body6')}
+          {t('noglab.aiForEveryone.paragraph1')}
         </p>
         <p className="noglab-body-text">
-          {t('learn.body7')}
+          {t('noglab.aiForEveryone.paragraph2')}
         </p>
         <p className="noglab-body-text">
-          {t('learn.body8')}
+          {t('noglab.aiForEveryone.paragraph3')}
         </p>
 
         {/* Subtitle 3 */}
         <div className="noglab-section-subtitle">
           <span className="noglab-section-subtitle-text">
-            {t('learn.subtitle3')}
+            {t('noglab.principles.title')}
           </span>
         </div>
 
         <div className="noglab-principle-title">
-          <span className="noglab-bold-text">{t('learn.explicability')}</span>
+          <span className="noglab-bold-text">{t('noglab.principles.explicability.title')}</span>
         </div>
         <p className="noglab-body-text">
-          {t('learn.body9')}
+          {t('noglab.principles.explicability.description')}
         </p>
 
         <div className="noglab-principle-title">
-          <span className="noglab-bold-text">{t('learn.accessibility')}</span>
+          <span className="noglab-bold-text">{t('noglab.principles.accessibility.title')}</span>
         </div>
         <p className="noglab-body-text">
-          {t('learn.body10')}
+          {t('noglab.principles.accessibility.description')}
         </p>
 
         <div className="noglab-principle-title">
-          <span className="noglab-bold-text">{t('learn.recall')}</span>
+          <span className="noglab-bold-text">{t('noglab.principles.recall.title')}</span>
         </div>
         <p className="noglab-body-text">
-          {t('learn.body11')}
+          {t('noglab.principles.recall.description')}
         </p>
 
         <div className="noglab-principle-title">
-          <span className="noglab-bold-text">{t('learn.speed')}</span>
+          <span className="noglab-bold-text">{t('noglab.principles.speed.title')}</span>
         </div>
         <p className="noglab-body-text">
-          {t('learn.body12')}
+          {t('noglab.principles.speed.description')}
         </p>
 
         {/* Subtitle 4 */}
         <div className="noglab-section-subtitle">
           <span className="noglab-section-subtitle-text">
-            {t('learn.subtitle4')}
+            {t('noglab.growth.title')}
           </span>
         </div>
 
         <p className="noglab-body-text">
-          <span className="noglab-bold-text">{t('learn.engineeringCodesign')}</span> {t('learn.body13')}
+          <span className="noglab-bold-text">Engineering and product co-design</span> {t('noglab.growth.paragraph1')}
         </p>
 
         <p className="noglab-body-text">
-          <span className="noglab-bold-text">{t('learn.empiricalApproach')}</span> {t('learn.body14')}
+          <span className="noglab-bold-text">Empirical and iterative approach</span> {t('noglab.growth.paragraph2')}
         </p>
 
         <p className="noglab-body-text">
-          {t('learn.body15')}
+          {t('noglab.growth.paragraph3')}
         </p>
 
         <p className="noglab-body-text">
-          {t('learn.body16')}
+          {t('noglab.growth.paragraph4')}
         </p>
 
         {/* Subtitle 5 */}
         <div className="noglab-section-subtitle">
           <span className="noglab-section-subtitle-text">
-            {t('learn.subtitle5')}
+            {t('noglab.measure.title')}
           </span>
         </div>
 
         <p className="noglab-body-text">
-          {t('learn.body17')}
+          {t('noglab.measure.description')}
         </p>
 
         {/* Subtitle 6 */}
         <div className="noglab-section-subtitle">
           <span className="noglab-section-subtitle-text">
-            {t('learn.subtitle6')}
+            {t('noglab.partners.title')}
           </span>
         </div>
 
         <p className="noglab-body-text">
-          {t('learn.designPartnerInvite')}
+          {t('noglab.partners.description')} <span className="noglab-design-partner-link">{t('noglab.partners.link')}</span>.
         </p>
       </div>
     </div>

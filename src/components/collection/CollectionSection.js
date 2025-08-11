@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import './CollectionSection.css';
 import { useTranslation } from 'react-i18next';
 
@@ -80,6 +81,7 @@ const legalPrompts = [
 ];
 
 const CollectionSection = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   // Remplace useId() par useState pour React 16
   const [uniqueId] = useState(() => `collection-${Math.random().toString(36).substr(2, 9)}`);

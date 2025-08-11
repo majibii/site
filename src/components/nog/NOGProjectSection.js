@@ -5,14 +5,7 @@ import { useTranslation } from 'react-i18next';
 const NOGProjectSection = () => {
   const { t } = useTranslation();
   const [currentLineIndex, setCurrentLineIndex] = React.useState(0);
-  
-  const lines = [
-    t('nog.lineBuildAgents'),
-    t('nog.linePromptEngineering'), 
-    t('nog.lineAdviseSecurity'),
-    t('nog.lineConnectData'),
-    t('nog.lineDeliverTraining')
-  ];
+  const lines = t('nog.actions', { returnObjects: true });
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -126,7 +119,7 @@ const NOGProjectSection = () => {
               backgroundColor: 'transparent',
               backgroundImage: 'none'
             }}>
-              {t('nog.lead')}
+              {t('nog.intro')}
             </span>
             <div style={{ 
               minWidth: 'clamp(200px, 40vw, 300px)',
@@ -256,7 +249,7 @@ const NOGProjectSection = () => {
               onMouseEnter={handleButtonMouseEnter}
               onMouseLeave={handleButtonMouseLeave}
             >
-              {t('nog.useCasesButton')}
+              {t('nog.useCasesAgent')}
             </button>
 
             <button
@@ -283,7 +276,7 @@ const NOGProjectSection = () => {
               onMouseEnter={handleButtonMouseEnter}
               onMouseLeave={handleButtonMouseLeave}
             >
-              {t('nog.academyButton')}
+              {t('nog.academyProgram')}
             </button>
           </div>
 
@@ -349,7 +342,7 @@ const NOGProjectSection = () => {
                 onMouseEnter={handleButtonMouseEnter}
                 onMouseLeave={handleButtonMouseLeave}
               >
-                {t('nog.useCasesButton')}
+                {t('nog.useCasesAgent')}
               </button>
 
               <button
@@ -374,8 +367,8 @@ const NOGProjectSection = () => {
                 onMouseEnter={handleButtonMouseEnter}
                 onMouseLeave={handleButtonMouseLeave}
               >
-                {t('nog.academyButton')}
-              </button>
+                {t('nog.academyProgram')}
+                </button>
             </div>
           </div>
         </div>

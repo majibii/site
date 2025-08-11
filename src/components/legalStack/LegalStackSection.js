@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useInViewport } from '../../hooks/useInViewport';
 import './LegalStackSection.css';
 import { useTranslation } from 'react-i18next';
 
 const LegalStackSection = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const isVisible = useInViewport(sectionRef, false, { threshold: 0.2 });
   const { scrollY } = useViewportScroll();
