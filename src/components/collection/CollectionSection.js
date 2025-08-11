@@ -87,7 +87,6 @@ const CollectionSection = () => {
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [editedPrompt, setEditedPrompt] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const { t } = useTranslation();
 
   const handleCardClick = (prompt) => {
     setSelectedPrompt(prompt);
