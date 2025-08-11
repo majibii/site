@@ -2,17 +2,15 @@ import React from 'react';
 import Header from '../components/header/Header';
 import { LogoLink } from '../components/logo/LogoLink';
 import { Content } from '../components/content/Content';
-import { Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { SocialIcons } from '../components/content/SocialIcons';
 import { SpeedDials } from '../components/speedDial/SpeedDial';
 import NOGProjectSection from '../components/nog/NOGProjectSection';
 import CollectionSection from '../components/collection/CollectionSection';
 import LegalStackSection from '../components/legalStack/LegalStackSection';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 import Footer from '../components/footer/Footer';
+import { Hidden } from '@material-ui/core';
 
-// UNE SEULE DÉCLARATION useStyles - Suppression du doublon
 const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
@@ -55,9 +53,6 @@ export const Home = () => {
       <div className={classes.homeSection}>
         <LogoLink />
         <Content />
-        <Hidden smDown>
-          <SocialIcons />
-        </Hidden>
         <Hidden mdUp>
           <SpeedDials />
         </Hidden>

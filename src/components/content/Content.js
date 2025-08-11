@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-// Pas besoin de composants SVG, on utilise juste le caractère Unicode comme dans Get Pricing
-
 const useStyles = makeStyles((theme) => ({
     main: {
         marginTop: "auto",
@@ -187,7 +185,6 @@ const useStyles = makeStyles((theme) => ({
             justifyContent: 'center',
         },
     },
-    // Bouton "Start building" - garder l'effet original mais avec les flèches
     primaryButton: {
         padding: '0.6rem 1.5rem',
         fontSize: '0.85rem',
@@ -288,22 +285,6 @@ const useStyles = makeStyles((theme) => ({
                     transform: 'translateX(22px)', // Même ajustement pour mobile
                 },
             },
-        },
-    },
-    secondaryButton: {
-        padding: '1rem 2rem',
-        fontSize: '1rem',
-        fontWeight: '600',
-        background: 'rgba(255, 255, 255, 0.1)',
-        color: '#fafafa',
-        border: '1px solid rgba(255, 255, 255, 0.3)',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-        '&:hover': {
-            background: 'rgba(255, 255, 255, 0.2)',
-            transform: 'translateY(-2px)',
-            boxShadow: '0 8px 25px rgba(255, 255, 255, 0.1)',
         },
     },
     linkButton: {
