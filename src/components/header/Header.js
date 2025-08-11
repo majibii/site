@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import LanguageSelector from './LanguageSelector';
 import './Header.css';
 
 // Composant CircularText avec Framer Motion
@@ -96,7 +97,6 @@ const Header = () => {
       setIsScrolled(scrollTop > 50);
     };
 
-    // 🔥 NOUVEAU : Ferme le menu mobile si on resize vers desktop
     const handleResize = () => {
       if (window.innerWidth > 768 && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
@@ -110,7 +110,7 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
-  }, [isMobileMenuOpen]); // 🎯 Dépendance ajoutée
+  }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -127,7 +127,7 @@ const Header = () => {
     { href: '/contact', label: t('navigation.contact') }
   ];
 
-  // Variants pour les belles animations Framer Motion
+  // Variants pour les animations Framer Motion
   const menuVariants = {
     closed: {
       opacity: 0,
@@ -211,7 +211,7 @@ const Header = () => {
           />
         </div>
         
-        {/* Navigation desktop */}
+        {/* Navigation desktop avec sélecteur de langue */}
         <div className="eggon-nav-links">
           {navigationLinks.map((link, index) => (
             <motion.a 
@@ -229,9 +229,11 @@ const Header = () => {
               {link.label}
             </motion.a>
           ))}
+          {/* Sélecteur de langue pour desktop */}
+          <LanguageSelector variant="header" />
         </div>
 
-        {/* Bouton hamburger mobile avec transformation en croix */}
+        {/* Bouton hamburger mobile */}
         <motion.div 
           className="eggon-mobile-menu-toggle" 
           onClick={toggleMobileMenu}
@@ -255,7 +257,7 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* 🔥 NAVIGATION MOBILE - DOUBLE CONTENEUR POUR FORCER LE FOND */}
+        {/* Navigation mobile */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
@@ -270,49 +272,43 @@ const Header = () => {
                 left: '0',
                 right: '0',
                 width: '100%',
-                // 🔥 BLUR ENCORE PLUS FORT pour flouter le contenu derrière
                 backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.85)' : 'rgba(0, 0, 0, 0.75)',
-                backdropFilter: isScrolled ? 'blur(25px)' : 'blur(20px)', // 🎯 BLUR EXTRÊME
+                backdropFilter: isScrolled ? 'blur(25px)' : 'blur(20px)',
                 WebkitBackdropFilter: isScrolled ? 'blur(25px)' : 'blur(20px)',
                 borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 boxSizing: 'border-box',
                 zIndex: 1001,
                 padding: '0',
-                // 🎯 DOUBLE SÉCURITÉ : Saturation pour masquer complètement
-                filter: 'saturate(1.2)', // Renforce la visibilité du menu
+                filter: 'saturate(1.2)',
                 display: 'block'
               }}
             >
-            >
-              {/* 🎯 CONTENEUR INTERNE AVEC MÊME STYLE QUE LE HEADER */}
+              {/* Conteneur interne */}
               <div style={{
-                // 🔥 BLUR MAXIMAL pour rendre le contenu derrière complètement illisible
-                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.9)' : 'rgba(0, 0, 0, 0.85)', // Plus opaque
-                backdropFilter: isScrolled ? 'blur(30px)' : 'blur(25px)', // 🎯 BLUR ULTRA-FORT
+                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.9)' : 'rgba(0, 0, 0, 0.85)',
+                backdropFilter: isScrolled ? 'blur(30px)' : 'blur(25px)',
                 WebkitBackdropFilter: isScrolled ? 'blur(30px)' : 'blur(25px)',
                 padding: '1.5rem 2rem',
                 width: '100%',
-                // Ajout d'une ombre interne pour plus de profondeur
                 boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.4)'
               }}>
                 {navigationLinks.map((link, index) => (
                   <motion.div key={index} variants={linkVariants}>
-                    {/* 🎯 TITRE AVEC TRAITS COMME "WHAT ARE AGENTS" */}
                     <div style={{
                       position: 'relative',
                       textAlign: 'center',
                       margin: '1rem 0',
                       display: 'flex',
-                      alignItems: 'center', // 🎯 CENTRE VERTICAL PARFAIT
+                      alignItems: 'center',
                       justifyContent: 'center'
                     }}>
-                      {/* Trait gauche - aligné au centre du texte */}
+                      {/* Trait gauche */}
                       <div style={{
                         flex: 1,
                         height: '1px',
                         backgroundColor: 'rgba(255, 255, 255, 0.2)',
                         marginRight: '1rem',
-                        alignSelf: 'center' // 🎯 FORCE L'ALIGNEMENT CENTRAL
+                        alignSelf: 'center'
                       }} />
                       
                       <motion.a 
@@ -343,17 +339,32 @@ const Header = () => {
                         {link.label}
                       </motion.a>
                       
-                      {/* Trait droit - aligné au centre du texte */}
+                      {/* Trait droit */}
                       <div style={{
                         flex: 1,
                         height: '1px',
                         backgroundColor: 'rgba(255, 255, 255, 0.2)',
                         marginLeft: '1rem',
-                        alignSelf: 'center' // 🎯 FORCE L'ALIGNEMENT CENTRAL
+                        alignSelf: 'center'
                       }} />
                     </div>
                   </motion.div>
                 ))}
+                
+                {/* Sélecteur de langue en bas du menu mobile */}
+                <motion.div 
+                  variants={linkVariants}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginTop: '1.5rem',
+                    paddingTop: '1rem',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  <LanguageSelector variant="header" />
+                </motion.div>
               </div>
             </motion.div>
           )}
