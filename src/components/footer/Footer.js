@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import LanguageSelector from '../header/LanguageSelector';
 import './Footer.css';
 
 const Footer = () => {
@@ -59,10 +60,24 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Copyright */}
-          <p className="footer-copyright">
-            {t('footer.copyright')}
-          </p>
+          {/* Language Selector + Copyright */}
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center',
+            marginTop: 'auto',
+            gap: '1rem',
+            flexWrap: 'wrap'
+          }}>
+            <p className="footer-copyright" style={{ margin: 0, flex: 1 }}>
+              {t('footer.copyright')}
+            </p>
+            
+            {/* Language Selector */}
+            <div style={{ flexShrink: 0 }}>
+              <LanguageSelector variant="footer" />
+            </div>
+          </div>
         </div>
 
         {/* Right side - Navigation links */}
