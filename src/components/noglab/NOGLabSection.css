@@ -25,29 +25,6 @@
   }
 }
 
-/* Main title with shiny effect - same as "MAKE AI agents your competitive advantage" */
-.noglab-shiny-title {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 5.2vw, 3.6rem);
-  line-height: 1.1;
-  color: #b5b5b5a4;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shine 5s linear infinite;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.noglab-shiny-title.disabled {
-  animation: none;
-  color: var(--foreground-default);
-  background: none;
-}
-
 @keyframes shine {
   0% {
     background-position: -200% 0;
