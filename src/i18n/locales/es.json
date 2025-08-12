@@ -11,7 +11,6 @@
     "cta": "Empezar a construir",
     "labLink": "EggOn Lab — El equipo dedicado a hacer que los agentes IA sean completamente asegurables."
   },
-
   "collection": {
     "title": "ESTUDIOS DE CASO",
     "subtitle": "Las empresas eligen construir con EggOn para obtener una ventaja competitiva decisiva. Nuestros agentes son utilizados por líderes en legal, aeroespacial y finanzas. Manténgase informado — solicite una cotización.",
@@ -73,11 +72,7 @@
         "body": "Produce un panel dinámico que muestra la rentabilidad por caso, abogado o cliente, con capacidad para consultas en lenguaje natural (ej. 'Muéstrame el margen de nuestros casos de litigio desde enero'). Integración con Power BI o Tableau, interfaz conversacional LLM."
       }
     }
-  }
-}
-
   },
-    {
   "legalStack": {
     "subtitle": "POR QUÉ EGGON",
     "title": "Confía en un equipo con experiencia en tu campo",
@@ -123,8 +118,6 @@
         "description": "Haz preguntas en lenguaje natural y obtén respuestas instantáneas de todos tus archivos. Analiza automáticamente contratos, procesa documentos legales y asiste con investigación legal — completamente integrado con tus bases de datos existentes."
       }
     ]
-  }
-}
   },
   "learn": {
     "title": "EggOn Lab en funcionamiento",
