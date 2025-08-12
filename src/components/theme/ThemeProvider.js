@@ -12,7 +12,7 @@ export const ThemeProvider = ({ children }) => {
         <ThemeContext.Provider
             value={{
                 theme,
-                // Pas de toggleTheme - dark mode permanent
+                // Pas de toggleTheme - dark mode permanente
             }}
         >
             <MuiThemeProvider theme={DarkTheme}>
