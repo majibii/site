@@ -9,7 +9,7 @@ const Footer = () => {
     window.location.href = path;
   };
 
-  // Social media data
+  // Social mediaa data
   const socialProfiles = [
     {
       network: 'GitHub',
