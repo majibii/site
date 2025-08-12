@@ -255,7 +255,7 @@ const useStyles = makeStyles((theme) => ({
             background: '#fce96b',
             color: '#2f2f2e',
             
-            // Le texte se repositionne plus à droite pour centrer l'ensemble
+            // Le texte se repositionne plus à droite pour centreer l'ensemble
             '& .button-text': {
                 transform: 'translateX(22px)', // Décalage plus important pour centrer l'ensemble
             },
