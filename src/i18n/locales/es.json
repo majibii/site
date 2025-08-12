@@ -188,6 +188,11 @@
     "academyProgram": "Programa Academia IA"
   },
   "noglab": {
+    "heroPhrase": "→ EggOn Haz que tus",
+    "heroDropdownOption": "Agentes IA",
+    "heroTitle": "Haz que tus Agentes IA sean Asegurables",
+    "heroSubtitle": "Estamos construyendo un futuro donde los profesionales, especialmente en derecho, finanzas... pueden desplegar agentes IA certificados como conformes, auditables y asegurables.",
+    "heroCta": "Ser socio de diseño",
     "title": "EggOn Lab en funcionamiento",
     "intro1": "EggOn Lab se dedica a la gobernanza y trazabilidad de agentes de inteligencia artificial a través de un orquestador de próxima generación.",
     "intro2": "Estamos construyendo un futuro donde los profesionales — especialmente en derecho, finanzas y salud — pueden desplegar agentes IA que estén certificados como conformes, auditables y asegurables.",
