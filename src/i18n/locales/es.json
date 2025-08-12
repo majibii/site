@@ -11,10 +11,71 @@
     "cta": "Empezar a construir",
     "labLink": "EggOn Lab — El equipo dedicado a hacer que los agentes IA sean completamente asegurables."
   },
+
   "collection": {
-    "title": "CASOS DE ESTUDIO",
-    "subtitle": "Las empresas eligen construir con EggOn para obtener una ventaja competitiva desleal. Nuestros agentes son confiables para empresas visionarias en legal, aeroespacial y finanzas. Mantente actualizado — solicita un presupuesto.",
-    "cta": "Obtener presupuesto"
+    "title": "ESTUDIOS DE CASO",
+    "subtitle": "Las empresas eligen construir con EggOn para obtener una ventaja competitiva decisiva. Nuestros agentes son utilizados por líderes en legal, aeroespacial y finanzas. Manténgase informado — solicite una cotización.",
+    "cta": "Solicitar Cotización",
+    "core": {
+      "contractRiskAnalysis": {
+        "title": "Agente de Análisis de Riesgos Contractuales",
+        "context": "Legal / Revisión de Riesgos",
+        "body": "Analiza un contrato comercial y resalta las cláusulas que representan riesgos legales (ej. indemnizaciones, terminación, ley aplicable). Proporciona un resumen con explicaciones y recomendaciones."
+      },
+      "caseLawResearch": {
+        "title": "Agente de Investigación de Jurisprudencia",
+        "context": "Legal / Investigación de Casos",
+        "body": "Busca y resume la jurisprudencia relevante a una cuestión legal específica, incluyendo enlaces y razonamiento específico para la jurisdicción."
+      },
+      "meetingMemory": {
+        "title": "Agente de Resumen de Reuniones",
+        "context": "Productividad / Gestión de Proyectos",
+        "body": "Escucha o analiza notas de reuniones, extrae los puntos clave y convierte automáticamente las decisiones y discusiones en tareas accionables con responsables y fechas límite."
+      },
+      "internalWikiBuilder": {
+        "title": "Agente Constructor de Wiki Interno",
+        "context": "Gestión del Conocimiento / Documentación",
+        "body": "Crea y actualiza un wiki interno privado escaneando documentos y conversaciones internas. Etiqueta y categoriza las entradas automáticamente."
+      },
+      "promptImprovementAgent": {
+        "title": "Agente de Mejora de Instrucciones IA",
+        "context": "IA / Mejora Continua",
+        "body": "Analiza las instrucciones utilizadas, identifica puntos débiles y genera versiones optimizadas para mejorar la precisión, claridad y coherencia de las respuestas de los modelos IA."
+      },
+      "contractReviewAgent": {
+        "title": "Agente de Revisión Contractual",
+        "context": "Legal / Control de Calidad",
+        "body": "Verifica la coherencia, cumplimiento y términos clave en documentos contractuales, generando anotaciones y sugerencias de mejora."
+      },
+      "quotationGenerator": {
+        "title": "Agente Generador de Cotizaciones",
+        "context": "Ventas / Cotizaciones B2B",
+        "body": "Genera y envía cotizaciones profesionales listas para el cliente, basadas en configuraciones de producto, reglas de precios y datos del cliente."
+      },
+      "competitiveIntelligenceAgent": {
+        "title": "Agente de Inteligencia Competitiva",
+        "context": "Estrategia / Inteligencia de Mercado",
+        "body": "Monitorea automáticamente la actividad de competidores (nombramientos, nuevas especialidades, asociaciones), analiza estrategias de precios y ofertas innovadoras, e identifica oportunidades en nuevos mercados o tecnologías emergentes."
+      },
+      "technologyIntelligenceAgent": {
+        "title": "Agente de Inteligencia Tecnológica",
+        "context": "I+D / Estrategia",
+        "body": "Proporciona resúmenes semanales de noticias y tendencias clave en un sector tecnológico seleccionado, incluyendo fuentes clave, aspectos destacados y actualizaciones regulatorias."
+      },
+      "billingAndPaymentAgent": {
+        "title": "Agente de Facturación y Seguimiento de Pagos",
+        "context": "Finanzas / Contabilidad Legal",
+        "body": "Genera automáticamente facturas a partir de registros de tiempo o tarifas fijas, envía recordatorios personalizados, realiza seguimiento del estado de pagos y gestiona los fondos en depósito. Integración con Clio, Xero o QuickBooks."
+      },
+      "interactiveFinancialReportingAgent": {
+        "title": "Agente de Reportes Financieros Interactivos",
+        "context": "Finanzas / Gestión del Rendimiento",
+        "body": "Produce un panel dinámico que muestra la rentabilidad por caso, abogado o cliente, con capacidad para consultas en lenguaje natural (ej. 'Muéstrame el margen de nuestros casos de litigio desde enero'). Integración con Power BI o Tableau, interfaz conversacional LLM."
+      }
+    }
+  }
+}
+
   },
     {
   "legalStack": {
