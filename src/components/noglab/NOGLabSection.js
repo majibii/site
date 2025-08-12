@@ -385,8 +385,8 @@ const NOGLabSection = () => {
             <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
               Make your AI Agents Insurable
             </Typography>
-            <Typography variant="h5" component="h2" className={classes.subtitle}>
-              {t('noglab.heroSubtitle')}
+            <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
+            {t('noglab.heroTitle')}
             </Typography>
             <div className={classes.buttonContainer}>
               <button className={classes.primaryButton}>
