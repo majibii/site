@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSelector from './LanguageSelector';
 import './Header.css';
 
-// Composant CircularText avec Framer Motion
+// Composant CircularTexte avec Framer Motion
 const CircularText = ({ text, spinDuration = 20, onHover, className = '', onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
