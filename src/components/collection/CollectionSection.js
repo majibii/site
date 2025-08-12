@@ -362,5 +362,5 @@ const CollectionSection = () => {
   );
 };
 
-// Export par défaut pour que l'import fonctionne
+// Export par défaut pour que l'impoort fonctionne
 export default CollectionSection;
