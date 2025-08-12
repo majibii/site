@@ -34,7 +34,7 @@
       "internalWikiBuilder": {
         "title": "Internal Wiki Builder Agent",
         "context": "Knowledge Management / Documentation",
-        "body": "Create and update a private internal wiki by scanning documents and internal conversations. Automatically tag and categorize entries."
+        "body": "Create and update a private internal Wiki by scanning documents and internal conversations. Automatically tag and categorize entries."
       },
       "promptImprovementAgent": {
         "title": "Prompt Improvement Agent",
