@@ -25,7 +25,45 @@
   }
 }
 
-/* Main title with shiny effect - same as "MAKE AI agents your competitive advantage" *//
+/* Link styling */
+.noglab-design-partner-link {
+  color: var(--primary-main);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.noglab-design-partner-link:hover {
+  opacity: 0.8;
+}
+
+/* Theme-aware CSS custom properties */
+:root {
+  --foreground-default: #ffffff;
+  --primary-main: #007bff;
+}
+
+[data-theme="light"] {
+  --foreground-default: #000000;
+  --primary-main: #007bff;
+}
+
+[data-theme="dark"] {
+  --foreground-default: #ffffff;
+  --primary-main: #007bff;
+}
+
+/* Fallback for browsers that don't support CSS custom properties */
+.noglab-section-subtitle-text {
+  color: #ffffff;
+}
+
+.noglab-bold-text {
+  color: #ffffff;
+}
+
+.noglab-design-partner-link {
+  color: #007bff;
+} Main title with shiny effect - same as "MAKE AI agents your competitive advantage" */
 .noglab-shiny-title {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
@@ -57,7 +95,7 @@
   }
 }
 
-/* MODIFICATION Étape 2.2 : Subtitle avec deux traits horizontaux de chaque côté */
+/* Subtitle avec deux traits horizontaux de chaque côté */
 .noglab-section-subtitle {
   position: relative;
   text-align: center;
@@ -150,42 +188,4 @@
   text-align: left;
 }
 
-/* Link styling */
-.noglab-design-partner-link {
-  color: var(--primary-main);
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.noglab-design-partner-link:hover {
-  opacity: 0.8;
-}
-
-/* Theme-aware CSS custom properties */
-:root {
-  --foreground-default: #ffffff;
-  --primary-main: #007bff;
-}
-
-[data-theme="light"] {
-  --foreground-default: #000000;
-  --primary-main: #007bff;
-}
-
-[data-theme="dark"] {
-  --foreground-default: #ffffff;
-  --primary-main: #007bff;
-}
-
-/* Fallback for browsers that don't support CSS custom properties */
-.noglab-section-subtitle-text {
-  color: #ffffff;
-}
-
-.noglab-bold-text {
-  color: #ffffff;
-}
-
-.noglab-design-partner-link {
-  color: #007bff;
-}
+/*
