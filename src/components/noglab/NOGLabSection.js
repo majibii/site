@@ -331,67 +331,66 @@ const NOGLabSection = () => {
   return (
     <>
       {/* Hero Section */}
-<section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', backgroundColor: 'transparent' }}>
-  <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
-    <div className={classes.contentWrapper}>
-      <div className={classes.interactivePhrase}>
-        {t('noglab.heroPhrase')}{' '}
-        <div className={classes.dropdownContainer} ref={dropdownRef}>
-          <span 
-            className={classes.dynamicWord}
-            onClick={handleDropdownToggle}
-          >
-            <span className={classes.chevronDown}>▼</span>
-            {selectedOption}
-          </span>
-          {isDropdownOpen && (
-            <div className={classes.dropdown}>
-              {dropdownOptions.map((option, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className={classes.dropdownItem}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleOptionClick(option);
-                  }}
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', backgroundColor: 'transparent' }}>
+        <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
+          <div className={classes.contentWrapper}>
+            <div className={classes.interactivePhrase}>
+              {t('noglab.heroPhrase')}{' '}
+              <div className={classes.dropdownContainer} ref={dropdownRef}>
+                <span 
+                  className={classes.dynamicWord}
+                  onClick={handleDropdownToggle}
                 >
-                  {option.label}
-                </a>
-              ))}
+                  <span className={classes.chevronDown}>▼</span>
+                  {selectedOption}
+                </span>
+                {isDropdownOpen && (
+                  <div className={classes.dropdown}>
+                    {dropdownOptions.map((option, index) => (
+                      <a
+                        key={index}
+                        href="#"
+                        className={classes.dropdownItem}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleOptionClick(option);
+                        }}
+                      >
+                        {option.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
-          )}
-        </div>
-      </div>
 
-      {/* CORRECTION : Utiliser le bon titre hero au lieu du titre de contenu */}
-      <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
-        {t('noglab.heroTitle')}
-      </Typography>
-      <Typography variant="h5" component="h2" className={classes.subtitle}>
-        {t('noglab.heroSubtitle')}
-      </Typography>
-      <div className={classes.buttonContainer}>
-        <button className={classes.primaryButton}>
-          <div className="button-content">
-            <span className="arrow-left">→</span>
-            <span className="button-text">
-              {t('noglab.heroCta')}
-              <span className="arrow-right">→</span>
-            </span>
+            <Typography variant="h2" component="h1" gutterBottom className={classes.shinyTitle}>
+              {t('noglab.heroTitle')}
+            </Typography>
+            <Typography variant="h5" component="h2" className={classes.subtitle}>
+              {t('noglab.heroSubtitle')}
+            </Typography>
+            <div className={classes.buttonContainer}>
+              <button className={classes.primaryButton}>
+                <div className="button-content">
+                  <span className="arrow-left">→</span>
+                  <span className="button-text">
+                    {t('noglab.heroCta')}
+                    <span className="arrow-right">→</span>
+                  </span>
+                </div>
+              </button>
+            </div>
           </div>
-        </button>
-      </div>
-    </div>
-    <div className={classes.imageWrapper}>
-      <img 
-        src="/lab2.png" 
-        alt="N.O.G. Lab Platform Interface" 
-        className={classes.heroImage}
-      />
-    </div>
-  </Container>
-</section>
+          <div className={classes.imageWrapper}>
+            <img 
+              src="/lab2.png" 
+              alt="N.O.G. Lab Platform Interface" 
+              className={classes.heroImage}
+            />
+          </div>
+        </Container>
+      </section>
 
       {/* Content Section */}
       <div className="noglab-section">
@@ -513,7 +512,7 @@ const NOGLabSection = () => {
             {t('noglab.measure.description')}
           </p>
 
-          {/* Subtitle 6 - CORRECTION DU COMMENTAIRE */}
+          {/* Subtitle 6 */}
           <div className="noglab-section-subtitle">
             <span className="noglab-section-subtitle-text">
               {t('noglab.partners.title')}
