@@ -5,7 +5,6 @@ import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import './NOGLabSection.css';
 
-// VERSION DE DÉBOGAGE - Styles simplifiés
 const useStyles = makeStyles((theme) => ({
     main: {
         marginTop: "auto",
@@ -74,19 +73,50 @@ const useStyles = makeStyles((theme) => ({
             maxHeight: "500px",
         },
     },
-    // STYLES SIMPLIFIÉS POUR LE DÉBOGAGE
-    simpleTitle: {
+    // AJOUTONS LE TITRE HERO (à gauche)
+    heroTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
         fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
         lineHeight: '1.1',
         color: '#ffffff',
         textAlign: "left",
+        marginBottom: '1rem',
         "@media (max-width: 768px)": {
             textAlign: "center",
         },
     },
-    simpleButton: {
+    // AJOUTONS LA PHRASE INTERACTIVE
+    interactivePhrase: {
+        background: 'none',
+        border: 'none',
+        color: 'rgba(250, 250, 250, 0.8)',
+        fontSize: '0.9rem',
+        fontWeight: '500',
+        textAlign: 'left',
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        marginBottom: '1.5rem',
+        display: 'block',
+        "@media (max-width: 768px)": {
+            fontSize: '0.85rem',
+            textAlign: 'center',
+        },
+    },
+    // TITRE PRINCIPAL DE CONTENU (version simple sans animation pour commencer)
+    mainContentTitle: {
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        fontWeight: '700',
+        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
+        lineHeight: '1.1',
+        color: '#ffffff', // Couleur simple pour commencer
+        textAlign: "center",
+        marginBottom: '3rem',
+        "@media (max-width: 768px)": {
+            textAlign: "center"
+        }
+    },
+    // BOUTON SIMPLE
+    primaryButton: {
         padding: '0.6rem 1.5rem',
         fontSize: '0.85rem',
         fontWeight: '700',
@@ -95,6 +125,11 @@ const useStyles = makeStyles((theme) => ({
         border: '1px solid #fce96b',
         borderRadius: '50px',
         cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+            background: '#fce96b',
+            color: '#2f2f2e',
+        }
     }
 }));
 
@@ -102,21 +137,27 @@ const NOGLabSection = () => {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  console.log('NOGLabSection rendering...');
-
   return (
     <>
-      {/* VERSION SIMPLIFIÉE POUR TESTER */}
+      {/* Hero Section */}
       <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', backgroundColor: 'transparent' }}>
         <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
           <div className={classes.contentWrapper}>
-            <Typography variant="h2" component="h1" gutterBottom className={classes.simpleTitle}>
+            {/* Phrase interactive simple */}
+            <div className={classes.interactivePhrase}>
+              → EggOn Make your AI Agents
+            </div>
+
+            {/* Titres du hero */}
+            <Typography variant="h2" component="h1" gutterBottom className={classes.heroTitle}>
               Make your AI Agents Insurable
             </Typography>
-            <Typography variant="h2" component="h1" gutterBottom className={classes.simpleTitle}>
+            <Typography variant="h2" component="h1" gutterBottom className={classes.heroTitle}>
               {t('noglab.heroTitle')}
             </Typography>
-            <button className={classes.simpleButton}>
+
+            {/* Bouton simple */}
+            <button className={classes.primaryButton}>
               {t('noglab.heroCta')}
             </button>
           </div>
@@ -130,14 +171,27 @@ const NOGLabSection = () => {
         </Container>
       </section>
 
-      {/* Section de contenu basique */}
+      {/* Content Section */}
       <div className="noglab-section">
         <div className="noglab-container">
-          <Typography variant="h1" component="h1" className={classes.simpleTitle}>
+          {/* Titre principal avec couleur simple */}
+          <Typography variant="h1" component="h1" className={classes.mainContentTitle}>
             {t('noglab.title')}
           </Typography>
+
+          {/* Sections de contenu de base */}
+          <div className="noglab-section-subtitle">
+            <span className="noglab-section-subtitle-text">
+              {t('noglab.legitimacy.title')}
+            </span>
+          </div>
+
           <p className="noglab-body-text">
-            Version de débogage - si ceci fonctionne, on peut rajouter les animations progressivement
+            {t('noglab.legitimacy.paragraph1')}
+          </p>
+
+          <p className="noglab-body-text">
+            Version améliorée - maintenant avec tous les éléments de base ! ✅
           </p>
         </div>
       </div>
