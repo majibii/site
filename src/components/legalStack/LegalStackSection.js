@@ -18,7 +18,7 @@ const LegalStackSection = () => {
   const benefits = [
     {
       title: "Connected to Your World",
-      description: "We build AI agents exclusively for legal and defense — no gimmicks, just secure, usable workflows tailored to your enterprise, by a team with real experience in your field."
+      description: "We build AI agents and systems focused on the legal domain and parts of the defense industry. Some of our team members come from leading legaltech companies or industry experts who know your environment."
     },
     {
       title: "Solves Your Toughest Challenges",
@@ -30,49 +30,33 @@ const LegalStackSection = () => {
     },
     {
       title: "Real AI Engineering",
-      description: "We build, develop, and deploy real AI systems. Whether from a simple agent in your Copilot Studio to a more complex AI using our custom chat interface, private API, and a vector database built for you — we deliver what works: fast, reliable, and integrated."
+      description: "We build, develop, and deploy real AI systems. From a simple agent in your Copilot Studio to a more advanced custom AI system using our chat interface, our private API, and a vector database built for you"
     }
   ];
 
 const stackComponents = [
-    {
-      badge: "RAG",
-      title: "Connect Your Internal Databases to a Large Model (RAG)",
-      category: "DATA INTEGRATION",
-      description: "We connect your case files, contracts, and legal databases directly to AI models. Your confidential data stays secure while you get instant answers from your entire knowledge base."
-    },
-    {
-      badge: "Azure Studio",
-      title: "Build AI Agents",
-      category: "AI DEVELOPMENT",
-      description: "We create AI agents using Microsoft Azure Studio that handle your specific legal workflows. Deploy in your office or cloud - your choice. Process sensitive documents with models that never leave your infrastructure."
-    },
-    {
-      badge: "Custom Dev",
-      title: "Build Custom Agents",
-      category: "CUSTOM SOLUTIONS",
-      description: "Need something specific? We build custom agents that integrate with your existing tools (case management, billing, document review). Everything runs on your servers for maximum confidentiality."
-    },
-    {
-      badge: "API Connect",
-      title: "Chatbot Interface & API Connectivity",
-      category: "INTERFACE & APIs",
-      description: "Ask questions in plain language, get instant answers from all your files. Auto-analyze contracts, process legal documents, assist with legal research. Works with your existing databases."
-    },
-    {
-      badge: "AI Solutions",
-      title: "Total AI Custom Solutions",
-      category: "INTEGRATION",
-      description: "Full AI integration with your practice. For sensitive work, we use local models (GPT OSS, Mistral) that never send data externally. Complete confidentiality guaranteed."
-    },
-    {
-      badge: "Microsoft Fabric",
-      title: "Microsoft Fabric Components",
-      category: "DATA PLATFORM",
-      description: "Unified data platform connecting all your sources - from case files to billing data. Real-time analytics, secure cloud storage, seamless integration with existing Microsoft tools."
-    }
-  ];
-
+  {
+    badge: "RAG",
+    title: "Connect Your Internal Databases to a Large Language Model (RAG)",
+    description: "We connect your case files, contracts, and legal databases directly to AI models. Your confidential data remains secure while you get instant, accurate answers from your entire knowledge base."
+  },
+  {
+    badge: "AI Agents",
+    title: "Build Your AI Agents",
+    description: "We develop AI agents—using Microsoft Azure Studio or your own technical environment—that manage your specific legal workflows. Process sensitive documents with models that never leave your infrastructure."
+  },
+  {
+    badge: "AI Multi-Agents",
+    title: "Build Multi-Agent Systems",
+    description: "Automate complex legal processes with multiple AI agents working together. Delegate tasks end-to-end, from document review to drafting and legal research."
+  },
+  {
+    badge: "Private AI",
+    title: "Chatbot Interface & API Connectivity",
+    description: "Ask questions in plain language and get instant answers from all your files. Automatically analyze contracts, process legal documents, and assist with legal research—fully integrated with your existing databases."
+  },
+];
+  
   // Fonction pour gérer le hover sans créer de rectangles
   const handleCardMouseEnter = (e) => {
     e.stopPropagation();
