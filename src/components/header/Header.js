@@ -257,7 +257,7 @@ const Header = () => {
           />
         </motion.div>
 
-        {/* Navigation mobile */}
+        {/* Navigation mobile - CORRECTION ICI */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
@@ -272,6 +272,7 @@ const Header = () => {
                 left: '0',
                 right: '0',
                 width: '100%',
+                // CORRECTION : Utiliser backgroundColor au lieu de background
                 backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.85)' : 'rgba(0, 0, 0, 0.75)',
                 backdropFilter: isScrolled ? 'blur(25px)' : 'blur(20px)',
                 WebkitBackdropFilter: isScrolled ? 'blur(25px)' : 'blur(20px)',
@@ -283,8 +284,9 @@ const Header = () => {
                 display: 'block'
               }}
             >
-              {/* Conteneur interne */}
+              {/* Conteneur interne - CORRECTION ICI AUSSI */}
               <div style={{
+                // CORRECTION : Utiliser backgroundColor au lieu de background
                 backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.9)' : 'rgba(0, 0, 0, 0.85)',
                 backdropFilter: isScrolled ? 'blur(30px)' : 'blur(25px)',
                 WebkitBackdropFilter: isScrolled ? 'blur(30px)' : 'blur(25px)',
@@ -333,6 +335,7 @@ const Header = () => {
                         }}
                         whileHover={{ 
                           color: '#fafafa',
+                          // CORRECTION : Utiliser backgroundColor au lieu de background
                           backgroundColor: 'rgba(255, 255, 255, 0.05)'
                         }}
                       >
