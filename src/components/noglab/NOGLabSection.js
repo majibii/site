@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography, Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -28,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
         minWidth: "0",
         paddingLeft: "6rem",
         paddingRight: "3rem",
+        backgroundColor: 'rgba(255, 0, 0, 0.2)', // ROUGE POUR DEBUG
+        border: '2px solid red', // BORDURE ROUGE POUR DEBUG
         "@media (max-width: 1200px)": {
             paddingLeft: "4rem",
         },
@@ -46,6 +47,8 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: "2rem",
         paddingLeft: "3rem",
         paddingRight: "2rem",
+        backgroundColor: 'rgba(0, 255, 0, 0.2)', // VERT POUR DEBUG
+        border: '2px solid green', // BORDURE VERTE POUR DEBUG
         "@media (max-width: 1200px)": {
             paddingRight: "1.5rem",
             paddingTop: "1rem",
@@ -73,62 +76,25 @@ const useStyles = makeStyles((theme) => ({
             maxHeight: "500px",
         },
     },
-    // AJOUTONS LE TITRE HERO (à gauche)
-    heroTitle: {
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '700',
-        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
-        lineHeight: '1.1',
+    debugText: {
         color: '#ffffff',
-        textAlign: "left",
-        marginBottom: '1rem',
-        "@media (max-width: 768px)": {
-            textAlign: "center",
-        },
+        fontSize: '24px',
+        fontWeight: 'bold',
+        marginBottom: '20px',
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        padding: '10px',
+        borderRadius: '5px',
     },
-    // AJOUTONS LA PHRASE INTERACTIVE
-    interactivePhrase: {
-        background: 'none',
-        border: 'none',
-        color: 'rgba(250, 250, 250, 0.8)',
-        fontSize: '0.9rem',
-        fontWeight: '500',
-        textAlign: 'left',
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        marginBottom: '1.5rem',
-        display: 'block',
-        "@media (max-width: 768px)": {
-            fontSize: '0.85rem',
-            textAlign: 'center',
-        },
-    },
-    // TITRE PRINCIPAL DE CONTENU (version simple sans animation pour commencer)
     mainContentTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
         fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
         lineHeight: '1.1',
-        color: '#ffffff', // Couleur simple pour commencer
+        color: '#ffffff',
         textAlign: "center",
         marginBottom: '3rem',
         "@media (max-width: 768px)": {
             textAlign: "center"
-        }
-    },
-    // BOUTON SIMPLE
-    primaryButton: {
-        padding: '0.6rem 1.5rem',
-        fontSize: '0.85rem',
-        fontWeight: '700',
-        background: 'transparent',
-        color: '#fce96b',
-        border: '1px solid #fce96b',
-        borderRadius: '50px',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-        '&:hover': {
-            background: '#fce96b',
-            color: '#2f2f2e',
         }
     }
 }));
@@ -139,59 +105,66 @@ const NOGLabSection = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', backgroundColor: 'transparent' }}>
+      {/* Hero Section avec DEBUG */}
+      <section style={{ 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        backgroundColor: 'rgba(0, 0, 255, 0.1)', // FOND BLEU POUR DEBUG
+        border: '3px solid blue' // BORDURE BLEUE POUR DEBUG
+      }}>
         <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
+          
+          {/* ZONE DE CONTENU (GAUCHE) */}
           <div className={classes.contentWrapper}>
-            {/* Phrase interactive simple */}
-            <div className={classes.interactivePhrase}>
+            <div className={classes.debugText}>
+              🔴 ZONE CONTENU (GAUCHE)
+            </div>
+            <div className={classes.debugText}>
               → EggOn Make your AI Agents
             </div>
-
-            {/* Titres du hero */}
-            <Typography variant="h2" component="h1" gutterBottom className={classes.heroTitle}>
+            <div className={classes.debugText}>
               Make your AI Agents Insurable
-            </Typography>
-            <Typography variant="h2" component="h1" gutterBottom className={classes.heroTitle}>
-              {t('noglab.heroTitle')}
-            </Typography>
-
-            {/* Bouton simple */}
-            <button className={classes.primaryButton}>
-              {t('noglab.heroCta')}
+            </div>
+            <div className={classes.debugText}>
+              TEST TRADUCTION: {t('noglab.heroTitle') || 'TRADUCTION MANQUANTE'}
+            </div>
+            <button style={{
+              padding: '10px 20px',
+              backgroundColor: '#fce96b',
+              color: '#000',
+              border: 'none',
+              borderRadius: '5px',
+              fontSize: '16px',
+              cursor: 'pointer'
+            }}>
+              BOUTON DE TEST
             </button>
           </div>
+
+          {/* ZONE IMAGE (DROITE) */}
           <div className={classes.imageWrapper}>
+            <div className={classes.debugText}>
+              🟢 ZONE IMAGE (DROITE)
+            </div>
             <img 
               src="/lab2.png" 
               alt="N.O.G. Lab Platform Interface" 
               className={classes.heroImage}
             />
           </div>
+
         </Container>
       </section>
 
       {/* Content Section */}
       <div className="noglab-section">
         <div className="noglab-container">
-          {/* Titre principal avec couleur simple */}
           <Typography variant="h1" component="h1" className={classes.mainContentTitle}>
-            {t('noglab.title')}
+            TITRE PRINCIPAL: {t('noglab.title') || 'TRADUCTION MANQUANTE'}
           </Typography>
-
-          {/* Sections de contenu de base */}
-          <div className="noglab-section-subtitle">
-            <span className="noglab-section-subtitle-text">
-              {t('noglab.legitimacy.title')}
-            </span>
-          </div>
-
           <p className="noglab-body-text">
-            {t('noglab.legitimacy.paragraph1')}
-          </p>
-
-          <p className="noglab-body-text">
-            Version améliorée - maintenant avec tous les éléments de base ! ✅
+            🔍 VERSION DEBUG - Vous devriez voir des zones colorées et du texte en gras
           </p>
         </div>
       </div>
