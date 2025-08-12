@@ -11,7 +11,7 @@ const ParallaxSection = ({
 }) => {
   const { scrollY } = useViewportScroll();
   
-  // Transform pour l'effet parallax
+  // Transforme pour l'effet parallax
   const y = useTransform(scrollY, [0, 1000], [0, offset * speed]);
   
   return (
