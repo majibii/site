@@ -17,7 +17,7 @@ const ParallaxContainer = ({
   
   return (
     <div className={className} style={{ position: 'relative', ...style }} {...props}>
-      {/* Couche de fond avec parallax lent */}
+      {/* Couche de fond avec parallaxe lent */}
       <motion.div
         style={{
           y: backgroundY,
