@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header/Header';
-// import NOGLabSection from '../components/noglab/NOGLabSection';
+import NOGLabSection from '../components/noglab/NOGLabSection'; // DÉCOMMENTÉ
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/footer/Footer';
 
@@ -24,12 +24,6 @@ const useStyles = makeStyles((theme) => ({
     '@media (max-width: 768px)': {
       paddingTop: '70px',
     },
-  },
-  testDiv: {
-    padding: '100px 20px',
-    textAlign: 'center',
-    color: 'white',
-    minHeight: '50vh'
   }
 }));
 
@@ -41,15 +35,7 @@ export const NOGLab = () => {
       <Header />
       
       <div className={classes.contentSection}>
-        {/* NOGLabSection temporairement commenté pour tester */}
-        {/* <NOGLabSection /> */}
-        
-        {/* Test simple */}
-        <div className={classes.testDiv}>
-          <h1>Test NOGLab Page</h1>
-          <p>Si vous voyez ceci sans erreur, le problème vient de NOGLabSection</p>
-          <p>Vérifiez la console - il ne devrait plus y avoir d'erreur Framer Motion</p>
-        </div>
+        <NOGLabSection /> {/* REMIS */}
       </div>
 
       <Footer />
