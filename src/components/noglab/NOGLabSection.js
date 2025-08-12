@@ -512,7 +512,7 @@ const NOGLabSection = () => {
             {t('noglab.measure.description')}
           </p>
 
-          {/* Subtitle 6 *//}
+          {/* Subtitle 6 - CORRECTION DU COMMENTAIRE */}
           <div className="noglab-section-subtitle">
             <span className="noglab-section-subtitle-text">
               {t('noglab.partners.title')}
