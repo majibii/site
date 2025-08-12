@@ -129,7 +129,7 @@
       "paragraph1": "Les capacités de l'IA progressent à un rythme sans précédent, mais un problème majeur demeure : l'opacité.",
       "paragraph2": "Cette opacité est encore plus préoccupante lorsque l'IA entre dans des secteurs qui ne ressemblent à aucune autre industrie : la justice et la santé. Ce sont les fondements d'une société libre et équitable.",
       "paragraph3": "Chaque jour, les tribunaux prennent des décisions qui changent le cours de vies humaines. De telles décisions exigent de l'empathie, de l'expérience et du contexte — mais aussi un processus qui semble légitime à ceux qui sont affectés.",
-      "paragraph4": "Aucune famille ne devrait jamais se demander si elle a perdu la garde à cause d'un algorithme mal calibré. Aucun patient ne devrait jamais douter que son traitement a été décidé après une véritable évaluation humaine.",
+      "paragraph4": "Aucun famille ne devrait jamais se demander si elle a perdu la garde à cause d'un algorithme mal calibré. Aucun patient ne devrait jamais douter que son traitement a été décidé après une véritable évaluation humaine.",
       "paragraph5": "Le vrai problème n'est pas simplement de savoir si l'IA donne la bonne ou la mauvaise réponse — c'est le doute. Et une fois que le doute s'installe, il érode la confiance et mine la légitimité de nos systèmes."
     },
     "aiForEveryone": {
@@ -247,22 +247,22 @@
     "subtitle": "Prêt à faire des agents IA votre avantage concurrentiel ? Contactez notre équipe.",
     "form": {
       "name": "Nom",
-      "email": "Email",
+      "email": "E-mail",
       "company": "Entreprise",
       "subject": "Sujet",
       "message": "Message",
       "submit": "Envoyer le message",
       "sending": "Envoi en cours...",
-      "success": "Message envoyé avec succès ! Nous vous répondrons bientôt.",
+      "success": "Message envoyé avec succès ! Nous vous contacterons bientôt.",
       "error": "Échec de l'envoi du message. Veuillez réessayer."
     }
   },
   "footer": {
     "copyright": "© EggOn Technology 2025",
     "whyEggon": "Pourquoi EggOn",
-    "legal": "Légal",
-    "aboutUs": "À propos",
-    "futureAI": "IA du futur",
+    "legal": "Juridique",
+    "aboutUs": "À propos de nous",
+    "futureAI": "IA Futur",
     "termsOfUse": "Conditions d'utilisation",
     "privacyPolicy": "Politique de confidentialité",
     "cookieChoices": "Choix des cookies",
