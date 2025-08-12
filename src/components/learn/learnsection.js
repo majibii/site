@@ -133,7 +133,7 @@ const LearnSection = () => {
         <p className="learn-body-text">
           {t('learn.measure.description')}
         </p>
-
+/*comment*/
         {/* Subtitle 6 */}
         <div className="learn-section-subtitle">
           <span className="learn-section-subtitle-text">
