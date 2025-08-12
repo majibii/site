@@ -11,10 +11,71 @@
     "cta": "Start building",
     "labLink": "EggOn Lab — The team dedicated to making AI agents fully insurable."
   },
+  
   "collection": {
     "title": "CASE STUDIES",
-    "subtitle": "Firms are choosing to build with EggOn for unfair competitive advantage. Our agents are trusted by forward-thinking companies across legal, aerospace & Finance. Stay updated — ask for a pricing.",
-    "cta": "Get Pricing"
+    "subtitle": "Companies choose to build with EggOn for an unfair competitive advantage. Our agents are trusted by leading firms in legal, aerospace, and finance. Stay informed — request a quote.",
+    "cta": "Request a Quote",
+    "core": {
+      "contractRiskAnalysis": {
+        "title": "Contract Risk Analysis Agent",
+        "context": "Legal / Risk Review",
+        "body": "Analyze a commercial contract and highlight clauses that pose legal risks (e.g., indemnities, termination, governing law). Provide a summary with explanations and recommendations."
+      },
+      "caseLawResearch": {
+        "title": "Case Law Research Agent",
+        "context": "Legal / Case Research",
+        "body": "Search and summarize relevant case law related to a specific legal question, including links and jurisdiction-specific reasoning."
+      },
+      "meetingMemory": {
+        "title": "Meeting Summary Agent",
+        "context": "Productivity / Project Management",
+        "body": "Listen to or analyze meeting notes, extract key points, and automatically convert decisions and discussions into actionable tasks with assigned owners and deadlines."
+      },
+      "internalWikiBuilder": {
+        "title": "Internal Wiki Builder Agent",
+        "context": "Knowledge Management / Documentation",
+        "body": "Create and update a private internal wiki by scanning documents and internal conversations. Automatically tag and categorize entries."
+      },
+      "promptImprovementAgent": {
+        "title": "Prompt Improvement Agent",
+        "context": "AI / Continuous Enhancement",
+        "body": "Analyze prompts used, identify weaknesses, and generate optimized versions to improve the accuracy, clarity, and consistency of AI model responses."
+      },
+      "contractReviewAgent": {
+        "title": "Contract Review Agent",
+        "context": "Legal / Quality Control",
+        "body": "Check consistency, compliance, and key terms in contract documents, generating annotations and improvement suggestions."
+      },
+      "quotationGenerator": {
+        "title": "Quotation Generator Agent",
+        "context": "Sales / B2B Quotations",
+        "body": "Generate and send professional client-ready quotations based on product configurations, pricing rules, and customer data."
+      },
+      "competitiveIntelligenceAgent": {
+        "title": "Competitive Intelligence Agent",
+        "context": "Strategy / Market Intelligence",
+        "body": "Automatically monitor competitor activity (appointments, new specialties, partnerships), analyze pricing strategies and innovative service offers, and identify positioning in new markets or emerging technologies."
+      },
+      "technologyIntelligenceAgent": {
+        "title": "Technology Intelligence Agent",
+        "context": "R&D / Strategy",
+        "body": "Weekly summaries of key news and trends in a selected technology sector, including key sources, highlights, and regulatory updates."
+      },
+      "billingAndPaymentAgent": {
+        "title": "Billing and Payment Tracking Agent",
+        "context": "Finance / Legal Accounting",
+        "body": "Automatically generate invoices from time entries or flat fees, send personalized payment reminders, track payment status, and manage trust retainer balances. Integrates with Clio, Xero, or QuickBooks."
+      },
+      "interactiveFinancialReportingAgent": {
+        "title": "Interactive Financial Reporting Agent",
+        "context": "Finance / Performance Management",
+        "body": "Produce a dynamic dashboard showing profitability by case, lawyer, or client, with natural language query capability (e.g., 'Show margin on litigation cases since January'). Integrates with Power BI or Tableau, conversational LLM interface."
+      }
+    }
+  }
+}
+
   },
   {
   "legalStack": {
