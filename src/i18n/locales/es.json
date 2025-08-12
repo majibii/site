@@ -16,11 +16,54 @@
     "subtitle": "Las empresas eligen construir con EggOn para obtener una ventaja competitiva desleal. Nuestros agentes son confiables para empresas visionarias en legal, aeroespacial y finanzas. Mantente actualizado — solicita un presupuesto.",
     "cta": "Obtener presupuesto"
   },
+    {
   "legalStack": {
     "subtitle": "POR QUÉ EGGON",
     "title": "Confía en un equipo con experiencia en tu campo",
     "description": "Eggon combina experiencia legal profunda con ingeniería IA real para entregar soluciones integradas y confiables adaptadas a tus desafíos operacionales.",
-    "stackTitle": "LA PILA DE AGENTES LEGALES"
+    "stackTitle": "LA PILA DE AGENTES LEGALES",
+    "benefits": [
+      {
+        "title": "Conectado a tu mundo",
+        "description": "Construimos agentes IA y sistemas enfocados en el dominio legal y partes de la industria de defensa. Algunos miembros de nuestro equipo vienen de empresas legaltech líderes o son expertos de la industria que conocen tu entorno."
+      },
+      {
+        "title": "Resuelve tus desafíos más difíciles",
+        "description": "Desde tareas simples hasta razonamiento complejo, conectamos tus documentos, herramientas e IA con el ROI en mente — y nos mantenemos alineados con tu misión."
+      },
+      {
+        "title": "De la complejidad a la claridad",
+        "description": "Transformamos la complejidad legal y técnica en resultados claros y accionables — con un equipo experimentado que gestiona el proyecto y se mantiene a tu lado."
+      },
+      {
+        "title": "Ingeniería IA real",
+        "description": "Construimos, desarrollamos y desplegamos sistemas IA reales. Desde un agente simple en tu Copilot Studio hasta un sistema IA personalizado más avanzado usando nuestra interfaz de chat, nuestra API privada, y una base de datos vectorial construida para ti."
+      }
+    ],
+    "stackComponents": [
+      {
+        "badge": "RAG",
+        "title": "Conecta tus bases de datos internas a un modelo de lenguaje grande (RAG)",
+        "description": "Conectamos tus archivos de casos, contratos y bases de datos legales directamente a modelos IA. Tus datos confidenciales permanecen seguros mientras obtienes respuestas instantáneas y precisas de toda tu base de conocimiento."
+      },
+      {
+        "badge": "Agentes IA",
+        "title": "Construye tus agentes IA",
+        "description": "Desarrollamos agentes IA — usando Microsoft Azure Studio o tu propio entorno técnico — que gestionan tus flujos de trabajo legales específicos. Procesa documentos sensibles con modelos que nunca abandonan tu infraestructura."
+      },
+      {
+        "badge": "Multi-Agentes IA",
+        "title": "Construye sistemas multi-agente",
+        "description": "Automatiza procesos legales complejos con múltiples agentes IA trabajando juntos. Delega tareas de extremo a extremo, desde revisión de documentos hasta redacción e investigación legal."
+      },
+      {
+        "badge": "IA Privada",
+        "title": "Interfaz chatbot y conectividad API",
+        "description": "Haz preguntas en lenguaje natural y obtén respuestas instantáneas de todos tus archivos. Analiza automáticamente contratos, procesa documentos legales y asiste con investigación legal — completamente integrado con tus bases de datos existentes."
+      }
+    ]
+  }
+}
   },
   "learn": {
     "title": "EggOn Lab en funcionamiento",
