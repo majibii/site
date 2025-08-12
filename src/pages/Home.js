@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: 'transparent',
     zIndex: 1,
     margin: 0,
-    paddingTop: '80px', // CORRIGÉ : Correspond exactement à la hauteur du header
+    paddingTop: '80px', // CORRIGÉ : Correspond exactement à laa hauteur du header
     display: 'flex',
     flexDirection: 'column',
     '@media (max-width: 768px)': {
