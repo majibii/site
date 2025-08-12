@@ -141,23 +141,23 @@ const useStyles = makeStyles((theme) => ({
             color: '#fafafa',
         },
     },
-    // Style unifié pour tous les titres shiny
-   shinyTitle: {
-    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-    fontWeight: '700',
-    fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
-    lineHeight: '1.1',
-    color: '#ffffff',
-    textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
-    textAlign: "left",
-    '&.disabled': {
-        color: '#fafafa',
+    // Style pour les titres shiny du hero
+    shinyTitle: {
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        fontWeight: '700',
+        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
+        lineHeight: '1.1',
+        color: '#ffffff',
+        textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
+        textAlign: "left",
+        '&.disabled': {
+            color: '#fafafa',
+        },
+        "@media (max-width: 768px)": {
+            textAlign: "center",
+        },
     },
-    "@media (max-width: 768px)": {
-        textAlign: "center",
-    },
-       
-    // Style pour le titre principal de la section content (plus grand)
+    // Style pour le titre principal de la section content (plus grand avec animation)
     mainContentTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
@@ -413,7 +413,7 @@ const NOGLabSection = () => {
       {/* Content Section */}
       <div className="noglab-section">
         <div className="noglab-container">
-          {/* Main Title - Utilisation des styles JSS au lieu des classes CSS */}
+          {/* Main Title - Utilisation du style mainContentTitle */}
           <Typography variant="h1" component="h1" className={classes.mainContentTitle}>
             {t('noglab.title')}
           </Typography>
