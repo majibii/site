@@ -24,17 +24,21 @@ const useStyles = makeStyles((theme) => ({
     },
     contentWrapper: {
         flex: "1 1 45%",
-        minWidth: "0",
+        minWidth: "300px", // FORCÉ
+        height: "400px", // FORCÉ POUR DEBUG
         paddingLeft: "6rem",
         paddingRight: "3rem",
-        backgroundColor: 'rgba(255, 0, 0, 0.2)', // ROUGE POUR DEBUG
-        border: '2px solid red', // BORDURE ROUGE POUR DEBUG
+        backgroundColor: 'rgba(255, 0, 0, 0.8)', // ROUGE PLUS VISIBLE
+        border: '5px solid red', // BORDURE PLUS ÉPAISSE
+        display: 'flex', // FORCÉ
+        flexDirection: 'column', // FORCÉ
+        justifyContent: 'center', // FORCÉ
         "@media (max-width: 1200px)": {
             paddingLeft: "4rem",
         },
         "@media (max-width: 768px)": {
-            paddingLeft: "0",
-            paddingRight: "0",
+            paddingLeft: "2rem",
+            paddingRight: "2rem",
             flex: "1 1 auto",
             textAlign: "center",
         },
