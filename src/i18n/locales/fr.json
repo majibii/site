@@ -59,75 +59,71 @@
   }
 }
 
-  {
+{
   "collection": {
     "title": "ÉTUDES DE CAS",
-    "subtitle": "Les entreprises choisissent de construire avec EggOn pour un avantage concurrentiel déloyal. Nos agents sont approuvés par des entreprises avant-gardistes dans le juridique, l'aérospatiale et la finance. Restez informé — demandez un devis.",
-    "cta": "Obtenir un devis",
-    "prompts": {
-      "contractAnalysis": {
-        "title": "Analyse de Contrats IA",
+    "subtitle": "Les entreprises choisissent de construire avec EggOn pour obtenir un avantage concurrentiel décisif. Nos agents sont utilisés par des acteurs de pointe dans le juridique, l’aérospatiale et la finance. Restez informé — demandez un devis.",
+    "cta": "Demander un devis",
+    "core": {
+      "contractRiskAnalysis": {
+        "title": "Agent d’Analyse de Risques Contractuels",
         "context": "Juridique / Révision des Risques",
-        "body": "Analyser un contrat commercial et signaler les clauses qui présentent un risque juridique (ex. indemnités, résiliation, droit applicable). Produire un résumé avec explications et suggestions."
+        "body": "Analyser un contrat commercial et signaler les clauses présentant un risque juridique (ex. indemnités, résiliation, droit applicable). Fournir un résumé avec explications et recommandations."
       },
       "caseLawResearch": {
-        "title": "Recherche de Jurisprudence IA",
+        "title": "Agent de Recherche Jurisprudentielle",
         "context": "Juridique / Recherche de Cas",
-        "body": "Rechercher et résumer la jurisprudence pertinente à une question juridique donnée, incluant liens et raisonnement spécifique à la juridiction."
+        "body": "Rechercher et résumer la jurisprudence pertinente à une question juridique donnée, avec liens et raisonnement spécifique à la juridiction."
       },
-      "meetingPrep": {
-        "title": "Agent de Préparation de Réunions IA",
-        "context": "Productivité / Support d'Équipe",
-        "body": "Préparer des packs de réunion structurés pour les équipes internes incluant agenda, liens, actions précédentes, et résumé des mises à jour pertinentes."
+      "meetingMemory": {
+        "title": "Agent Mémoire de Réunion",
+        "context": "Productivité / Gestion de Projets",
+        "body": "Écouter ou analyser les notes d’une réunion, extraire les points clés et transformer automatiquement les décisions et discussions en tâches actionnables avec responsables et échéances."
       },
-      "wikiBuilder": {
-        "title": "Constructeur de Wiki IA",
-        "context": "Connaissances Internes / Documentation",
-        "body": "Construire et mettre à jour un wiki interne privé en scannant documents et conversations internes. Étiqueter et catégoriser automatiquement les entrées."
+      "internalWikiBuilder": {
+        "title": "Agent Créateur de Wiki Interne",
+        "context": "Gestion des Connaissances / Documentation",
+        "body": "Construire et mettre à jour un wiki interne privé en scannant documents et conversations internes. Étiqueter et classer automatiquement les entrées."
       },
-      "auditTrail": {
-        "title": "Agent de Révision de Piste d'Audit",
-        "context": "Conformité / Cybersécurité",
-        "body": "Analyser les logs d'audit et identifier les anomalies ou risques. Générer des résumés prêts pour la conformité et signaler les irrégularités."
+      "promptImprovementAgent": {
+        "title": "Agent d’Amélioration des Consignes IA",
+        "context": "IA / Amélioration Continue",
+        "body": "Analyser les consignes utilisées, identifier les points faibles et générer des versions optimisées pour améliorer la précision, la clarté et la cohérence des réponses des modèles IA."
       },
-      "supplierCompliance": {
-        "title": "Moniteur de Conformité Fournisseur",
-        "context": "Conformité / Achats",
-        "body": "Suivre les certifications fournisseurs et documents réglementaires. Alerter sur les fichiers manquants, documents expirés, ou statut juridique incohérent."
+      "contractReviewAgent": {
+        "title": "Agent de Contrôle Qualité Contractuel",
+        "context": "Juridique / Contrôle Qualité",
+        "body": "Vérifier la cohérence, la conformité et les termes clés dans des documents contractuels, avec annotations et suggestions d’amélioration."
       },
-      "quotationAgent": {
-        "title": "Agent de Devis IA",
+      "quotationGenerator": {
+        "title": "Agent de Génération de Devis",
         "context": "Ventes / Devis B2B",
-        "body": "Générer et envoyer des devis professionnels prêts pour le client basés sur les configurations produit, règles de prix, et données client."
+        "body": "Générer et envoyer des devis professionnels prêts à être transmis au client, à partir de configurations produit, règles tarifaires et données client."
       },
-      "clientOnboarding": {
-        "title": "Agent d'Intégration Client",
-        "context": "Opérations / Gestion Client",
-        "body": "Automatiser l'intégration de nouveaux clients en générant des listes de contrôle, demandant des documents, vérifiant la complétude, et stockant les profils."
+      "competitiveIntelligenceAgent": {
+        "title": "Agent de Veille Concurrentielle",
+        "context": "Stratégie / Intelligence Marché",
+        "body": "Surveiller automatiquement l’activité des concurrents (nominations, nouvelles spécialités, partenariats), analyser les stratégies tarifaires et offres innovantes, et identifier les opportunités sur de nouveaux marchés ou technologies émergentes."
       },
-      "techIntelligence": {
-        "title": "Agent d'Intelligence Technologique",
+      "technologyIntelligenceAgent": {
+        "title": "Agent de Veille Technologique",
         "context": "R&D / Stratégie",
-        "body": "Chaque semaine, résumer les nouvelles et tendances clés dans un secteur technologique sélectionné, incluant sources clés, points saillants, et mises à jour réglementaires."
+        "body": "Fournir chaque semaine un résumé des nouvelles et tendances clés dans un secteur technologique choisi, incluant sources clés, points saillants et mises à jour réglementaires."
       },
-      "rfpDrafting": {
-        "title": "Agent de Rédaction d'Appels d'Offres",
-        "context": "Secteur Public / Appels d'Offres",
-        "body": "Assister les équipes à répondre aux appels d'offres publics en rédigeant des réponses structurées utilisant des documents passés et templates réglementaires."
+      "billingAndPaymentAgent": {
+        "title": "Agent de Facturation et Suivi des Paiements",
+        "context": "Finance / Comptabilité Juridique",
+        "body": "Générer automatiquement les factures à partir des entrées de temps ou forfaits, envoyer des rappels personnalisés, suivre l’état des paiements et gérer les fonds en dépôt. Intégration avec Clio, Xero ou QuickBooks."
       },
-      "esgCompliance": {
-        "title": "Agent de Conformité ESG",
-        "context": "Durabilité / Gouvernance",
-        "body": "Surveiller les critères environnementaux, sociaux et de gouvernance à travers fournisseurs et rapports internes. Alerter sur la non-conformité et préparer des résumés d'audit ESG."
-      },
-      "dataPrivacyAudit": {
-        "title": "Agent d'Audit de Confidentialité des Données",
-        "context": "Juridique / RGPD",
-        "body": "Réviser les processus internes pour la conformité à la confidentialité des données (RGPD/CCPA). Générer un rapport sur l'utilisation des données, collecte de consentement, et exposition au risque de violation."
+      "interactiveFinancialReportingAgent": {
+        "title": "Agent de Reporting Financier Interactif",
+        "context": "Finance / Pilotage de Performance",
+        "body": "Produire un tableau de bord dynamique affichant la rentabilité par dossier, avocat ou client, avec possibilité de requêtes en langage naturel (ex. « Montre-moi la marge sur nos dossiers de contentieux depuis janvier »). Intégration avec Power BI ou Tableau, interface conversationnelle LLM."
       }
     }
   }
 }
+
   },
   "learn": {
     "title": "EggOn Lab en action",
