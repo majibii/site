@@ -16,11 +16,55 @@
     "subtitle": "Firms are choosing to build with EggOn for unfair competitive advantage. Our agents are trusted by forward-thinking companies across legal, aerospace & Finance. Stay updated — ask for a pricing.",
     "cta": "Get Pricing"
   },
+  {
   "legalStack": {
     "subtitle": "WHY EGGON",
     "title": "Trust a team with expertise in your field",
     "description": "Eggon combines deep legal expertise with real AI engineering to deliver trusted, integrated solutions tailored to your operational challenges.",
-    "stackTitle": "THE LEGAL AGENT STACK"
+    "stackTitle": "THE LEGAL AGENT STACK",
+    "benefits": [
+      {
+        "title": "Connected to Your World",
+        "description": "We build AI agents and systems focused on the legal domain and parts of the defense industry. Some of our team members come from leading legaltech companies or industry experts who know your environment."
+      },
+      {
+        "title": "Solves Your Toughest Challenges", 
+        "description": "From simple tasks to complex reasoning, we connect your documents, tools, and AI with ROI in mind — and we stay aligned with your mission."
+      },
+      {
+        "title": "From Complexity to Clarity",
+        "description": "We transform legal and technical complexity into clear, actionable outputs — with an experienced team that manages the project and stays by your side."
+      },
+      {
+        "title": "Real AI Engineering",
+        "description": "We build, develop, and deploy real AI systems. From a simple agent in your Copilot Studio to a more advanced custom AI system using our chat interface, our private API, and a vector database built for you"
+      }
+    ],
+    "stackComponents": [
+      {
+        "badge": "RAG",
+        "title": "Connect Your Internal Databases to a Large Language Model (RAG)",
+        "description": "We connect your case files, contracts, and legal databases directly to AI models. Your confidential data remains secure while you get instant, accurate answers from your entire knowledge base."
+      },
+      {
+        "badge": "AI Agents",
+        "title": "Build Your AI Agents",
+        "description": "We develop AI agents—using Microsoft Azure Studio or your own technical environment—that manage your specific legal workflows. Process sensitive documents with models that never leave your infrastructure."
+      },
+      {
+        "badge": "AI Multi-Agents",
+        "title": "Build Multi-Agent Systems",
+        "description": "Automate complex legal processes with multiple AI agents working together. Delegate tasks end-to-end, from document review to drafting and legal research."
+      },
+      {
+        "badge": "Private AI",
+        "title": "Chatbot Interface & API Connectivity",
+        "description": "Ask questions in plain language and get instant answers from all your files. Automatically analyze contracts, process legal documents, and assist with legal research—fully integrated with your existing databases."
+      }
+    ]
+  }
+}
+
   },
   "learn": {
     "title": "Working EggOn Lab",
