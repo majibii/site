@@ -11,7 +11,6 @@
     "cta": "Start building",
     "labLink": "EggOn Lab — The team dedicated to making AI agents fully insurable."
   },
-  
   "collection": {
     "title": "CASE STUDIES",
     "subtitle": "Companies choose to build with EggOn for an unfair competitive advantage. Our agents are trusted by leading firms in legal, aerospace, and finance. Stay informed — request a quote.",
@@ -73,11 +72,7 @@
         "body": "Produce a dynamic dashboard showing profitability by case, lawyer, or client, with natural language query capability (e.g., 'Show margin on litigation cases since January'). Integrates with Power BI or Tableau, conversational LLM interface."
       }
     }
-  }
-}
-
   },
-  {
   "legalStack": {
     "subtitle": "WHY EGGON",
     "title": "Trust a team with expertise in your field",
@@ -123,9 +118,6 @@
         "description": "Ask questions in plain language and get instant answers from all your files. Automatically analyze contracts, process legal documents, and assist with legal research—fully integrated with your existing databases."
       }
     ]
-  }
-}
-
   },
   "learn": {
     "title": "Working EggOn Lab",
