@@ -151,11 +151,11 @@ const useStyles = makeStyles((theme) => ({
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
         textAlign: "left",
         '&.disabled': {
-            color: '#fafafa',
+            color: '#fafafa'
         },
         "@media (max-width: 768px)": {
-            textAlign: "center",
-        },
+            textAlign: "center"
+        }
     },
     // Style pour le titre principal de la section content (plus grand avec animation)
     mainContentTitle: {
@@ -163,23 +163,24 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: '700',
         fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
         lineHeight: '1.1',
-        color: '#b5b5b5a4',
-        background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
-        backgroundSize: '200% 100%',
-        WebkitBackgroundClip: 'text',
-        backgroundClip: 'text',
-        animation: '$shine 5s linear infinite',
+        color: '#ffffff', // Changé temporairement pour tester
+        // Commenté temporairement pour tester
+        // background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
+        // backgroundSize: '200% 100%',
+        // WebkitBackgroundClip: 'text',
+        // backgroundClip: 'text',
+        // animation: '$shine 5s linear infinite',
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
         textAlign: "center",
         marginBottom: '3rem',
         '&.disabled': {
-            animation: 'none',
-            color: '#fafafa',
-            background: 'none',
+            // animation: 'none',
+            color: '#fafafa'
+            // background: 'transparent'
         },
         "@media (max-width: 768px)": {
-            textAlign: "center",
-        },
+            textAlign: "center"
+        }
     },
     subtitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
