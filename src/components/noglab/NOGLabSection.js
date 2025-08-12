@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "auto",
         marginBottom: "auto",
         display: "flex",
+        flexDirection: "row", // FORCÉ
         alignItems: "center",
         gap: "4rem",
         width: "100%",
@@ -16,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
         padding: "0 1rem",
         marginLeft: "auto",
         marginRight: "auto",
+        minHeight: "80vh", // AJOUTÉ POUR DEBUG
+        border: "3px solid yellow", // BORDURE JAUNE POUR LE CONTAINER PRINCIPAL
         "@media (max-width: 768px)": {
             flexDirection: "column",
             gap: "3rem",
@@ -45,14 +48,15 @@ const useStyles = makeStyles((theme) => ({
     },
     imageWrapper: {
         flex: "1 1 55%",
+        minWidth: "300px", // AJOUTÉ
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "flex-end",
         paddingTop: "2rem",
         paddingLeft: "3rem",
         paddingRight: "2rem",
-        backgroundColor: 'rgba(0, 255, 0, 0.2)', // VERT POUR DEBUG
-        border: '2px solid green', // BORDURE VERTE POUR DEBUG
+        backgroundColor: 'rgba(0, 255, 0, 0.8)', // VERT PLUS VISIBLE
+        border: '5px solid green', // BORDURE PLUS ÉPAISSE
         "@media (max-width: 1200px)": {
             paddingRight: "1.5rem",
             paddingTop: "1rem",
