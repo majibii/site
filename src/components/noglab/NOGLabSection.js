@@ -142,23 +142,21 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     // Style unifié pour tous les titres shiny
-    shinyTitle: {
+   shinyTitle: {
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
     fontWeight: '700',
     fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
     lineHeight: '1.1',
-    
-    // DEBUG : Forcer la couleur et ajouter une bordure
-    color: '#ffffff !important',
-    border: '3px solid red !important',
-    backgroundColor: 'blue !important',
-    padding: '20px !important',
-    
+    color: '#ffffff',
+    textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
     textAlign: "left",
+    '&.disabled': {
+        color: '#fafafa',
+    },
     "@media (max-width: 768px)": {
         textAlign: "center",
     },
-},
+       
     // Style pour le titre principal de la section content (plus grand)
     mainContentTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
