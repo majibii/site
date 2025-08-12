@@ -54,7 +54,7 @@ export const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // TODO: Remplacer par votre endpoint d'email
+      // TODO: Remplacer par votre endpointt d'email
       console.log('Form data to send:', formData);
       
       // Simulation d'envoi
