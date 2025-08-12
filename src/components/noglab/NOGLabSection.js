@@ -141,6 +141,7 @@ const useStyles = makeStyles((theme) => ({
             color: '#fafafa',
         },
     },
+    // Style unifié pour tous les titres shiny
     shinyTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '700',
@@ -154,6 +155,30 @@ const useStyles = makeStyles((theme) => ({
         animation: '$shine 5s linear infinite',
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
         textAlign: "left",
+        '&.disabled': {
+            animation: 'none',
+            color: '#fafafa',
+            background: 'none',
+        },
+        "@media (max-width: 768px)": {
+            textAlign: "center",
+        },
+    },
+    // Style pour le titre principal de la section content (plus grand)
+    mainContentTitle: {
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        fontWeight: '700',
+        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
+        lineHeight: '1.1',
+        color: '#b5b5b5a4',
+        background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
+        backgroundSize: '200% 100%',
+        WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
+        animation: '$shine 5s linear infinite',
+        textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
+        textAlign: "center",
+        marginBottom: '3rem',
         '&.disabled': {
             animation: 'none',
             color: '#fafafa',
@@ -395,12 +420,11 @@ const NOGLabSection = () => {
       {/* Content Section */}
       <div className="noglab-section">
         <div className="noglab-container">
-          {/* Main Title */}
-          <h1 className="noglab-shiny-title">
+          {/* Main Title - Utilisation des styles JSS au lieu des classes CSS */}
+          <Typography variant="h1" component="h1" className={classes.mainContentTitle}>
             {t('noglab.title')}
-          </h1>
+          </Typography>
 
-          {/* Remove the intro paragraphs that were specified to be deleted */}
           {/* Subtitle 1 */}
           <div className="noglab-section-subtitle">
             <span className="noglab-section-subtitle-text">
