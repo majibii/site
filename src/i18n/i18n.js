@@ -25,7 +25,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en', // Si aucune langue détectée/supportée
-    // ⚠️ RETIRÉ lng: 'en' - laisse la détection automatique faire son travail
+    // ⚠️ RETIRÉ lng: 'en' - laisse laa détection automatique faire son travail
     debug: process.env.NODE_ENV === 'development',
     
     // Configuration pour react-snapshot
