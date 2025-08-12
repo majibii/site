@@ -24,25 +24,50 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en', // Langue par défaut
-    lng: 'en', // Langue explicite pour react-snapshot
-    debug: false,
+    fallbackLng: 'en', // Si aucune langue détectée/supportée
+    // ⚠️ RETIRÉ lng: 'en' - laisse la détection automatique faire son travail
+    debug: process.env.NODE_ENV === 'development',
     
     // Configuration pour react-snapshot
     react: {
-      useSuspense: false // Important pour le pré-rendu statique
+      useSuspense: false
     },
     
-    // Configuration du détecteur de langue
+    // Configuration du détecteur de langue OPTIMISÉE
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      // 🎯 Ordre de priorité optimal :
+      order: [
+        'localStorage',      // 1. Choix explicite utilisateur (le plus important)
+        'navigator',         // 2. Langue du navigateur (détection automatique)
+        'htmlTag',          // 3. Attribut lang de <html>
+        'path',             // 4. URL path (/fr/page)
+        'subdomain'         // 5. Sous-domaine (fr.monsite.com)
+      ],
       caches: ['localStorage'],
       lookupLocalStorage: 'i18nextLng',
+      
+      // 🛡️ Sécurité : vérifier que la langue est supportée
+      checkWhitelist: true,
+      
+      // 🎨 Options avancées pour navigator
+      lookupFromNavigator: ['language', 'languages'],
+      convertDetectedLanguage: (lng) => {
+        // Convertit 'fr-FR' → 'fr', 'en-US' → 'en', etc.
+        return lng.split('-')[0];
+      }
     },
     
+    // Langues supportées
+    supportedLngs: ['en', 'fr', 'es'],
+    nonExplicitSupportedLngs: true, // Permet 'fr-FR' → 'fr'
+    
     interpolation: {
-      escapeValue: false // React échappe déjà les valeurs
-    }
+      escapeValue: false
+    },
+    
+    // Performance
+    ns: ['translation'],
+    defaultNS: 'translation'
   });
 
 export default i18n;
