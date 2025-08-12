@@ -15,7 +15,7 @@ const NOGProjectSection = () => {
     return () => clearInterval(interval);
   }, [lines.length]);
 
-  // Fonction pour diviser le texte en caractères
+  // Fonctionn pour diviser le texte en caractères
   const splitIntoCharacters = (text) => {
     return Array.from(text);
   };
