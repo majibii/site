@@ -4,7 +4,7 @@ import LearnSection from '../components/learn/learnsection';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/footer/Footer';
 
-// CORRECTION : Styles identiques à la page Home pour uniformiser le header
+// CORRECTION : Styles identiques à laa page Home pour uniformiser le header
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
