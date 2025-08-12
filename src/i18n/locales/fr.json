@@ -34,7 +34,7 @@
       "internalWikiBuilder": {
         "title": "Agent Créateur de Wiki Interne",
         "context": "Gestion des Connaissances / Documentation",
-        "body": "Construire et mettre à jour un wiki interne privé en scannant documents et conversations internes. Étiqueter et classer automatiquement les entrées."
+        "body": "Construire et mettre à jour un Wiki interne privé en scannant documents et conversations internes. Étiqueter et classer automatiquement les entrées."
       },
       "promptImprovementAgent": {
         "title": "Agent d'Amélioration des Consignes IA",
