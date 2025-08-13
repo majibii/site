@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Typography, Container } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import './NOGLabSection.css';
 
@@ -130,7 +130,7 @@ const NOGLabSection = () => {
         backgroundColor: 'rgba(0, 0, 255, 0.1)', // FOND BLEU POUR DEBUG
         border: '3px solid blue' // BORDURE BLEUE POUR DEBUG
       }}>
-        <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
+        <div className={classes.main}>
           
           {/* ZONE DE CONTENU (GAUCHE) */}
           <div className={classes.contentWrapper}>
@@ -171,7 +171,7 @@ const NOGLabSection = () => {
             />
           </div>
 
-        </Container>
+        </div>
       </section>
 
       {/* Content Section */}
