@@ -5,11 +5,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import './NOGLabSection.css';
 
 const useStyles = makeStyles((theme) => ({
+    heroSection: {
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 255, 0.1)',
+        border: '3px solid blue',
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden', // AJOUTÉ pour empêcher le débordement
+    },
     main: {
-        marginTop: "auto",
-        marginBottom: "auto",
         display: "flex",
-        flexDirection: "row", // FORCÉ
+        flexDirection: "row",
         alignItems: "center",
         gap: "4rem",
         width: "100%",
@@ -17,8 +25,10 @@ const useStyles = makeStyles((theme) => ({
         padding: "0 1rem",
         marginLeft: "auto",
         marginRight: "auto",
-        minHeight: "80vh", // AJOUTÉ POUR DEBUG
-        border: "3px solid yellow", // BORDURE JAUNE POUR LE CONTAINER PRINCIPAL
+        minHeight: "80vh",
+        border: "3px solid yellow",
+        boxSizing: 'border-box',
+        overflow: 'hidden', // AJOUTÉ pour contrôler les enfants
         "@media (max-width: 768px)": {
             flexDirection: "column",
             gap: "3rem",
@@ -26,9 +36,9 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     contentWrapper: {
-        flex: "0 0 45%", // CHANGÉ : flex-shrink: 0 pour forcer la taille
-        width: "45%", // FORCÉ explicitement
-        maxWidth: "45%", // FORCÉ pour éviter le débordement
+        flex: "0 0 45%", 
+        width: "45%", 
+        maxWidth: "45%", 
         minWidth: "300px",
         height: "400px",
         paddingLeft: "6rem",
@@ -38,7 +48,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        boxSizing: 'border-box', // AJOUTÉ pour inclure padding dans la largeur
+        boxSizing: 'border-box',
+        overflow: 'hidden', // AJOUTÉ
+        position: 'relative', // AJOUTÉ pour forcer le positionnement
         "@media (max-width: 1200px)": {
             paddingLeft: "4rem",
         },
@@ -52,9 +64,9 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     imageWrapper: {
-        flex: "0 0 55%", // CHANGÉ : flex-shrink: 0 pour forcer la taille
-        width: "55%", // FORCÉ explicitement 
-        maxWidth: "55%", // FORCÉ pour éviter le débordement
+        flex: "0 0 55%", 
+        width: "55%", 
+        maxWidth: "55%", 
         minWidth: "300px",
         display: "flex",
         alignItems: "flex-start",
@@ -64,7 +76,9 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: "2rem",
         backgroundColor: 'rgba(0, 255, 0, 0.8)',
         border: '5px solid green',
-        boxSizing: 'border-box', // AJOUTÉ pour inclure padding dans la largeur
+        boxSizing: 'border-box',
+        overflow: 'hidden', // AJOUTÉ
+        position: 'relative', // AJOUTÉ pour forcer le positionnement
         "@media (max-width: 1200px)": {
             paddingRight: "1.5rem",
             paddingTop: "1rem",
@@ -101,6 +115,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         padding: '10px',
         borderRadius: '5px',
+        wordWrap: 'break-word', // AJOUTÉ
     },
     mainContentTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -123,13 +138,7 @@ const NOGLabSection = () => {
   return (
     <>
       {/* Hero Section avec DEBUG */}
-      <section style={{ 
-        minHeight: '100vh', 
-        display: 'flex', 
-        alignItems: 'center', 
-        backgroundColor: 'rgba(0, 0, 255, 0.1)', // FOND BLEU POUR DEBUG
-        border: '3px solid blue' // BORDURE BLEUE POUR DEBUG
-      }}>
+      <section className={classes.heroSection}>
         <div className={classes.main}>
           
           {/* ZONE DE CONTENU (GAUCHE) */}
