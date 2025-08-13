@@ -6,29 +6,31 @@ import './NOGLabSection.css';
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
-        minHeight: '100vh',
+        minHeight: 'calc(100vh - 80px)', // ALIGNÉ SUR HOME : compensation du header
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 255, 0.1)',
-        border: '3px solid blue',
+        backgroundColor: 'transparent', // REMIS NORMAL
         width: '100%',
         boxSizing: 'border-box',
-        overflow: 'hidden', // AJOUTÉ pour empêcher le débordement
+        overflow: 'hidden',
+        '@media (max-width: 768px)': {
+            minHeight: 'calc(100vh - 70px)', // ALIGNÉ SUR HOME mobile
+        },
     },
     main: {
+        marginTop: "auto",
+        marginBottom: "auto", 
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "row", // MAINTENU pour desktop
         alignItems: "center",
         gap: "4rem",
         width: "100%",
-        maxWidth: "1600px",
+        maxWidth: "1600px", // ALIGNÉ SUR HOME
         padding: "0 1rem",
         marginLeft: "auto",
         marginRight: "auto",
-        minHeight: "80vh",
-        border: "3px solid yellow",
         boxSizing: 'border-box',
-        overflow: 'hidden', // AJOUTÉ pour contrôler les enfants
+        overflow: 'hidden',
         "@media (max-width: 768px)": {
             flexDirection: "column",
             gap: "3rem",
@@ -36,27 +38,22 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     contentWrapper: {
-        flex: "0 0 45%", 
-        width: "45%", 
-        maxWidth: "45%", 
-        minWidth: "300px",
-        height: "400px",
+        flex: "1 1 45%", // ALIGNÉ SUR HOME : permet la flexibilité
+        minWidth: "0", // ALIGNÉ SUR HOME
         paddingLeft: "6rem",
         paddingRight: "3rem",
-        backgroundColor: 'rgba(255, 0, 0, 0.8)',
-        border: '5px solid red',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         boxSizing: 'border-box',
-        overflow: 'hidden', // AJOUTÉ
-        position: 'relative', // AJOUTÉ pour forcer le positionnement
+        overflow: 'hidden',
+        position: 'relative',
         "@media (max-width: 1200px)": {
             paddingLeft: "4rem",
         },
         "@media (max-width: 768px)": {
-            paddingLeft: "2rem",
-            paddingRight: "2rem",
+            paddingLeft: "0", // ALIGNÉ SUR HOME
+            paddingRight: "0", // ALIGNÉ SUR HOME  
             flex: "1 1 auto",
             width: "100%",
             maxWidth: "100%",
@@ -64,34 +61,28 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     imageWrapper: {
-        flex: "0 0 55%", 
-        width: "55%", 
-        maxWidth: "55%", 
-        minWidth: "300px",
+        flex: "1 1 55%", // ALIGNÉ SUR HOME : permet la flexibilité
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "flex-end",
         paddingTop: "2rem",
         paddingLeft: "3rem",
         paddingRight: "2rem",
-        backgroundColor: 'rgba(0, 255, 0, 0.8)',
-        border: '5px solid green',
         boxSizing: 'border-box',
-        overflow: 'hidden', // AJOUTÉ
-        position: 'relative', // AJOUTÉ pour forcer le positionnement
+        overflow: 'hidden',
+        position: 'relative',
         "@media (max-width: 1200px)": {
             paddingRight: "1.5rem",
             paddingTop: "1rem",
         },
         "@media (max-width: 768px)": {
             width: "100%",
-            maxWidth: "100%",
-            flex: "1 1 auto",
-            justifyContent: "center",
-            alignItems: "center",
+            justifyContent: "center", // ALIGNÉ SUR HOME
+            alignItems: "center", // ALIGNÉ SUR HOME
             paddingLeft: "0",
             paddingRight: "0",
             paddingTop: "0",
+            flex: "1 1 auto", // ALIGNÉ SUR HOME
         },
     },
     heroImage: {
@@ -107,15 +98,115 @@ const useStyles = makeStyles((theme) => ({
             maxHeight: "500px",
         },
     },
-    debugText: {
-        color: '#ffffff',
-        fontSize: '24px',
-        fontWeight: 'bold',
-        marginBottom: '20px',
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        padding: '10px',
-        borderRadius: '5px',
-        wordWrap: 'break-word', // AJOUTÉ
+    interactivePhrase: {
+        background: 'none',
+        border: 'none',
+        color: 'rgba(250, 250, 250, 0.8)',
+        fontSize: '0.9rem',
+        fontWeight: '500',
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        textDecoration: 'none',
+        textAlign: 'left',
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        marginBottom: '1.5rem',
+        display: 'block',
+        position: 'relative',
+        '&:hover': {
+            color: '#fafafa',
+        },
+        "@media (max-width: 768px)": {
+            fontSize: '0.85rem',
+            textAlign: 'center',
+        },
+    },
+    shinyTitle: {
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        fontWeight: '700',
+        fontSize: 'clamp(2rem, 5.2vw, 3.6rem)',
+        lineHeight: '1.1',
+        color: '#b5b5b5a4',
+        background: 'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
+        backgroundSize: '200% 100%',
+        WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
+        animation: '$shine 5s linear infinite',
+        textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
+        textAlign: "left",
+        marginBottom: '2rem',
+        '&.disabled': {
+            animation: 'none',
+            color: '#fafafa',
+            background: 'none',
+        },
+        "@media (max-width: 768px)": {
+            textAlign: "center",
+        },
+    },
+    subtitle: {
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        fontWeight: '500',
+        fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+        lineHeight: '1.6',
+        color: 'rgba(250, 250, 250, 0.9)',
+        marginBottom: '2rem',
+        textAlign: "left",
+        "@media (max-width: 768px)": {
+            textAlign: "center",
+        },
+    },
+    buttonContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1.5rem',
+        alignItems: 'flex-start',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+        marginTop: '2rem',
+        "@media (max-width: 768px)": {
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+    },
+    primaryButton: {
+        padding: '0.6rem 1.5rem',
+        fontSize: '0.85rem',
+        fontWeight: '700',
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        letterSpacing: '0.1em',
+        textTransform: 'none',
+        background: 'transparent',
+        color: '#fce96b',
+        border: '1px solid #fce96b',
+        borderRadius: '50px',
+        cursor: 'pointer',
+        position: 'relative',
+        overflow: 'hidden',
+        transition: 'all 0.4s ease-out',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minWidth: '180px',
+        height: '40px',
+        '&:hover': {
+            background: '#fce96b',
+            color: '#2f2f2e',
+        },
+        '&:active': {
+            transform: 'translateY(-1px)',
+        },
+        "@media (max-width: 768px)": {
+            minWidth: '160px',
+            fontSize: '0.8rem',
+        },
+    },
+    '@keyframes shine': {
+        '0%': {
+            backgroundPosition: '-200% 0',
+        },
+        '100%': {
+            backgroundPosition: '200% 0',
+        },
     },
     mainContentTitle: {
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -143,36 +234,24 @@ const NOGLabSection = () => {
           
           {/* ZONE DE CONTENU (GAUCHE) */}
           <div className={classes.contentWrapper}>
-            <div className={classes.debugText}>
-              🔴 ZONE CONTENU (GAUCHE)
+            <div className={classes.interactivePhrase}>
+              → EggOn Make your Future AI
             </div>
-            <div className={classes.debugText}>
-              → EggOn Make your AI Agents
+            <Typography variant="h2" component="h1" className={classes.shinyTitle}>
+              {t('noglab.heroTitle') || 'Make your AI Agents Insurable'}
+            </Typography>
+            <Typography variant="h5" component="h2" className={classes.subtitle}>
+              {t('noglab.heroSubtitle') || 'Discover the future of AI with our advanced laboratory platform.'}
+            </Typography>
+            <div className={classes.buttonContainer}>
+              <button className={classes.primaryButton}>
+                {t('noglab.cta') || 'Explore N.O.G. Lab'} →
+              </button>
             </div>
-            <div className={classes.debugText}>
-              Make your AI Agents Insurable
-            </div>
-            <div className={classes.debugText}>
-              TEST TRADUCTION: {t('noglab.heroTitle') || 'TRADUCTION MANQUANTE'}
-            </div>
-            <button style={{
-              padding: '10px 20px',
-              backgroundColor: '#fce96b',
-              color: '#000',
-              border: 'none',
-              borderRadius: '5px',
-              fontSize: '16px',
-              cursor: 'pointer'
-            }}>
-              BOUTON DE TEST
-            </button>
           </div>
 
           {/* ZONE IMAGE (DROITE) */}
           <div className={classes.imageWrapper}>
-            <div className={classes.debugText}>
-              🟢 ZONE IMAGE (DROITE)
-            </div>
             <img 
               src="/lab2.png" 
               alt="N.O.G. Lab Platform Interface" 
