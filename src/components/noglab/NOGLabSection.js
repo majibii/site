@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         flex: "1 1 45%", // ALIGNÉ SUR HOME : permet la flexibilité
         minWidth: "0", // ALIGNÉ SUR HOME
         paddingLeft: "6rem",
-        paddingRight: "3rem",
+        paddingRight: "2rem",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -63,10 +63,10 @@ const useStyles = makeStyles((theme) => ({
     imageWrapper: {
         flex: "1 1 55%", // ALIGNÉ SUR HOME : permet la flexibilité
         display: "flex",
-        alignItems: "flex-start",
+        alignItems: "center",
         justifyContent: "flex-end",
-        paddingTop: "2rem",
-        paddingLeft: "3rem",
+        paddingTop: "0",
+        paddingLeft: "2rem",
         paddingRight: "2rem",
         boxSizing: 'border-box',
         overflow: 'hidden',
@@ -155,6 +155,18 @@ const useStyles = makeStyles((theme) => ({
             textAlign: "center",
         },
     },
+    secondaryTitle: {
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        fontWeight: '600',
+        fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+        lineHeight: '1.2',
+        color: '#ffffff',
+        marginBottom: '1.5rem',
+        textAlign: "left",
+        "@media (max-width: 768px)": {
+            textAlign: "center",
+        },
+    },
     buttonContainer: {
         display: 'flex',
         flexDirection: 'column',
@@ -234,16 +246,16 @@ const NOGLabSection = () => {
           
           {/* ZONE DE CONTENU (GAUCHE) */}
           <div className={classes.contentWrapper}>
-            <div className={classes.interactivePhrase}>
-              → EggOn Make your Future AI
-            </div>
-            
             <Typography variant="h2" component="h1" className={classes.shinyTitle}>
-              {t('noglab.heroTitle') || 'Make your AI Agents Insurable'}
+              → EggOn Make your Future AI
             </Typography>
             
-            <Typography variant="h5" component="h2" className={classes.subtitle}>
-              {t('noglab.heroSubtitle') || 'We are building a future where professionals especially in law, finance ... can deploy AI agents that are certified compliant, auditable, and insurable.'}
+            <Typography variant="h3" component="h2" className={classes.secondaryTitle}>
+              Rendez vos Agents IA Assurables
+            </Typography>
+            
+            <Typography variant="h5" component="p" className={classes.subtitle}>
+              Nous construisons un avenir où les professionnels, en particulier du droit, de la finance... peuvent déployer des agents IA certifiés conformes, auditables et assurables.
             </Typography>
             
             <div className={classes.buttonContainer}>
@@ -275,11 +287,8 @@ const NOGLabSection = () => {
       <div className="noglab-section">
         <div className="noglab-container">
           <Typography variant="h1" component="h1" className={classes.mainContentTitle}>
-            TITRE PRINCIPAL: {t('noglab.title') || 'TRADUCTION MANQUANTE'}
+            {t('noglab.title') || 'Rendez vos Agents IA Assurables'}
           </Typography>
-          <p className="noglab-body-text">
-            🔍 VERSION DEBUG - Vous devriez voir des zones colorées et du texte en gras
-          </p>
         </div>
       </div>
     </>
