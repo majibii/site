@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     heroImage: {
         height: "auto",
         maxWidth: "100%",
-        width: "auto",
+        width: "100%", // AJOUTÉ pour forcer la largeur complète
         maxHeight: "850px",
         objectFit: "contain",
         "@media (max-width: 1200px)": {
@@ -133,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
         animation: '$shine 5s linear infinite',
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
         textAlign: "left",
-        marginBottom: '2rem',
+        marginBottom: '1.5rem', // AJUSTÉ pour un meilleur espacement
         '&.disabled': {
             animation: 'none',
             color: '#fafafa',
@@ -237,15 +237,24 @@ const NOGLabSection = () => {
             <div className={classes.interactivePhrase}>
               → EggOn Make your Future AI
             </div>
+            
             <Typography variant="h2" component="h1" className={classes.shinyTitle}>
               {t('noglab.heroTitle') || 'Make your AI Agents Insurable'}
             </Typography>
+            
             <Typography variant="h5" component="h2" className={classes.subtitle}>
-              {t('noglab.heroSubtitle') || 'Discover the future of AI with our advanced laboratory platform.'}
+              {t('noglab.heroSubtitle') || 'We are building a future where professionals especially in law, finance ... can deploy AI agents that are certified compliant, auditable, and insurable.'}
             </Typography>
+            
             <div className={classes.buttonContainer}>
               <button className={classes.primaryButton}>
-                {t('noglab.cta') || 'Explore N.O.G. Lab'} →
+                <div className="button-content">
+                  <span className="arrow-left">→</span>
+                  <span className="button-text">
+                    {t('noglab.cta') || 'Explore N.O.G. Lab'}
+                    <span className="arrow-right">→</span>
+                  </span>
+                </div>
               </button>
             </div>
           </div>
