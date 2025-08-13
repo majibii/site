@@ -156,6 +156,18 @@ const useStyles = makeStyles((theme) => ({
             textAlign: "center",
         },
     },
+    secondaryTitle: {
+        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+        fontWeight: '600',
+        fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+        lineHeight: '1.2',
+        color: '#ffffff',
+        marginBottom: '1.5rem',
+        textAlign: "left",
+        "@media (max-width: 768px)": {
+            textAlign: "center",
+        },
+    },
     buttonContainer: {
         display: 'flex',
         flexDirection: 'column',
@@ -235,10 +247,10 @@ const NOGLabSection = () => {
           
           {/* ZONE DE CONTENU (GAUCHE) */}
           <div className={classes.contentWrapper}>
-            <div className={classes.interactivePhrase}>
+            <Typography variant="h2" component="h1" className={classes.shinyTitle}>
               → EggOn Make your Future AI
-            </div>
-            
+            </Typography>
+
             <Typography variant="h2" component="h1" className={classes.shinyTitle}>
               Rendez vos Agents IA Assurables
             </Typography>
