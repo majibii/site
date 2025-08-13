@@ -26,16 +26,19 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     contentWrapper: {
-        flex: "1 1 45%",
-        minWidth: "300px", // FORCÉ
-        height: "400px", // FORCÉ POUR DEBUG
+        flex: "0 0 45%", // CHANGÉ : flex-shrink: 0 pour forcer la taille
+        width: "45%", // FORCÉ explicitement
+        maxWidth: "45%", // FORCÉ pour éviter le débordement
+        minWidth: "300px",
+        height: "400px",
         paddingLeft: "6rem",
         paddingRight: "3rem",
-        backgroundColor: 'rgba(255, 0, 0, 0.8)', // ROUGE PLUS VISIBLE
-        border: '5px solid red', // BORDURE PLUS ÉPAISSE
-        display: 'flex', // FORCÉ
-        flexDirection: 'column', // FORCÉ
-        justifyContent: 'center', // FORCÉ
+        backgroundColor: 'rgba(255, 0, 0, 0.8)',
+        border: '5px solid red',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        boxSizing: 'border-box', // AJOUTÉ pour inclure padding dans la largeur
         "@media (max-width: 1200px)": {
             paddingLeft: "4rem",
         },
@@ -43,32 +46,38 @@ const useStyles = makeStyles((theme) => ({
             paddingLeft: "2rem",
             paddingRight: "2rem",
             flex: "1 1 auto",
+            width: "100%",
+            maxWidth: "100%",
             textAlign: "center",
         },
     },
     imageWrapper: {
-        flex: "1 1 55%",
-        minWidth: "300px", // AJOUTÉ
+        flex: "0 0 55%", // CHANGÉ : flex-shrink: 0 pour forcer la taille
+        width: "55%", // FORCÉ explicitement 
+        maxWidth: "55%", // FORCÉ pour éviter le débordement
+        minWidth: "300px",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "flex-end",
         paddingTop: "2rem",
         paddingLeft: "3rem",
         paddingRight: "2rem",
-        backgroundColor: 'rgba(0, 255, 0, 0.8)', // VERT PLUS VISIBLE
-        border: '5px solid green', // BORDURE PLUS ÉPAISSE
+        backgroundColor: 'rgba(0, 255, 0, 0.8)',
+        border: '5px solid green',
+        boxSizing: 'border-box', // AJOUTÉ pour inclure padding dans la largeur
         "@media (max-width: 1200px)": {
             paddingRight: "1.5rem",
             paddingTop: "1rem",
         },
         "@media (max-width: 768px)": {
             width: "100%",
+            maxWidth: "100%",
+            flex: "1 1 auto",
             justifyContent: "center",
             alignItems: "center",
             paddingLeft: "0",
             paddingRight: "0",
             paddingTop: "0",
-            flex: "1 1 auto",
         },
     },
     heroImage: {
