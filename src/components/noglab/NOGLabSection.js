@@ -6,26 +6,26 @@ import './NOGLabSection.css';
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
-        minHeight: 'calc(100vh - 80px)', // ALIGNÉ SUR HOME : compensation du header
+        minHeight: 'calc(100vh - 80px)',
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: 'transparent', // REMIS NORMAL
+        backgroundColor: 'transparent',
         width: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden',
         '@media (max-width: 768px)': {
-            minHeight: 'calc(100vh - 70px)', // ALIGNÉ SUR HOME mobile
+            minHeight: 'calc(100vh - 70px)',
         },
     },
     main: {
         marginTop: "auto",
         marginBottom: "auto", 
         display: "flex",
-        flexDirection: "row", // MAINTENU pour desktop
+        flexDirection: "row",
         alignItems: "center",
         gap: "4rem",
         width: "100%",
-        maxWidth: "1600px", // ALIGNÉ SUR HOME
+        maxWidth: "1600px",
         padding: "0 1rem",
         marginLeft: "auto",
         marginRight: "auto",
@@ -38,10 +38,10 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     contentWrapper: {
-        flex: "1 1 45%", // ALIGNÉ SUR HOME : permet la flexibilité
-        minWidth: "0", // ALIGNÉ SUR HOME
-        paddingLeft: "6rem",
-        paddingRight: "3rem",
+        flex: "1 1 45%",
+        minWidth: "0",
+        paddingLeft: "2rem",
+        paddingRight: "2rem",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -49,11 +49,12 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
         position: 'relative',
         "@media (max-width: 1200px)": {
-            paddingLeft: "4rem",
+            paddingLeft: "1.5rem",
+            paddingRight: "1.5rem",
         },
         "@media (max-width: 768px)": {
-            paddingLeft: "0", // ALIGNÉ SUR HOME
-            paddingRight: "0", // ALIGNÉ SUR HOME  
+            paddingLeft: "0",
+            paddingRight: "0",  
             flex: "1 1 auto",
             width: "100%",
             maxWidth: "100%",
@@ -61,12 +62,12 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     imageWrapper: {
-        flex: "1 1 55%", // ALIGNÉ SUR HOME : permet la flexibilité
+        flex: "1 1 55%",
         display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
+        alignItems: "center",
+        justifyContent: "center",
         paddingTop: "2rem",
-        paddingLeft: "3rem",
+        paddingLeft: "2rem",
         paddingRight: "2rem",
         boxSizing: 'border-box',
         overflow: 'hidden',
@@ -77,18 +78,18 @@ const useStyles = makeStyles((theme) => ({
         },
         "@media (max-width: 768px)": {
             width: "100%",
-            justifyContent: "center", // ALIGNÉ SUR HOME
-            alignItems: "center", // ALIGNÉ SUR HOME
+            justifyContent: "center",
+            alignItems: "center",
             paddingLeft: "0",
             paddingRight: "0",
             paddingTop: "0",
-            flex: "1 1 auto", // ALIGNÉ SUR HOME
+            flex: "1 1 auto",
         },
     },
     heroImage: {
         height: "auto",
         maxWidth: "100%",
-        width: "100%", // AJOUTÉ pour forcer la largeur complète
+        width: "100%",
         maxHeight: "850px",
         objectFit: "contain",
         "@media (max-width: 1200px)": {
@@ -109,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
         textAlign: 'left',
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        marginBottom: '1.5rem',
+        marginBottom: '1rem',
         display: 'block',
         position: 'relative',
         '&:hover': {
@@ -133,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
         animation: '$shine 5s linear infinite',
         textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
         textAlign: "left",
-        marginBottom: '1.5rem', // AJUSTÉ pour un meilleur espacement
+        marginBottom: '1.5rem',
         '&.disabled': {
             animation: 'none',
             color: '#fafafa',
@@ -162,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'flex-start',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
-        marginTop: '2rem',
+        marginTop: '1rem',
         "@media (max-width: 768px)": {
             alignItems: 'center',
             justifyContent: 'center',
@@ -228,7 +229,7 @@ const NOGLabSection = () => {
 
   return (
     <>
-      {/* Hero Section avec DEBUG */}
+      {/* Hero Section */}
       <section className={classes.heroSection}>
         <div className={classes.main}>
           
@@ -239,11 +240,11 @@ const NOGLabSection = () => {
             </div>
             
             <Typography variant="h2" component="h1" className={classes.shinyTitle}>
-              {t('noglab.heroTitle') || 'Make your AI Agents Insurable'}
+              Rendez vos Agents IA Assurables
             </Typography>
             
             <Typography variant="h5" component="h2" className={classes.subtitle}>
-              {t('noglab.heroSubtitle') || 'We are building a future where professionals especially in law, finance ... can deploy AI agents that are certified compliant, auditable, and insurable.'}
+              Nous construisons un avenir où les professionnels, en particulier du droit, de la finance... peuvent déployer des agents IA certifiés conformes, auditables et assurables.
             </Typography>
             
             <div className={classes.buttonContainer}>
@@ -251,7 +252,7 @@ const NOGLabSection = () => {
                 <div className="button-content">
                   <span className="arrow-left">→</span>
                   <span className="button-text">
-                    {t('noglab.cta') || 'Explore N.O.G. Lab'}
+                    noglab.cta→
                     <span className="arrow-right">→</span>
                   </span>
                 </div>
@@ -275,10 +276,10 @@ const NOGLabSection = () => {
       <div className="noglab-section">
         <div className="noglab-container">
           <Typography variant="h1" component="h1" className={classes.mainContentTitle}>
-            TITRE PRINCIPAL: {t('noglab.title') || 'TRADUCTION MANQUANTE'}
+            {t('noglab.title') || 'N.O.G. Lab'}
           </Typography>
           <p className="noglab-body-text">
-            🔍 VERSION DEBUG - Vous devriez voir des zones colorées et du texte en gras
+            {t('noglab.description') || 'Description du N.O.G. Lab'}
           </p>
         </div>
       </div>
