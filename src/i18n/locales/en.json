@@ -84,7 +84,7 @@
         "description": "We build AI agents and systems focused on the legal domain and parts of the defense industry. Some of our team members come from leading legaltech companies or industry experts who know your environment."
       },
       {
-        "title": "Solves Your Toughest Challenges", 
+        "title": "Solves Your Toughest Challenges",
         "description": "From simple tasks to complex reasoning, we connect your documents, tools, and AI with ROI in mind — and we stay aligned with your mission."
       },
       {
@@ -187,7 +187,6 @@
     "useCasesAgent": "Use Cases Agent",
     "academyProgram": "IA Academy Program"
   },
-{
   "noglab": {
     "heroPhrase": "→ EggOn Make your",
     "heroDropdownOption": "Future AI",
@@ -247,8 +246,7 @@
       "description": "If you are a law firm or compliance professional interested in becoming a design partner, click here: ",
       "link": "Be Design Partners"
     }
-  }
-}
+  },
   "contact": {
     "title": "Let's Build the Future Together",
     "subtitle": "Ready to make AI agents your competitive advantage? Get in touch with our team.",
