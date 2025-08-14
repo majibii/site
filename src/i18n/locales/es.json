@@ -11,12 +11,12 @@
     "cta": "Comenzar",
     "labLink": "EggOn Lab — Equipo especializado en agentes IA asegurables."
   },
+{
   "collection": {
-    "title": "ESTUDIOS DE CASO",
-    "subtitle": "Las empresas eligen EggOn para obtener una ventaja competitiva decisiva. Nuestros agentes son usados por líderes en legal, aeroespacial y finanzas. Mantente informado: solicita una cotización.",
-    "cta": "Solicitar cotización",
-    "core": {
-      "contractRiskAnalysis": {
+    "sectionLabel": "ESTUDIOS DE CASO",
+    "lastUpdate": "Última actualización",
+    "prompts": {
+      "contractAnalysis": {
         "title": "Agente de Análisis de Riesgos Contractuales",
         "context": "Legal / Revisión de Riesgos",
         "body": "Analiza contratos comerciales y resalta cláusulas de riesgo (ej. indemnizaciones, terminación, ley aplicable). Genera un resumen con explicaciones y recomendaciones."
@@ -26,53 +26,73 @@
         "context": "Legal / Investigación de Casos",
         "body": "Busca y resume jurisprudencia relevante a una cuestión legal específica, incluyendo enlaces y razonamiento por jurisdicción."
       },
-      "meetingMemory": {
+      "meetingPrep": {
         "title": "Agente de Resumen de Reuniones",
         "context": "Productividad / Gestión de Proyectos",
         "body": "Analiza notas o grabaciones de reuniones, extrae los puntos clave y convierte discusiones y decisiones en tareas accionables con responsables y fechas límite."
       },
-      "internalWikiBuilder": {
+      "wikiBuilder": {
         "title": "Agente Constructor de Wiki Interno",
         "context": "Gestión del Conocimiento / Documentación",
         "body": "Crea y actualiza un wiki interno escaneando documentos y conversaciones. Etiqueta y categoriza automáticamente cada entrada."
       },
-      "promptImprovementAgent": {
+      "auditTrail": {
         "title": "Agente de Optimización de Instrucciones IA",
         "context": "IA / Mejora Continua",
         "body": "Analiza instrucciones, identifica debilidades y genera versiones optimizadas para mejorar precisión, claridad y coherencia de los modelos IA."
       },
-      "contractReviewAgent": {
+      "supplierCompliance": {
         "title": "Agente de Revisión Contractual",
         "context": "Legal / Control de Calidad",
         "body": "Verifica coherencia, cumplimiento y términos clave en contratos, generando anotaciones y sugerencias de mejora."
       },
-      "quotationGenerator": {
+      "quotationAgent": {
         "title": "Agente Generador de Cotizaciones",
         "context": "Ventas / Cotizaciones B2B",
         "body": "Genera y envía cotizaciones profesionales basadas en configuraciones de producto, reglas de precio y datos del cliente."
       },
-      "competitiveIntelligenceAgent": {
+      "clientOnboarding": {
         "title": "Agente de Inteligencia Competitiva",
         "context": "Estrategia / Inteligencia de Mercado",
         "body": "Monitorea actividad de competidores, analiza estrategias de precio y ofertas innovadoras, e identifica oportunidades en nuevos mercados o tecnologías emergentes."
       },
-      "technologyIntelligenceAgent": {
+      "techIntelligence": {
         "title": "Agente de Inteligencia Tecnológica",
         "context": "I+D / Estrategia",
         "body": "Resume semanalmente noticias y tendencias de un sector tecnológico seleccionado, incluyendo fuentes, aspectos destacados y actualizaciones regulatorias."
       },
-      "billingAndPaymentAgent": {
+      "rfpDrafting": {
         "title": "Agente de Facturación y Seguimiento de Pagos",
         "context": "Finanzas / Contabilidad Legal",
         "body": "Genera facturas automáticamente, envía recordatorios, hace seguimiento de pagos y gestiona fondos en depósito. Integración con Clio, Xero o QuickBooks."
       },
-      "interactiveFinancialReportingAgent": {
+      "esgCompliance": {
         "title": "Agente de Reportes Financieros Interactivos",
         "context": "Finanzas / Gestión del Rendimiento",
         "body": "Crea un panel dinámico que muestra rentabilidad por caso, abogado o cliente, con consultas en lenguaje natural. Integración con Power BI o Tableau."
       }
+    },
+    "editorial": {
+      "title": "Nuestra Visión",
+      "paragraph1": "Transformamos la complejidad legal y técnica en soluciones claras y accionables.",
+      "paragraph2": "Nuestro equipo combina experiencia legal profunda con ingeniería de IA real para ofrecer soluciones integradas y confiables.",
+      "paragraph3": "El futuro del derecho se construye hoy, con agentes de IA que entienden tu negocio y respetan tus limitaciones."
+    },
+    "benefits": {
+      "title": "Nuestras Ventajas",
+      "item1": "Agentes de IA especializados en dominios legales y de defensa, diseñados por expertos que conocen tu entorno.",
+      "item2": "Soluciones integradas que se conectan a tus herramientas existentes y respetan tus restricciones de seguridad.",
+      "item3": "Privacidad garantizada: tus datos permanecen en tu infraestructura, nunca expuestos a terceros.",
+      "item4": "Rendimiento optimizado para tareas legales complejas, desde análisis de contratos hasta investigación de jurisprudencia.",
+      "item5": "Soporte experto y orientación personalizada durante tu transformación digital."
+    },
+    "modal": {
+      "placeholder": "Modifica esta instrucción según tus necesidades...",
+      "cancel": "Cancelar",
+      "submit": "Usar esta instrucción"
     }
-  },
+  }
+}
   "legalStack": {
     "subtitle": "POR QUÉ EGGON",
     "title": "Confía en un equipo con experiencia en tu sector",
