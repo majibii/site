@@ -11,7 +11,6 @@
     "cta": "Start building",
     "labLink": "EggOn Lab — The team dedicated to making AI agents fully insurable."
   },
-{
   "collection": {
     "sectionLabel": "CASE STUDIES",
     "lastUpdate": "Last Update",
@@ -96,8 +95,7 @@
       "cancel": "Cancel", 
       "submit": "Use this prompt"
     }
-  }
-}
+  },
   "legalStack": {
     "subtitle": "WHY EGGON",
     "title": "Trust a team with expertise in your field",
