@@ -1,15 +1,15 @@
 {
   "navigation": {
     "home": "Inicio",
-    "lab": "Lab",
+    "lab": "Laboratorio",
     "learn": "Aprender",
     "contact": "Contacto"
   },
   "hero": {
-    "title": "Convierte a los agentes IA en tu ventaja competitiva",
-    "subtitle": "Conecta la IA de forma segura con el conocimiento de tu empresa mediante agentes que planifican, actúan y empoderan a cada equipo con confianza.",
-    "cta": "Comenzar",
-    "labLink": "EggOn Lab — Equipo especializado en agentes IA asegurables."
+    "title": "Convierte a los agentes de IA en tu ventaja competitiva",
+    "subtitle": "Conecta la IA de forma segura con el conocimiento corporativo mediante agentes que planifican, actúan y potencian cada equipo con soluciones confiables.",
+    "cta": "Comenzar ahora",
+    "labLink": "EggOn Lab - Equipo especializado en hacer agentes de IA totalmente asegurables"
   },
   "collection": {
     "sectionLabel": "ESTUDIOS DE CASO",
@@ -18,277 +18,283 @@
       "contractAnalysis": {
         "title": "Agente de Análisis de Riesgos Contractuales",
         "context": "Legal / Revisión de Riesgos",
-        "body": "Analiza contratos comerciales y resalta cláusulas de riesgo (ej. indemnizaciones, terminación, ley aplicable). Genera un resumen con explicaciones y recomendaciones."
+        "body": "Analiza contratos comerciales identificando cláusulas de riesgo potencial (indemnizaciones, terminación, ley aplicable). Genera resúmenes ejecutivos con explicaciones claras y recomendaciones prácticas para mitigar vulnerabilidades legales."
       },
       "caseLawResearch": {
-        "title": "Agente de Investigación de Jurisprudencia",
+        "title": "Agente de Investigación Jurisprudencial",
         "context": "Legal / Investigación de Casos",
-        "body": "Busca y resume jurisprudencia relevante a una cuestión legal específica, incluyendo enlaces y razonamiento por jurisdicción."
+        "body": "Busca, analiza y sintetiza jurisprudencia relevante para cuestiones legales específicas, incluyendo referencias cruzadas, análisis comparativo por jurisdicción y fundamentos legales detallados con fuentes verificables."
       },
       "meetingPrep": {
-        "title": "Agente de Resumen de Reuniones",
+        "title": "Agente de Síntesis de Reuniones",
         "context": "Productividad / Gestión de Proyectos",
-        "body": "Analiza notas o grabaciones de reuniones, extrae los puntos clave y convierte discusiones y decisiones en tareas accionables con responsables y fechas límite."
+        "body": "Procesa transcripciones y notas de reuniones para extraer puntos clave, decisiones y acciones pendientes. Genera automáticamente tareas asignadas con responsables, plazos y seguimiento integrado en sistemas de gestión."
       },
       "wikiBuilder": {
-        "title": "Agente Constructor de Wiki Interno",
+        "title": "Agente Constructor de Wiki Corporativo",
         "context": "Gestión del Conocimiento / Documentación",
-        "body": "Crea y actualiza un wiki interno escaneando documentos y conversaciones. Etiqueta y categoriza automáticamente cada entrada."
+        "body": "Desarrolla y mantiene wikis internos mediante escaneo inteligente de documentos y comunicaciones. Clasifica automáticamente contenido mediante taxonomía personalizable y mantiene historial de versiones con control de cambios."
       },
       "auditTrail": {
-        "title": "Agente de Optimización de Instrucciones IA",
+        "title": "Agente de Optimización de Instrucciones",
         "context": "IA / Mejora Continua",
-        "body": "Analiza instrucciones, identifica debilidades y genera versiones optimizadas para mejorar precisión, claridad y coherencia de los modelos IA."
+        "body": "Evalúa instrucciones existentes identificando áreas de mejora en precisión y coherencia. Genera versiones optimizadas mediante técnicas avanzadas de ingeniería de prompts para maximizar la calidad de respuestas de modelos de IA."
       },
       "supplierCompliance": {
         "title": "Agente de Revisión Contractual",
         "context": "Legal / Control de Calidad",
-        "body": "Verifica coherencia, cumplimiento y términos clave en contratos, generando anotaciones y sugerencias de mejora."
+        "body": "Verifica consistencia normativa, cumplimiento regulatorio y términos críticos en documentos contractuales. Genera informes de auditoría con anotaciones contextuales y sugerencias de mejora específicas para cada cláusula."
       },
       "quotationAgent": {
         "title": "Agente Generador de Cotizaciones",
         "context": "Ventas / Cotizaciones B2B",
-        "body": "Genera y envía cotizaciones profesionales basadas en configuraciones de producto, reglas de precio y datos del cliente."
+        "body": "Crea propuestas comerciales profesionalizadas basadas en configuraciones de producto, matrices de precios dinámicas y perfiles de cliente. Integra firmas digitales y seguimiento automatizado del ciclo de ventas."
       },
       "clientOnboarding": {
         "title": "Agente de Inteligencia Competitiva",
         "context": "Estrategia / Inteligencia de Mercado",
-        "body": "Monitorea actividad de competidores, analiza estrategias de precio y ofertas innovadoras, e identifica oportunidades en nuevos mercados o tecnologías emergentes."
+        "body": "Monitorea en tiempo real movimientos estratégicos de competidores: nuevos nombramientos, alianzas, lanzamientos y expansiones geográficas. Analiza patrones de precios e identifica oportunidades en mercados emergentes."
       },
       "techIntelligence": {
-        "title": "Agente de Inteligencia Tecnológica",
+        "title": "Agente de Vigilancia Tecnológica",
         "context": "I+D / Estrategia",
-        "body": "Resume semanalmente noticias y tendencias de un sector tecnológico seleccionado, incluyendo fuentes, aspectos destacados y actualizaciones regulatorias."
+        "body": "Produce informes semanales de inteligencia tecnológica con análisis de tendencias, innovaciones disruptivas y actualizaciones regulatorias en sectores específicos. Incluye evaluación de impacto y recomendaciones estratégicas."
       },
       "rfpDrafting": {
-        "title": "Agente de Facturación y Seguimiento de Pagos",
+        "title": "Agente de Gestión Facturación",
         "context": "Finanzas / Contabilidad Legal",
-        "body": "Genera facturas automáticamente, envía recordatorios, hace seguimiento de pagos y gestiona fondos en depósito. Integración con Clio, Xero o QuickBooks."
+        "body": "Automatiza ciclo completo de facturación: generación desde registros temporales o tarifas fijas, recordatorios personalizados, seguimiento de pagos y reconciliación de anticipos. Integración nativa con Clio, Xero y QuickBooks."
       },
       "esgCompliance": {
         "title": "Agente de Reportes Financieros Interactivos",
         "context": "Finanzas / Gestión del Rendimiento",
-        "body": "Crea un panel dinámico que muestra rentabilidad por caso, abogado o cliente, con consultas en lenguaje natural. Integración con Power BI o Tableau."
+        "body": "Despliega dashboards dinámicos con análisis de rentabilidad por caso, profesional o cliente. Permite consultas en lenguaje natural (ej: 'Muestra margen en casos litigiosos desde enero') con integración PowerBI/Tableau."
+      },
+      "dataPrivacyAudit": {
+        "title": "Agente de Auditoría de Privacidad",
+        "context": "Cumplimiento / Protección de Datos",
+        "body": "Audita el cumplimiento RGPD/CCPA mediante mapeo de flujos de datos personales. Identifica vulnerabilidades y recomienda medidas correctivas con informes ejecutivos listos para autoridades reguladoras."
       }
     },
     "editorial": {
-      "title": "Nuestra Visión",
-      "paragraph1": "Transformamos la complejidad legal y técnica en soluciones claras y accionables.",
-      "paragraph2": "Nuestro equipo combina experiencia legal profunda con ingeniería de IA real para ofrecer soluciones integradas y confiables.",
-      "paragraph3": "El futuro del derecho se construye hoy, con agentes de IA que entienden tu negocio y respetan tus limitaciones."
+      "title": "Nuestra Visión Transformadora",
+      "paragraph1": "Convertimos la complejidad jurídica y técnica en soluciones claras y ejecutables que generan valor tangible.",
+      "paragraph2": "Combinamos experiencia legal profunda con ingeniería de IA avanzada para ofrecer soluciones integradas que superan expectativas operativas.",
+      "paragraph3": "El futuro del sector legal se construye hoy mediante agentes de IA que comprenden las particularidades de tu negocio y respetan tus requerimientos críticos."
     },
     "benefits": {
-      "title": "Nuestras Ventajas",
-      "item1": "Agentes de IA especializados en dominios legales y de defensa, diseñados por expertos que conocen tu entorno.",
-      "item2": "Soluciones integradas que se conectan a tus herramientas existentes y respetan tus restricciones de seguridad.",
-      "item3": "Privacidad garantizada: tus datos permanecen en tu infraestructura, nunca expuestos a terceros.",
-      "item4": "Rendimiento optimizado para tareas legales complejas, desde análisis de contratos hasta investigación de jurisprudencia.",
-      "item5": "Soporte experto y orientación personalizada durante tu transformación digital."
+      "title": "Ventajas Competitivas",
+      "item1": "Agentes especializados en dominios legales y de defensa, diseñados por expertos con experiencia sectorial práctica.",
+      "item2": "Soluciones integradas que interoperan con tu ecosistema tecnológico actual garantizando máximos estándares de seguridad.",
+      "item3": "Privacidad certificada: tus datos permanecen en tu infraestructura bajo tu control absoluto, sin exposición a terceros.",
+      "item4": "Alto rendimiento en tareas jurídicas complejas: desde minería contractual hasta investigación jurisprudencial avanzada.",
+      "item5": "Soporte experto continuo y acompañamiento personalizado durante tu transformación digital estratégica."
     },
     "modal": {
-      "placeholder": "Modifica esta instrucción según tus necesidades...",
+      "placeholder": "Personaliza esta instrucción según tus necesidades específicas...",
       "cancel": "Cancelar",
-      "submit": "Usar esta instrucción"
+      "submit": "Utilizar esta instrucción"
     }
   },
   "legalStack": {
-    "subtitle": "POR QUÉ EGGON",
-    "title": "Confía en un equipo con experiencia en tu sector",
-    "description": "EggOn combina experiencia legal y ingeniería IA para ofrecer soluciones integradas y confiables adaptadas a tus desafíos.",
-    "stackTitle": "LA PILA DE AGENTES LEGALES",
+    "subtitle": "POR QUÉ ELEGIR EGGON",
+    "title": "Confía en expertos con conocimiento profundo de tu sector",
+    "description": "EggOn fusiona experiencia legal práctica con ingeniería de IA de vanguardia para ofrecer soluciones confiables que resuelven tus desafíos operativos críticos.",
+    "stackTitle": "PLATAFORMA DE AGENTES LEGALES",
     "benefits": [
       {
-        "title": "Conectado con tu sector",
-        "description": "Construimos agentes IA centrados en legal y defensa. Nuestro equipo incluye expertos de legaltech y profesionales con experiencia directa en tu industria."
+        "title": "Conectados a Tu Realidad Operativa",
+        "description": "Desarrollamos agentes especializados para el sector legal y de defensa. Nuestro equipo incluye veteranos de legaltech líderes y expertos con experiencia práctica en tu entorno regulatorio específico."
       },
       {
-        "title": "Resuelve desafíos complejos",
-        "description": "Desde tareas simples hasta razonamiento avanzado, conectamos tus documentos y herramientas de IA con el ROI en mente, alineados con tu misión."
+        "title": "Solución a Desafíos Complejos",
+        "description": "Desde automatización básica hasta razonamiento jurídico avanzado, integramos tus documentos, herramientas y datos con enfoque en ROI tangible y alineación estratégica con tus objetivos corporativos."
       },
       {
-        "title": "De la complejidad a la claridad",
-        "description": "Transformamos la complejidad legal y técnica en resultados claros y accionables, con un equipo experimentado que acompaña cada proyecto."
+        "title": "De Complejidad a Claridad Ejecutable",
+        "description": "Transformamos intrincados desafíos legales y técnicos en resultados accionables mediante metodologías probadas y equipos experimentados que gestionan proyectos de extremo a extremo."
       },
       {
-        "title": "Ingeniería IA real",
-        "description": "Construimos, desarrollamos y desplegamos sistemas IA reales, desde agentes simples hasta sistemas avanzados con chat, API privada y base de datos vectorial personalizada."
+        "title": "Ingeniería de IA con Resultados Reales",
+        "description": "Construimos sistemas de IA robustos: desde agentes simples en Copilot Studio hasta sistemas personalizados con interfaces conversacionales, APIs privadas y bases de datos vectoriales dedicadas."
       }
     ],
     "stackComponents": [
       {
         "badge": "RAG",
-        "title": "Conecta tus bases de datos internas a un modelo de lenguaje grande (RAG)",
-        "description": "Integramos archivos de casos, contratos y bases de datos legales a modelos IA, manteniendo la confidencialidad y obteniendo respuestas precisas al instante."
+        "title": "Conexión de Bases de Datos con Modelos de Lenguaje",
+        "description": "Integramos expedientes, contratos y repositorios legales directamente con modelos de IA. Datos confidenciales protegidos mientras accedes a respuestas precisas desde tu conocimiento corporativo completo."
       },
       {
-        "badge": "Agentes IA",
-        "title": "Construye tus agentes IA",
-        "description": "Desarrollamos agentes IA — en Azure Studio o tu entorno — que gestionan flujos legales específicos sin que los datos sensibles salgan de tu infraestructura."
+        "badge": "AGENTES IA",
+        "title": "Desarrollo de Agentes Inteligentes",
+        "description": "Creamos agentes especializados (en Azure Studio o tu entorno) que gestionan flujos legales específicos. Procesamiento de documentos sensibles con modelos que nunca abandonan tu infraestructura."
       },
       {
-        "badge": "Multi-Agentes IA",
-        "title": "Sistemas multi-agente",
-        "description": "Automatiza procesos complejos con múltiples agentes trabajando juntos: revisión de documentos, redacción e investigación legal."
+        "badge": "SISTEMAS MULTI-AGENTE",
+        "title": "Orquestación de Agentes Colaborativos",
+        "description": "Automatiza procesos legales complejos mediante múltiples agentes coordinados. Delega tareas secuenciales desde revisión documental hasta redacción legal e investigación jurisprudencial."
       },
       {
-        "badge": "IA Privada",
-        "title": "Chatbot y conectividad API",
-        "description": "Haz preguntas en lenguaje natural y recibe respuestas instantáneas de todos tus archivos. Analiza contratos y documentos legales, totalmente integrado con tus bases de datos."
+        "badge": "IA PRIVADA",
+        "title": "Interfaz Conversacional & Conectividad API",
+        "description": "Consulta en lenguaje natural y obtén respuestas instantáneas desde todos tus repositorios. Análisis automático de contratos, procesamiento de documentos legales e investigación asistida, totalmente integrado con tus sistemas."
       }
     ]
   },
   "learn": {
-    "title": "EggOn Lab en acción",
-    "intro1": "EggOn Lab se centra en gobernanza y trazabilidad de agentes IA mediante un orquestador de última generación.",
-    "intro2": "Construimos un futuro donde profesionales en derecho, finanzas y salud puedan desplegar agentes IA certificados, auditables y asegurables.",
-    "intro3": "Somos ingenieros con experiencia en empresas tecnológicas seguras y líderes en sistemas de trazabilidad y control de calidad.",
+    "title": "EggOn Lab en Acción",
+    "intro1": "EggOn Lab se dedica a la gobernanza y trazabilidad de agentes de IA mediante un orquestador de última generación.",
+    "intro2": "Construimos un futuro donde profesionales de sectores regulados (legal, financiero, sanitario) pueden implementar agentes certificados, auditables y asegurables.",
+    "intro3": "Somos ingenieros con experiencia en empresas tecnológicas de alta seguridad como iManage, y líderes como expertos en Sistemas de Trazabilidad y Calidad.",
     "legitimacy": {
-      "title": "La legitimidad va más allá de dar la respuesta correcta",
-      "paragraph1": "La IA avanza a un ritmo sin precedentes, pero persiste un problema crítico: la opacidad.",
-      "paragraph2": "Esto es especialmente preocupante en sectores únicos como justicia y salud, bases de una sociedad libre y justa.",
-      "paragraph3": "Cada día, tribunales toman decisiones que impactan vidas. Se requiere empatía, experiencia, contexto y un proceso legítimo.",
-      "paragraph4": "Ninguna familia debería dudar si perdió la custodia por un algoritmo mal calibrado. Ningún paciente debe cuestionar si su tratamiento fue evaluado por humanos.",
-      "paragraph5": "El problema real es la duda, que erosiona confianza y legitimidad."
+      "title": "Legitimidad en IA: Más que Respuestas Correctas",
+      "paragraph1": "Las capacidades de IA avanzan a velocidad sin precedentes, pero persiste un problema fundamental: la opacidad algorítmica.",
+      "paragraph2": "Esta opacidad resulta especialmente crítica cuando la IA se implementa en sectores únicos como justicia y salud, pilares de sociedades libres y justas.",
+      "paragraph3": "Diariamente, tribunales toman decisiones que alteran vidas humanas. Estas decisiones requieren empatía, experiencia contextual y procesos percibidos como legítimos.",
+      "paragraph4": "Ninguna familia debería cuestionar si perdió custodia por algoritmos mal calibrados. Ningún paciente debería dudar si su tratamiento fue decidido tras evaluación humana genuina.",
+      "paragraph5": "El verdadero problema no es la precisión técnica, sino la duda sistémica que erosiona la confianza y socava la legitimidad institucional."
     },
     "aiForEveryone": {
-      "title": "IA accesible y transparente",
-      "paragraph1": "El conocimiento sobre cómo los agentes IA toman decisiones no debe concentrarse en pocos laboratorios.",
-      "paragraph2": "La falta de transparencia ralentiza la adopción en profesiones críticas y dificulta asegurar los procesos impulsados por IA.",
-      "paragraph3": "Para cerrar esta brecha creamos N.O.G, una plataforma para entender, auditar y certificar agentes IA."
+      "title": "IA Transparente para Todos",
+      "paragraph1": "El conocimiento sobre el funcionamiento de los agentes de IA no puede permanecer concentrado en laboratorios exclusivos.",
+      "paragraph2": "La falta de transparencia frena la adopción en profesiones de alta responsabilidad, mientras que la ausencia de explicabilidad imposibilita el aseguramiento de procesos basados en IA.",
+      "paragraph3": "Para cerrar esta brecha, creamos N.O.G (Nested Orchestration & Governance) - una plataforma para comprender, auditar y certificar agentes de IA."
     },
     "principles": {
-      "title": "Principios de legitimidad sólida",
+      "title": "Pilares de Legitimidad Sólida",
       "explicability": {
-        "title": "Explicabilidad",
-        "description": "Cada acción de un agente IA debe ser comprensible. Los usuarios pueden rastrear y verificar el razonamiento completo."
+        "title": "Explicabilidad Total",
+        "description": "Cada tarea ejecutada por un agente de IA debe ser comprensible y verificable. Los usuarios deben poder rastrear la cadena de razonamiento completa."
       },
       "accessibility": {
-        "title": "Accesibilidad",
-        "description": "Los resultados y evidencias deben estar disponibles para todos los impactados."
+        "title": "Acceso Universal",
+        "description": "La explicabilidad solo tiene valor cuando se comparte. Resultados y evidencias deben ser accesibles para todos los afectados por decisiones automatizadas."
       },
       "recall": {
-        "title": "Revocación",
-        "description": "Detectado un error o sesgo, el sistema permite revocación inmediata. La IA gobernada nunca es irreversible."
+        "title": "Revocación Inmediata",
+        "description": "Ante detección de sesgos, errores o manipulaciones, el sistema debe permitir revocación inmediata - similar a retiradas de productos en industrias críticas. La IA gobernada nunca debe ser irreversible."
       },
       "speed": {
-        "title": "Velocidad",
-        "description": "La IA explicable combina cumplimiento y rapidez, acelerando adopción y confianza."
+        "title": "Velocidad Operativa",
+        "description": "El cumplimiento no debe ralentizar la innovación. La IA explicable debe ser tan rápida como potente, acelerando adopción mientras construye confianza."
       }
     },
     "growth": {
-      "title": "Crecimiento iterativo",
-      "paragraph1": "El co-diseño de ingeniería y producto permite mejoras constantes basadas en retroalimentación real.",
-      "paragraph2": "El enfoque iterativo asegura IA explicable y confiable.",
-      "paragraph3": "Contribuimos a la legitimidad manteniendo seguridad, compartiendo buenas prácticas y promoviendo nuevas certificaciones.",
-      "paragraph4": "Red-teaming y monitoreo post-despliegue ofrecen aprendizajes para futuros sistemas."
+      "title": "Crecimiento Iterativo",
+      "paragraph1": "El co-diseño de ingeniería y producto permite mejoras continuas mediante implementaciones reales, mientras el feedback de socios perfecciona nuestras soluciones. Los productos nos mantienen anclados en la realidad y guían la resolución de problemas críticos.",
+      "paragraph2": "Nuestro enfoque empírico para IA explicable combina desarrollo proactivo con pruebas rigurosas en entornos reales junto a profesionales experimentados.",
+      "paragraph3": "Contribuimos a la legitimidad de la IA mediante: (1) estándares de seguridad elevados, (2) compartición de mejores prácticas para sistemas seguros, y (3) aceleración de nuevas certificaciones mediante estándares de referencia abiertos.",
+      "paragraph4": "Las técnicas desarrolladas para sistemas actuales -como red-teaming efectivo y monitoreo post-implementación- proporcionan aprendizajes valiosos para futuros sistemas explicables."
     },
     "measure": {
-      "title": "Medir lo relevante",
-      "description": "Nos centramos en cómo la IA genera valor real, más que solo optimizar métricas."
+      "title": "Medición de Impacto Real",
+      "description": "Nos enfocamos en comprender cómo nuestros sistemas generan valor tangible en el mundo real. Los avances cruciales frecuentemente surgen de redefinir objetivos, no solo de optimizar métricas existentes."
     },
     "partners": {
-      "title": "Ser socio de diseño",
-      "description": "Bufetes o profesionales interesados pueden hacer clic aquí:",
-      "link": "Ser socio de diseño"
+      "title": "Conviértete en Socio Estratégico",
+      "description": "Si perteneces a un bufete jurídico o equipo de cumplimiento interesado en co-diseñar el futuro de la IA regulada: ",
+      "link": "Solicitar Información"
     }
   },
   "nog": {
-    "intro": "Actualmente, los clientes solicitan al equipo EggOn que:",
+    "intro": "Actualmente, nuestros clientes solicitan al equipo EggOn:",
     "actions": [
-      "Construya agentes IA",
-      "Optimice prompts",
-      "Asesore sobre seguridad IA",
-      "Conecte IA con datos",
-      "Implemente formación IA"
+      "Desarrollo de agentes IA personalizados",
+      "Ingeniería avanzada de prompts",
+      "Auditorías de seguridad en IA",
+      "Integración de IA con sistemas legacy",
+      "Programas de capacitación especializada"
     ],
-    "getExamples": "Ver ejemplos",
-    "useCasesAgent": "Agente de casos de uso",
+    "getExamples": "Ver Casos de Éxito",
+    "useCasesAgent": "Agente de Casos de Uso",
     "academyProgram": "Programa Academia IA"
   },
   "noglab": {
-    "heroPhrase": "→ EggOn Haz que tus",
-    "heroDropdownOption": "IA Futura",
-    "heroTitle": "Agentes IA Asegurables",
-    "heroSubtitle": "Creamos un futuro donde profesionales en derecho, finanzas y salud puedan desplegar agentes IA certificados, auditables y asegurables.",
-    "heroCta": "Ser socio de diseño",
-    "title": "Agentes IA Asegurables",
-    "intro1": "EggOn Lab se dedica a gobernanza y trazabilidad de agentes IA mediante un orquestador de última generación.",
-    "intro2": "Nuestra meta: que profesionales desplieguen agentes IA confiables, conformes y auditables.",
-    "intro3": "Somos ingenieros con experiencia en empresas tecnológicas seguras y líderes en trazabilidad y control de calidad.",
+    "heroPhrase": "→ EggOn Haz tus",
+    "heroDropdownOption": "Agentes del Futuro",
+    "heroTitle": "Haz tus Agentes de IA Asegurables",
+    "heroSubtitle": "Construimos un futuro donde profesionales de sectores regulados pueden implementar agentes de IA certificados, auditables y financieramente protegidos.",
+    "heroCta": "Unirse al Programa",
+    "title": "Certificación de Agentes de IA",
+    "intro1": "EggOn Lab lidera la gobernanza algorítmica mediante tecnologías de orquestación de próxima generación.",
+    "intro2": "Nuestra misión: permitir implementación masiva de IA confiable en sectores donde el error tiene consecuencias críticas.",
+    "intro3": "Contamos con ingenieros que han desarrollado sistemas para empresas con estándares de seguridad extremos y reguladores sectoriales.",
     "legitimacy": {
-      "title": "Legitimidad más allá de la precisión",
-      "paragraph1": "La IA avanza rápido, pero sigue la opacidad.",
-      "paragraph2": "Esto es crítico en justicia y salud, pilares de una sociedad libre y justa.",
-      "paragraph3": "Decisiones judiciales afectan vidas; requieren contexto, experiencia y procesos legítimos.",
-      "paragraph4": "Familias y pacientes no deben dudar de evaluaciones humanas genuinas.",
-      "paragraph5": "El problema es la duda, que erosiona confianza y legitimidad."
+      "title": "La Legitimidad como Fundamento Ético",
+      "paragraph1": "La velocidad de avance de la IA contrasta con su falta de transparencia operativa, generando riesgos sistémicos.",
+      "paragraph2": "Esta opacidad resulta inaceptable en justicia y salud, donde las decisiones afectan derechos fundamentales y vidas humanas.",
+      "paragraph3": "Cada fallo judicial y diagnóstico médico requiere no solo precisión técnica sino procesos percibidos como legítimos por ciudadanos.",
+      "paragraph4": "La sociedad merece sistemas donde ningún resultado crucial dependa de cajas negras algorítmicas inescrutables.",
+      "paragraph5": "El desafío central es eliminar la duda razonable sobre el funcionamiento de sistemas automatizados en ámbitos sensibles."
     },
     "aiForEveryone": {
-      "title": "IA transparente y accesible",
-      "paragraph1": "El conocimiento sobre cómo actúan los agentes IA no debe concentrarse en pocos laboratorios.",
-      "paragraph2": "La falta de transparencia limita adopción en profesiones críticas y dificulta la asegurabilidad.",
-      "paragraph3": "N.O.G permite entender, auditar y certificar agentes IA."
+      "title": "Democratización de la IA Confiable",
+      "paragraph1": "El conocimiento sobre el funcionamiento interno de los agentes de IA debe ser accesible, no propiedad exclusiva de laboratorios.",
+      "paragraph2": "La opacidad frena innovación en sectores críticos e imposibilita modelos de seguros para aplicaciones de IA de alto riesgo.",
+      "paragraph3": "N.O.G (Orquestación Anidada y Gobernanza) proporciona el marco tecnológico para certificar, auditar y explicar agentes autónomos."
     },
     "principles": {
-      "title": "Principios clave",
+      "title": "Principios Fundamentales",
       "explicability": {
-        "title": "Explicabilidad",
-        "description": "Cada tarea de un agente IA debe ser rastreable y verificable."
+        "title": "Transparencia Radical",
+        "description": "Cada decisión algorítmica debe acompañarse de su cadena de razonamiento completa y evidencias verificables."
       },
       "accessibility": {
-        "title": "Accesibilidad",
-        "description": "Los resultados y evidencias deben estar disponibles para todos los afectados."
+        "title": "Acceso Equitativo",
+        "description": "Las explicaciones técnicas deben traducirse en formatos comprensibles para todos los stakeholders afectados."
       },
       "recall": {
-        "title": "Revocación",
-        "description": "Detectado un error o sesgo, el sistema permite revocación inmediata. La IA gobernada no es irreversible."
+        "title": "Reversibilidad Garantizada",
+        "description": "Mecanismos de contingencia deben permitir desactivación inmediata y reversión de decisiones cuando se detecten anomalías."
       },
       "speed": {
-        "title": "Velocidad",
-        "description": "La IA explicable combina cumplimiento y rapidez, acelerando adopción y confianza."
+        "title": "Eficiencia Operacional",
+        "description": "Los requisitos de transparencia no deben comprometer el rendimiento. La IA confiable debe ser competitiva en velocidad y costo."
       }
     },
     "growth": {
-      "title": "Crecimiento constante",
-      "paragraph1": "El co-diseño de producto e ingeniería permite mejoras continuas basadas en retroalimentación real.",
-      "paragraph2": "El enfoque iterativo asegura IA explicable y confiable.",
-      "paragraph3": "Contribuimos a la legitimidad manteniendo seguridad, compartiendo buenas prácticas y promoviendo nuevas certificaciones.",
-      "paragraph4": "Red-teaming y monitoreo post-despliegue ofrecen aprendizajes para futuros sistemas."
+      "title": "Camino a la Certificación Global",
+      "paragraph1": "Adoptamos metodologías ágiles donde implementaciones piloto con socios estratégicos retroalimentan nuestro desarrollo continuo.",
+      "paragraph2": "Nuestro enfoque iterativo prioriza aprendizaje empírico mediante pruebas rigurosas en entornos operativos reales.",
+      "paragraph3": "Contribuimos al ecosistema mediante: (1) hardening de seguridad, (2) marcos de gobernanza abiertos, y (3) estándares de certificación pioneros.",
+      "paragraph4": "Técnicas como red-teaming adversarial y monitoreo de deriva algorítmica generan aprendizajes para futuros sistemas autónomos."
     },
     "measure": {
-      "title": "Medir lo relevante",
-      "description": "Nos enfocamos en cómo la IA genera valor real, más que solo optimizar métricas."
+      "title": "Métrica Centrada en el Impacto",
+      "description": "Medimos éxito por nuestra capacidad para generar confianza verificable en sistemas autónomos, no solo por indicadores técnicos aislados."
     },
     "partners": {
-      "title": "Ser socio de diseño",
-      "description": "Bufetes o profesionales interesados pueden hacer clic aquí:",
-      "link": "Ser socio de diseño"
+      "title": "Programa de Socios Fundadores",
+      "description": "Organizaciones pioneras en implementar IA certificada pueden acceder a beneficios exclusivos: ",
+      "link": "Descargar Dossier"
     }
   },
   "contact": {
-    "title": "Construyamos el futuro juntos",
-    "subtitle": "¿Listo para hacer de los agentes IA tu ventaja competitiva? Ponte en contacto con nuestro equipo.",
+    "title": "Construyamos el Futuro Juntos",
+    "subtitle": "¿Listo para transformar tu organización con agentes de IA estratégicos? Nuestro equipo de expertos espera tu consulta.",
     "form": {
-      "name": "Nombre",
-      "email": "Email",
-      "company": "Empresa",
-      "subject": "Asunto",
-      "message": "Mensaje",
-      "submit": "Enviar mensaje",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "company": "Organización",
+      "subject": "Asunto de consulta",
+      "message": "Detalla tus desafíos y objetivos",
+      "submit": "Enviar consulta",
       "sending": "Enviando...",
-      "success": "¡Mensaje enviado! Te responderemos pronto.",
-      "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo."
+      "success": "¡Consulta enviada! Te contactaremos en menos de 24h.",
+      "error": "Error en el envío. Por favor reintenta o contáctanos directamente."
     }
   },
   "footer": {
-    "copyright": "© EggOn Technology 2025",
-    "whyEggon": "Por qué EggOn",
+    "copyright": "© EggOn Technology 2025 - Todos los derechos reservados",
+    "whyEggon": "Nuestro Valor",
     "legal": "Legal",
-    "aboutUs": "Acerca de nosotros",
-    "futureAI": "IA del futuro",
-    "termsOfUse": "Términos de uso",
-    "privacyPolicy": "Política de privacidad",
-    "cookieChoices": "Opciones de cookies",
-    "dataProcessing": "Procesamiento de datos"
+    "aboutUs": "Quiénes Somos",
+    "futureAI": "IA Regulada",
+    "termsOfUse": "Términos de Servicio",
+    "privacyPolicy": "Política de Privacidad",
+    "cookieChoices": "Gestión de Cookies",
+    "dataProcessing": "Tratamiento de Datos",
+    "legalNotice": "Aviso Legal"
   }
 }
