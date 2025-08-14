@@ -40,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
     contentWrapper: {
         flex: "1 1 45%",
         minWidth: "0",
-        paddingLeft: "2rem",
-        paddingRight: "2rem",
+        paddingLeft: "6rem",
+        paddingRight: "3rem",
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -49,8 +49,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
         position: 'relative',
         "@media (max-width: 1200px)": {
-            paddingLeft: "1.5rem",
-            paddingRight: "1.5rem",
+            paddingLeft: "4rem",
         },
         "@media (max-width: 768px)": {
             paddingLeft: "0",
@@ -64,10 +63,10 @@ const useStyles = makeStyles((theme) => ({
     imageWrapper: {
         flex: "1 1 55%",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: "flex-start",
+        justifyContent: "flex-end",
         paddingTop: "2rem",
-        paddingLeft: "2rem",
+        paddingLeft: "3rem",
         paddingRight: "2rem",
         boxSizing: 'border-box',
         overflow: 'hidden',
@@ -89,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     heroImage: {
         height: "auto",
         maxWidth: "100%",
-        width: "100%",
+        width: "auto",
         maxHeight: "850px",
         objectFit: "contain",
         "@media (max-width: 1200px)": {
@@ -110,7 +109,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
         textAlign: 'left',
         fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        marginBottom: '1rem',
+        marginBottom: '1.5rem',
         display: 'block',
         position: 'relative',
         '&:hover': {
@@ -156,18 +155,6 @@ const useStyles = makeStyles((theme) => ({
             textAlign: "center",
         },
     },
-    secondaryTitle: {
-        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '600',
-        fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
-        lineHeight: '1.2',
-        color: '#ffffff',
-        marginBottom: '1.5rem',
-        textAlign: "left",
-        "@media (max-width: 768px)": {
-            textAlign: "center",
-        },
-    },
     buttonContainer: {
         display: 'flex',
         flexDirection: 'column',
@@ -175,7 +162,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'flex-start',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
-        marginTop: '1rem',
+        marginTop: '2rem',
         "@media (max-width: 768px)": {
             alignItems: 'center',
             justifyContent: 'center',
@@ -201,16 +188,86 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         minWidth: '180px',
         height: '40px',
+        
+        // Conteneur pour le contenu du bouton
+        '& .button-content': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            height: '100%',
+            position: 'relative',
+            zIndex: 2,
+        },
+        
+        // Texte du bouton
+        '& .button-text': {
+            position: 'relative',
+            transition: 'all 0.4s ease-out',
+            transform: 'translateX(0)',
+            display: 'flex',
+            alignItems: 'center',
+        },
+        
+        // Flèche par défaut (à droite)
+        '& .arrow-right': {
+            marginLeft: '8px',
+            transition: 'all 0.4s ease-out',
+            opacity: 1,
+            transform: 'translateX(0)',
+            flexShrink: 0,
+            display: 'flex',
+            alignItems: 'center',
+        },
+        
+        // Flèche pour le hover (cachée à gauche du texte)
+        '& .arrow-left': {
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            transition: 'all 0.4s ease-out',
+            opacity: 0,
+            flexShrink: 0,
+            display: 'flex',
+            alignItems: 'center',
+        },
+        
         '&:hover': {
             background: '#fce96b',
             color: '#2f2f2e',
+            
+            // Le texte se repositionne plus à droite pour centrer l'ensemble
+            '& .button-text': {
+                transform: 'translateX(22px)',
+            },
+            
+            // La flèche de droite disparaît
+            '& .arrow-right': {
+                opacity: 0,
+                transform: 'translateX(8px)',
+            },
+            
+            // La flèche de gauche apparaît avec position ajustée pour le centrage
+            '& .arrow-left': {
+                opacity: 1,
+                transform: 'translate(-67px, -50%)',
+            },
         },
+        
         '&:active': {
             transform: 'translateY(-1px)',
         },
+        
         "@media (max-width: 768px)": {
             minWidth: '160px',
             fontSize: '0.8rem',
+            
+            '&:hover': {
+                '& .button-text': {
+                    transform: 'translateX(22px)',
+                },
+            },
         },
     },
     '@keyframes shine': {
@@ -247,16 +304,16 @@ const NOGLabSection = () => {
           
           {/* ZONE DE CONTENU (GAUCHE) */}
           <div className={classes.contentWrapper}>
-            <Typography variant="h2" component="h1" className={classes.shinyTitle}>
-              → EggOn Make your Future AI
-            </Typography>
+            <div className={classes.interactivePhrase}>
+              {t('noglab.heroPhrase')} {t('noglab.heroDropdownOption')}
+            </div>
 
             <Typography variant="h2" component="h1" className={classes.shinyTitle}>
-              Rendez vos Agents IA Assurables
+              {t('noglab.heroTitle')}
             </Typography>
             
             <Typography variant="h5" component="h2" className={classes.subtitle}>
-              Nous construisons un avenir où les professionnels, en particulier du droit, de la finance... peuvent déployer des agents IA certifiés conformes, auditables et assurables.
+              {t('noglab.heroSubtitle')}
             </Typography>
             
             <div className={classes.buttonContainer}>
@@ -264,7 +321,7 @@ const NOGLabSection = () => {
                 <div className="button-content">
                   <span className="arrow-left">→</span>
                   <span className="button-text">
-                    noglab.cta→
+                    {t('noglab.heroCta')}
                     <span className="arrow-right">→</span>
                   </span>
                 </div>
@@ -284,15 +341,132 @@ const NOGLabSection = () => {
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* Content Section - Garde le contenu existant du Lab */}
       <div className="noglab-section">
         <div className="noglab-container">
           <Typography variant="h1" component="h1" className={classes.mainContentTitle}>
-            {t('noglab.title') || 'N.O.G. Lab'}
+            {t('noglab.title')}
           </Typography>
+          
           <p className="noglab-body-text">
-            {t('noglab.description') || 'Description du N.O.G. Lab'}
+            {t('noglab.intro1')}
           </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.intro2')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.intro3')}
+          </p>
+
+          {/* Section Legitimacy */}
+          <div className="noglab-section-subtitle">
+            <span className="noglab-section-subtitle-text">{t('noglab.legitimacy.title')}</span>
+          </div>
+          
+          <p className="noglab-body-text">
+            {t('noglab.legitimacy.paragraph1')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.legitimacy.paragraph2')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.legitimacy.paragraph3')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.legitimacy.paragraph4')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.legitimacy.paragraph5')}
+          </p>
+
+          {/* Section AI for Everyone */}
+          <div className="noglab-section-subtitle">
+            <span className="noglab-section-subtitle-text">{t('noglab.aiForEveryone.title')}</span>
+          </div>
+          
+          <p className="noglab-body-text">
+            {t('noglab.aiForEveryone.paragraph1')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.aiForEveryone.paragraph2')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.aiForEveryone.paragraph3')}
+          </p>
+
+          {/* Section Principles */}
+          <div className="noglab-section-subtitle">
+            <span className="noglab-section-subtitle-text">{t('noglab.principles.title')}</span>
+          </div>
+          
+          <div className="noglab-principle-title">{t('noglab.principles.explicability.title')}</div>
+          <p className="noglab-body-text">
+            {t('noglab.principles.explicability.description')}
+          </p>
+          
+          <div className="noglab-principle-title">{t('noglab.principles.accessibility.title')}</div>
+          <p className="noglab-body-text">
+            {t('noglab.principles.accessibility.description')}
+          </p>
+          
+          <div className="noglab-principle-title">{t('noglab.principles.recall.title')}</div>
+          <p className="noglab-body-text">
+            {t('noglab.principles.recall.description')}
+          </p>
+          
+          <div className="noglab-principle-title">{t('noglab.principles.speed.title')}</div>
+          <p className="noglab-body-text">
+            {t('noglab.principles.speed.description')}
+          </p>
+
+          {/* Section Growth */}
+          <div className="noglab-section-subtitle">
+            <span className="noglab-section-subtitle-text">{t('noglab.growth.title')}</span>
+          </div>
+          
+          <p className="noglab-body-text">
+            {t('noglab.growth.paragraph1')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.growth.paragraph2')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.growth.paragraph3')}
+          </p>
+          
+          <p className="noglab-body-text">
+            {t('noglab.growth.paragraph4')}
+          </p>
+
+          {/* Section Measure */}
+          <div className="noglab-section-subtitle">
+            <span className="noglab-section-subtitle-text">{t('noglab.measure.title')}</span>
+          </div>
+          
+          <p className="noglab-body-text">
+            {t('noglab.measure.description')}
+          </p>
+
+          {/* Section Partners */}
+          <div className="noglab-section-subtitle">
+            <span className="noglab-section-subtitle-text">{t('noglab.partners.title')}</span>
+          </div>
+          
+          <p className="noglab-body-text">
+            {t('noglab.partners.description')}
+            <span className="noglab-design-partner-link">{t('noglab.partners.link')}</span>
+          </p>
+
         </div>
       </div>
     </>
