@@ -62,13 +62,13 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxWidth: "100%",
         width: "auto",
-        maxHeight: "850px",
+        maxHeight: "950px", // Augmenté de 850px à 950px
         objectFit: "contain",
         "@media (max-width: 1200px)": {
-            maxHeight: "750px",
+            maxHeight: "850px", // Augmenté de 750px à 850px
         },
         "@media (max-width: 768px)": {
-            maxHeight: "500px",
+            maxHeight: "600px", // Augmenté de 500px à 600px
         },
     },
     interactivePhrase: {
