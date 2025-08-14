@@ -11,7 +11,6 @@
     "cta": "Comenzar",
     "labLink": "EggOn Lab — Equipo especializado en agentes IA asegurables."
   },
-{
   "collection": {
     "sectionLabel": "ESTUDIOS DE CASO",
     "lastUpdate": "Última actualización",
@@ -91,8 +90,7 @@
       "cancel": "Cancelar",
       "submit": "Usar esta instrucción"
     }
-  }
-}
+  },
   "legalStack": {
     "subtitle": "POR QUÉ EGGON",
     "title": "Confía en un equipo con experiencia en tu sector",
