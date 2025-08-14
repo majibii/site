@@ -11,6 +11,51 @@
   transition: all 0.3s ease;
 }
 
+/* Banner section sous le footer */
+.footer-banner {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  position: relative;
+  z-index: 99;
+}
+
+.footer-banner-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-banner-image:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .footer-banner {
+    padding: 1.5rem 0;
+  }
+  
+  .footer-banner-image {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-banner {
+    padding: 1rem 0;
+  }
+  
+  .footer-banner-image {
+    max-height: 120px;
+  }
+}
+
 .footer-container {
   max-width: 1400px;
   margin: 0 auto;
