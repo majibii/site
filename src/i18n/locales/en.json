@@ -11,68 +11,93 @@
     "cta": "Start building",
     "labLink": "EggOn Lab — The team dedicated to making AI agents fully insurable."
   },
+{
   "collection": {
-    "title": "CASE STUDIES",
-    "subtitle": "Companies choose to build with EggOn for an unfair competitive advantage. Our agents are trusted by leading firms in legal, aerospace, and finance. Stay informed — request a quote.",
-    "cta": "Request a Quote",
-    "core": {
-      "contractRiskAnalysis": {
+    "sectionLabel": "CASE STUDIES",
+    "lastUpdate": "Last Update",
+    "prompts": {
+      "contractAnalysis": {
         "title": "Contract Risk Analysis Agent",
         "context": "Legal / Risk Review",
         "body": "Analyze a commercial contract and highlight clauses that pose legal risks (e.g., indemnities, termination, governing law). Provide a summary with explanations and recommendations."
       },
       "caseLawResearch": {
-        "title": "Case Law Research Agent",
+        "title": "Case Law Research Agent", 
         "context": "Legal / Case Research",
         "body": "Search and summarize relevant case law related to a specific legal question, including links and jurisdiction-specific reasoning."
       },
-      "meetingMemory": {
+      "meetingPrep": {
         "title": "Meeting Summary Agent",
-        "context": "Productivity / Project Management",
+        "context": "Productivity / Project Management", 
         "body": "Listen to or analyze meeting notes, extract key points, and automatically convert decisions and discussions into actionable tasks with assigned owners and deadlines."
       },
-      "internalWikiBuilder": {
+      "wikiBuilder": {
         "title": "Internal Wiki Builder Agent",
         "context": "Knowledge Management / Documentation",
         "body": "Create and update a private internal Wiki by scanning documents and internal conversations. Automatically tag and categorize entries."
       },
-      "promptImprovementAgent": {
+      "auditTrail": {
         "title": "Prompt Improvement Agent",
         "context": "AI / Continuous Enhancement",
         "body": "Analyze prompts used, identify weaknesses, and generate optimized versions to improve the accuracy, clarity, and consistency of AI model responses."
       },
-      "contractReviewAgent": {
+      "supplierCompliance": {
         "title": "Contract Review Agent",
         "context": "Legal / Quality Control",
         "body": "Check consistency, compliance, and key terms in contract documents, generating annotations and improvement suggestions."
       },
-      "quotationGenerator": {
+      "quotationAgent": {
         "title": "Quotation Generator Agent",
         "context": "Sales / B2B Quotations",
         "body": "Generate and send professional client-ready quotations based on product configurations, pricing rules, and customer data."
       },
-      "competitiveIntelligenceAgent": {
+      "clientOnboarding": {
         "title": "Competitive Intelligence Agent",
         "context": "Strategy / Market Intelligence",
         "body": "Automatically monitor competitor activity (appointments, new specialties, partnerships), analyze pricing strategies and innovative service offers, and identify positioning in new markets or emerging technologies."
       },
-      "technologyIntelligenceAgent": {
+      "techIntelligence": {
         "title": "Technology Intelligence Agent",
         "context": "R&D / Strategy",
         "body": "Weekly summaries of key news and trends in a selected technology sector, including key sources, highlights, and regulatory updates."
       },
-      "billingAndPaymentAgent": {
+      "rfpDrafting": {
         "title": "Billing and Payment Tracking Agent",
         "context": "Finance / Legal Accounting",
         "body": "Automatically generate invoices from time entries or flat fees, send personalized payment reminders, track payment status, and manage trust retainer balances. Integrates with Clio, Xero, or QuickBooks."
       },
-      "interactiveFinancialReportingAgent": {
+      "esgCompliance": {
         "title": "Interactive Financial Reporting Agent",
         "context": "Finance / Performance Management",
         "body": "Produce a dynamic dashboard showing profitability by case, lawyer, or client, with natural language query capability (e.g., 'Show margin on litigation cases since January'). Integrates with Power BI or Tableau, conversational LLM interface."
+      },
+      "dataPrivacyAudit": {
+        "title": "Data Privacy Audit Agent",
+        "context": "Compliance / Data Protection",
+        "body": "Audit GDPR compliance and analyze personal data flows in your organization to identify risks and recommend improvements."
       }
+    },
+    "editorial": {
+      "title": "Our Vision",
+      "paragraph1": "We transform legal and technical complexity into clear, actionable solutions.",
+      "paragraph2": "Our team combines deep legal expertise with real AI engineering to deliver integrated, reliable solutions.",
+      "paragraph3": "The future of law is being built today, with AI agents that understand your business and respect your constraints."
+    },
+    "benefits": {
+      "title": "Our Advantages",
+      "item1": "AI agents specialized in legal and defense domains, designed by experts who know your environment.",
+      "item2": "Integrated solutions that connect to your existing tools and respect your security constraints.",
+      "item3": "Guaranteed privacy: your data stays in your infrastructure, never exposed to third parties.",
+      "item4": "Optimized performance for complex legal tasks, from contract analysis to case law research.",
+      "item5": "Expert support and personalized guidance throughout your digital transformation."
+    },
+    "modal": {
+      "placeholder": "Modify this instruction according to your needs...",
+      "cancel": "Cancel", 
+      "submit": "Use this prompt"
     }
-  },
+  }
+}
   "legalStack": {
     "subtitle": "WHY EGGON",
     "title": "Trust a team with expertise in your field",
