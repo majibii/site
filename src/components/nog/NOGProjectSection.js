@@ -21,25 +21,24 @@ const NOGProjectSection = () => {
 
   // Effet pour mesurer la largeur du texte et ajuster le conteneur
   React.useEffect(() => {
-    if (textMeasureRef.current) {
-      // Créer un élément temporaire pour mesurer le texte
-      const measureElement = document.createElement('span');
-      measureElement.style.visibility = 'hidden';
-      measureElement.style.position = 'absolute';
-      measureElement.style.fontSize = 'clamp(0.9rem, 2.2vw, 1.6rem)';
-      measureElement.style.fontFamily = '"Inter", -apple-system, BlinkMacSystemFont, sans-serif';
-      measureElement.style.fontWeight = '600';
-      measureElement.style.whiteSpace = 'nowrap';
-      measureElement.textContent = lines[currentLineIndex];
-      
-      document.body.appendChild(measureElement);
-      const width = measureElement.getBoundingClientRect().width;
-      document.body.removeChild(measureElement);
-      
-      // Ajouter une marge de sécurité et définir une largeur minimale/maximale
-      const adjustedWidth = Math.max(200, Math.min(width + 40, window.innerWidth * 0.6));
-      setTextWidth(`${adjustedWidth}px`);
-    }
+    // Créer un élément temporaire pour mesurer le texte
+    const measureElement = document.createElement('span');
+    measureElement.style.visibility = 'hidden';
+    measureElement.style.position = 'absolute';
+    measureElement.style.fontSize = 'clamp(0.9rem, 2.2vw, 1.6rem)';
+    measureElement.style.fontFamily = '"Inter", -apple-system, BlinkMacSystemFont, sans-serif';
+    measureElement.style.fontWeight = '600';
+    measureElement.style.whiteSpace = 'nowrap';
+    measureElement.style.letterSpacing = 'normal';
+    measureElement.textContent = lines[currentLineIndex];
+    
+    document.body.appendChild(measureElement);
+    const width = measureElement.getBoundingClientRect().width;
+    document.body.removeChild(measureElement);
+    
+    // Ajouter une marge généreuse pour l'espagnol et autres langues longues
+    const adjustedWidth = Math.max(250, width + 80);
+    setTextWidth(`${adjustedWidth}px`);
   }, [currentLineIndex, lines]);
 
   // Fonction pour diviser le texte en caractères
