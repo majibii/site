@@ -13,6 +13,9 @@
   },
   "collection": {
     "sectionLabel": "CASE STUDIES",
+    "title": "AI Agent Prompts Collection",
+    "subtitle": "Discover our curated collection of AI agent prompts designed for legal and business professionals.",
+    "cta": "Get Early Access",
     "lastUpdate": "Last Update",
     "prompts": {
       "contractAnalysis": {
