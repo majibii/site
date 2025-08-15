@@ -95,16 +95,20 @@ const NOGProjectSection = () => {
           /* Animation premium pour le texte dynamique */
           .premium-text-reveal {
             opacity: 0;
-            transform: translateY(10px) scale(0.98);
-            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: translateY(5px);
+            transition: all 0.4s ease;
             color: #fce96b !important;
-            display: inline;
+            display: inline-block;
             white-space: nowrap;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform-origin: center;
           }
 
           .premium-text-reveal.visible {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0) translateX(-50%);
           }
 
           /* Animation pour la ligne de soulignement */
@@ -162,6 +166,9 @@ const NOGProjectSection = () => {
           .fixed-text {
             color: #fafafa;
             font-weight: 400;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
           }
 
           .dynamic-text-wrapper {
@@ -169,6 +176,8 @@ const NOGProjectSection = () => {
             display: inline-block;
             text-align: center;
             flex-shrink: 0;
+            min-width: 200px;
+            height: 1.2em;
           }
 
           /* Responsive */
@@ -182,6 +191,7 @@ const NOGProjectSection = () => {
               width: 100%;
             }
             
+            /* Responsive */
             .dynamic-text-container {
               flex-direction: column;
               text-align: center;
@@ -190,6 +200,18 @@ const NOGProjectSection = () => {
             
             .dynamic-text-wrapper {
               text-align: center;
+              position: static;
+              min-width: auto;
+              height: auto;
+            }
+
+            .premium-text-reveal {
+              position: static;
+              transform: none;
+            }
+
+            .premium-text-reveal.visible {
+              transform: none;
             }
 
             .fixed-text {
@@ -269,14 +291,10 @@ const NOGProjectSection = () => {
                   style={{
                     fontWeight: '600',
                     fontSize: 'inherit',
-                    fontFamily: 'inherit',
-                    display: 'inline-block',
-                    position: 'relative',
-                    minHeight: '1em'
+                    fontFamily: 'inherit'
                   }}
                 >
                   {displayedText}
-                  <div className={`premium-underline ${isVisible ? 'visible' : ''}`} />
                 </span>
               </div>
             </div>
@@ -409,34 +427,6 @@ const NOGProjectSection = () => {
                 </button>
               </div>
             </div>
-          </motion.div>
-
-          {/* Indicateurs de progression premium */}
-          <motion.div 
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: 'clamp(0.4rem, 1.2vw, 0.6rem)',
-              marginTop: 'clamp(1.5rem, 3vw, 2rem)'
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            {actions.map((_, index) => (
-              <div
-                key={index}
-                className={`premium-indicator ${index === currentLineIndex ? 'active' : ''}`}
-                style={{
-                  width: index === currentLineIndex ? 'clamp(2rem, 4vw, 2.5rem)' : 'clamp(0.5rem, 1.2vw, 0.6rem)',
-                  height: 'clamp(0.4rem, 1vw, 0.6rem)',
-                  backgroundColor: index === currentLineIndex ? '#fce96b' : 'rgba(255, 255, 255, 0.25)',
-                  borderRadius: '2rem',
-                  cursor: 'pointer'
-                }}
-                onClick={() => setCurrentLineIndex(index)}
-              />
-            ))}
           </motion.div>
         </div>
       </section>
