@@ -216,6 +216,8 @@
   "noglab": {
     "heroPhrase": "→ EggOn Rendez vos",
     "heroDropdownOption": "IA Future",
+    "heroDropdownOptionDefault": "Agents IA",
+    "heroDropdownLearnAI": "Apprendre IA",
     "heroTitle": "Rendez vos Agents IA Assurables",
     "heroSubtitle": "Nous construisons un avenir où les professionnels, en particulier du droit, de la finance et de la santé, peuvent déployer des agents IA certifiés conformes, auditables et assurables.",
     "heroCta": "Devenir partenaire de conception",
