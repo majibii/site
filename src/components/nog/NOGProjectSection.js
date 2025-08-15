@@ -20,29 +20,19 @@ const NOGProjectSection = () => {
     return () => clearInterval(interval);
   }, [lines]);
 
-  // Animation machine à écrire
+  // Animation moderne de révélation de texte
   React.useEffect(() => {
     if (!Array.isArray(lines) || lines.length === 0) return;
     
     const currentText = lines[currentLineIndex] || '';
-    setIsTyping(true);
     setDisplayedText('');
+    setIsTyping(true);
     
-    // Délai avant de commencer à taper
+    // Révélation progressive avec effet de fondu
     setTimeout(() => {
-      let charIndex = 0;
-      const typeInterval = setInterval(() => {
-        if (charIndex < currentText.length) {
-          setDisplayedText(currentText.slice(0, charIndex + 1));
-          charIndex++;
-        } else {
-          setIsTyping(false);
-          clearInterval(typeInterval);
-        }
-      }, 60); // Vitesse de frappe plus rapide
-
-      return () => clearInterval(typeInterval);
-    }, 300); // Petite pause avant de commencer
+      setDisplayedText(currentText);
+      setIsTyping(false);
+    }, 200);
   }, [currentLineIndex, lines]);
 
   // Fonctions de hover pour les boutons
@@ -174,7 +164,12 @@ const NOGProjectSection = () => {
     display: 'inline-block',
     margin: '0',
     padding: '0',
-    minHeight: '1.2em' // Assure une hauteur constante
+    minHeight: '1.2em',
+    opacity: displayedText ? 1 : 0,
+    transform: displayedText ? 'translateY(0)' : 'translateY(10px)',
+    transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+    position: 'relative',
+    overflow: 'hidden'
   };
 
   const cursorStyle = {
@@ -245,11 +240,6 @@ const NOGProjectSection = () => {
       {/* Styles CSS pour l'animation du curseur */}
       <style>
         {`
-          @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-          }
-          
           /* Force la suppression de tous les backgrounds indésirables */
           .nog-project-section * {
             background: transparent !important;
@@ -281,6 +271,30 @@ const NOGProjectSection = () => {
               display: flex !important;
             }
           }
+          
+          /* Animation de shimmer pour l'effet premium */
+          @keyframes shimmer {
+            0% {
+              background-position: -1000px 0;
+            }
+            100% {
+              background-position: 1000px 0;
+            }
+          }
+          
+          .dynamic-text-shimmer {
+            background: linear-gradient(
+              90deg,
+              #fce96b 0%,
+              #ffffff 50%,
+              #fce96b 100%
+            );
+            background-size: 1000px 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 2s ease-in-out;
+          }
         `}
       </style>
       
@@ -297,10 +311,19 @@ const NOGProjectSection = () => {
                 {t('nog.intro')}
               </span>
               <div style={dynamicTextContainerStyle}>
-                <span style={dynamicTextStyle}>
+                <span style={dynamicTextStyle} className={displayedText ? "dynamic-text-shimmer" : ""}>
                   {displayedText}
+                  <span style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    width: displayedText ? '100%' : '0%',
+                    height: '2px',
+                    background: 'linear-gradient(90deg, #fce96b, #f59e0b)',
+                    transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                    borderRadius: '1px'
+                  }}></span>
                 </span>
-                <span style={cursorStyle}>|</span>
               </div>
             </div>
 
