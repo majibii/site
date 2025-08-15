@@ -92,17 +92,19 @@ const NOGProjectSection = () => {
             box-shadow: none !important;
           }
 
-          /* Animation premium pour le texte */
+          /* Animation premium pour le texte dynamique */
           .premium-text-reveal {
             opacity: 0;
-            transform: translateY(20px) scale(0.95);
-            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: translateY(10px) scale(0.98);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
             background: linear-gradient(135deg, #fce96b 0%, #f59e0b 50%, #fce96b 100%);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: premium-shimmer 2s ease-in-out;
+            display: inline;
+            white-space: nowrap;
           }
 
           .premium-text-reveal.visible {
@@ -119,14 +121,15 @@ const NOGProjectSection = () => {
           /* Animation pour la ligne de soulignement */
           .premium-underline {
             position: absolute;
-            bottom: -4px;
+            bottom: -2px;
             left: 0;
-            height: 3px;
+            right: 0;
+            height: 2px;
             background: linear-gradient(90deg, #fce96b, #f59e0b, #fce96b);
-            border-radius: 2px;
+            border-radius: 1px;
             transform-origin: left;
             transform: scaleX(0);
-            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
           }
 
           .premium-underline.visible {
@@ -163,6 +166,30 @@ const NOGProjectSection = () => {
               inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
           }
 
+          /* Style pour le conteneur de texte flexible */
+          .dynamic-text-container {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.3em;
+            line-height: 1.4;
+            width: 100%;
+            min-height: 1.5em;
+          }
+
+          .fixed-text {
+            color: #fafafa;
+            font-weight: 400;
+          }
+
+          .dynamic-text-wrapper {
+            position: relative;
+            display: inline-block;
+            min-width: 8ch;
+            text-align: left;
+          }
+
           /* Responsive */
           @media (max-width: 768px) {
             .desktop-layout { display: none !important; }
@@ -173,11 +200,29 @@ const NOGProjectSection = () => {
               gap: 1rem;
               width: 100%;
             }
+            
+            .dynamic-text-container {
+              flex-direction: column;
+              text-align: center;
+              gap: 0.5em;
+            }
+            
+            .dynamic-text-wrapper {
+              text-align: center;
+              min-width: auto;
+            }
           }
           
           @media (min-width: 769px) {
             .mobile-layout { display: none !important; }
             .desktop-layout { display: flex !important; }
+          }
+
+          /* Amélioration responsive pour très petits écrans */
+          @media (max-width: 480px) {
+            .dynamic-text-container {
+              gap: 0.3em;
+            }
           }
         `}
       </style>
@@ -218,45 +263,32 @@ const NOGProjectSection = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: 'clamp(1rem, 2.5vw, 1.5rem)',
-              maxWidth: '95%'
+              maxWidth: '95%',
+              minWidth: 'fit-content'
             }}
             animate={{ scale: [0.95, 1] }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            {/* Première ligne avec le texte animé */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: 'clamp(0.5rem, 1vw, 0.8rem)',
-              textAlign: 'center',
-              width: '100%',
-              minHeight: 'clamp(2.5rem, 5vw, 3rem)'
+            {/* Phrase complète avec texte fixe + dynamique */}
+            <div className="dynamic-text-container" style={{
+              fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
+              fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+              fontWeight: '400'
             }}>
-              <span style={{
-                color: '#fafafa',
-                fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
-                fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-                fontWeight: '400',
-                marginRight: 'clamp(0.3rem, 0.8vw, 0.5rem)'
-              }}>
+              <span className="fixed-text">
                 {t('nog.intro')}
               </span>
               
-              <div style={{
-                position: 'relative',
-                display: 'inline-block',
-                minWidth: '200px'
-              }}>
+              <div className="dynamic-text-wrapper">
                 <span 
                   className={`premium-text-reveal ${isVisible ? 'visible' : ''}`}
                   style={{
                     fontWeight: '600',
-                    fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
-                    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+                    fontSize: 'inherit',
+                    fontFamily: 'inherit',
                     display: 'inline-block',
-                    position: 'relative'
+                    position: 'relative',
+                    minHeight: '1em'
                   }}
                 >
                   {displayedText}
