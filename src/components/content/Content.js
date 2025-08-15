@@ -320,12 +320,13 @@ export const Content = () => {
     const classes = useStyles();
     const { t } = useTranslation();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState("AI Agents");
+    const [selectedOption, setSelectedOption] = useState(t('noglab.heroDropdownOptionDefault') || "AI Agents");
     const dropdownRef = useRef(null);
 
     const dropdownOptions = [
-        { label: "AI Agents", path: "/" },
-        { label: "Future AI", path: "/nog-lab" },
+        { label: t('noglab.heroDropdownOptionDefault'), path: "/" },
+        { label: t('noglab.heroDropdownOption'), path: "/nog-lab" },
+        { label: t('noglab.heroDropdownLearnAI'), path: "/learn" },
     ];
 
     useEffect(() => {
@@ -359,7 +360,7 @@ export const Content = () => {
         <Container component="main" className={`${classes.main}`} maxWidth={false} disableGutters>
             <div className={classes.contentWrapper}>
                 <div className={classes.interactivePhrase}>
-                    → EggOn Make your{' '}
+                    {t('noglab.heroPhrase')}{' '}
                     <div className={classes.dropdownContainer} ref={dropdownRef}>
                         <span 
                             className={classes.dynamicWord}
