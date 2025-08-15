@@ -1,15 +1,13 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 const NOGProjectSection = () => {
   const { t } = useTranslation();
   const [currentLineIndex, setCurrentLineIndex] = React.useState(0);
-  const [textWidth, setTextWidth] = React.useState('auto');
+  const [displayedText, setDisplayedText] = React.useState('');
+  const [isTyping, setIsTyping] = React.useState(false);
   const lines = t('nog.actions', { returnObjects: true });
-  
-  // Ref pour mesurer la largeur du texte
-  const textMeasureRef = React.useRef(null);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -19,47 +17,33 @@ const NOGProjectSection = () => {
     return () => clearInterval(interval);
   }, [lines.length]);
 
-  // Effet pour mesurer la largeur du texte et ajuster le conteneur
+  // Effet pour l'animation machine à écrire
   React.useEffect(() => {
-    // Créer un élément temporaire pour mesurer le texte
-    const measureElement = document.createElement('span');
-    measureElement.style.visibility = 'hidden';
-    measureElement.style.position = 'absolute';
-    measureElement.style.fontSize = 'clamp(0.9rem, 2.2vw, 1.6rem)';
-    measureElement.style.fontFamily = '"Inter", -apple-system, BlinkMacSystemFont, sans-serif';
-    measureElement.style.fontWeight = '600';
-    measureElement.style.whiteSpace = 'nowrap';
-    measureElement.style.letterSpacing = 'normal';
-    measureElement.textContent = lines[currentLineIndex];
+    const currentText = lines[currentLineIndex] || '';
+    setIsTyping(true);
+    setDisplayedText('');
     
-    document.body.appendChild(measureElement);
-    const width = measureElement.getBoundingClientRect().width;
-    document.body.removeChild(measureElement);
-    
-    // Ajouter une marge généreuse pour l'espagnol et autres langues longues
-    const adjustedWidth = Math.max(250, width + 80);
-    setTextWidth(`${adjustedWidth}px`);
+    let charIndex = 0;
+    const typeInterval = setInterval(() => {
+      if (charIndex <= currentText.length) {
+        setDisplayedText(currentText.slice(0, charIndex));
+        charIndex++;
+      } else {
+        setIsTyping(false);
+        clearInterval(typeInterval);
+      }
+    }, 80);
+
+    return () => clearInterval(typeInterval);
   }, [currentLineIndex, lines]);
 
-  // Fonction pour diviser le texte en caractères
-  const splitIntoCharacters = (text) => {
-    return Array.from(text);
-  };
-
-  // Fonction pour calculer le délai de stagger
-  const getStaggerDelay = (index) => {
-    return index * 0.05; // 50ms entre chaque caractère
-  };
-
-  // Fonctions de hover pour les boutons SANS créer de rectangles
+  // Fonctions de hover pour les boutons
   const handleButtonMouseEnter = (e) => {
     const button = e.currentTarget;
     button.style.setProperty('transform', 'translateY(-2px)', 'important');
     button.style.setProperty('border-color', '#fce96b', 'important');
     button.style.setProperty('color', '#fce96b', 'important');
     button.style.setProperty('background', 'rgba(252, 233, 107, 0.1)', 'important');
-    button.style.setProperty('background-color', 'rgba(252, 233, 107, 0.1)', 'important');
-    button.style.setProperty('background-image', 'none', 'important');
   };
 
   const handleButtonMouseLeave = (e) => {
@@ -68,324 +52,240 @@ const NOGProjectSection = () => {
     button.style.setProperty('border-color', 'rgba(255, 255, 255, 0.3)', 'important');
     button.style.setProperty('color', '#fafafa', 'important');
     button.style.setProperty('background', 'transparent', 'important');
-    button.style.setProperty('background-color', 'transparent', 'important');
-    button.style.setProperty('background-image', 'none', 'important');
+  };
+
+  const sectionStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    background: 'transparent',
+    backgroundImage: 'none',
+    padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
+    position: 'relative',
+    boxSizing: 'border-box',
+    overflow: 'hidden',
+    minHeight: '50vh',
+    margin: '0',
+    border: 'none',
+    outline: 'none'
+  };
+
+  const containerStyle = {
+    textAlign: 'center',
+    width: '100%',
+    maxWidth: '1200px',
+    position: 'relative',
+    zIndex: 1,
+    background: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: 'none',
+    margin: '0',
+    padding: '0'
+  };
+
+  const cardStyle = {
+    fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
+    color: '#fafafa',
+    lineHeight: '1.6',
+    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+    fontWeight: '400',
+    margin: '0 auto',
+    textAlign: 'center',
+    padding: 'clamp(1.5rem, 4vw, 2rem)',
+    background: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: 'none',
+    border: '1px solid rgba(255, 255, 255, 0.15)',
+    borderRadius: '16px',
+    boxShadow: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 'clamp(0.5rem, 1.5vw, 0.8rem)',
+    width: 'auto',
+    minWidth: 'fit-content',
+    maxWidth: '95%'
+  };
+
+  const textLineStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'nowrap',
+    gap: 'clamp(0.1rem, 0.5vw, 0.3rem)',
+    textAlign: 'center',
+    width: '100%',
+    background: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: 'none',
+    margin: '0',
+    padding: '0'
+  };
+
+  const staticTextStyle = {
+    display: 'inline-block',
+    marginRight: 'clamp(0.2rem, 0.5vw, 0.3rem)',
+    background: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: 'none',
+    whiteSpace: 'nowrap',
+    color: '#fafafa',
+    fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
+    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+    fontWeight: '400'
+  };
+
+  const dynamicTextContainerStyle = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    minWidth: '200px',
+    width: 'auto',
+    height: 'clamp(1.8rem, 4vw, 2.2rem)',
+    position: 'relative',
+    background: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: 'none',
+    border: 'none',
+    outline: 'none',
+    overflow: 'visible'
+  };
+
+  const dynamicTextStyle = {
+    color: '#fce96b',
+    fontWeight: '600',
+    fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
+    fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
+    lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
+    backgroundColor: 'transparent',
+    background: 'transparent',
+    backgroundImage: 'none',
+    whiteSpace: 'nowrap',
+    display: 'inline-block',
+    margin: '0',
+    padding: '0'
+  };
+
+  const cursorStyle = {
+    color: '#fce96b',
+    fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
+    marginLeft: '2px',
+    animation: 'blink 1s infinite',
+    display: 'inline-block'
+  };
+
+  const buttonContainerStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    gap: 'clamp(0.8rem, 2vw, 1.2rem)',
+    width: '100%',
+    background: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: 'none'
+  };
+
+  const labelStyle = {
+    fontSize: 'clamp(0.8rem, 1.8vw, 1.1rem)',
+    color: '#fce96b',
+    fontWeight: '600',
+    fontFamily: '"Inter", sans-serif',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    background: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: 'none',
+    whiteSpace: 'nowrap'
+  };
+
+  const buttonStyle = {
+    padding: 'clamp(0.4rem, 1vw, 0.6rem) clamp(1rem, 2.5vw, 1.5rem)',
+    fontSize: 'clamp(0.75rem, 1.5vw, 0.95rem)',
+    fontWeight: '600',
+    color: '#fafafa',
+    backgroundColor: 'transparent',
+    background: 'transparent',
+    backgroundImage: 'none',
+    border: '2px solid rgba(255, 255, 255, 0.3)',
+    borderRadius: '50px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    fontFamily: '"Inter", sans-serif',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    position: 'relative',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    boxShadow: 'none',
+    outline: 'none'
   };
 
   return (
-    <section
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'transparent',
-        background: 'transparent',
-        backgroundImage: 'none',
-        padding: 'clamp(2rem, 5vh, 4rem) clamp(1rem, 3vw, 2rem)',
-        position: 'relative',
-        boxSizing: 'border-box',
-        overflow: 'hidden',
-        minHeight: '50vh'
-      }}
-    >
-      <div
-        style={{
-          textAlign: 'center',
-          width: '100%',
-          maxWidth: '1200px',
-          position: 'relative',
-          zIndex: 1,
-          background: 'transparent',
-          backgroundColor: 'transparent',
-          backgroundImage: 'none'
-        }}
-      >
-        <motion.div
-          style={{
-            fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
-            color: '#fafafa',
-            lineHeight: '1.6',
-            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-            fontWeight: '400',
-            margin: '0 auto',
-            textAlign: 'center',
-            padding: 'clamp(1.5rem, 4vw, 2rem)',
-            background: 'none',
-            backgroundColor: 'transparent',
-            backgroundImage: 'none',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            borderRadius: '16px',
-            boxShadow: 'none',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 'clamp(1rem, 3vw, 1.5rem)',
-            width: 'fit-content',
-            maxWidth: '95%'
-          }}
-          animate={{ 
-            width: 'fit-content'
-          }}
-          transition={{ 
-            duration: 0.3,
-            ease: "easeInOut"
-          }}
-        >
-          {/* Première ligne avec le texte animé */}
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            flexWrap: 'nowrap',
-            gap: 'clamp(0.2rem, 1vw, 0.5rem)',
-            textAlign: 'center',
-            width: 'auto',
-            minWidth: 'fit-content',
-            background: 'transparent',
-            backgroundColor: 'transparent',
-            backgroundImage: 'none'
-          }}>
-            <span style={{ 
-              display: 'inline-block',
-              marginRight: 'clamp(0.3rem, 1vw, 0.5rem)',
-              background: 'transparent',
-              backgroundColor: 'transparent',
-              backgroundImage: 'none',
-              whiteSpace: 'nowrap'
-            }}>
-              {t('nog.intro')}
-            </span>
-            <motion.div 
-              style={{ 
-                width: textWidth,
-                minWidth: 'fit-content',
-                height: 'clamp(1.8rem, 4vw, 2.2rem)',
-                overflow: 'visible',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-                lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
-                backgroundColor: 'transparent',
-                background: 'transparent',
-                backgroundImage: 'none',
-                border: 'none'
-              }}
-              animate={{ 
-                width: textWidth
-              }}
-              transition={{ 
-                duration: 0.3,
-                ease: "easeInOut"
-              }}
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={currentLineIndex}
-                  ref={textMeasureRef}
-                  style={{
-                    display: 'inline-flex',
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    whiteSpace: 'nowrap',
-                    background: 'transparent',
-                    backgroundColor: 'transparent',
-                    backgroundImage: 'none'
-                  }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {splitIntoCharacters(lines[currentLineIndex]).map((char, index) => (
-                    <motion.span
-                      key={`${currentLineIndex}-${index}`}
-                      initial={{ 
-                        y: '100%', 
-                        opacity: 0 
-                      }}
-                      animate={{ 
-                        y: 0, 
-                        opacity: 1 
-                      }}
-                      exit={{ 
-                        y: '-100%', 
-                        opacity: 0 
-                      }}
-                      transition={{ 
-                        duration: 0.5,
-                        delay: getStaggerDelay(index),
-                        ease: [0.4, 0.0, 0.2, 1],
-                        type: "tween"
-                      }}
-                      style={{
-                        color: '#fce96b',
-                        fontWeight: '600',
-                        display: 'inline-block',
-                        lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
-                        backgroundColor: 'transparent',
-                        background: 'transparent',
-                        backgroundImage: 'none'
-                      }}
-                    >
-                      {char === ' ' ? '\u00A0' : char}
-                    </motion.span>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
-          </div>
-
-          {/* Deuxième ligne - version desktop/tablet */}
-          <div
-            className="desktop-layout"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: 'clamp(0.8rem, 2vw, 1.2rem)',
-              width: '100%',
-              background: 'transparent',
-              backgroundColor: 'transparent',
-              backgroundImage: 'none'
-            }}
-          >
-            <div
-              style={{
-                fontSize: 'clamp(0.8rem, 1.8vw, 1.1rem)',
-                color: '#fce96b',
-                fontWeight: '600',
-                fontFamily: '"Inter", sans-serif',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                background: 'transparent',
-                backgroundColor: 'transparent',
-                backgroundImage: 'none',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              {t('nog.getExamples')}
-            </div>
+    <>
+      {/* Styles CSS pour l'animation du curseur */}
+      <style>
+        {`
+          @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+          }
+          
+          /* Force la suppression de tous les backgrounds indésirables */
+          .nog-project-section * {
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
+          }
+          
+          @media (max-width: 768px) {
+            .desktop-layout {
+              display: none !important;
+            }
             
-            <button
-              style={{
-                padding: 'clamp(0.4rem, 1vw, 0.6rem) clamp(1rem, 2.5vw, 1.5rem)',
-                fontSize: 'clamp(0.75rem, 1.5vw, 0.95rem)',
-                fontWeight: '600',
-                color: '#fafafa',
-                backgroundColor: 'transparent',
-                background: 'transparent',
-                backgroundImage: 'none',
-                border: '2px solid rgba(255, 255, 255, 0.3)',
-                borderRadius: '50px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                fontFamily: '"Inter", sans-serif',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                position: 'relative',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                boxShadow: 'none'
-              }}
-              onMouseEnter={handleButtonMouseEnter}
-              onMouseLeave={handleButtonMouseLeave}
-            >
-              {t('nog.useCasesAgent')}
-            </button>
-
-            <button
-              style={{
-                padding: 'clamp(0.4rem, 1vw, 0.6rem) clamp(1rem, 2.5vw, 1.5rem)',
-                fontSize: 'clamp(0.75rem, 1.5vw, 0.95rem)',
-                fontWeight: '600',
-                color: '#fafafa',
-                backgroundColor: 'transparent',
-                background: 'transparent',
-                backgroundImage: 'none',
-                border: '2px solid rgba(255, 255, 255, 0.3)',
-                borderRadius: '50px',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                fontFamily: '"Inter", sans-serif',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                position: 'relative',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                boxShadow: 'none'
-              }}
-              onMouseEnter={handleButtonMouseEnter}
-              onMouseLeave={handleButtonMouseLeave}
-            >
-              {t('nog.academyProgram')}
-            </button>
-          </div>
-
-          {/* Version mobile - affichage vertical */}
-          <div
-            className="mobile-layout"
-            style={{
-              display: 'none',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '1rem',
-              width: '100%',
-              background: 'transparent',
-              backgroundColor: 'transparent',
-              backgroundImage: 'none'
-            }}
+            .mobile-layout {
+              display: flex !important;
+              flex-direction: column;
+              align-items: center;
+              gap: 1rem;
+              width: 100%;
+              background: transparent !important;
+            }
+          }
+        `}
+      </style>
+      
+      <section className="nog-project-section" style={sectionStyle}>
+        <div style={containerStyle}>
+          <motion.div 
+            style={cardStyle}
+            animate={{ width: 'auto' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div
-              style={{
-                fontSize: '0.9rem',
-                color: '#fce96b',
-                fontWeight: '600',
-                fontFamily: '"Inter", sans-serif',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                background: 'transparent',
-                backgroundColor: 'transparent',
-                backgroundImage: 'none'
-              }}
-            >
-              {t('nog.getExamples')}
+            {/* Première ligne avec le texte animé */}
+            <div style={textLineStyle}>
+              <span style={staticTextStyle}>
+                {t('nog.intro')}
+              </span>
+              <div style={dynamicTextContainerStyle}>
+                <span style={dynamicTextStyle}>
+                  {displayedText}
+                  {isTyping && <span style={cursorStyle}>|</span>}
+                </span>
+              </div>
             </div>
-            
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column',
-              gap: '0.8rem',
-              width: '100%',
-              maxWidth: '280px',
-              background: 'transparent',
-              backgroundColor: 'transparent',
-              backgroundImage: 'none'
-            }}>
+
+            {/* Deuxième ligne - version desktop/tablet */}
+            <div className="desktop-layout" style={buttonContainerStyle}>
+              <div style={labelStyle}>
+                {t('nog.getExamples')}
+              </div>
+              
               <button
-                style={{
-                  padding: '0.6rem 1.2rem',
-                  fontSize: '0.85rem',
-                  fontWeight: '600',
-                  color: '#fafafa',
-                  backgroundColor: 'transparent',
-                  background: 'transparent',
-                  backgroundImage: 'none',
-                  border: '2px solid rgba(255, 255, 255, 0.3)',
-                  borderRadius: '50px',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  fontFamily: '"Inter", sans-serif',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  width: '100%',
-                  boxShadow: 'none'
-                }}
+                style={buttonStyle}
                 onMouseEnter={handleButtonMouseEnter}
                 onMouseLeave={handleButtonMouseLeave}
               >
@@ -393,36 +293,59 @@ const NOGProjectSection = () => {
               </button>
 
               <button
-                style={{
-                  padding: '0.6rem 1.2rem',
-                  fontSize: '0.85rem',
-                  fontWeight: '600',
-                  color: '#fafafa',
-                  backgroundColor: 'transparent',
-                  background: 'transparent',
-                  backgroundImage: 'none',
-                  border: '2px solid rgba(255, 255, 255, 0.3)',
-                  borderRadius: '50px',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  fontFamily: '"Inter", sans-serif',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  width: '100%',
-                  boxShadow: 'none'
-                }}
+                style={buttonStyle}
                 onMouseEnter={handleButtonMouseEnter}
                 onMouseLeave={handleButtonMouseLeave}
               >
                 {t('nog.academyProgram')}
-                </button>
+              </button>
             </div>
-          </div>
-        </motion.div>
 
-        {/* Indicateurs de progression */}
-        <div
-          style={{
+            {/* Version mobile - affichage vertical */}
+            <div className="mobile-layout" style={{ display: 'none' }}>
+              <div style={labelStyle}>
+                {t('nog.getExamples')}
+              </div>
+              
+              <div style={{ 
+                display: 'flex', 
+                flexDirection: 'column',
+                gap: '0.8rem',
+                width: '100%',
+                maxWidth: '280px',
+                background: 'transparent'
+              }}>
+                <button
+                  style={{
+                    ...buttonStyle,
+                    padding: '0.6rem 1.2rem',
+                    fontSize: '0.85rem',
+                    width: '100%'
+                  }}
+                  onMouseEnter={handleButtonMouseEnter}
+                  onMouseLeave={handleButtonMouseLeave}
+                >
+                  {t('nog.useCasesAgent')}
+                </button>
+
+                <button
+                  style={{
+                    ...buttonStyle,
+                    padding: '0.6rem 1.2rem',
+                    fontSize: '0.85rem',
+                    width: '100%'
+                  }}
+                  onMouseEnter={handleButtonMouseEnter}
+                  onMouseLeave={handleButtonMouseLeave}
+                >
+                  {t('nog.academyProgram')}
+                </button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Indicateurs de progression */}
+          <div style={{
             display: 'flex',
             justifyContent: 'center',
             gap: 'clamp(0.3rem, 1vw, 0.5rem)',
@@ -430,43 +353,25 @@ const NOGProjectSection = () => {
             background: 'transparent',
             backgroundColor: 'transparent',
             backgroundImage: 'none'
-          }}
-        >
-          {lines.map((_, index) => (
-            <div
-              key={index}
-              style={{
-                width: index === currentLineIndex ? 'clamp(1.5rem, 3vw, 2rem)' : 'clamp(0.4rem, 1vw, 0.5rem)',
-                height: 'clamp(0.3rem, 1vw, 0.5rem)',
-                backgroundColor: index === currentLineIndex ? '#fce96b' : 'rgba(255, 255, 255, 0.3)',
-                background: index === currentLineIndex ? '#fce96b' : 'rgba(255, 255, 255, 0.3)',
-                backgroundImage: 'none',
-                borderRadius: '1rem',
-                transition: 'all 0.5s ease'
-              }}
-            />
-          ))}
+          }}>
+            {lines.map((_, index) => (
+              <div
+                key={index}
+                style={{
+                  width: index === currentLineIndex ? 'clamp(1.5rem, 3vw, 2rem)' : 'clamp(0.4rem, 1vw, 0.5rem)',
+                  height: 'clamp(0.3rem, 1vw, 0.5rem)',
+                  backgroundColor: index === currentLineIndex ? '#fce96b' : 'rgba(255, 255, 255, 0.3)',
+                  background: index === currentLineIndex ? '#fce96b' : 'rgba(255, 255, 255, 0.3)',
+                  backgroundImage: 'none',
+                  borderRadius: '1rem',
+                  transition: 'all 0.5s ease'
+                }}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .desktop-layout {
-            display: none !important;
-          }
-          
-          .mobile-layout {
-            display: flex !important;
-          }
-        }
-        
-        @media (max-width: 480px) {
-          section {
-            padding: clamp(1.5rem, 4vh, 2.5rem) 1rem !important;
-          }
-        }
-      `}</style>
-    </section>
+      </section>
+    </>
   );
 };
 
