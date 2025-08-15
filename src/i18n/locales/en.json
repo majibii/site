@@ -216,6 +216,8 @@
   "noglab": {
     "heroPhrase": "→ EggOn Make your",
     "heroDropdownOption": "Future AI",
+    "heroDropdownOptionDefault": "AI Agents",
+    "heroDropdownLearnAI": "Learn AI",
     "heroTitle": "Make your AI Agents Insurable",
     "heroSubtitle": "We are building a future where professionals, particularly in law, finance, and healthcare, can deploy AI agents that are certified compliant, auditable, and insurable.",
     "heroCta": "Be Design Partner",
