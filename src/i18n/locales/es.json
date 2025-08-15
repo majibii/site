@@ -216,6 +216,8 @@
   "noglab": {
     "heroPhrase": "→ EggOn Haz tus",
     "heroDropdownOption": "Agentes del Futuro",
+    "heroDropdownOptionDefault": "Agentes IA",
+    "heroDropdownLearnAI": "Aprender IA",
     "heroTitle": "Haz tus Agentes de IA Asegurables",
     "heroSubtitle": "Construimos un futuro donde profesionales de sectores regulados pueden implementar agentes de IA certificados, auditables y financieramente protegidos.",
     "heroCta": "Unirse al Programa",
