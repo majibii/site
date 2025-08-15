@@ -97,12 +97,7 @@ const NOGProjectSection = () => {
             opacity: 0;
             transform: translateY(10px) scale(0.98);
             transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            background: linear-gradient(135deg, #fce96b 0%, #f59e0b 50%, #fce96b 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: premium-shimmer 2s ease-in-out;
+            color: #fce96b !important;
             display: inline;
             white-space: nowrap;
           }
@@ -112,20 +107,14 @@ const NOGProjectSection = () => {
             transform: translateY(0) scale(1);
           }
 
-          /* Animation shimmer premium */
-          @keyframes premium-shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-          }
-
           /* Animation pour la ligne de soulignement */
           .premium-underline {
             position: absolute;
             bottom: -2px;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #fce96b, #f59e0b, #fce96b);
+            height: 1px;
+            background: #fce96b;
             border-radius: 1px;
             transform-origin: left;
             transform: scaleX(0);
@@ -139,12 +128,10 @@ const NOGProjectSection = () => {
           /* Animation pour les indicateurs */
           .premium-indicator {
             transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 0 20px rgba(252, 233, 107, 0.3);
           }
 
           .premium-indicator.active {
-            background: linear-gradient(45deg, #fce96b, #f59e0b) !important;
-            box-shadow: 0 0 30px rgba(252, 233, 107, 0.6) !important;
+            background: #fce96b !important;
           }
 
           /* Animation pour la carte */
@@ -152,30 +139,24 @@ const NOGProjectSection = () => {
             background: rgba(255, 255, 255, 0.02) !important;
             backdrop-filter: blur(20px) !important;
             border: 1px solid rgba(252, 233, 107, 0.1) !important;
-            box-shadow: 
-              0 8px 32px rgba(0, 0, 0, 0.1),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
             transition: all 0.3s ease !important;
           }
 
           .premium-card:hover {
-            border-color: rgba(252, 233, 107, 0.3) !important;
-            box-shadow: 
-              0 12px 48px rgba(0, 0, 0, 0.15),
-              0 0 0 1px rgba(252, 233, 107, 0.1),
-              inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+            border-color: rgba(252, 233, 107, 0.2) !important;
           }
 
           /* Style pour le conteneur de texte flexible */
           .dynamic-text-container {
             display: flex;
-            align-items: baseline;
+            align-items: center;
             justify-content: center;
             flex-wrap: wrap;
             gap: 0.3em;
             line-height: 1.4;
             width: 100%;
             min-height: 1.5em;
+            text-align: center;
           }
 
           .fixed-text {
@@ -186,12 +167,12 @@ const NOGProjectSection = () => {
           .dynamic-text-wrapper {
             position: relative;
             display: inline-block;
-            min-width: 8ch;
-            text-align: left;
+            text-align: center;
+            flex-shrink: 0;
           }
 
           /* Responsive */
-          @media (max-width: 768px) {
+          @media (max-width: 968px) {
             .desktop-layout { display: none !important; }
             .mobile-layout { 
               display: flex !important;
@@ -204,16 +185,19 @@ const NOGProjectSection = () => {
             .dynamic-text-container {
               flex-direction: column;
               text-align: center;
-              gap: 0.5em;
+              gap: 0.4em;
             }
             
             .dynamic-text-wrapper {
               text-align: center;
-              min-width: auto;
+            }
+
+            .fixed-text {
+              text-align: center;
             }
           }
           
-          @media (min-width: 769px) {
+          @media (min-width: 969px) {
             .mobile-layout { display: none !important; }
             .desktop-layout { display: flex !important; }
           }
