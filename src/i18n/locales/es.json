@@ -13,6 +13,9 @@
   },
   "collection": {
     "sectionLabel": "ESTUDIOS DE CASO",
+    "title": "Colección de Prompts de Agentes IA",
+    "subtitle": "Descubre nuestra colección de prompts de agentes IA diseñados para profesionales legales y empresariales.",
+    "cta": "Acceso Temprano",
     "lastUpdate": "Última actualización",
     "prompts": {
       "contractAnalysis": {
