@@ -5,7 +5,11 @@ import { useTranslation } from 'react-i18next';
 const NOGProjectSection = () => {
   const { t } = useTranslation();
   const [currentLineIndex, setCurrentLineIndex] = React.useState(0);
+  const [textWidth, setTextWidth] = React.useState('auto');
   const lines = t('nog.actions', { returnObjects: true });
+  
+  // Ref pour mesurer la largeur du texte
+  const textMeasureRef = React.useRef(null);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -15,7 +19,30 @@ const NOGProjectSection = () => {
     return () => clearInterval(interval);
   }, [lines.length]);
 
-  // Fonctionn pour diviser le texte en caractères
+  // Effet pour mesurer la largeur du texte et ajuster le conteneur
+  React.useEffect(() => {
+    if (textMeasureRef.current) {
+      // Créer un élément temporaire pour mesurer le texte
+      const measureElement = document.createElement('span');
+      measureElement.style.visibility = 'hidden';
+      measureElement.style.position = 'absolute';
+      measureElement.style.fontSize = 'clamp(0.9rem, 2.2vw, 1.6rem)';
+      measureElement.style.fontFamily = '"Inter", -apple-system, BlinkMacSystemFont, sans-serif';
+      measureElement.style.fontWeight = '600';
+      measureElement.style.whiteSpace = 'nowrap';
+      measureElement.textContent = lines[currentLineIndex];
+      
+      document.body.appendChild(measureElement);
+      const width = measureElement.getBoundingClientRect().width;
+      document.body.removeChild(measureElement);
+      
+      // Ajouter une marge de sécurité et définir une largeur minimale/maximale
+      const adjustedWidth = Math.max(200, Math.min(width + 40, window.innerWidth * 0.6));
+      setTextWidth(`${adjustedWidth}px`);
+    }
+  }, [currentLineIndex, lines]);
+
+  // Fonction pour diviser le texte en caractères
   const splitIntoCharacters = (text) => {
     return Array.from(text);
   };
@@ -75,7 +102,7 @@ const NOGProjectSection = () => {
           backgroundImage: 'none'
         }}
       >
-        <div
+        <motion.div
           style={{
             fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
             color: '#fafafa',
@@ -91,12 +118,20 @@ const NOGProjectSection = () => {
             border: '1px solid rgba(255, 255, 255, 0.15)',
             borderRadius: '16px',
             boxShadow: 'none',
-            minHeight: 'clamp(6rem, 15vh, 8rem)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: 'clamp(1rem, 3vw, 1.5rem)'
+            gap: 'clamp(1rem, 3vw, 1.5rem)',
+            width: 'fit-content',
+            maxWidth: '95%'
+          }}
+          animate={{ 
+            width: 'fit-content'
+          }}
+          transition={{ 
+            duration: 0.3,
+            ease: "easeInOut"
           }}
         >
           {/* Première ligne avec le texte animé */}
@@ -104,10 +139,11 @@ const NOGProjectSection = () => {
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center', 
-            flexWrap: 'wrap',
+            flexWrap: 'nowrap',
             gap: 'clamp(0.2rem, 1vw, 0.5rem)',
             textAlign: 'center',
-            width: '100%',
+            width: 'auto',
+            minWidth: 'fit-content',
             background: 'transparent',
             backgroundColor: 'transparent',
             backgroundImage: 'none'
@@ -117,28 +153,39 @@ const NOGProjectSection = () => {
               marginRight: 'clamp(0.3rem, 1vw, 0.5rem)',
               background: 'transparent',
               backgroundColor: 'transparent',
-              backgroundImage: 'none'
+              backgroundImage: 'none',
+              whiteSpace: 'nowrap'
             }}>
               {t('nog.intro')}
             </span>
-            <div style={{ 
-              minWidth: 'clamp(200px, 40vw, 300px)',
-              width: 'auto',
-              height: 'clamp(1.8rem, 4vw, 2.2rem)',
-              overflow: 'hidden',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative',
-              lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
-              backgroundColor: 'transparent',
-              background: 'transparent',
-              backgroundImage: 'none',
-              border: 'none'
-            }}>
+            <motion.div 
+              style={{ 
+                width: textWidth,
+                minWidth: 'fit-content',
+                height: 'clamp(1.8rem, 4vw, 2.2rem)',
+                overflow: 'visible',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+                lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
+                backgroundColor: 'transparent',
+                background: 'transparent',
+                backgroundImage: 'none',
+                border: 'none'
+              }}
+              animate={{ 
+                width: textWidth
+              }}
+              transition={{ 
+                duration: 0.3,
+                ease: "easeInOut"
+              }}
+            >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
                   key={currentLineIndex}
+                  ref={textMeasureRef}
                   style={{
                     display: 'inline-flex',
                     position: 'absolute',
@@ -191,7 +238,7 @@ const NOGProjectSection = () => {
                   ))}
                 </motion.div>
               </AnimatePresence>
-            </div>
+            </motion.div>
           </div>
 
           {/* Deuxième ligne - version desktop/tablet */}
@@ -200,7 +247,7 @@ const NOGProjectSection = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'flex-end',
+              justifyContent: 'center',
               flexWrap: 'wrap',
               gap: 'clamp(0.8rem, 2vw, 1.2rem)',
               width: '100%',
@@ -219,7 +266,8 @@ const NOGProjectSection = () => {
                 letterSpacing: '0.05em',
                 background: 'transparent',
                 backgroundColor: 'transparent',
-                backgroundImage: 'none'
+                backgroundImage: 'none',
+                whiteSpace: 'nowrap'
               }}
             >
               {t('nog.getExamples')}
@@ -371,7 +419,7 @@ const NOGProjectSection = () => {
                 </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Indicateurs de progression */}
         <div
