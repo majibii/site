@@ -6,35 +6,43 @@ const NOGProjectSection = () => {
   const { t } = useTranslation();
   const [currentLineIndex, setCurrentLineIndex] = React.useState(0);
   const [displayedText, setDisplayedText] = React.useState('');
-  const [isTyping, setIsTyping] = React.useState(false);
+  const [isTyping, setIsTyping] = React.useState(true);
   const lines = t('nog.actions', { returnObjects: true });
 
+  // Rotation automatique des lignes
   React.useEffect(() => {
+    if (!Array.isArray(lines) || lines.length === 0) return;
+    
     const interval = setInterval(() => {
       setCurrentLineIndex((prevIndex) => (prevIndex + 1) % lines.length);
-    }, 3500);
+    }, 4000); // Changé à 4 secondes pour laisser plus de temps à la lecture
 
     return () => clearInterval(interval);
-  }, [lines.length]);
+  }, [lines]);
 
-  // Effet pour l'animation machine à écrire
+  // Animation machine à écrire
   React.useEffect(() => {
+    if (!Array.isArray(lines) || lines.length === 0) return;
+    
     const currentText = lines[currentLineIndex] || '';
     setIsTyping(true);
     setDisplayedText('');
     
-    let charIndex = 0;
-    const typeInterval = setInterval(() => {
-      if (charIndex <= currentText.length) {
-        setDisplayedText(currentText.slice(0, charIndex));
-        charIndex++;
-      } else {
-        setIsTyping(false);
-        clearInterval(typeInterval);
-      }
-    }, 80);
+    // Délai avant de commencer à taper
+    setTimeout(() => {
+      let charIndex = 0;
+      const typeInterval = setInterval(() => {
+        if (charIndex < currentText.length) {
+          setDisplayedText(currentText.slice(0, charIndex + 1));
+          charIndex++;
+        } else {
+          setIsTyping(false);
+          clearInterval(typeInterval);
+        }
+      }, 60); // Vitesse de frappe plus rapide
 
-    return () => clearInterval(typeInterval);
+      return () => clearInterval(typeInterval);
+    }, 300); // Petite pause avant de commencer
   }, [currentLineIndex, lines]);
 
   // Fonctions de hover pour les boutons
@@ -114,37 +122,37 @@ const NOGProjectSection = () => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    flexWrap: 'nowrap',
-    gap: 'clamp(0.1rem, 0.5vw, 0.3rem)',
+    flexWrap: 'wrap', // Changé pour permettre le retour à la ligne
+    gap: 'clamp(0.3rem, 0.8vw, 0.5rem)', // Augmenté l'espacement
     textAlign: 'center',
     width: '100%',
     background: 'transparent',
     backgroundColor: 'transparent',
     backgroundImage: 'none',
     margin: '0',
-    padding: '0'
+    padding: '0',
+    minHeight: 'clamp(2rem, 4vw, 2.5rem)' // Hauteur minimale pour éviter les sauts
   };
 
   const staticTextStyle = {
     display: 'inline-block',
-    marginRight: 'clamp(0.2rem, 0.5vw, 0.3rem)',
     background: 'transparent',
     backgroundColor: 'transparent',
     backgroundImage: 'none',
-    whiteSpace: 'nowrap',
     color: '#fafafa',
     fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-    fontWeight: '400'
+    fontWeight: '400',
+    whiteSpace: 'nowrap'
   };
 
   const dynamicTextContainerStyle = {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    minWidth: '200px',
+    minWidth: '250px', // Augmenté pour plus d'espace
     width: 'auto',
-    height: 'clamp(1.8rem, 4vw, 2.2rem)',
+    height: 'clamp(2rem, 4vw, 2.5rem)',
     position: 'relative',
     background: 'transparent',
     backgroundColor: 'transparent',
@@ -159,22 +167,24 @@ const NOGProjectSection = () => {
     fontWeight: '600',
     fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
     fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-    lineHeight: 'clamp(1.8rem, 4vw, 2.2rem)',
+    lineHeight: '1.2',
     backgroundColor: 'transparent',
     background: 'transparent',
     backgroundImage: 'none',
-    whiteSpace: 'nowrap',
     display: 'inline-block',
     margin: '0',
-    padding: '0'
+    padding: '0',
+    minHeight: '1.2em' // Assure une hauteur constante
   };
 
   const cursorStyle = {
     color: '#fce96b',
     fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
+    fontWeight: '400',
     marginLeft: '2px',
+    display: 'inline-block',
     animation: 'blink 1s infinite',
-    display: 'inline-block'
+    lineHeight: '1.2'
   };
 
   const buttonContainerStyle = {
@@ -224,6 +234,12 @@ const NOGProjectSection = () => {
     outline: 'none'
   };
 
+  // Debug : vérifier si les données sont correctes
+  console.log('Lines:', lines);
+  console.log('Current index:', currentLineIndex);
+  console.log('Displayed text:', displayedText);
+  console.log('Is typing:', isTyping);
+
   return (
     <>
       {/* Styles CSS pour l'animation du curseur */}
@@ -255,6 +271,16 @@ const NOGProjectSection = () => {
               background: transparent !important;
             }
           }
+          
+          @media (min-width: 769px) {
+            .mobile-layout {
+              display: none !important;
+            }
+            
+            .desktop-layout {
+              display: flex !important;
+            }
+          }
         `}
       </style>
       
@@ -273,8 +299,8 @@ const NOGProjectSection = () => {
               <div style={dynamicTextContainerStyle}>
                 <span style={dynamicTextStyle}>
                   {displayedText}
-                  {isTyping && <span style={cursorStyle}>|</span>}
                 </span>
+                <span style={cursorStyle}>|</span>
               </div>
             </div>
 
@@ -302,7 +328,7 @@ const NOGProjectSection = () => {
             </div>
 
             {/* Version mobile - affichage vertical */}
-            <div className="mobile-layout" style={{ display: 'none' }}>
+            <div className="mobile-layout">
               <div style={labelStyle}>
                 {t('nog.getExamples')}
               </div>
@@ -354,7 +380,7 @@ const NOGProjectSection = () => {
             backgroundColor: 'transparent',
             backgroundImage: 'none'
           }}>
-            {lines.map((_, index) => (
+            {Array.isArray(lines) && lines.map((_, index) => (
               <div
                 key={index}
                 style={{
