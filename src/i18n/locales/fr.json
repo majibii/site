@@ -13,6 +13,9 @@
   },
   "collection": {
     "sectionLabel": "ÉTUDES DE CAS",
+    "title": "Collection de Prompts d'Agents IA",
+    "subtitle": "Découvrez notre collection de prompts d'agents IA conçus pour les professionnels juridiques et d'affaires.",
+    "cta": "Accès Anticipé",
     "lastUpdate": "Dernière mise à jour",
     "prompts": {
       "contractAnalysis": {
@@ -99,7 +102,7 @@
   "legalStack": {
     "subtitle": "POURQUOI EGGON",
     "title": "Faites confiance à une équipe experte dans votre domaine",
-    "description": "Eggon combine une expertise juridique approfondie avec une véritable ingénierie IA pour fournir des solutions intégrées et fiables adaptées à vos défis opérationnels.",
+    "description": "Eggon combine une expertise juridique approfondie avec une véritable ingénierie IA pour fournir des solutions intégrées et reliables adaptées à vos défis opérationnels.",
     "stackTitle": "LA PILE D'AGENTS JURIDIQUES",
     "benefits": [
       {
