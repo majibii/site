@@ -77,14 +77,7 @@ const Footer = () => {
             </div>
             
             {/* Language Selector + Copyright */}
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'center',
-              marginTop: 'auto',
-              gap: '1rem',
-              flexWrap: 'wrap'
-            }}>
+            <div className="footer-bottom-section">
               <p className="footer-copyright" style={{ margin: 0, flex: 1 }}>
                 {t('footer.copyright')}
               </p>
