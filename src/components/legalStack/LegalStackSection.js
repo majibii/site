@@ -410,7 +410,7 @@ const RAGArchitectureDiagram = () => {
                 padding: 'clamp(1.5rem, 2.5vw, 2rem)',
                 flex: '1',
                 minWidth: '240px',
-                maxWidth: '320px'
+                maxWidth: '400px'
               }}
               variants={cardVariants}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -428,25 +428,112 @@ const RAGArchitectureDiagram = () => {
                 CONTEXTUAL<br />RAG AGENT
               </h3>
               
+              {/* Horizontal flow of 3 components */}
               <div style={{ 
                 display: 'flex', 
-                flexDirection: 'column', 
-                gap: '0.8rem',
-                marginBottom: '1.5rem'
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '0.4rem',
+                marginBottom: '1.5rem',
+                width: '100%'
               }}>
-                {['Mixture of retrievers', 'Reranker', 'Grounded Language Model'].map((item, index) => (
-                  <div key={index} style={{
-                    padding: '0.8rem',
-                    background: 'rgba(255, 255, 255, 0.12)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    borderRadius: '8px',
-                    textAlign: 'center',
-                    fontSize: 'clamp(0.7rem, 1.1vw, 0.8rem)',
-                    fontWeight: '600'
-                  }}>
-                    {item}
-                  </div>
-                ))}
+                {/* Mixture of retrievers */}
+                <div style={{
+                  padding: '0.6rem',
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                  fontWeight: '600',
+                  color: '#fafafa',
+                  flex: '1',
+                  minWidth: '0'
+                }}>
+                  Mixture of<br/>retrievers
+                </div>
+
+                {/* Arrow 1 */}
+                <div style={{
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <svg 
+                    width="10" 
+                    height="10" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="3"
+                    style={{ color: '#fafafa' }}
+                  >
+                    <path d="M5 12h14"/>
+                    <path d="M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+
+                {/* Reranker */}
+                <div style={{
+                  padding: '0.6rem',
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                  fontWeight: '600',
+                  color: '#fafafa',
+                  flex: '1',
+                  minWidth: '0'
+                }}>
+                  Reranker
+                </div>
+
+                {/* Arrow 2 */}
+                <div style={{
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  background: 'rgba(255, 255, 255, 0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <svg 
+                    width="10" 
+                    height="10" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="3"
+                    style={{ color: '#fafafa' }}
+                  >
+                    <path d="M5 12h14"/>
+                    <path d="M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+
+                {/* Grounded Language Model */}
+                <div style={{
+                  padding: '0.6rem',
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                  fontWeight: '600',
+                  color: '#fafafa',
+                  flex: '1',
+                  minWidth: '0'
+                }}>
+                  Grounded<br/>Language<br/>Model
+                </div>
               </div>
 
               {/* Optimization Notes */}
@@ -462,7 +549,7 @@ const RAGArchitectureDiagram = () => {
                   gap: '0.4rem',
                   marginBottom: '0.5rem'
                 }}>
-                  <span style={{ color: '#fce96b', flexShrink: 0 }}>✓</span>
+                  <span style={{ color: '#fafafa', flexShrink: 0 }}>✓</span>
                   <span>Components jointly optimized with RAG 2.0</span>
                 </div>
                 <div style={{ 
@@ -470,7 +557,7 @@ const RAGArchitectureDiagram = () => {
                   alignItems: 'flex-start', 
                   gap: '0.4rem'
                 }}>
-                  <span style={{ color: '#fce96b', flexShrink: 0 }}>✓</span>
+                  <span style={{ color: '#fafafa', flexShrink: 0 }}>✓</span>
                   <span>Tuning and alignment to specialize to use case</span>
                 </div>
               </div>
