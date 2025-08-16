@@ -155,7 +155,7 @@
       "paragraph1": "Les capacités de l'IA progressent à un rythme sans précédent, mais un problème majeur demeure : l'opacité.",
       "paragraph2": "Cette opacité est encore plus préoccupante lorsque l'IA entre dans des secteurs qui ne ressemblent à aucune autre industrie : la justice et la santé. Ce sont les fondements d'une société libre et équitable.",
       "paragraph3": "Chaque jour, les tribunaux prennent des décisions qui changent le cours de vies humaines. De telles décisions exigent de l'empathie, de l'expérience et du contexte — mais aussi un processus qui semble légitime à ceux qui sont affectés.",
-      "paragraph4": "Aucune famille ne devrait jamais se demander si elle a perdu la garde à cause d'un algorithme mal calibré. Aucun patient ne devrait jamais douter que son traitement a été décidé après une véritable évaluation humaine.",
+      "paragraph4": "Aucun patient ne devrait jamais douter que son traitement a été décidé après une véritable évaluation humaine.",
       "paragraph5": "Le vrai problème n'est pas simplement de savoir si l'IA donne la bonne ou la mauvaise réponse — c'est le doute. Et une fois que le doute s'installe, il érode la confiance et mine la légitimité de nos systèmes."
     },
     "aiForEveryone": {
@@ -274,6 +274,11 @@
       "description": "Si vous êtes un cabinet d'avocats ou un professionnel de la conformité intéressé à devenir un partenaire de conception, cliquez ici : ",
       "link": "Devenez partenaires de conception"
     }
+  },
+  "ragArchitecture": {
+    "subtitle": "LA PLATEFORME RAG CONTEXTUELLE",
+    "title": "ARCHITECTURE DE NOUVELLE GÉNÉRATION POUR LES AGENTS",
+    "introduction": "Conçue par des pionniers en RAG, notre plateforme vous permet d'intégrer de manière transparente des agents IA à vos connaissances d'entreprise, offrant une solution complète pour concevoir des systèmes RAG de pointe."
   },
   "contact": {
     "title": "Construisons l'avenir ensemble",
