@@ -1,145 +1,157 @@
 .legal-stack-section {
   position: relative;
   overflow: hidden;
-  background-color: #000000;
 }
 
-/* Styles Bento généraux */
-.bento-card {
-  background-color: #faf2d7;
-  border-radius: 20px;
-  border: 1px solid rgba(44, 62, 80, 0.1);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  position: relative;
+/* Correction globale RENFORCÉE pour éviter tous les rectangles noirs/colorés */
+.benefit-card,
+.benefit-card *,
+.benefit-card *::before,
+.benefit-card *::after,
+.benefit-card div,
+.benefit-card span,
+.benefit-card h3,
+.benefit-card p,
+.benefit-card svg,
+.benefit-card button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
-.bento-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+/* États hover - FORCER la transparence */
+.benefit-card:hover,
+.benefit-card:hover *,
+.benefit-card:hover *::before,
+.benefit-card:hover *::after,
+.benefit-card:hover div,
+.benefit-card:hover span,
+.benefit-card:hover h3,
+.benefit-card:hover p,
+.benefit-card:hover svg,
+.benefit-card:hover button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
-/* Encadré principal du header */
-.bento-header {
-  background-color: #faf2d7;
-  border-radius: 24px;
-  border: 1px solid rgba(44, 62, 80, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
+/* États focus - FORCER la transparence */
+.benefit-card:focus,
+.benefit-card:focus *,
+.benefit-card:focus *::before,
+.benefit-card:focus *::after,
+.benefit-card *:focus,
+.benefit-card *:focus *,
+.benefit-card *:focus::before,
+.benefit-card *:focus::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-.bento-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
-  border-radius: 24px 24px 0 0;
+/* États active - FORCER la transparence */
+.benefit-card:active,
+.benefit-card:active *,
+.benefit-card:active *::before,
+.benefit-card:active *::after,
+.benefit-card *:active,
+.benefit-card *:active * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
-/* Grille Bento responsive */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: clamp(1.5rem, 3vw, 2rem);
-  margin-bottom: clamp(2rem, 4vh, 3rem);
+/* Forcer TOUS les divs à être transparents */
+.benefit-card div[style],
+.benefit-card div,
+.legal-stack-section div[style*="background"],
+.legal-stack-section div {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
-/* Éléments de couleur thématique */
-.data-source-item {
-  transition: all 0.3s ease;
-  cursor: default;
+/* Correction spéciale pour les composants stack */
+.legal-stack-section div[style*="background"]:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-.data-source-item:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Empêcher TOUTE sélection de créer des backgrounds */
+.benefit-card ::selection,
+.legal-stack-section ::selection {
+  background: rgba(252, 233, 107, 0.3) !important;
+  color: #fafafa !important;
 }
 
-.pipeline-component {
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+.benefit-card ::-moz-selection,
+.legal-stack-section ::-moz-selection {
+  background: rgba(252, 233, 107, 0.3) !important;
+  color: #fafafa !important;
 }
 
-.pipeline-component::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
-  transition: left 0.6s ease;
+/* Style pour les cercles d'icônes - SEUL élément autorisé à avoir un background */
+.benefit-card div[style*="border-radius: 50%"],
+.benefit-card div[style*="borderRadius"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
 }
 
-.pipeline-component:hover::before {
-  left: 100%;
+/* CORRECTION SPÉCIALE pour Material-UI et autres frameworks */
+.benefit-card .MuiPaper-root,
+.benefit-card .MuiCard-root,
+.benefit-card .MuiBox-root,
+.benefit-card [class*="makeStyles"],
+.benefit-card [class*="jss"],
+.legal-stack-section .MuiPaper-root,
+.legal-stack-section .MuiCard-root,
+.legal-stack-section .MuiBox-root,
+.legal-stack-section [class*="makeStyles"],
+.legal-stack-section [class*="jss"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
-/* Animation des flèches */
-.bento-arrow {
-  transition: all 0.3s ease;
+/* Correction pour les pseudo-éléments qui peuvent créer des overlays */
+.benefit-card *::before,
+.benefit-card *::after,
+.legal-stack-section *::before,
+.legal-stack-section *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  content: none !important;
 }
 
-.bento-arrow:hover {
-  transform: translateX(4px);
+/* Correction pour les éléments inline avec styles */
+.benefit-card [style*="background"],
+.legal-stack-section [style*="background"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
-/* États de focus améliorés pour l'accessibilité */
-.bento-card:focus,
-.data-source-item:focus,
-.pipeline-component:focus {
-  outline: 3px solid #D4AF37;
-  outline-offset: 2px;
+/* Correction pour les gradients et linear-gradient */
+.benefit-card [style*="linear-gradient"],
+.benefit-card [style*="radial-gradient"],
+.legal-stack-section [style*="linear-gradient"],
+.legal-stack-section [style*="radial-gradient"] {
+  background: transparent !important;
+  background-image: none !important;
 }
 
-/* Couleurs thématiques pour les différents domaines */
-.domain-finance {
-  border-left: 4px solid #e74c3c;
-}
-
-.domain-law {
-  border-left: 4px solid #f39c12;
-}
-
-.domain-technology {
-  border-left: 4px solid #9b59b6;
-}
-
-.domain-enterprise {
-  border-left: 4px solid #2ecc71;
-  background-color: rgba(46, 204, 113, 0.05);
-}
-
-/* Responsive design */
-@media (max-width: 1200px) {
-  .bento-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(1rem, 2vw, 1.5rem);
-  }
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .legal-stack-section {
     padding: clamp(3rem, 6vh, 4rem) clamp(0.5rem, 2vw, 1rem);
-  }
-  
-  .bento-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .bento-header {
-    border-radius: 16px;
-    padding: clamp(2rem, 4vw, 3rem) !important;
-  }
-  
-  .bento-card {
-    border-radius: 16px;
   }
 }
 
@@ -147,88 +159,24 @@
   .legal-stack-section {
     padding: clamp(2rem, 4vh, 3rem) 1rem;
   }
-  
-  .bento-header {
-    border-radius: 12px;
-  }
-  
-  .bento-card {
-    border-radius: 12px;
-  }
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .bento-card,
-  .data-source-item,
-  .pipeline-component,
-  .bento-arrow,
-  .pipeline-component::before {
-    transition: none !important;
-    animation: none !important;
-  }
-}
-
-/* Contraste élevé pour l'accessibilité */
-@media (prefers-contrast: high) {
-  .bento-card {
-    border-width: 2px;
-    border-color: #2c3e50;
-  }
-  
-  .bento-header {
-    border-width: 2px;
-    border-color: #2c3e50;
-  }
-}
-
-/* Mode sombre alternatif */
-@media (prefers-color-scheme: dark) {
-  .legal-stack-section {
-    background-color: #000000;
+  .legal-stack-section *,
+  .legal-stack-section *::before,
+  .legal-stack-section *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 /* Performance optimizations */
-.bento-card,
-.pipeline-component {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-/* Animations subtiles pour les éléments interactifs */
-@keyframes gentleGlow {
-  0%, 100% {
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+@media (prefers-reduced-motion: no-preference) {
+  .legal-stack-section {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
-  50% {
-    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1), 0 6px 24px rgba(0, 0, 0, 0.15);
-  }
-}
-
-.bento-card:hover {
-  animation: gentleGlow 2s ease-in-out infinite;
-}
-
-/* Correction pour éviter les conflits avec les styles précédents */
-.legal-stack-section .benefit-card {
-  background: transparent !important;
-}
-
-.legal-stack-section .bento-card,
-.legal-stack-section .bento-card *,
-.legal-stack-section .bento-header,
-.legal-stack-section .bento-header * {
-  background-color: #faf2d7 !important;
-}
-
-/* Styles spécifiques pour les icônes colorées */
-.colored-icon-circle {
-  transition: all 0.3s ease;
-}
-
-.colored-icon-circle:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
 }
