@@ -23,7 +23,7 @@ const RAGArchitectureDiagram = () => {
       height="24" 
       viewBox="0 0 40 24" 
       fill="none"
-      style={{ color: '#fce96b' }}
+      style={{ color: '#fafafa' }}
     >
       <path 
         d="M2 12H38M38 12L30 4M38 12L30 20" 
@@ -642,7 +642,7 @@ const RAGArchitectureDiagram = () => {
                         <path d="M8 21h8"/>
                       </>
                     ),
-                    highlight: true
+                    highlight: false
                   },
                   { 
                     name: 'Technology',
@@ -725,68 +725,6 @@ const RAGArchitectureDiagram = () => {
               </div>
             </motion.div>
           </div>
-
-          {/* Bottom Specialized Section - Only on larger screens */}
-          <motion.div 
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: 'clamp(2rem, 4vw, 3rem)',
-              '@media (max-width: 768px)': {
-                display: 'none'
-              }
-            }}
-            variants={cardVariants}
-            transition={{ duration: 0.6, delay: 1 }}
-          >
-            <div style={{
-              background: 'rgba(252, 233, 107, 0.15)',
-              border: '2px solid rgba(252, 233, 107, 0.4)',
-              borderRadius: '16px',
-              padding: 'clamp(1.5rem, 2.5vw, 2rem)',
-              maxWidth: '300px',
-              width: '100%'
-            }}>
-              <h4 style={{
-                fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
-                fontWeight: '700',
-                color: '#fce96b',
-                marginBottom: '1.5rem',
-                textAlign: 'center',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}>
-                LEGAL SPECIALIZATION
-              </h4>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                <div style={{
-                  padding: '0.8rem',
-                  background: 'rgba(255, 255, 255, 0.15)',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
-                  borderRadius: '8px',
-                  textAlign: 'center',
-                  fontSize: 'clamp(0.7rem, 1.1vw, 0.8rem)',
-                  fontWeight: '600',
-                  color: '#fafafa'
-                }}>
-                  📋 Contract Analysis
-                </div>
-                <div style={{
-                  padding: '0.8rem',
-                  background: 'rgba(255, 255, 255, 0.15)',
-                  border: '1px solid rgba(255, 255, 255, 0.25)',
-                  borderRadius: '8px',
-                  textAlign: 'center',
-                  fontSize: 'clamp(0.7rem, 1.1vw, 0.8rem)',
-                  fontWeight: '600',
-                  color: '#fafafa'
-                }}>
-                  💼 Devis
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
 
