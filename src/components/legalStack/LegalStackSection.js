@@ -401,7 +401,7 @@ const RAGArchitectureDiagram = () => {
               <ArrowIcon />
             </motion.div>
 
-            {/* RAG Agent */}
+            {/* RAG Agent - CORRIGÉ */}
             <motion.div 
               style={{
                 background: 'rgba(255, 255, 255, 0.08)',
@@ -428,35 +428,38 @@ const RAGArchitectureDiagram = () => {
                 CONTEXTUAL<br />RAG AGENT
               </h3>
               
-              {/* Horizontal flow of 3 components */}
+              {/* Horizontal flow of 3 components - CORRIGÉ */}
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                gap: '0.4rem',
+                gap: '0.5rem',
                 marginBottom: '1.5rem',
                 width: '100%'
               }}>
                 {/* Mixture of retrievers */}
                 <div style={{
-                  padding: '0.6rem',
+                  padding: 'clamp(0.4rem, 1vw, 0.6rem)',
                   background: 'rgba(255, 255, 255, 0.12)',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                   borderRadius: '6px',
                   textAlign: 'center',
-                  fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                  fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                   fontWeight: '600',
                   color: '#fafafa',
                   flex: '1',
-                  minWidth: '0'
+                  minWidth: '0',
+                  lineHeight: '1.1',
+                  wordWrap: 'break-word',
+                  hyphens: 'auto'
                 }}>
                   Mixture of<br/>retrievers
                 </div>
 
                 {/* Arrow 1 */}
                 <div style={{
-                  width: '24px',
-                  height: '24px',
+                  width: '20px',
+                  height: '20px',
                   borderRadius: '50%',
                   background: 'rgba(255, 255, 255, 0.15)',
                   display: 'flex',
@@ -465,8 +468,8 @@ const RAGArchitectureDiagram = () => {
                   flexShrink: 0
                 }}>
                   <svg 
-                    width="10" 
-                    height="10" 
+                    width="8" 
+                    height="8" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -480,24 +483,26 @@ const RAGArchitectureDiagram = () => {
 
                 {/* Reranker */}
                 <div style={{
-                  padding: '0.6rem',
+                  padding: 'clamp(0.4rem, 1vw, 0.6rem)',
                   background: 'rgba(255, 255, 255, 0.12)',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                   borderRadius: '6px',
                   textAlign: 'center',
-                  fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                  fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                   fontWeight: '600',
                   color: '#fafafa',
                   flex: '1',
-                  minWidth: '0'
+                  minWidth: '0',
+                  lineHeight: '1.2',
+                  wordWrap: 'break-word'
                 }}>
                   Reranker
                 </div>
 
                 {/* Arrow 2 */}
                 <div style={{
-                  width: '24px',
-                  height: '24px',
+                  width: '20px',
+                  height: '20px',
                   borderRadius: '50%',
                   background: 'rgba(255, 255, 255, 0.15)',
                   display: 'flex',
@@ -506,8 +511,8 @@ const RAGArchitectureDiagram = () => {
                   flexShrink: 0
                 }}>
                   <svg 
-                    width="10" 
-                    height="10" 
+                    width="8" 
+                    height="8" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -521,16 +526,19 @@ const RAGArchitectureDiagram = () => {
 
                 {/* Grounded Language Model */}
                 <div style={{
-                  padding: '0.6rem',
+                  padding: 'clamp(0.4rem, 1vw, 0.6rem)',
                   background: 'rgba(255, 255, 255, 0.12)',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                   borderRadius: '6px',
                   textAlign: 'center',
-                  fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                  fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                   fontWeight: '600',
                   color: '#fafafa',
                   flex: '1',
-                  minWidth: '0'
+                  minWidth: '0',
+                  lineHeight: '1.1',
+                  wordWrap: 'break-word',
+                  hyphens: 'auto'
                 }}>
                   Grounded<br/>Language<br/>Model
                 </div>
@@ -572,7 +580,7 @@ const RAGArchitectureDiagram = () => {
               <ArrowIcon />
             </motion.div>
 
-            {/* Specialized Agents */}
+            {/* Specialized Agents - CORRIGÉ */}
             <motion.div 
               style={{
                 background: 'rgba(255, 255, 255, 0.08)',
@@ -596,31 +604,106 @@ const RAGArchitectureDiagram = () => {
                 letterSpacing: '0.05em',
                 lineHeight: '1.2'
               }}>
-                SPECIALIZED<br />RAG AGENTS
+                SPECIALIZED<br />AGENTS BY DOMAIN
               </h3>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                 {[
-                  { name: 'Finance', icon: '💰' },
-                  { name: 'Technology', icon: '⚡' },
-                  { name: 'Professional Services', icon: '⚖️', highlight: true },
-                  { name: 'Your Enterprise', icon: '🏢' }
+                  { 
+                    name: 'Finance',
+                    iconPath: (
+                      <>
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                      </>
+                    )
+                  },
+                  { 
+                    name: 'Law',
+                    iconPath: (
+                      <>
+                        <path d="M9 12 6.5 9.5a2.5 2.5 0 0 1 0-3.5 2.5 2.5 0 0 1 3.5 0L12 8l2-2a2.5 2.5 0 0 1 3.5 0 2.5 2.5 0 0 1 0 3.5L15 12"/>
+                        <path d="M12 12v8"/>
+                        <path d="M8 21h8"/>
+                      </>
+                    ),
+                    highlight: true
+                  },
+                  { 
+                    name: 'Technology',
+                    iconPath: (
+                      <>
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <path d="M12 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                        <path d="M8 12h8"/>
+                        <path d="M6 15h12"/>
+                      </>
+                    )
+                  },
+                  { 
+                    name: 'Your Enterprise',
+                    iconPath: (
+                      <>
+                        <path d="M3 21h18"/>
+                        <path d="M5 21V7l8-4v18"/>
+                        <path d="M19 21V11l-6-4"/>
+                        <path d="M9 9v.01"/>
+                        <path d="M9 12v.01"/>
+                        <path d="M9 15v.01"/>
+                        <path d="M9 18v.01"/>
+                      </>
+                    )
+                  }
                 ].map((item, index) => (
                   <div 
                     key={index}
                     style={{
-                      padding: '0.8rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.8rem',
+                      padding: 'clamp(0.6rem, 1.2vw, 0.8rem)',
                       background: item.highlight ? 'rgba(252, 233, 107, 0.2)' : 'rgba(255, 255, 255, 0.1)',
                       border: item.highlight ? '2px solid rgba(252, 233, 107, 0.4)' : '1px solid rgba(255, 255, 255, 0.15)',
                       borderRadius: '8px',
-                      textAlign: 'center',
                       fontSize: 'clamp(0.7rem, 1.1vw, 0.8rem)',
                       fontWeight: '600',
                       color: item.highlight ? '#fce96b' : '#fafafa',
                       transition: 'all 0.3s ease'
                     }}
                   >
-                    {item.icon} {item.name}
+                    {/* Icon Circle */}
+                    <div style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '50%',
+                      background: item.highlight ? 'rgba(252, 233, 107, 0.3)' : 'rgba(255, 255, 255, 0.15)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      <svg 
+                        width="16" 
+                        height="16" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2"
+                        style={{ color: item.highlight ? '#fce96b' : '#fafafa' }}
+                      >
+                        {item.iconPath}
+                      </svg>
+                    </div>
+                    
+                    {/* Text */}
+                    <span style={{
+                      flex: 1,
+                      textAlign: 'left',
+                      lineHeight: '1.2'
+                    }}>
+                      {item.name}
+                    </span>
                   </div>
                 ))}
               </div>
