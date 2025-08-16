@@ -76,7 +76,7 @@ const RAGArchitectureDiagram = () => {
               background: 'transparent'
             }}
           >
-            PLATFORM
+            {t('ragArchitecture.subtitle', 'THE CONTEXTUAL RAG PLATFORM')}
           </h3>
           
           <h2 
@@ -85,13 +85,29 @@ const RAGArchitectureDiagram = () => {
               fontWeight: '900',
               color: '#fafafa',
               lineHeight: '1.1',
-              marginBottom: '2rem',
+              marginBottom: '1.5rem',
               textShadow: '2px 2px 8px rgba(0, 0, 0, 0.6)',
               background: 'transparent'
             }}
           >
-            RAG ARCHITECTURE
+            {t('ragArchitecture.title', 'NEXT-GEN ARCHITECTURE FOR AGENTS')}
           </h2>
+          
+          <p 
+            style={{
+              fontSize: 'clamp(1rem, 2vw, 1.3rem)',
+              fontWeight: '400',
+              color: 'rgba(250, 250, 250, 0.9)',
+              lineHeight: '1.6',
+              marginBottom: '2rem',
+              maxWidth: '900px',
+              margin: '0 auto 2rem auto',
+              textAlign: 'center',
+              background: 'transparent'
+            }}
+          >
+            {t('ragArchitecture.introduction', 'Built by pioneers in RAG, our platform empowers you to seamlessly integrate AI agents with your enterprise knowledge, providing a complete solution for designing cutting-edge RAG systems.')}
+          </p>
         </motion.div>
 
         {/* Main Container Rectangle */}
