@@ -275,6 +275,11 @@
       "link": "Be Design Partners"
     }
   },
+  "ragArchitecture": {
+    "subtitle": "THE CONTEXTUAL RAG PLATFORM",
+    "title": "NEXT-GEN ARCHITECTURE FOR AGENTS",
+    "introduction": "Built by pioneers in RAG, our platform empowers you to seamlessly integrate AI agents with your enterprise knowledge, providing a complete solution for designing cutting-edge RAG systems."
+  },
   "contact": {
     "title": "Let's Build the Future Together",
     "subtitle": "Ready to make AI agents your competitive advantage? Get in touch with our team.",
