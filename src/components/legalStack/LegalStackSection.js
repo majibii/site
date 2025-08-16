@@ -1,131 +1,68 @@
-import React, { useRef } from 'react';
-import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { useInViewport } from '../../hooks/useInViewport';
-import './LegalStackSection.css';
 
-const LegalStackSection = () => {
+const RAGArchitectureDiagram = () => {
   const { t } = useTranslation();
-  const sectionRef = useRef(null);
-  const isVisible = useInViewport(sectionRef, false, { threshold: 0.2 });
-  const { scrollY } = useViewportScroll();
-  
-  // Effets parallaxx pour différents éléments
-  const headerY = useTransform(scrollY, [0, 1000], [0, -25]);
-  const benefitsY = useTransform(scrollY, [0, 1000], [0, 15]);
-  const stackY = useTransform(scrollY, [0, 1000], [0, 30]);
 
-  // Utilisation des traductions pour benefits et stackComponents
-  const benefits = t('legalStack.benefits', { returnObjects: true });
-  const stackComponents = t('legalStack.stackComponents', { returnObjects: true });
-  
-  // Fonction pour gérer le hover sans créer de rectangles
-  const handleCardMouseEnter = (e) => {
-    e.stopPropagation();
-    const card = e.currentTarget;
-    
-    // Appliquer SEULEMENT les transformations et bordures
-    card.style.setProperty('transform', 'translateY(-5px)', 'important');
-    card.style.setProperty('box-shadow', '0 12px 40px rgba(0, 0, 0, 0.4)', 'important');
-    card.style.setProperty('border-color', 'rgba(255, 255, 255, 0.25)', 'important');
-    
-    // FORCER la transparence complète
-    card.style.setProperty('background', 'none', 'important');
-    card.style.setProperty('background-color', 'transparent', 'important');
-    card.style.setProperty('background-image', 'none', 'important');
-    
-    // FORCER tous les éléments enfants à rester transparents
-    const allChildren = card.querySelectorAll('*');
-    allChildren.forEach(child => {
-      // Ne pas toucher aux éléments qui ont explicitement besoin d'un background
-      if (!child.style.borderRadius || !child.style.borderRadius.includes('50%')) {
-        child.style.setProperty('background', 'transparent', 'important');
-        child.style.setProperty('background-color', 'transparent', 'important');
-        child.style.setProperty('background-image', 'none', 'important');
-        child.style.setProperty('box-shadow', 'none', 'important');
-      }
-    });
+  // Animation variants pour les cartes
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
   };
 
-  const handleCardMouseLeave = (e) => {
-    e.stopPropagation();
-    const card = e.currentTarget;
-    
-    // Remettre les styles de base
-    card.style.setProperty('transform', 'translateY(0)', 'important');
-    card.style.setProperty('box-shadow', 'none', 'important');
-    card.style.setProperty('border-color', 'rgba(255, 255, 255, 0.15)', 'important');
-    
-    // Maintenir la transparence
-    card.style.setProperty('background', 'none', 'important');
-    card.style.setProperty('background-color', 'transparent', 'important');
-    card.style.setProperty('background-image', 'none', 'important');
-    
-    // Garder les enfants transparents
-    const allChildren = card.querySelectorAll('*');
-    allChildren.forEach(child => {
-      if (!child.style.borderRadius || !child.style.borderRadius.includes('50%')) {
-        child.style.setProperty('background', 'transparent', 'important');
-        child.style.setProperty('background-color', 'transparent', 'important');
-        child.style.setProperty('background-image', 'none', 'important');
-        child.style.setProperty('box-shadow', 'none', 'important');
-      }
-    });
+  // Animation pour les flèches
+  const arrowVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 }
   };
 
-  // Fonction pour gérer le hover des composants stack
-  const handleStackMouseEnter = (e) => {
-    const element = e.currentTarget;
-    element.style.setProperty('background', 'rgba(255, 255, 255, 0.1)', 'important');
-    element.style.setProperty('border-color', 'rgba(255, 255, 255, 0.2)', 'important');
-    
-    // Forcer tous les enfants à rester transparents
-    const allChildren = element.querySelectorAll('*');
-    allChildren.forEach(child => {
-      if (!child.matches('[style*="rgba(252, 233, 107"]')) { // Garder les badges
-        child.style.setProperty('background', 'transparent', 'important');
-        child.style.setProperty('background-color', 'transparent', 'important');
-      }
-    });
-  };
-
-  const handleStackMouseLeave = (e) => {
-    const element = e.currentTarget;
-    element.style.setProperty('background', 'rgba(255, 255, 255, 0.06)', 'important');
-    element.style.setProperty('border-color', 'rgba(255, 255, 255, 0.1)', 'important');
-  };
+  const ArrowIcon = () => (
+    <svg 
+      width="40" 
+      height="24" 
+      viewBox="0 0 40 24" 
+      fill="none"
+      style={{ color: '#fce96b' }}
+    >
+      <path 
+        d="M2 12H38M38 12L30 4M38 12L30 20" 
+        stroke="currentColor" 
+        strokeWidth="3" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 
   return (
     <section 
-      ref={sectionRef} 
-      className={`legal-stack-section ${isVisible ? 'visible' : ''}`}
       style={{
         minHeight: '100vh',
         width: '100%',
         padding: 'clamp(4rem, 8vh, 6rem) clamp(1rem, 3vw, 2rem)',
         backgroundColor: 'transparent',
         color: '#fafafa',
-        position: 'relative',
-        opacity: 1,
-        visibility: 'visible'
+        position: 'relative'
       }}
     >
       <div 
         style={{
           width: '100%',
-          maxWidth: '1400px',
-          margin: '0 auto',
-          opacity: 1,
-          visibility: 'visible'
+          maxWidth: '1600px',
+          margin: '0 auto'
         }}
       >
-        {/* Hero Section */}
+        {/* Header Section */}
         <motion.div 
           style={{ 
             textAlign: 'center', 
-            marginBottom: 'clamp(4rem, 8vh, 6rem)',
-            y: headerY
+            marginBottom: 'clamp(4rem, 8vh, 6rem)'
           }}
+          initial="hidden"
+          animate="visible"
+          variants={cardVariants}
+          transition={{ duration: 0.6 }}
         >
           <h3 
             style={{
@@ -139,7 +76,7 @@ const LegalStackSection = () => {
               background: 'transparent'
             }}
           >
-            {t('legalStack.subtitle')}
+            PLATFORM
           </h3>
           
           <h2 
@@ -153,266 +90,390 @@ const LegalStackSection = () => {
               background: 'transparent'
             }}
           >
-            {t('legalStack.title')}
+            RAG ARCHITECTURE
           </h2>
+        </motion.div>
 
-          <p 
+        {/* Architecture Flow */}
+        <div style={{ 
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'clamp(3rem, 6vh, 4rem)',
+          alignItems: 'center'
+        }}>
+          
+          {/* Data Sources */}
+          <motion.div 
             style={{
-              fontSize: 'clamp(1rem, 2.2vw, 1.3rem)',
-              color: 'rgba(250, 250, 250, 0.9)',
-              lineHeight: '1.6',
-              maxWidth: '80ch',
-              margin: '0 auto',
-              background: 'transparent'
+              background: 'rgba(255, 255, 255, 0.06)',
+              border: '2px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '16px',
+              padding: 'clamp(2rem, 4vw, 3rem)',
+              width: '100%',
+              maxWidth: '320px',
+              position: 'relative'
             }}
+            initial="hidden"
+            animate="visible"
+            variants={cardVariants}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {t('legalStack.description')}
-          </p>
-        </motion.div>
-
-        {/* Benefits Grid */}
-        <motion.div 
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
-            marginBottom: 'clamp(6rem, 10vh, 8rem)',
-            y: benefitsY
-          }}
-        >
-          {benefits.map((benefit, index) => (
-            <div 
-              key={index}
-              style={{
-                padding: 'clamp(1.8rem, 3vw, 2.4rem)',
-                background: 'none',
-                backgroundColor: 'transparent',
-                backgroundImage: 'none',
-                border: '2px solid rgba(255, 255, 255, 0.15)',
-                borderRadius: '16px',
-                transition: 'all 0.3s ease',
-                cursor: 'default',
-                minHeight: '280px',
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                boxShadow: 'none'
-              }}
-              className="benefit-card"
-              onMouseEnter={handleCardMouseEnter}
-              onMouseLeave={handleCardMouseLeave}
-            >
-              <div 
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '1.5rem',
-                  background: 'transparent',
-                  backgroundColor: 'transparent'
-                }}
-              >
-                <div 
-                  style={{
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '50%',
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    border: '2px solid rgba(255, 255, 255, 0.2)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}
-                >
-                  {/* Icône SVG simple sans background */}
-                  <svg 
-                    width="24" 
-                    height="24"
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2"
-                    style={{ 
-                      color: '#fafafa',
-                      background: 'transparent',
-                      backgroundColor: 'transparent'
-                    }}
-                  >
-                    <circle cx="12" cy="12" r="10" style={{ background: 'transparent' }}/>
-                    <path d="M8 12l2 2 4-4" style={{ background: 'transparent' }}/>
-                  </svg>
-                </div>
-              </div>
-              
-              <div style={{ 
-                flex: 1, 
-                textAlign: 'center',
-                background: 'transparent',
-                backgroundColor: 'transparent'
-              }}>
-                <h3 
-                  style={{
-                    fontSize: 'clamp(1.2rem, 2vw, 1.4rem)',
-                    fontWeight: '700',
-                    color: '#fafafa',
-                    marginBottom: '1.2rem',
-                    lineHeight: '1.3',
-                    background: 'transparent',
-                    backgroundColor: 'transparent'
-                  }}
-                >
-                  {benefit.title}
-                </h3>
-                
-                <p 
-                  style={{
-                    fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
-                    color: 'rgba(250, 250, 250, 0.85)',
-                    lineHeight: '1.6',
-                    textAlign: 'left',
-                    margin: 0,
-                    background: 'transparent',
-                    backgroundColor: 'transparent'
-                  }}
-                >
-                  {benefit.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Technical Stack Section */}
-        <motion.div 
-          style={{ 
-            marginBottom: '4rem',
-            y: stackY
-          }}
-        >
-          <h3 
-            style={{
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+            <h3 style={{
+              fontSize: 'clamp(1.1rem, 2vw, 1.4rem)',
               fontWeight: '700',
               color: '#fafafa',
+              marginBottom: '2rem',
               textAlign: 'center',
-              marginBottom: 'clamp(3rem, 6vh, 4rem)',
               textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              background: 'transparent'
-            }}
-          >
-            {t('legalStack.stackTitle')}
-          </h3>
+              letterSpacing: '0.05em'
+            }}>
+              DATA SOURCES
+            </h3>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {['Unstructured Data', 'Structured Data', 'Application APIs'].map((item, index) => (
+                <div 
+                  key={index}
+                  style={{
+                    padding: '1rem',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '8px',
+                    textAlign: 'center',
+                    fontSize: 'clamp(0.9rem, 1.6vw, 1rem)',
+                    fontWeight: '500'
+                  }}
+                >
+                  📄 {item}
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-          <div 
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 'clamp(1.5rem, 3vh, 2rem)',
-              maxWidth: '1000px',
-              margin: '0 auto'
-            }}
+          {/* Arrow 1 */}
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={arrowVariants}
+            transition={{ duration: 0.4, delay: 0.3 }}
           >
-            {stackComponents.map((component, index) => (
-              <div 
-                key={index}
-                style={{
-                  padding: 'clamp(1.5rem, 3vw, 2rem)',
-                  background: 'none',
-                  backgroundColor: 'transparent',
-                  backgroundImage: 'none',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '12px',
-                  transition: 'all 0.3s ease',
-                  position: 'relative',
-                  boxShadow: 'none'
-                }}
-                onMouseEnter={handleStackMouseEnter}
-                onMouseLeave={handleStackMouseLeave}
-              >
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'flex-start', 
-                  gap: '1.5rem',
-                  background: 'transparent',
-                  backgroundColor: 'transparent'
+            <ArrowIcon />
+          </motion.div>
+
+          {/* Contextual Document Understanding Pipeline */}
+          <motion.div 
+            style={{
+              background: 'rgba(252, 233, 107, 0.1)',
+              border: '2px solid rgba(252, 233, 107, 0.3)',
+              borderRadius: '16px',
+              padding: 'clamp(2rem, 4vw, 3rem)',
+              width: '100%',
+              maxWidth: '400px',
+              position: 'relative'
+            }}
+            initial="hidden"
+            animate="visible"
+            variants={cardVariants}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h3 style={{
+              fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
+              fontWeight: '700',
+              color: '#fce96b',
+              marginBottom: '2rem',
+              textAlign: 'center',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
+            }}>
+              CONTEXTUAL DOCUMENT<br />UNDERSTANDING PIPELINE
+            </h3>
+            
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '1rem',
+              alignItems: 'center'
+            }}>
+              <div style={{
+                padding: '1rem',
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '8px',
+                textAlign: 'center',
+                fontSize: 'clamp(0.85rem, 1.5vw, 0.95rem)',
+                fontWeight: '600',
+                width: '80%'
+              }}>
+                Multimodal<br />Extraction
+              </div>
+              <div style={{ fontSize: '1.5rem' }}>⬇️</div>
+              <div style={{
+                padding: '1rem',
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '8px',
+                textAlign: 'center',
+                fontSize: 'clamp(0.85rem, 1.5vw, 0.95rem)',
+                fontWeight: '600',
+                width: '80%'
+              }}>
+                Continuous<br />Ingestion
+              </div>
+              <div style={{ fontSize: '1.5rem' }}>⬇️</div>
+              <div style={{
+                padding: '1rem',
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '8px',
+                textAlign: 'center',
+                fontSize: 'clamp(0.85rem, 1.5vw, 0.95rem)',
+                fontWeight: '600',
+                width: '80%'
+              }}>
+                Datastore
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Arrow 2 */}
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={arrowVariants}
+            transition={{ duration: 0.4, delay: 0.6 }}
+          >
+            <ArrowIcon />
+          </motion.div>
+
+          {/* Contextual RAG Agent */}
+          <motion.div 
+            style={{
+              background: 'rgba(255, 255, 255, 0.08)',
+              border: '2px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '16px',
+              padding: 'clamp(2rem, 4vw, 3rem)',
+              width: '100%',
+              maxWidth: '450px',
+              position: 'relative'
+            }}
+            initial="hidden"
+            animate="visible"
+            variants={cardVariants}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            <h3 style={{
+              fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
+              fontWeight: '700',
+              color: '#fafafa',
+              marginBottom: '2rem',
+              textAlign: 'center',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
+            }}>
+              CONTEXTUAL<br />RAG AGENT
+            </h3>
+            
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '1rem',
+              alignItems: 'center',
+              marginBottom: '2rem'
+            }}>
+              {['Mixture of retrievers', 'Reranker', 'Grounded Language Model'].map((item, index) => (
+                <div key={index} style={{
+                  padding: '1rem',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: '8px',
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.85rem, 1.5vw, 0.95rem)',
+                  fontWeight: '600',
+                  width: '90%'
                 }}>
-                  <div 
-                    style={{
-                      padding: '0.5rem 1rem',
-                      background: 'rgba(252, 233, 107, 0.2)',
-                      backgroundColor: 'rgba(252, 233, 107, 0.2)',
-                      border: '1px solid rgba(252, 233, 107, 0.4)',
-                      borderRadius: '20px',
-                      fontSize: '0.8rem',
-                      fontWeight: '600',
-                      color: '#fce96b',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                      flexShrink: 0,
-                      marginTop: '0.2rem'
-                    }}
-                  >
-                    {component.badge}
-                  </div>
-                  
-                  <div style={{ 
-                    flex: 1,
-                    background: 'transparent',
-                    backgroundColor: 'transparent'
-                  }}>
-                    <div 
-                      style={{
-                        fontSize: '0.8rem',
-                        color: 'rgba(250, 250, 250, 0.6)',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em',
-                        marginBottom: '0.5rem',
-                        fontWeight: '500',
-                        background: 'transparent',
-                        backgroundColor: 'transparent'
-                      }}
-                    >
-                      {component.category}
-                    </div>
-                    
-                    <h4 
-                      style={{
-                        fontSize: 'clamp(1.1rem, 2vw, 1.3rem)',
-                        fontWeight: '700',
-                        color: '#fafafa',
-                        marginBottom: '0.8rem',
-                        lineHeight: '1.3',
-                        background: 'transparent',
-                        backgroundColor: 'transparent'
-                      }}
-                    >
-                      {component.title}
-                    </h4>
-                    
-                    <p 
-                      style={{
-                        fontSize: 'clamp(0.9rem, 1.8vw, 1rem)',
-                        color: 'rgba(250, 250, 250, 0.8)',
-                        lineHeight: '1.5',
-                        margin: 0,
-                        background: 'transparent',
-                        backgroundColor: 'transparent'
-                      }}
-                    >
-                      {component.description}
-                    </p>
-                  </div>
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            {/* Optimization Notes */}
+            <div style={{
+              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+              paddingTop: '1.5rem',
+              fontSize: 'clamp(0.8rem, 1.4vw, 0.9rem)',
+              color: 'rgba(250, 250, 250, 0.9)'
+            }}>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem',
+                marginBottom: '0.5rem'
+              }}>
+                <span style={{ color: '#fce96b' }}>✓</span>
+                Components jointly optimized with RAG 2.0
+              </div>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem'
+              }}>
+                <span style={{ color: '#fce96b' }}>✓</span>
+                Tuning and alignment to specialize to use case
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Arrow 3 */}
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={arrowVariants}
+            transition={{ duration: 0.4, delay: 0.9 }}
+          >
+            <ArrowIcon />
+          </motion.div>
+
+          {/* Specialized RAG Agents */}
+          <motion.div 
+            style={{
+              background: 'rgba(255, 255, 255, 0.06)',
+              border: '2px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '16px',
+              padding: 'clamp(2rem, 4vw, 3rem)',
+              width: '100%',
+              maxWidth: '350px'
+            }}
+            initial="hidden"
+            animate="visible"
+            variants={cardVariants}
+            transition={{ duration: 0.6, delay: 1 }}
+          >
+            <h3 style={{
+              fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
+              fontWeight: '700',
+              color: '#fafafa',
+              marginBottom: '2rem',
+              textAlign: 'center',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
+            }}>
+              SPECIALIZED<br />RAG AGENTS
+            </h3>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {[
+                { name: 'Finance', icon: '💰' },
+                { name: 'Technology', icon: '⚡' },
+                { name: 'Professional Services', icon: '⚖️' },
+                { name: 'Your Enterprise', icon: '🏢' }
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  style={{
+                    padding: '1rem',
+                    background: index === 2 ? 'rgba(252, 233, 107, 0.15)' : 'rgba(255, 255, 255, 0.08)',
+                    border: index === 2 ? '2px solid rgba(252, 233, 107, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '8px',
+                    textAlign: 'center',
+                    fontSize: 'clamp(0.9rem, 1.6vw, 1rem)',
+                    fontWeight: '600',
+                    color: index === 2 ? '#fce96b' : '#fafafa',
+                    cursor: index === 2 ? 'pointer' : 'default',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  {item.icon} {item.name}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Final Arrow and Specialized Agent 3 - Only visible on larger screens */}
+          <div style={{ 
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '2rem',
+            '@media (max-width: 768px)': {
+              display: 'none'
+            }
+          }}>
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={arrowVariants}
+              transition={{ duration: 0.4, delay: 1.2 }}
+            >
+              <ArrowIcon />
+            </motion.div>
+
+            {/* Contract Analysis & Devis */}
+            <motion.div 
+              style={{
+                background: 'rgba(252, 233, 107, 0.15)',
+                border: '2px solid rgba(252, 233, 107, 0.4)',
+                borderRadius: '16px',
+                padding: 'clamp(1.5rem, 3vw, 2rem)',
+                width: '100%',
+                maxWidth: '280px'
+              }}
+              initial="hidden"
+              animate="visible"
+              variants={cardVariants}
+              transition={{ duration: 0.6, delay: 1.3 }}
+            >
+              <h4 style={{
+                fontSize: 'clamp(0.9rem, 1.6vw, 1.1rem)',
+                fontWeight: '700',
+                color: '#fce96b',
+                marginBottom: '1.5rem',
+                textAlign: 'center',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em'
+              }}>
+                LEGAL SPECIALIZATION
+              </h4>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                <div style={{
+                  padding: '0.8rem',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.8rem, 1.4vw, 0.9rem)',
+                  fontWeight: '600',
+                  color: '#fafafa'
+                }}>
+                  📋 Contract Analysis
+                </div>
+                <div style={{
+                  padding: '0.8rem',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.8rem, 1.4vw, 0.9rem)',
+                  fontWeight: '600',
+                  color: '#fafafa'
+                }}>
+                  💼 Devis
                 </div>
               </div>
-            ))}
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          section > div > div:last-child > div:last-child {
+            display: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
-export default LegalStackSection;
+export default RAGArchitectureDiagram;
