@@ -275,6 +275,11 @@
       "link": "Descargar Dossier"
     }
   },
+  "ragArchitecture": {
+    "subtitle": "LA PLATAFORMA RAG CONTEXTUAL",
+    "title": "ARQUITECTURA DE PRÓXIMA GENERACIÓN PARA AGENTES",
+    "introduction": "Construida por pioneros en RAG, nuestra plataforma te permite integrar agentes de IA con el conocimiento empresarial de forma fluida, ofreciendo una solución completa para diseñar sistemas RAG de vanguardia."
+  },
   "contact": {
     "title": "Construyamos el Futuro Juntos",
     "subtitle": "¿Listo para transformar tu organización con agentes de IA estratégicos? Nuestro equipo de expertos espera tu consulta.",
