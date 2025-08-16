@@ -259,13 +259,13 @@ const RAGArchitectureDiagram = () => {
             {/* Pipeline */}
             <motion.div 
               style={{
-                background: 'rgba(252, 233, 107, 0.1)',
-                border: '2px solid rgba(252, 233, 107, 0.4)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '2px solid rgba(255, 255, 255, 0.25)',
                 borderRadius: '16px',
                 padding: 'clamp(1.5rem, 2.5vw, 2rem)',
                 flex: '1',
                 minWidth: '220px',
-                maxWidth: '300px'
+                maxWidth: '350px'
               }}
               variants={cardVariants}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -273,7 +273,7 @@ const RAGArchitectureDiagram = () => {
               <h3 style={{
                 fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
                 fontWeight: '700',
-                color: '#fce96b',
+                color: '#fafafa',
                 marginBottom: '1.5rem',
                 textAlign: 'center',
                 textTransform: 'uppercase',
@@ -286,37 +286,39 @@ const RAGArchitectureDiagram = () => {
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center',
-                gap: '0.8rem',
-                justifyContent: 'center'
+                gap: '0.6rem',
+                justifyContent: 'space-between',
+                width: '100%'
               }}>
                 {/* Left side - Two boxes vertically stacked */}
                 <div style={{ 
                   display: 'flex', 
                   flexDirection: 'column', 
-                  gap: '0.8rem'
+                  gap: '0.6rem',
+                  flex: '1'
                 }}>
                   <div style={{
-                    padding: '0.8rem',
+                    padding: '0.6rem',
                     background: 'rgba(255, 255, 255, 0.15)',
                     border: '1px solid rgba(255, 255, 255, 0.25)',
-                    borderRadius: '8px',
+                    borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.7rem, 1.1vw, 0.8rem)',
+                    fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
                     fontWeight: '600',
-                    minWidth: '140px'
+                    color: '#fafafa'
                   }}>
                     Multimodal<br/>Extraction
                   </div>
                   
                   <div style={{
-                    padding: '0.8rem',
+                    padding: '0.6rem',
                     background: 'rgba(255, 255, 255, 0.15)',
                     border: '1px solid rgba(255, 255, 255, 0.25)',
-                    borderRadius: '8px',
+                    borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.7rem, 1.1vw, 0.8rem)',
+                    fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
                     fontWeight: '600',
-                    minWidth: '140px'
+                    color: '#fafafa'
                   }}>
                     Continuous<br/>Ingestion
                   </div>
@@ -326,28 +328,29 @@ const RAGArchitectureDiagram = () => {
                 <div style={{ 
                   display: 'flex',
                   alignItems: 'center',
-                  height: '120px'
+                  height: '80px',
+                  flexShrink: 0
                 }}>
                   <svg 
-                    width="20" 
-                    height="120" 
-                    viewBox="0 0 20 120" 
+                    width="16" 
+                    height="80" 
+                    viewBox="0 0 16 80" 
                     fill="none"
                     style={{ color: 'rgba(255, 255, 255, 0.4)' }}
                   >
                     <path 
-                      d="M2 10 Q2 2 10 2 Q18 2 18 10 L18 55 Q18 60 15 60 Q18 60 18 65 L18 110 Q18 118 10 118 Q2 118 2 110" 
+                      d="M2 8 Q2 2 6 2 Q12 2 12 8 L12 36 Q12 40 10 40 Q12 40 12 44 L12 72 Q12 78 6 78 Q2 78 2 72" 
                       stroke="currentColor" 
-                      strokeWidth="2" 
+                      strokeWidth="1.5" 
                       fill="none"
                     />
                   </svg>
                 </div>
 
-                {/* Arrow Icon in circle (same style as data sources) */}
+                {/* Arrow Icon in circle */}
                 <div style={{
-                  width: '40px',
-                  height: '40px',
+                  width: '32px',
+                  height: '32px',
                   borderRadius: '50%',
                   background: 'rgba(255, 255, 255, 0.15)',
                   backdropFilter: 'blur(10px)',
@@ -358,8 +361,8 @@ const RAGArchitectureDiagram = () => {
                   flexShrink: 0
                 }}>
                   <svg 
-                    width="16" 
-                    height="16" 
+                    width="12" 
+                    height="12" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -373,14 +376,15 @@ const RAGArchitectureDiagram = () => {
 
                 {/* Right side - Datastore */}
                 <div style={{
-                  padding: '0.8rem',
+                  padding: '0.6rem',
                   background: 'rgba(255, 255, 255, 0.15)',
                   border: '1px solid rgba(255, 255, 255, 0.25)',
-                  borderRadius: '8px',
+                  borderRadius: '6px',
                   textAlign: 'center',
-                  fontSize: 'clamp(0.7rem, 1.1vw, 0.8rem)',
+                  fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
                   fontWeight: '600',
-                  minWidth: '100px',
+                  color: '#fafafa',
+                  flex: '1',
                   alignSelf: 'center'
                 }}>
                   Datastore
