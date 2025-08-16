@@ -1,8 +1,152 @@
 .legal-stack-section {
   position: relative;
   overflow: hidden;
+  padding: 8rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Container bento avec effet scroll */
+.bento-container {
+  background: #faf2d7;
+  border-radius: 3rem;
+  border: 4px solid #2f2f2e;
+  box-shadow: 0 20px 60px rgba(47, 47, 46, 0.3);
+  width: 95%;
+  max-width: 1600px;
+  position: relative;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bento-container.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Effet de survol pour le container */
+.bento-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 80px rgba(47, 47, 46, 0.4);
+}
+
+/* Correction globale RENFORCÉE pour les couleurs bento */
+.bento-container,
+.bento-container *,
+.bento-container *::before,
+.bento-container *::after,
+.bento-container div,
+.bento-container span,
+.bento-container h3,
+.bento-container h2,
+.bento-container p,
+.bento-container svg {
+  color: #2f2f2e !important;
+  fill: #2f2f2e !important;
+  stroke: #2f2f2e !important;
+}
+
+/* Forcer tous les backgrounds transparents dans le bento */
+.bento-container .benefit-card,
+.bento-container .benefit-card *,
+.bento-container .benefit-card *::before,
+.bento-container .benefit-card *::after,
+.bento-container .benefit-card div,
+.bento-container .benefit-card span,
+.bento-container .benefit-card h3,
+.bento-container .benefit-card p,
+.bento-container .benefit-card svg,
+.bento-container .benefit-card button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* États hover - couleurs bento */
+.bento-container .benefit-card:hover,
+.bento-container .benefit-card:hover *,
+.bento-container .benefit-card:hover *::before,
+.bento-container .benefit-card:hover *::after,
+.bento-container .benefit-card:hover div,
+.bento-container .benefit-card:hover span,
+.bento-container .benefit-card:hover h3,
+.bento-container .benefit-card:hover p,
+.bento-container .benefit-card:hover svg,
+.bento-container .benefit-card:hover button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #2f2f2e !important;
+}
+
+/* États focus - couleurs bento */
+.bento-container .benefit-card:focus,
+.bento-container .benefit-card:focus *,
+.bento-container .benefit-card:focus *::before,
+.bento-container .benefit-card:focus *::after,
+.bento-container .benefit-card *:focus,
+.bento-container .benefit-card *:focus *,
+.bento-container .benefit-card *:focus::before,
+.bento-container .benefit-card *:focus::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #2f2f2e !important;
+}
+
+/* États active - couleurs bento */
+.bento-container .benefit-card:active,
+.bento-container .benefit-card:active *,
+.bento-container .benefit-card:active *::before,
+.bento-container .benefit-card:active *::after,
+.bento-container .benefit-card *:active,
+.bento-container .benefit-card *:active * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #2f2f2e !important;
+}
+
+/* Style spéciaux pour les composants dans le bento */
+.bento-container div[style*="background"] {
+  background: rgba(47, 47, 46, 0.08) !important;
+  background-color: rgba(47, 47, 46, 0.08) !important;
+  border: 2px solid rgba(47, 47, 46, 0.15) !important;
+}
+
+.bento-container div[style*="background"]:hover {
+  background: rgba(47, 47, 46, 0.12) !important;
+  background-color: rgba(47, 47, 46, 0.12) !important;
+  border: 2px solid rgba(47, 47, 46, 0.25) !important;
+}
+
+/* Correction spéciale pour les cercles d'icônes dans le bento */
+.bento-container div[style*="border-radius: 50%"],
+.bento-container div[style*="borderRadius"] {
+  background: rgba(47, 47, 46, 0.12) !important;
+  background-color: rgba(47, 47, 46, 0.12) !important;
+  border: 2px solid rgba(47, 47, 46, 0.2) !important;
+}
+
+/* Sélection dans le bento */
+.bento-container ::selection {
+  background: rgba(47, 47, 46, 0.2) !important;
+  color: #2f2f2e !important;
+}
+
+.bento-container ::-moz-selection {
+  background: rgba(47, 47, 46, 0.2) !important;
+  color: #2f2f2e !important;
+}
+
+/* STYLES ORIGINAUX PRÉSERVÉS POUR LA COMPATIBILITÉ */
 /* Correction globale RENFORCÉE pour éviter tous les rectangles noirs/colorés */
 .benefit-card,
 .benefit-card *,
@@ -148,16 +292,29 @@
   background-image: none !important;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments pour le bento */
 @media (max-width: 768px) {
   .legal-stack-section {
     padding: clamp(3rem, 6vh, 4rem) clamp(0.5rem, 2vw, 1rem);
+  }
+
+  .bento-container {
+    width: 98%;
+    border-radius: 2rem;
+    padding: clamp(2rem, 4vh, 2.5rem) clamp(1rem, 3vw, 1.5rem);
   }
 }
 
 @media (max-width: 480px) {
   .legal-stack-section {
     padding: clamp(2rem, 4vh, 3rem) 1rem;
+  }
+
+  .bento-container {
+    width: 100%;
+    border-radius: 1.5rem;
+    border-width: 3px;
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -169,6 +326,10 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  
+  .bento-container {
+    transition: none !important;
   }
 }
 
