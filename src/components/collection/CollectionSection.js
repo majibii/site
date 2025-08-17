@@ -11,8 +11,8 @@ const CollectionSection = () => {
   const [editedPrompt, setEditedPrompt] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   
-  // New refs and state for deployment section
-  const deploymentBentoRef = useRef(null);
+  // Refs et état pour la section déploiement avec nouvel effet
+  const deploymentContentRef = useRef(null);
   const deploymentSectionRef = useRef(null);
   const [deploymentScrollProgress, setDeploymentScrollProgress] = useState(0);
 
@@ -130,7 +130,7 @@ const CollectionSection = () => {
     </svg>
   );
 
-  // New deployment icons
+  // Icônes de déploiement avec nouveau design
   const DeploymentCloudIcon = () => (
     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
@@ -139,8 +139,8 @@ const CollectionSection = () => {
   
   const DeploymentAzureIcon = () => (
     <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-      <path d="M5.5 5L8.5 2L16.5 12L13.5 22L5.5 18L2 12L5.5 5Z" fill="#2f2f2e"/>
-      <path d="M8.5 2L22 8L18.5 18L13.5 22L16.5 12L8.5 2Z" fill="#2f2f2e" opacity="0.7"/>
+      <path d="M5.5 5L8.5 2L16.5 12L13.5 22L5.5 18L2 12L5.5 5Z" fill="currentColor"/>
+      <path d="M8.5 2L22 8L18.5 18L13.5 22L16.5 12L8.5 2Z" fill="currentColor" opacity="0.7"/>
     </svg>
   );
   
@@ -162,91 +162,39 @@ const CollectionSection = () => {
     }
   };
 
-  // New deployment data
+  // Données de déploiement pour la nouvelle section
   const deploymentOptions = [
-    { id: 'saas', icon: 'cloud', title: t('collection.deployment.saas.title', 'SaaS Cloud'), description: t('collection.deployment.saas.description', 'Fully managed solution'), features: ['Instant deployment', 'Automatic updates', 'Pay-as-you-scale', 'SOC2 certified'], recommended: false },
-    { id: 'vpc', icon: 'azure', title: t('collection.deployment.vpc.title', 'VPC / Azure'), description: t('collection.deployment.vpc.description', 'Your cloud environment'), features: ['Your cloud, your rules', 'Network isolation', 'Custom compliance', 'Direct control'], recommended: true },
-    { id: 'onprem', icon: 'server', title: t('collection.deployment.onprem.title', 'On-Premise'), description: t('collection.deployment.onprem.description', 'Complete control'), features: ['Air-gapped deployment', 'Maximum security', 'Custom infrastructure', 'Regulatory compliance'], recommended: false }
+    { 
+      id: 'saas', 
+      icon: 'cloud', 
+      title: t('collection.deployment.saas.title', 'SaaS Cloud'), 
+      description: t('collection.deployment.saas.description', 'Fully managed solution'), 
+      features: ['Instant deployment', 'Automatic updates', 'Pay-as-you-scale', 'SOC2 certified'], 
+      recommended: false 
+    },
+    { 
+      id: 'vpc', 
+      icon: 'azure', 
+      title: t('collection.deployment.vpc.title', 'VPC / Azure'), 
+      description: t('collection.deployment.vpc.description', 'Your cloud environment'), 
+      features: ['Your cloud, your rules', 'Network isolation', 'Custom compliance', 'Direct control'], 
+      recommended: true 
+    },
+    { 
+      id: 'onprem', 
+      icon: 'server', 
+      title: t('collection.deployment.onprem.title', 'On-Premise'), 
+      description: t('collection.deployment.onprem.description', 'Complete control'), 
+      features: ['Air-gapped deployment', 'Maximum security', 'Custom infrastructure', 'Regulatory compliance'], 
+      recommended: false 
+    }
   ];
 
-  // Composants d'icônes pour les anciennes sections (garde les existants)
-  const CloudIcon = () => (
-    <svg 
-      width="32" 
-      height="32" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2"
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-    </svg>
-  );
-
-  const AzureIcon = () => (
-    <svg 
-      width="32" 
-      height="32" 
-      viewBox="0 0 24 24" 
-      fill="none"
-    >
-      <path 
-        d="M5.5 5L8.5 2L16.5 12L13.5 22L5.5 18L2 12L5.5 5Z" 
-        fill="#0078D4"
-        stroke="#0078D4" 
-        strokeWidth="1"
-      />
-      <path 
-        d="M8.5 2L22 8L18.5 18L13.5 22L16.5 12L8.5 2Z" 
-        fill="#0078D4"
-        stroke="#0078D4" 
-        strokeWidth="1"
-        opacity="0.7"
-      />
-    </svg>
-  );
-
-  const ServerIcon = () => (
-    <svg 
-      width="32" 
-      height="32" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2"
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-      <line x1="6" y1="6" x2="6.01" y2="6"/>
-      <line x1="6" y1="18" x2="6.01" y2="18"/>
-    </svg>
-  );
-
-  // Fonction pour obtenir l'icône selon le type (garde l'existant)
-  const getIcon = (iconType) => {
-    switch (iconType) {
-      case 'cloud':
-        return <CloudIcon />;
-      case 'azure':
-        return <AzureIcon />;
-      case 'server':
-        return <ServerIcon />;
-      default:
-        return <CloudIcon />;
-    }
-  };
-
-  // Récupération des données de déploiement depuis les traductions (garde l'existant)
-  const deploymentCards = t('collection.deployment.cards', { returnObjects: true }) || [];
-
-  // New useEffect for deployment scroll handling
+  // useEffect pour gérer l'effet de transition de scroll sur la section déploiement
   useEffect(() => {
     const handleScroll = () => {
       if (!deploymentSectionRef.current) return;
+      
       const element = deploymentSectionRef.current;
       const rect = element.getBoundingClientRect();
       const windowHeight = window.innerHeight;
@@ -255,7 +203,7 @@ const CollectionSection = () => {
       
       setDeploymentScrollProgress(progress);
       
-      // Appliquer les classes de transition de couleur
+      // Appliquer les classes de transition de couleur en fonction du progrès de scroll
       if (progress < 0.3) {
         element.className = element.className.replace(/deployment-bg-dark-\w+/g, '') + ' deployment-bg-dark-start';
       } else if (progress < 0.7) {
@@ -265,25 +213,36 @@ const CollectionSection = () => {
       }
     };
     
+    // Observer d'intersection pour les animations d'apparition
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Animer les cartes individuellement
+        
+        // Animer les cartes individuellement avec délai
         const cards = entry.target.querySelectorAll('.deployment-card-dark');
         cards.forEach((card, index) => {
           setTimeout(() => {
             card.classList.add('visible');
           }, index * 100);
         });
+        
         // Animer le header
         const header = entry.target.querySelector('.deployment-header-dark');
         if (header) header.classList.add('visible');
       }
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { 
+      threshold: 0.1, 
+      rootMargin: '0px 0px -50px 0px' 
+    });
     
-    if (deploymentBentoRef.current) observer.observe(deploymentBentoRef.current);
+    // Observer le container de contenu pour les animations
+    if (deploymentContentRef.current) {
+      observer.observe(deploymentContentRef.current);
+    }
+    
+    // Ajouter l'écouteur de scroll
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // Appel initial
     
     return () => { 
       observer.disconnect(); 
@@ -295,6 +254,7 @@ const CollectionSection = () => {
     <>
       <section ref={sectionRef} className="collection-section">
         <div className="collection-content">
+          {/* Header de la section collection - ORIGINAL CONSERVÉ */}
           <div className="collection-header">
             <h3 className="section-label">{t('collection.sectionLabel')}</h3>
             
@@ -317,6 +277,7 @@ const CollectionSection = () => {
             </button>
           </div>
 
+          {/* Container des cartes avec animations - ORIGINAL CONSERVÉ */}
           <div className="cards-container">
             <div className="cards-row top">
               {legalPrompts.slice(0, 6).map((prompt, index) => (
@@ -332,7 +293,7 @@ const CollectionSection = () => {
               ))}
             </div>
 
-            {/* Time Indicator */}
+            {/* Indicateur temporel - ORIGINAL CONSERVÉ */}
             <div className="time-indicator">
               <div className="year-text">2025</div>
               <div className="last-update-text">{t('collection.lastUpdate')}</div>
@@ -353,13 +314,25 @@ const CollectionSection = () => {
             </div>
           </div>
 
-          {/* NEW DEPLOYMENT SECTION - Dark theme avec transition scroll */}
-          <div ref={deploymentSectionRef} className="deployment-section-enhanced deployment-bg-dark-start">
-            <div ref={deploymentBentoRef} className="deployment-content-container">
+          {/* NOUVELLE SECTION DEPLOYMENT avec transition de scroll */}
+          <div 
+            ref={deploymentSectionRef} 
+            className="deployment-section-enhanced deployment-bg-dark-start"
+          >
+            <div 
+              ref={deploymentContentRef} 
+              className="deployment-content-container"
+            >
               <div className="deployment-header-dark">
-                <h3 className="deployment-subtitle-dark">{t('collection.deployment.sectionLabel', 'DEPLOYMENT OPTIONS')}</h3>
-                <h2 className="deployment-title-dark">{t('collection.deployment.title', 'Deploy in our cloud or yours')}</h2>
-                <p className="deployment-intro-dark">{t('collection.deployment.subtitle', 'Choose the deployment model that best fits your security, compliance, and infrastructure needs.')}</p>
+                <h3 className="deployment-subtitle-dark">
+                  {t('collection.deployment.sectionLabel', 'DEPLOYMENT OPTIONS')}
+                </h3>
+                <h2 className="deployment-title-dark">
+                  {t('collection.deployment.title', 'Deploy in our cloud or yours')}
+                </h2>
+                <p className="deployment-intro-dark">
+                  {t('collection.deployment.subtitle', 'Choose the deployment model that best fits your security, compliance, and infrastructure needs.')}
+                </p>
               </div>
               
               <div className="deployment-cards-grid-dark">
@@ -400,7 +373,7 @@ const CollectionSection = () => {
             </div>
           </div>
 
-          {/* Benefits Section - CONSERVÉE */}
+          {/* Section des bénéfices - ORIGINAL CONSERVÉ */}
           <div className="benefits-section">
             <div className="benefits-title-line">
               <span className="benefits-title">{t('collection.benefits.title')}</span>
@@ -463,7 +436,7 @@ const CollectionSection = () => {
           </div>
         </div>
 
-        {/* Modal Dialog with animation - CONSERVÉ */}
+        {/* Modal Dialog avec animations - ORIGINAL CONSERVÉ */}
         <AnimatePresence>
           {isDialogOpen && selectedPrompt && (
             <motion.div
