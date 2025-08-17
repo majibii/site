@@ -252,18 +252,33 @@ const CollectionSection = () => {
       const windowHeight = window.innerHeight;
       const elementHeight = rect.height;
       const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + elementHeight)));
+      
       setDeploymentScrollProgress(progress);
+      
+      // Appliquer les classes de transition de couleur
       if (progress < 0.3) {
-        element.className = element.className.replace(/deployment-bg-transition-\w+/g, '') + ' deployment-bg-transition-start';
+        element.className = element.className.replace(/deployment-bg-dark-\w+/g, '') + ' deployment-bg-dark-start';
       } else if (progress < 0.7) {
-        element.className = element.className.replace(/deployment-bg-transition-\w+/g, '') + ' deployment-bg-transition-middle';
+        element.className = element.className.replace(/deployment-bg-dark-\w+/g, '') + ' deployment-bg-dark-middle';
       } else {
-        element.className = element.className.replace(/deployment-bg-transition-\w+/g, '') + ' deployment-bg-transition-end';
+        element.className = element.className.replace(/deployment-bg-dark-\w+/g, '') + ' deployment-bg-dark-end';
       }
     };
     
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animer les cartes individuellement
+        const cards = entry.target.querySelectorAll('.deployment-card-dark');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 100);
+        });
+        // Animer le header
+        const header = entry.target.querySelector('.deployment-header-dark');
+        if (header) header.classList.add('visible');
+      }
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     
     if (deploymentBentoRef.current) observer.observe(deploymentBentoRef.current);
@@ -338,33 +353,49 @@ const CollectionSection = () => {
             </div>
           </div>
 
-          {/* NEW DEPLOYMENT SECTION - Style Bento RAG */}
-          <div ref={deploymentSectionRef} className="deployment-section-enhanced deployment-bg-transition-start" style={{ minHeight: '100vh', width: '100%', padding: 'clamp(4rem, 8vh, 6rem) 0', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div ref={deploymentBentoRef} className="deployment-bento-container">
-              <div style={{ width: '100%', maxWidth: '100%', margin: '0 auto' }}>
-                <motion.div className="deployment-bento-header" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                  <h3 className="deployment-bento-subtitle">{t('collection.deployment.sectionLabel', 'DEPLOYMENT OPTIONS')}</h3>
-                  <h2 className="deployment-bento-title">{t('collection.deployment.title', 'Deploy in our cloud or yours')}</h2>
-                  <p className="deployment-bento-intro">{t('collection.deployment.subtitle', 'Choose the deployment model that best fits your needs.')}</p>
-                </motion.div>
-                <motion.div className="deployment-main-container" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                  <div className="deployment-platform-label">DEPLOYMENT OPTIONS</div>
-                  <div className="deployment-cards-grid-bento">
-                    {deploymentOptions.map((option, index) => (
-                      <motion.div key={option.id} className={`deployment-option-card ${option.recommended ? 'recommended' : ''}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }}>
-                        {option.recommended && <div className="deployment-recommendation-badge">Recommended</div>}
-                        <div className="deployment-option-icon">{getDeploymentIcon(option.icon)}</div>
-                        <h3 className="deployment-option-title">{option.title}</h3>
-                        <p className="deployment-option-description">{option.description}</p>
-                        <ul className="deployment-option-features">
-                          {option.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="deployment-option-feature">{feature}</li>
-                          ))}
-                        </ul>
-                      </motion.div>
-                    ))}
+          {/* NEW DEPLOYMENT SECTION - Dark theme avec transition scroll */}
+          <div ref={deploymentSectionRef} className="deployment-section-enhanced deployment-bg-dark-start">
+            <div ref={deploymentBentoRef} className="deployment-content-container">
+              <div className="deployment-header-dark">
+                <h3 className="deployment-subtitle-dark">{t('collection.deployment.sectionLabel', 'DEPLOYMENT OPTIONS')}</h3>
+                <h2 className="deployment-title-dark">{t('collection.deployment.title', 'Deploy in our cloud or yours')}</h2>
+                <p className="deployment-intro-dark">{t('collection.deployment.subtitle', 'Choose the deployment model that best fits your security, compliance, and infrastructure needs.')}</p>
+              </div>
+              
+              <div className="deployment-cards-grid-dark">
+                {deploymentOptions.map((option, index) => (
+                  <div 
+                    key={option.id} 
+                    className={`deployment-card-dark ${option.recommended ? 'recommended' : ''}`}
+                    style={{ transitionDelay: `${index * 0.1}s` }}
+                  >
+                    {option.recommended && (
+                      <div className="deployment-badge-dark">
+                        {t('collection.deployment.recommended', 'Recommended')}
+                      </div>
+                    )}
+                    
+                    <div className="deployment-icon-dark">
+                      {getDeploymentIcon(option.icon)}
+                    </div>
+                    
+                    <h3 className="deployment-card-title-dark">
+                      {option.title}
+                    </h3>
+                    
+                    <p className="deployment-card-description-dark">
+                      {option.description}
+                    </p>
+                    
+                    <ul className="deployment-features-dark">
+                      {option.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="deployment-feature-dark">
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </motion.div>
+                ))}
               </div>
             </div>
           </div>
