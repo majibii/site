@@ -79,11 +79,27 @@
         "body": "Audit GDPR compliance and analyze personal data flows in your organization to identify risks and recommend improvements."
       }
     },
-    "editorial": {
-      "title": "Our Vision",
-      "paragraph1": "We transform legal and technical complexity into clear, actionable solutions.",
-      "paragraph2": "Our team combines deep legal expertise with real AI engineering to deliver integrated, reliable solutions.",
-      "paragraph3": "The future of law is being built today, with AI agents that understand your business and respect your constraints."
+    "deployment": {
+      "sectionLabel": "DEPLOYMENT OPTIONS",
+      "title": "Deploy in our cloud or yours",
+      "subtitle": "Choose the deployment model that best fits your security, compliance, and infrastructure needs.",
+      "cards": [
+        {
+          "title": "EggOn Cloud",
+          "description": "Leverage a fully managed, highly secure SaaS offering on EggOn infrastructure",
+          "icon": "cloud"
+        },
+        {
+          "title": "Azure Private Cloud",
+          "description": "Deploy within your virtual private cloud (Azure environment)",
+          "icon": "azure"
+        },
+        {
+          "title": "On-Premises",
+          "description": "Deploy within your on-prem environment",
+          "icon": "server"
+        }
+      ]
     },
     "benefits": {
       "title": "Our Advantages",
