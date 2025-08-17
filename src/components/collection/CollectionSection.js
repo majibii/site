@@ -11,7 +11,7 @@ const CollectionSection = () => {
   const [editedPrompt, setEditedPrompt] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   
-  // Refs et état pour la section déploiement avec nouvel effet
+  // Refs et état pour la section déploiement avec nouvel effet ACCÉLÉRÉ
   const deploymentContentRef = useRef(null);
   const deploymentSectionRef = useRef(null);
   const [deploymentScrollProgress, setDeploymentScrollProgress] = useState(0);
@@ -190,7 +190,7 @@ const CollectionSection = () => {
     }
   ];
 
-  // useEffect pour gérer l'effet de transition de scroll sur la section déploiement
+  // useEffect pour gérer l'effet de transition de scroll ACCÉLÉRÉ sur la section déploiement
   useEffect(() => {
     const handleScroll = () => {
       if (!deploymentSectionRef.current) return;
@@ -199,14 +199,29 @@ const CollectionSection = () => {
       const rect = element.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const elementHeight = rect.height;
-      const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + elementHeight)));
+      
+      // NOUVEAU CALCUL ACCÉLÉRÉ : commence plus tôt et progresse plus vite
+      const startPoint = windowHeight * 0.8; // Commence quand la section est visible à 80%
+      const endPoint = -elementHeight * 0.2; // Finit quand la section est sortie à 20%
+      
+      let progress;
+      if (rect.top > startPoint) {
+        progress = 0;
+      } else if (rect.top < endPoint) {
+        progress = 1;
+      } else {
+        progress = (startPoint - rect.top) / (startPoint - endPoint);
+      }
+      
+      // Fonction d'accélération pour une transition plus rapide
+      progress = Math.pow(progress, 0.7); // Courbe d'accélération
       
       setDeploymentScrollProgress(progress);
       
-      // Appliquer les classes de transition de couleur en fonction du progrès de scroll
-      if (progress < 0.3) {
+      // Appliquer les classes de transition de couleur avec seuils ACCÉLÉRÉS
+      if (progress < 0.15) { // Commence plus tôt (était 0.3)
         element.className = element.className.replace(/deployment-bg-dark-\w+/g, '') + ' deployment-bg-dark-start';
-      } else if (progress < 0.7) {
+      } else if (progress < 0.45) { // Transition plus rapide (était 0.7)
         element.className = element.className.replace(/deployment-bg-dark-\w+/g, '') + ' deployment-bg-dark-middle';
       } else {
         element.className = element.className.replace(/deployment-bg-dark-\w+/g, '') + ' deployment-bg-dark-end';
@@ -231,8 +246,8 @@ const CollectionSection = () => {
         if (header) header.classList.add('visible');
       }
     }, { 
-      threshold: 0.1, 
-      rootMargin: '0px 0px -50px 0px' 
+      threshold: 0.05, // Plus sensible (était 0.1)
+      rootMargin: '0px 0px -30px 0px' // Moins restrictif (était -50px)
     });
     
     // Observer le container de contenu pour les animations
@@ -241,7 +256,7 @@ const CollectionSection = () => {
     }
     
     // Ajouter l'écouteur de scroll
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Appel initial
     
     return () => { 
@@ -314,7 +329,7 @@ const CollectionSection = () => {
             </div>
           </div>
 
-          {/* NOUVELLE SECTION DEPLOYMENT avec transition de scroll */}
+          {/* NOUVELLE SECTION DEPLOYMENT avec transition de scroll ACCÉLÉRÉE */}
           <div 
             ref={deploymentSectionRef} 
             className="deployment-section-enhanced deployment-bg-dark-start"
