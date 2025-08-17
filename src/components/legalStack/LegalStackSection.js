@@ -6,7 +6,6 @@ const RAGArchitectureDiagram = () => {
   const { t } = useTranslation();
   const bentoRef = useRef(null);
 
-  // Effet de scroll pour révéler le container bento
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -27,13 +26,11 @@ const RAGArchitectureDiagram = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Animation variants pour les cartes
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
 
-  // Animation pour les flèches
   const arrowVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1 }
@@ -71,7 +68,6 @@ const RAGArchitectureDiagram = () => {
       }}
       className="legal-stack-section"
     >
-      {/* Container bento avec effet scroll */}
       <div 
         ref={bentoRef}
         className="bento-container"
@@ -93,7 +89,6 @@ const RAGArchitectureDiagram = () => {
             margin: '0 auto'
           }}
         >
-          {/* Header Section */}
           <motion.div 
             style={{ 
               textAlign: 'center', 
@@ -151,7 +146,6 @@ const RAGArchitectureDiagram = () => {
             </p>
           </motion.div>
 
-          {/* Main Container Rectangle */}
           <motion.div 
             style={{
               background: 'rgba(47, 47, 46, 0.08)',
@@ -167,8 +161,6 @@ const RAGArchitectureDiagram = () => {
             variants={cardVariants}
             transition={{ duration: 0.8 }}
           >
-            
-            {/* Platform Label */}
             <div style={{
               position: 'absolute',
               top: '-12px',
@@ -187,7 +179,6 @@ const RAGArchitectureDiagram = () => {
               PLATFORM
             </div>
 
-            {/* Horizontal Flow Container */}
             <div style={{
               display: 'flex',
               alignItems: 'center',
@@ -196,8 +187,6 @@ const RAGArchitectureDiagram = () => {
               marginTop: '2rem',
               flexWrap: 'wrap'
             }}>
-              
-              {/* Data Sources */}
               <motion.div 
                 style={{
                   background: 'rgba(47, 47, 46, 0.12)',
@@ -225,9 +214,37 @@ const RAGArchitectureDiagram = () => {
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                   {[
-                    { icon: 'file-text', text: 'Unstructured Data' },
-                    { icon: 'database', text: 'Structured Data' },
-                    { icon: 'zap', text: 'Application APIs' }
+                    { 
+                      icon: 'file-text', 
+                      text: 'Unstructured Data',
+                      iconPath: (
+                        <>
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                          <polyline points="14,2 14,8 20,8"/>
+                          <line x1="16" y1="13" x2="8" y2="13"/>
+                          <line x1="16" y1="17" x2="8" y2="17"/>
+                          <polyline points="10,9 9,9 8,9"/>
+                        </>
+                      )
+                    },
+                    { 
+                      icon: 'database', 
+                      text: 'Structured Data',
+                      iconPath: (
+                        <>
+                          <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                        </>
+                      )
+                    },
+                    { 
+                      icon: 'zap', 
+                      text: 'Application APIs',
+                      iconPath: (
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                      )
+                    }
                   ].map((item, index) => (
                     <div 
                       key={index}
@@ -267,25 +284,7 @@ const RAGArchitectureDiagram = () => {
                           strokeWidth="2"
                           style={{ color: '#2f2f2e' }}
                         >
-                          {item.icon === 'file-text' && (
-                            <>
-                              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                              <polyline points="14,2 14,8 20,8"/>
-                              <line x1="16" y1="13" x2="8" y2="13"/>
-                              <line x1="16" y1="17" x2="8" y2="17"/>
-                              <polyline points="10,9 9,9 8,9"/>
-                            </>
-                          )}
-                          {item.icon === 'database' && (
-                            <>
-                              <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-                            </>
-                          )}
-                          {item.icon === 'zap' && (
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                          )}
+                          {item.iconPath}
                         </svg>
                       </div>
                       
@@ -302,7 +301,6 @@ const RAGArchitectureDiagram = () => {
                 </div>
               </motion.div>
 
-              {/* Arrow 1 */}
               <motion.div 
                 variants={arrowVariants}
                 transition={{ duration: 0.4, delay: 0.4 }}
@@ -311,7 +309,6 @@ const RAGArchitectureDiagram = () => {
                 <ArrowIcon />
               </motion.div>
 
-              {/* Pipeline */}
               <motion.div 
                 style={{
                   background: 'rgba(47, 47, 46, 0.12)',
@@ -319,8 +316,8 @@ const RAGArchitectureDiagram = () => {
                   borderRadius: '16px',
                   padding: 'clamp(1.5rem, 2.5vw, 2rem)',
                   flex: '1',
-                  minWidth: '220px',
-                  maxWidth: '350px'
+                  minWidth: '280px',
+                  maxWidth: '450px'
                 }}
                 variants={cardVariants}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -436,14 +433,14 @@ const RAGArchitectureDiagram = () => {
                     fontWeight: '600',
                     color: '#2f2f2e',
                     flex: '1',
-                    alignSelf: 'center'
+                    alignSelf: 'center',
+                    minWidth: '60px'
                   }}>
                     Datastore
                   </div>
                 </div>
               </motion.div>
 
-              {/* Arrow 2 */}
               <motion.div 
                 variants={arrowVariants}
                 transition={{ duration: 0.4, delay: 0.6 }}
@@ -452,7 +449,6 @@ const RAGArchitectureDiagram = () => {
                 <ArrowIcon />
               </motion.div>
 
-              {/* RAG Agent */}
               <motion.div 
                 style={{
                   background: 'rgba(47, 47, 46, 0.12)',
@@ -460,8 +456,8 @@ const RAGArchitectureDiagram = () => {
                   borderRadius: '16px',
                   padding: 'clamp(1.5rem, 2.5vw, 2rem)',
                   flex: '1',
-                  minWidth: '240px',
-                  maxWidth: '400px'
+                  minWidth: '280px',
+                  maxWidth: '450px'
                 }}
                 variants={cardVariants}
                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -493,16 +489,16 @@ const RAGArchitectureDiagram = () => {
                     border: '1px solid rgba(47, 47, 46, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
+                    fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
                     fontWeight: '600',
                     color: '#2f2f2e',
                     flex: '1',
-                    minWidth: '0',
+                    minWidth: '75px',
                     lineHeight: '1.1',
                     wordWrap: 'break-word',
                     hyphens: 'auto'
                   }}>
-                    Mixture of<br/>retrievers
+                    Mixture of retrievers
                   </div>
 
                   <div style={{
@@ -535,11 +531,11 @@ const RAGArchitectureDiagram = () => {
                     border: '1px solid rgba(47, 47, 46, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
+                    fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
                     fontWeight: '600',
                     color: '#2f2f2e',
                     flex: '1',
-                    minWidth: '0',
+                    minWidth: '60px',
                     lineHeight: '1.2',
                     wordWrap: 'break-word'
                   }}>
@@ -576,16 +572,16 @@ const RAGArchitectureDiagram = () => {
                     border: '1px solid rgba(47, 47, 46, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
+                    fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
                     fontWeight: '600',
                     color: '#2f2f2e',
                     flex: '1',
-                    minWidth: '0',
-                    lineHeight: '1.1',
+                    minWidth: '70px',
+                    lineHeight: '1.2',
                     wordWrap: 'break-word',
                     hyphens: 'auto'
                   }}>
-                    Grounded<br/>Language<br/>Model
+                    Grounded Language Model
                   </div>
                 </div>
 
@@ -615,7 +611,6 @@ const RAGArchitectureDiagram = () => {
                 </div>
               </motion.div>
 
-              {/* Arrow 3 */}
               <motion.div 
                 variants={arrowVariants}
                 transition={{ duration: 0.4, delay: 0.8 }}
@@ -624,7 +619,6 @@ const RAGArchitectureDiagram = () => {
                 <ArrowIcon />
               </motion.div>
 
-              {/* Specialized Agents */}
               <motion.div 
                 style={{
                   background: 'rgba(47, 47, 46, 0.12)',
@@ -651,7 +645,7 @@ const RAGArchitectureDiagram = () => {
                   SPECIALIZED<br />AGENTS BY DOMAIN
                 </h3>
                 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                   {[
                     { 
                       name: 'Finance',
@@ -669,8 +663,7 @@ const RAGArchitectureDiagram = () => {
                           <path d="M12 12v8"/>
                           <path d="M8 21h8"/>
                         </>
-                      ),
-                      highlight: true
+                      )
                     },
                     { 
                       name: 'Technology',
@@ -702,46 +695,48 @@ const RAGArchitectureDiagram = () => {
                       key={index}
                       style={{
                         display: 'flex',
+                        flexDirection: 'column',
                         alignItems: 'center',
                         gap: '0.8rem',
-                        padding: 'clamp(0.6rem, 1.2vw, 0.8rem)',
-                        background: item.highlight ? 'rgba(252, 233, 107, 0.3)' : 'rgba(47, 47, 46, 0.15)',
-                        border: item.highlight ? '2px solid rgba(252, 233, 107, 0.6)' : '1px solid rgba(47, 47, 46, 0.2)',
-                        borderRadius: '8px',
-                        fontSize: 'clamp(0.7rem, 1.1vw, 0.8rem)',
-                        fontWeight: '600',
-                        color: item.highlight ? '#c4940a' : '#2f2f2e',
-                        transition: 'all 0.3s ease'
+                        padding: '1rem',
+                        background: 'rgba(47, 47, 46, 0.08)',
+                        border: '1px solid rgba(47, 47, 46, 0.15)',
+                        borderRadius: '12px',
+                        textAlign: 'center',
+                        transition: 'all 0.3s ease',
+                        cursor: 'default'
                       }}
                     >
                       <div style={{
-                        width: '32px',
-                        height: '32px',
+                        width: '48px',
+                        height: '48px',
                         borderRadius: '50%',
-                        background: item.highlight ? 'rgba(252, 233, 107, 0.4)' : 'rgba(47, 47, 46, 0.2)',
+                        background: 'rgba(47, 47, 46, 0.15)',
                         backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(47, 47, 46, 0.3)',
+                        border: '1px solid rgba(47, 47, 46, 0.2)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        flexShrink: 0
+                        flexShrink: 0,
+                        transition: 'all 0.3s ease'
                       }}>
                         <svg 
-                          width="16" 
-                          height="16" 
+                          width="20" 
+                          height="20" 
                           viewBox="0 0 24 24" 
                           fill="none" 
                           stroke="currentColor" 
                           strokeWidth="2"
-                          style={{ color: item.highlight ? '#c4940a' : '#2f2f2e' }}
+                          style={{ color: '#2f2f2e' }}
                         >
                           {item.iconPath}
                         </svg>
                       </div>
                       
                       <span style={{
-                        flex: 1,
-                        textAlign: 'left',
+                        fontSize: 'clamp(0.8rem, 1.3vw, 0.9rem)',
+                        fontWeight: '600',
+                        color: '#2f2f2e',
                         lineHeight: '1.2'
                       }}>
                         {item.name}
@@ -754,7 +749,6 @@ const RAGArchitectureDiagram = () => {
           </motion.div>
         </div>
 
-        {/* Styles CSS pour l'effet bento */}
         <style jsx>{`
           .bento-container {
             opacity: 0;
