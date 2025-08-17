@@ -79,11 +79,27 @@
         "body": "Auditer la conformité RGPD et analyser les flux de données personnelles dans votre organisation pour identifier les risques et recommander des améliorations."
       }
     },
-    "editorial": {
-      "title": "Notre Vision",
-      "paragraph1": "Nous transformons la complexité juridique et technique en solutions claires et actionnables.",
-      "paragraph2": "Notre équipe combine une expertise juridique approfondie avec une véritable ingénierie IA pour fournir des solutions intégrées et fiables.",
-      "paragraph3": "Le futur du droit se construit aujourd'hui avec des agents IA qui comprennent votre entreprise et respectent vos contraintes."
+    "deployment": {
+      "sectionLabel": "OPTIONS DE DÉPLOIEMENT",
+      "title": "Déployez dans notre cloud ou le vôtre",
+      "subtitle": "Choisissez le modèle de déploiement qui correspond le mieux à vos besoins de sécurité, conformité et infrastructure.",
+      "cards": [
+        {
+          "title": "Cloud EggOn",
+          "description": "Profitez d'une offre SaaS entièrement gérée et hautement sécurisée sur l'infrastructure EggOn",
+          "icon": "cloud"
+        },
+        {
+          "title": "Cloud Privé Azure",
+          "description": "Déployez dans votre cloud privé virtuel (environnement Azure)",
+          "icon": "azure"
+        },
+        {
+          "title": "Sur Site",
+          "description": "Déployez dans votre environnement sur site",
+          "icon": "server"
+        }
+      ]
     },
     "benefits": {
       "title": "Nos Avantages",
