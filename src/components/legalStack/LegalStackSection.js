@@ -179,23 +179,28 @@ const RAGArchitectureDiagram = () => {
               PLATFORM
             </div>
 
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: 'clamp(1rem, 2vw, 2rem)',
-              marginTop: '2rem',
-              flexWrap: 'wrap'
-            }}>
+            <div 
+              className="horizontal-flow"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 'clamp(0.8rem, 1.5vw, 1.5rem)',
+                marginTop: '2rem',
+                flexWrap: 'wrap',
+                width: '100%',
+                overflow: 'hidden'
+              }}
+            >
               <motion.div 
                 style={{
                   background: 'rgba(47, 47, 46, 0.12)',
                   border: '2px solid rgba(47, 47, 46, 0.2)',
                   borderRadius: '16px',
-                  padding: 'clamp(1.5rem, 2.5vw, 2rem)',
+                  padding: 'clamp(1.2rem, 2vw, 1.8rem)',
                   flex: '1',
-                  minWidth: '200px',
-                  maxWidth: '280px'
+                  minWidth: '180px',
+                  maxWidth: '250px'
                 }}
                 variants={cardVariants}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -252,19 +257,19 @@ const RAGArchitectureDiagram = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        gap: '0.8rem',
-                        padding: '1rem',
+                        gap: '0.6rem',
+                        padding: '0.8rem',
                         background: 'rgba(47, 47, 46, 0.08)',
                         border: '1px solid rgba(47, 47, 46, 0.15)',
-                        borderRadius: '12px',
+                        borderRadius: '10px',
                         textAlign: 'center',
                         transition: 'all 0.3s ease',
                         cursor: 'default'
                       }}
                     >
                       <div style={{
-                        width: '48px',
-                        height: '48px',
+                        width: '40px',
+                        height: '40px',
                         borderRadius: '50%',
                         background: 'rgba(47, 47, 46, 0.15)',
                         backdropFilter: 'blur(10px)',
@@ -276,8 +281,8 @@ const RAGArchitectureDiagram = () => {
                         transition: 'all 0.3s ease'
                       }}>
                         <svg 
-                          width="20" 
-                          height="20" 
+                          width="18" 
+                          height="18" 
                           viewBox="0 0 24 24" 
                           fill="none" 
                           stroke="currentColor" 
@@ -424,17 +429,18 @@ const RAGArchitectureDiagram = () => {
                   </div>
 
                   <div style={{
-                    padding: '0.6rem',
+                    padding: '0.4rem 0.3rem',
                     background: 'rgba(47, 47, 46, 0.15)',
                     border: '1px solid rgba(47, 47, 46, 0.25)',
                     borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
+                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                     fontWeight: '600',
                     color: '#2f2f2e',
                     flex: '1',
                     alignSelf: 'center',
-                    minWidth: '60px'
+                    minWidth: '50px',
+                    maxWidth: '80px'
                   }}>
                     Datastore
                   </div>
@@ -484,16 +490,16 @@ const RAGArchitectureDiagram = () => {
                   width: '100%'
                 }}>
                   <div style={{
-                    padding: 'clamp(0.4rem, 1vw, 0.6rem)',
+                    padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
                     background: 'rgba(47, 47, 46, 0.18)',
                     border: '1px solid rgba(47, 47, 46, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                     fontWeight: '600',
                     color: '#2f2f2e',
                     flex: '1',
-                    minWidth: '75px',
+                    minWidth: '60px',
                     lineHeight: '1.1',
                     wordWrap: 'break-word',
                     hyphens: 'auto'
@@ -526,17 +532,17 @@ const RAGArchitectureDiagram = () => {
                   </div>
 
                   <div style={{
-                    padding: 'clamp(0.4rem, 1vw, 0.6rem)',
+                    padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
                     background: 'rgba(47, 47, 46, 0.18)',
                     border: '1px solid rgba(47, 47, 46, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                     fontWeight: '600',
                     color: '#2f2f2e',
                     flex: '1',
                     minWidth: '60px',
-                    lineHeight: '1.2',
+                    lineHeight: '1.1',
                     wordWrap: 'break-word'
                   }}>
                     Reranker
@@ -567,17 +573,17 @@ const RAGArchitectureDiagram = () => {
                   </div>
 
                   <div style={{
-                    padding: 'clamp(0.4rem, 1vw, 0.6rem)',
+                    padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
                     background: 'rgba(47, 47, 46, 0.18)',
                     border: '1px solid rgba(47, 47, 46, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
-                    fontSize: 'clamp(0.6rem, 1vw, 0.7rem)',
+                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                     fontWeight: '600',
                     color: '#2f2f2e',
                     flex: '1',
-                    minWidth: '70px',
-                    lineHeight: '1.2',
+                    minWidth: '60px',
+                    lineHeight: '1.1',
                     wordWrap: 'break-word',
                     hyphens: 'auto'
                   }}>
@@ -624,10 +630,10 @@ const RAGArchitectureDiagram = () => {
                   background: 'rgba(47, 47, 46, 0.12)',
                   border: '2px solid rgba(47, 47, 46, 0.2)',
                   borderRadius: '16px',
-                  padding: 'clamp(1.5rem, 2.5vw, 2rem)',
+                  padding: 'clamp(1.2rem, 2vw, 1.8rem)',
                   flex: '1',
-                  minWidth: '200px',
-                  maxWidth: '280px'
+                  minWidth: '180px',
+                  maxWidth: '250px'
                 }}
                 variants={cardVariants}
                 transition={{ duration: 0.6, delay: 0.8 }}
@@ -697,19 +703,19 @@ const RAGArchitectureDiagram = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        gap: '0.8rem',
-                        padding: '1rem',
+                        gap: '0.6rem',
+                        padding: '0.8rem',
                         background: 'rgba(47, 47, 46, 0.08)',
                         border: '1px solid rgba(47, 47, 46, 0.15)',
-                        borderRadius: '12px',
+                        borderRadius: '10px',
                         textAlign: 'center',
                         transition: 'all 0.3s ease',
                         cursor: 'default'
                       }}
                     >
                       <div style={{
-                        width: '48px',
-                        height: '48px',
+                        width: '40px',
+                        height: '40px',
                         borderRadius: '50%',
                         background: 'rgba(47, 47, 46, 0.15)',
                         backdropFilter: 'blur(10px)',
@@ -721,8 +727,8 @@ const RAGArchitectureDiagram = () => {
                         transition: 'all 0.3s ease'
                       }}>
                         <svg 
-                          width="20" 
-                          height="20" 
+                          width="18" 
+                          height="18" 
                           viewBox="0 0 24 24" 
                           fill="none" 
                           stroke="currentColor" 
@@ -762,10 +768,19 @@ const RAGArchitectureDiagram = () => {
           }
           
           @media (max-width: 1200px) {
+            .horizontal-flow > div {
+              flex: 1 1 calc(50% - 1rem);
+              min-width: 300px;
+            }
+          }
+          
+          @media (max-width: 900px) {
             .horizontal-flow {
-              flex-wrap: wrap;
-              justify-content: center;
-              gap: 1.5rem;
+              gap: 1rem;
+            }
+            .horizontal-flow > div {
+              min-width: 250px;
+              max-width: none;
             }
           }
           
