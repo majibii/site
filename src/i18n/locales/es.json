@@ -79,11 +79,27 @@
         "body": "Audita el cumplimiento RGPD/CCPA mediante mapeo de flujos de datos personales. Identifica vulnerabilidades y recomienda medidas correctivas con informes ejecutivos listos para autoridades reguladoras."
       }
     },
-    "editorial": {
-      "title": "Nuestra Visión Transformadora",
-      "paragraph1": "Convertimos la complejidad jurídica y técnica en soluciones claras y ejecutables que generan valor tangible.",
-      "paragraph2": "Combinamos experiencia legal profunda con ingeniería de IA avanzada para ofrecer soluciones integradas que superan expectativas operativas.",
-      "paragraph3": "El futuro del sector legal se construye hoy mediante agentes de IA que comprenden las particularidades de tu negocio y respetan tus requerimientos críticos."
+    "deployment": {
+      "sectionLabel": "OPCIONES DE DESPLIEGUE",
+      "title": "Despliega en nuestra nube o la tuya",
+      "subtitle": "Elige el modelo de despliegue que mejor se adapte a tus necesidades de seguridad, cumplimiento e infraestructura.",
+      "cards": [
+        {
+          "title": "Nube EggOn",
+          "description": "Aprovecha una oferta SaaS completamente gestionada y altamente segura en la infraestructura EggOn",
+          "icon": "cloud"
+        },
+        {
+          "title": "Nube Privada Azure",
+          "description": "Despliega dentro de tu nube privada virtual (entorno Azure)",
+          "icon": "azure"
+        },
+        {
+          "title": "Instalación Local",
+          "description": "Despliega dentro de tu entorno local",
+          "icon": "server"
+        }
+      ]
     },
     "benefits": {
       "title": "Ventajas Competitivas",
