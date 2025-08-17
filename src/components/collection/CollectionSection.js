@@ -6,7 +6,6 @@ import './CollectionSection.css';
 const CollectionSection = () => {
   const { t } = useTranslation();
   const sectionRef = useRef(null);
-  // Remplace useId() par useState pour React 16
   const [uniqueId] = useState(() => `collection-${Math.random().toString(36).substr(2, 9)}`);
   const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [editedPrompt, setEditedPrompt] = useState('');
@@ -126,6 +125,80 @@ const CollectionSection = () => {
     </svg>
   );
 
+  // Composants d'icônes pour le déploiement
+  const CloudIcon = () => (
+    <svg 
+      width="32" 
+      height="32" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2"
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+    </svg>
+  );
+
+  const AzureIcon = () => (
+    <svg 
+      width="32" 
+      height="32" 
+      viewBox="0 0 24 24" 
+      fill="none"
+    >
+      <path 
+        d="M5.5 5L8.5 2L16.5 12L13.5 22L5.5 18L2 12L5.5 5Z" 
+        fill="#0078D4"
+        stroke="#0078D4" 
+        strokeWidth="1"
+      />
+      <path 
+        d="M8.5 2L22 8L18.5 18L13.5 22L16.5 12L8.5 2Z" 
+        fill="#0078D4"
+        stroke="#0078D4" 
+        strokeWidth="1"
+        opacity="0.7"
+      />
+    </svg>
+  );
+
+  const ServerIcon = () => (
+    <svg 
+      width="32" 
+      height="32" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2"
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+      <line x1="6" y1="6" x2="6.01" y2="6"/>
+      <line x1="6" y1="18" x2="6.01" y2="18"/>
+    </svg>
+  );
+
+  // Fonction pour obtenir l'icône selon le type
+  const getIcon = (iconType) => {
+    switch (iconType) {
+      case 'cloud':
+        return <CloudIcon />;
+      case 'azure':
+        return <AzureIcon />;
+      case 'server':
+        return <ServerIcon />;
+      default:
+        return <CloudIcon />;
+    }
+  };
+
+  // Récupération des données de déploiement depuis les traductions
+  const deploymentCards = t('collection.deployment.cards', { returnObjects: true }) || [];
+
   return (
     <>
       <section ref={sectionRef} className="collection-section">
@@ -188,26 +261,48 @@ const CollectionSection = () => {
             </div>
           </div>
 
-          {/* Editorial Section */}
-          <div className="editorial-section">
-            <div className="editorial-line">
-              <span className="editorial-title">{t('collection.editorial.title')}</span>
+          {/* NOUVELLE SECTION DEPLOYMENT - Remplace Editorial */}
+          <div className="deployment-section-embedded">
+            <div className="deployment-line">
+              <span className="deployment-title-embedded">
+                {t('collection.deployment.sectionLabel', 'DEPLOYMENT OPTIONS')}
+              </span>
             </div>
             
-            <div className="editorial-content">
-              <p>
-                {t('collection.editorial.paragraph1')}
+            <div className="deployment-content-embedded">
+              <h3 className="deployment-main-title">
+                {t('collection.deployment.title', 'Deploy in our cloud or yours')}
+              </h3>
+              <p className="deployment-subtitle-embedded">
+                {t('collection.deployment.subtitle', 'Choose the deployment model that best fits your security, compliance, and infrastructure needs.')}
               </p>
-              <p>
-                {t('collection.editorial.paragraph2')}
-              </p>
-              <p>
-                {t('collection.editorial.paragraph3')}
-              </p>
+              
+              {/* Grille de cartes de déploiement */}
+              <div className="deployment-cards-grid-embedded">
+                {deploymentCards.map((card, index) => (
+                  <motion.div 
+                    key={index}
+                    className="deployment-card-embedded"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className="deployment-icon-embedded">
+                      {getIcon(card.icon)}
+                    </div>
+                    <h4 className="deployment-card-title-embedded">
+                      {card.title}
+                    </h4>
+                    <p className="deployment-card-description-embedded">
+                      {card.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Benefits Section */}
+          {/* Benefits Section - CONSERVÉE */}
           <div className="benefits-section">
             <div className="benefits-title-line">
               <span className="benefits-title">{t('collection.benefits.title')}</span>
@@ -270,7 +365,7 @@ const CollectionSection = () => {
           </div>
         </div>
 
-        {/* Modal Dialog with animation */}
+        {/* Modal Dialog with animation - CONSERVÉ */}
         <AnimatePresence>
           {isDialogOpen && selectedPrompt && (
             <motion.div
@@ -362,5 +457,4 @@ const CollectionSection = () => {
   );
 };
 
-// Export par défaut pour que l'impoort fonctionne
 export default CollectionSection;
