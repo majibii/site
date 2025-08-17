@@ -720,6 +720,66 @@
   --deployment-card-shadow-hover: 0 12px 40px rgba(47, 47, 46, 0.3);
   --deployment-icon-bg: rgba(47, 47, 46, 0.12);
   --deployment-icon-border: rgba(47, 47, 46, 0.2);
+  --deployment-icon-color: #2f2f2e;
+  --deployment-icon-bg-hover: rgba(47, 47, 46, 0.18);
+  --deployment-icon-border-hover: rgba(47, 47, 46, 0.3);
+  --deployment-card-title-color: #2f2f2e;
+  --deployment-card-text-color: #2f2f2e;
+  --deployment-check-color: #c4940a;
+  --deployment-recommended-border: rgba(196, 148, 10, 0.6);
+  --deployment-recommended-bg: rgba(196, 148, 10, 0.08);
+  --deployment-recommended-border-hover: rgba(196, 148, 10, 0.8);
+  --deployment-recommended-bg-hover: rgba(196, 148, 10, 0.12);
+  --deployment-badge-bg: #c4940a;
+  --deployment-badge-color: #faf2d7;
+}
+
+.deployment-bg-dark-middle {
+  --deployment-bg-color: #2f2f2e;
+  --deployment-container-bg: #faf2d7;
+  --deployment-container-border: 4px solid #2f2f2e;
+  --deployment-container-shadow: 0 20px 60px rgba(47, 47, 46, 0.3);
+  --deployment-container-shadow-hover: 0 30px 80px rgba(47, 47, 46, 0.4);
+  --deployment-text-color: #2f2f2e;
+  --deployment-title-color: #2f2f2e;
+  --deployment-card-bg: rgba(47, 47, 46, 0.12);
+  --deployment-card-border: rgba(47, 47, 46, 0.2);
+  --deployment-card-shadow: 0 10px 36px rgba(47, 47, 46, 0.15);
+  --deployment-card-bg-hover: rgba(47, 47, 46, 0.18);
+  --deployment-card-border-hover: rgba(47, 47, 46, 0.3);
+  --deployment-card-shadow-hover: 0 15px 45px rgba(47, 47, 46, 0.25);
+  --deployment-icon-bg: rgba(47, 47, 46, 0.15);
+  --deployment-icon-border: rgba(47, 47, 46, 0.25);
+  --deployment-icon-color: #2f2f2e;
+  --deployment-icon-bg-hover: rgba(47, 47, 46, 0.22);
+  --deployment-icon-border-hover: rgba(47, 47, 46, 0.35);
+  --deployment-card-title-color: #2f2f2e;
+  --deployment-card-text-color: #2f2f2e;
+  --deployment-check-color: #c4940a;
+  --deployment-recommended-border: rgba(196, 148, 10, 0.7);
+  --deployment-recommended-bg: rgba(196, 148, 10, 0.12);
+  --deployment-recommended-border-hover: rgba(196, 148, 10, 0.9);
+  --deployment-recommended-bg-hover: rgba(196, 148, 10, 0.18);
+  --deployment-badge-bg: #c4940a;
+  --deployment-badge-color: #faf2d7;
+}
+
+.deployment-bg-dark-end {
+  --deployment-bg-color: #faf2d7;
+  --deployment-container-bg: rgba(255, 255, 255, 0.08);
+  --deployment-container-border: 4px solid rgba(255, 255, 255, 0.15);
+  --deployment-container-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --deployment-container-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.4);
+  --deployment-text-color: rgba(250, 250, 250, 0.8);
+  --deployment-title-color: #fafafa;
+  --deployment-card-bg: rgba(255, 255, 255, 0.08);
+  --deployment-card-border: rgba(255, 255, 255, 0.15);
+  --deployment-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --deployment-card-bg-hover: rgba(255, 255, 255, 0.12);
+  --deployment-card-border-hover: rgba(255, 255, 255, 0.25);
+  --deployment-card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --deployment-icon-bg: rgba(255, 255, 255, 0.12);
+  --deployment-icon-border: rgba(255, 255, 255, 0.2);
   --deployment-icon-color: #fafafa;
   --deployment-icon-bg-hover: rgba(255, 255, 255, 0.18);
   --deployment-icon-border-hover: rgba(255, 255, 255, 0.3);
@@ -1110,64 +1170,4 @@
     backface-visibility: hidden;
     perspective: 1000px;
   }
-}2f2f2e;
-  --deployment-icon-bg-hover: rgba(47, 47, 46, 0.18);
-  --deployment-icon-border-hover: rgba(47, 47, 46, 0.3);
-  --deployment-card-title-color: #2f2f2e;
-  --deployment-card-text-color: #2f2f2e;
-  --deployment-check-color: #c4940a;
-  --deployment-recommended-border: rgba(196, 148, 10, 0.6);
-  --deployment-recommended-bg: rgba(196, 148, 10, 0.08);
-  --deployment-recommended-border-hover: rgba(196, 148, 10, 0.8);
-  --deployment-recommended-bg-hover: rgba(196, 148, 10, 0.12);
-  --deployment-badge-bg: #c4940a;
-  --deployment-badge-color: #faf2d7;
 }
-
-.deployment-bg-dark-middle {
-  --deployment-bg-color: #2f2f2e;
-  --deployment-container-bg: #faf2d7;
-  --deployment-container-border: 4px solid #2f2f2e;
-  --deployment-container-shadow: 0 20px 60px rgba(47, 47, 46, 0.3);
-  --deployment-container-shadow-hover: 0 30px 80px rgba(47, 47, 46, 0.4);
-  --deployment-text-color: #2f2f2e;
-  --deployment-title-color: #2f2f2e;
-  --deployment-card-bg: rgba(47, 47, 46, 0.12);
-  --deployment-card-border: rgba(47, 47, 46, 0.2);
-  --deployment-card-shadow: 0 10px 36px rgba(47, 47, 46, 0.15);
-  --deployment-card-bg-hover: rgba(47, 47, 46, 0.18);
-  --deployment-card-border-hover: rgba(47, 47, 46, 0.3);
-  --deployment-card-shadow-hover: 0 15px 45px rgba(47, 47, 46, 0.25);
-  --deployment-icon-bg: rgba(47, 47, 46, 0.15);
-  --deployment-icon-border: rgba(47, 47, 46, 0.25);
-  --deployment-icon-color: #2f2f2e;
-  --deployment-icon-bg-hover: rgba(47, 47, 46, 0.22);
-  --deployment-icon-border-hover: rgba(47, 47, 46, 0.35);
-  --deployment-card-title-color: #2f2f2e;
-  --deployment-card-text-color: #2f2f2e;
-  --deployment-check-color: #c4940a;
-  --deployment-recommended-border: rgba(196, 148, 10, 0.7);
-  --deployment-recommended-bg: rgba(196, 148, 10, 0.12);
-  --deployment-recommended-border-hover: rgba(196, 148, 10, 0.9);
-  --deployment-recommended-bg-hover: rgba(196, 148, 10, 0.18);
-  --deployment-badge-bg: #c4940a;
-  --deployment-badge-color: #faf2d7;
-}
-
-.deployment-bg-dark-end {
-  --deployment-bg-color: #faf2d7;
-  --deployment-container-bg: rgba(255, 255, 255, 0.08);
-  --deployment-container-border: 4px solid rgba(255, 255, 255, 0.15);
-  --deployment-container-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  --deployment-container-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.4);
-  --deployment-text-color: rgba(250, 250, 250, 0.8);
-  --deployment-title-color: #fafafa;
-  --deployment-card-bg: rgba(255, 255, 255, 0.08);
-  --deployment-card-border: rgba(255, 255, 255, 0.15);
-  --deployment-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --deployment-card-bg-hover: rgba(255, 255, 255, 0.12);
-  --deployment-card-border-hover: rgba(255, 255, 255, 0.25);
-  --deployment-card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
-  --deployment-icon-bg: rgba(255, 255, 255, 0.12);
-  --deployment-icon-border: rgba(255, 255, 255, 0.2);
-  --deployment-icon-color: #
