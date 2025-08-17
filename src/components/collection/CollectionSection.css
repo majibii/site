@@ -238,125 +238,6 @@
   font-weight: 500;
 }
 
-/* NOUVELLES STYLES POUR LA SECTION DEPLOYMENT INTÉGRÉE */
-.deployment-section-embedded {
-  margin: 6rem auto;
-  max-width: 900px;
-  padding: 0 3rem;
-}
-
-.deployment-line {
-  position: relative;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.deployment-line::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: 1;
-}
-
-.deployment-title-embedded {
-  background-color: #2f2f2e;
-  padding: 0 2rem;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #fafafa;
-  position: relative;
-  z-index: 2;
-}
-
-.deployment-content-embedded {
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.deployment-main-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-  color: #fafafa;
-}
-
-.deployment-subtitle-embedded {
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
-  line-height: 1.6;
-  color: rgba(250, 250, 250, 0.85);
-  margin-bottom: 3rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.deployment-cards-grid-embedded {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.deployment-card-embedded {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-out;
-  cursor: pointer;
-  text-align: center;
-}
-
-.deployment-card-embedded:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.deployment-icon-embedded {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1.5rem auto;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.deployment-card-embedded:hover .deployment-icon-embedded {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.05);
-}
-
-.deployment-card-title-embedded {
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  font-weight: 600;
-  color: #fafafa;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.deployment-card-description-embedded {
-  font-size: clamp(0.9rem, 1.6vw, 1rem);
-  color: rgba(250, 250, 250, 0.85);
-  line-height: 1.5;
-}
-
 /* Benefits Section - CONSERVÉE */
 .benefits-section {
   margin: 6rem auto;
@@ -636,31 +517,14 @@
     margin-bottom: 3cm;
   }
 
-  .deployment-section-embedded,
   .benefits-section {
     margin: 4rem auto;
     padding: 0 2rem;
   }
 
-  .deployment-title-embedded,
   .benefits-title {
     padding: 0 1rem;
     font-size: 1rem;
-  }
-
-  .deployment-cards-grid-embedded {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .deployment-card-embedded {
-    padding: 1.5rem;
-  }
-
-  .deployment-icon-embedded {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 1rem;
   }
 
   .modal-content {
@@ -686,19 +550,6 @@
   .cards-row.top {
     margin-bottom: 2cm;
   }
-
-  .deployment-cards-grid-embedded {
-    gap: 1rem;
-  }
-
-  .deployment-card-embedded {
-    padding: 1.2rem;
-  }
-
-  .deployment-icon-embedded {
-    width: 48px;
-    height: 48px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -708,12 +559,267 @@
   }
   
   .prompt-card,
-  .benefits-item,
-  .deployment-card-embedded {
+  .benefits-item {
     transition: none;
   }
 
   .early-access-button {
     transition: none;
+  }
+}
+
+/* Enhanced Deployment Section - Style Bento RAG */
+.deployment-section-enhanced {
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--deployment-bg-color, transparent);
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deployment-bento-container {
+  background: #faf2d7;
+  border-radius: 3rem;
+  border: 4px solid #2f2f2e;
+  box-shadow: 0 20px 60px rgba(47, 47, 46, 0.3);
+  width: 95%;
+  max-width: 1600px;
+  position: relative;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: clamp(3rem, 5vh, 4rem) clamp(2rem, 4vw, 3rem);
+}
+
+.deployment-bento-container.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.deployment-bento-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 80px rgba(47, 47, 46, 0.4);
+}
+
+.deployment-bento-container,
+.deployment-bento-container *,
+.deployment-bento-container *::before,
+.deployment-bento-container *::after,
+.deployment-bento-container div,
+.deployment-bento-container span,
+.deployment-bento-container h3,
+.deployment-bento-container h2,
+.deployment-bento-container p,
+.deployment-bento-container svg {
+  color: #2f2f2e !important;
+  fill: #2f2f2e !important;
+  stroke: #2f2f2e !important;
+}
+
+.deployment-bento-header {
+  text-align: center;
+  margin-bottom: clamp(4rem, 8vh, 6rem);
+}
+
+.deployment-bento-subtitle {
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  color: #2f2f2e;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+  background: transparent;
+}
+
+.deployment-bento-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: #2f2f2e;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  text-shadow: none;
+  background: transparent;
+}
+
+.deployment-bento-intro {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: #2f2f2e;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  background: transparent;
+  opacity: 0.9;
+}
+
+.deployment-main-container {
+  background: rgba(47, 47, 46, 0.08);
+  border: 3px solid rgba(47, 47, 46, 0.2);
+  border-radius: 24px;
+  padding: clamp(2rem, 4vw, 3rem);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.deployment-platform-label {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(47, 47, 46, 0.15);
+  border: 2px solid rgba(47, 47, 46, 0.3);
+  border-radius: 12px;
+  padding: 0.5rem 1.5rem;
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  font-weight: 700;
+  color: #2f2f2e;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.deployment-cards-grid-bento {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.deployment-option-card {
+  background: rgba(47, 47, 46, 0.12);
+  border: 2px solid rgba(47, 47, 46, 0.2);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.deployment-option-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(47, 47, 46, 0.35);
+  background: rgba(47, 47, 46, 0.15);
+}
+
+.deployment-option-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 50%;
+  background: rgba(47, 47, 46, 0.15);
+  border: 2px solid rgba(47, 47, 46, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.deployment-option-card:hover .deployment-option-icon {
+  background: rgba(47, 47, 46, 0.2);
+  border-color: rgba(47, 47, 46, 0.35);
+  transform: scale(1.05);
+}
+
+.deployment-option-title {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: #2f2f2e;
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.deployment-option-description {
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: rgba(47, 47, 46, 0.85);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.deployment-option-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deployment-option-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: clamp(0.8rem, 1.4vw, 0.9rem);
+  color: rgba(47, 47, 46, 0.8);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.deployment-option-feature::before {
+  content: '✓';
+  color: #2f2f2e;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.deployment-option-card.recommended {
+  border-color: rgba(252, 233, 107, 0.6);
+  background: rgba(252, 233, 107, 0.08);
+}
+
+.deployment-option-card.recommended:hover {
+  border-color: rgba(252, 233, 107, 0.8);
+  background: rgba(252, 233, 107, 0.12);
+}
+
+.deployment-recommendation-badge {
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  background: rgba(252, 233, 107, 0.9);
+  color: #2f2f2e;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.deployment-bg-transition-start {
+  --deployment-bg-color: transparent;
+}
+
+.deployment-bg-transition-middle {
+  --deployment-bg-color: #2f2f2e;
+}
+
+.deployment-bg-transition-end {
+  --deployment-bg-color: #faf2d7;
+}
+
+@media (max-width: 768px) {
+  .deployment-section-enhanced {
+    padding: clamp(3rem, 6vh, 4rem) clamp(0.5rem, 2vw, 1rem);
+  }
+  .deployment-bento-container {
+    width: 98%;
+    border-radius: 2rem;
+    padding: clamp(2rem, 4vh, 2.5rem) clamp(1rem, 3vw, 1.5rem);
+  }
+  .deployment-cards-grid-bento {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
