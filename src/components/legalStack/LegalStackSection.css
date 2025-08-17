@@ -32,6 +32,36 @@
   box-shadow: 0 30px 80px rgba(47, 47, 46, 0.4);
 }
 
+/* Effets hover pour les rectangles dans le bento - similaires à la section déploiement */
+.legal-stack-section div[style*="background: rgba(47, 47, 46, 0.12)"] {
+  cursor: pointer;
+}
+
+.legal-stack-section div[style*="background: rgba(47, 47, 46, 0.12)"]:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: rgba(47, 47, 46, 0.35) !important;
+  background: rgba(47, 47, 46, 0.18) !important;
+  box-shadow: 0 12px 40px rgba(47, 47, 46, 0.3) !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Effet hover pour les sous-éléments */
+.legal-stack-section div[style*="background: rgba(47, 47, 46, 0.08)"]:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  border-color: rgba(47, 47, 46, 0.25) !important;
+  background: rgba(47, 47, 46, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(47, 47, 46, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Effet hover pour les icônes circulaires */
+.legal-stack-section div[style*="border-radius: 50%"]:hover {
+  transform: scale(1.1) !important;
+  background: rgba(47, 47, 46, 0.25) !important;
+  border-color: rgba(47, 47, 46, 0.35) !important;
+  transition: all 0.3s ease !important;
+}
+
 /* Correction globale RENFORCÉE pour les couleurs bento */
 .bento-container,
 .bento-container *,
