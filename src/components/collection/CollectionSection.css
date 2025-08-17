@@ -490,7 +490,7 @@
   animation-play-state: paused;
 }
 
-/* SECTION DEPLOYMENT - Transition ralentie */
+/* SECTION DEPLOYMENT - Transition très ralentie */
 .deployment-section-enhanced {
   position: relative;
   overflow: hidden;
@@ -498,7 +498,7 @@
   min-height: 100vh;
   width: 100%;
   background: var(--deployment-bg-color, transparent);
-  transition: background-color 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -794,7 +794,7 @@
   --deployment-badge-color: #faf2d7;
 }
 
-/* NOUVELLE SECTION RAG avec même style et transitions ralentie */
+/* NOUVELLE SECTION RAG avec même style et transitions très ralentie */
 .rag-section-enhanced {
   position: relative;
   overflow: hidden;
@@ -802,7 +802,7 @@
   min-height: 100vh;
   width: 100%;
   background: var(--rag-bg-color, transparent);
-  transition: background-color 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   justify-content: center;
   align-items: center;
