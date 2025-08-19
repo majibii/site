@@ -412,7 +412,7 @@ export const Content = () => {
             </div>
             <div className={classes.imageWrapper}>
                 <img 
-                    src="/Site web NOG.png" 
+                    src="/visage_ts.webp" 
                     alt="N.O.G. Platform Interface" 
                     className={classes.heroImage}
                 />

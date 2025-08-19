@@ -394,7 +394,7 @@ export const NOGLabHero = () => {
             
             <div className={classes.imageWrapper}>
                 <img 
-                    src="/lab2.png" 
+                    src="/Fleur_ts.webp" 
                     alt="N.O.G. Lab Platform Interface" 
                     className={classes.heroImage}
                 />
