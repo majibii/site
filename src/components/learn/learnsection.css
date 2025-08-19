@@ -82,182 +82,119 @@
   font-weight: 400;
 }
 
-/* Course Roadmap */
+/* Course Roadmap - Style simple comme la copie d'écran */
 .academie-roadmap {
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.course-category {
-  margin-bottom: 3rem;
-}
-
-.category-header {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #FFFF99;
-  margin-bottom: 1.5rem;
-  padding-left: 1rem;
-  position: relative;
-}
-
-.category-header::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  background: #FFFF99;
-  border-radius: 50%;
-}
-
-.course-item {
+/* Ligne de cours - comme dans la roadmap */
+.course-line {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
-  margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.course-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 153, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(255, 255, 153, 0.1);
+.course-line:hover {
+  background: rgba(255, 255, 255, 0.02);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 8px;
 }
 
-.course-item.completed {
-  border-left: 4px solid #FFFF99;
-}
-
-.course-item.ongoing {
-  border-left: 4px solid #ff6b6b;
-  position: relative;
-}
-
-.course-item.ongoing::before {
-  content: '';
-  position: absolute;
-  left: -4px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient(0deg, #ff6b6b 0%, #FFFF99 100%);
-  animation: pulse-border 2s ease-in-out infinite;
-}
-
-@keyframes pulse-border {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.course-content {
+/* Partie gauche avec catégorie et titre */
+.course-left {
   flex: 1;
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-.course-number {
+.course-category-label {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-  font-weight: 700;
-  color: #FFFF99;
-  min-width: 2rem;
-  text-align: center;
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.course-title {
+.course-title-main {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
   font-weight: 600;
   color: #ffffff;
   margin: 0;
+  line-height: 1.3;
 }
 
-.course-actions {
+/* Partie droite avec les boutons */
+.course-right {
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  margin-left: 2rem;
 }
 
-/* Course Action Buttons */
+/* Boutons - style simple */
 .course-btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid;
+  border-radius: 20px;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  min-width: 80px;
-  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 85px;
+  white-space: nowrap;
 }
 
-.course-btn.completed {
-  background: rgba(255, 255, 153, 0.9);
-  color: #1a1a1a;
-  border: 1px solid #FFFF99;
-}
-
-.course-btn.completed:hover {
+/* Bouton "Released/Completed" - style jaune */
+.course-btn.released {
   background: #FFFF99;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 255, 153, 0.3);
+  color: #1a1a1a;
+  border-color: #FFFF99;
 }
 
-.course-btn.catch-up {
+.course-btn.released:hover {
+  background: rgba(255, 255, 153, 0.9);
+  transform: translateY(-1px);
+}
+
+/* Bouton "Catch-up" ou autres actions secondaires */
+.course-btn.secondary {
   background: transparent;
-  color: #FFFF99;
-  border: 1px solid #FFFF99;
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.course-btn.catch-up:hover {
-  background: rgba(255, 255, 153, 0.1);
-  transform: translateY(-1px);
-}
-
-.course-btn.ongoing {
-  background: rgba(255, 107, 107, 0.9);
+.course-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  border: 1px solid #ff6b6b;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-.course-btn.ongoing:hover {
+/* Bouton "In progress" - style rouge/orange */
+.course-btn.in-progress {
   background: #ff6b6b;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+  color: #ffffff;
+  border-color: #ff6b6b;
 }
 
-.course-btn.enroll {
-  background: transparent;
-  color: #ff6b6b;
-  border: 1px solid #ff6b6b;
-}
-
-.course-btn.enroll:hover {
-  background: rgba(255, 107, 107, 0.1);
+.course-btn.in-progress:hover {
+  background: rgba(255, 107, 107, 0.9);
   transform: translateY(-1px);
 }
 
-/* Social Media Icons */
+/* Social Media Icons - style simple en bas */
 .academie-social-section {
   margin-top: 4rem;
   text-align: center;
@@ -317,25 +254,22 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .course-item {
+  .course-line {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1.5rem;
+    padding: 1.5rem 0;
   }
 
-  .course-content {
-    width: 100%;
-  }
-
-  .course-actions {
+  .course-right {
+    margin-left: 0;
     width: 100%;
     justify-content: flex-end;
   }
 
   .course-btn {
-    min-width: 70px;
-    padding: 0.4rem 0.8rem;
+    min-width: 75px;
+    padding: 0.4rem 1rem;
     font-size: 0.75rem;
   }
 
@@ -355,38 +289,34 @@
 }
 
 @media (max-width: 480px) {
-  .course-item {
-    padding: 1.2rem;
-  }
-
-  .course-actions {
+  .course-right {
     gap: 0.5rem;
   }
 
   .course-btn {
-    min-width: 65px;
-    padding: 0.35rem 0.6rem;
+    min-width: 70px;
+    padding: 0.35rem 0.8rem;
     font-size: 0.7rem;
   }
 }
 
-/* Animation for course items appearing */
-.course-item {
+/* Animation simple pour l'apparition */
+.course-line {
   opacity: 0;
   transform: translateX(-20px);
   animation: slideInLeft 0.6s ease forwards;
 }
 
-.course-item:nth-child(1) { animation-delay: 0.1s; }
-.course-item:nth-child(2) { animation-delay: 0.2s; }
-.course-item:nth-child(3) { animation-delay: 0.3s; }
-.course-item:nth-child(4) { animation-delay: 0.4s; }
-.course-item:nth-child(5) { animation-delay: 0.5s; }
-.course-item:nth-child(6) { animation-delay: 0.6s; }
-.course-item:nth-child(7) { animation-delay: 0.7s; }
-.course-item:nth-child(8) { animation-delay: 0.8s; }
-.course-item:nth-child(9) { animation-delay: 0.9s; }
-.course-item:nth-child(10) { animation-delay: 1.0s; }
+.course-line:nth-child(1) { animation-delay: 0.1s; }
+.course-line:nth-child(2) { animation-delay: 0.15s; }
+.course-line:nth-child(3) { animation-delay: 0.2s; }
+.course-line:nth-child(4) { animation-delay: 0.25s; }
+.course-line:nth-child(5) { animation-delay: 0.3s; }
+.course-line:nth-child(6) { animation-delay: 0.35s; }
+.course-line:nth-child(7) { animation-delay: 0.4s; }
+.course-line:nth-child(8) { animation-delay: 0.45s; }
+.course-line:nth-child(9) { animation-delay: 0.5s; }
+.course-line:nth-child(10) { animation-delay: 0.55s; }
 
 @keyframes slideInLeft {
   to {
@@ -397,13 +327,13 @@
 
 /* Disable animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .course-item {
+  .course-line {
     animation: none;
     opacity: 1;
     transform: none;
   }
   
-  .course-item,
+  .course-line,
   .course-btn,
   .social-icon {
     transition: none;
