@@ -161,59 +161,44 @@
       }
     ]
   },
-  "learn": {
-    "title": "EggOn Lab en Acción",
-    "intro1": "EggOn Lab se dedica a la gobernanza y trazabilidad de agentes de IA mediante un orquestador de última generación.",
-    "intro2": "Construimos un futuro donde profesionales de sectores regulados (legal, financiero, sanitario) pueden implementar agentes certificados, auditables y asegurables.",
-    "intro3": "Somos ingenieros con experiencia en empresas tecnológicas de alta seguridad como iManage, y líderes como expertos en Sistemas de Trazabilidad y Calidad.",
-    "legitimacy": {
-      "title": "Legitimidad en IA: Más que Respuestas Correctas",
-      "paragraph1": "Las capacidades de IA avanzan a velocidad sin precedentes, pero persiste un problema fundamental: la opacidad algorítmica.",
-      "paragraph2": "Esta opacidad resulta especialmente crítica cuando la IA se implementa en sectores únicos como justicia y salud, pilares de sociedades libres y justas.",
-      "paragraph3": "Diariamente, tribunales toman decisiones que alteran vidas humanas. Estas decisiones requieren empatía, experiencia contextual y procesos percibidos como legítimos.",
-      "paragraph4": "Ninguna familia debería cuestionar si perdió custodia por algoritmos mal calibrados. Ningún paciente debería dudar si su tratamiento fue decidido tras evaluación humana genuina.",
-      "paragraph5": "El verdadero problema no es la precisión técnica, sino la duda sistémica que erosiona la confianza y socava la legitimidad institucional."
+  "academie": {
+    "sectionLabel": "IA ACADEMIA",
+    "mainTitle": "SÉ PARTE DEL VIAJE DE APRENDIZAJE",
+    "intro": {
+      "left": "Estamos aquí para crear e inspirar a través de la innovación legal y la IA. Nuestra IA Academia es solo el comienzo – creemos en experimentar con todas las formas de práctica legal, digital o física.",
+      "right": "Mientras la IA evoluciona en el campo legal, estamos emocionados de explorar y adoptar nuevas ideas. La colaboración está en el corazón de nuestro enfoque, y estamos ansiosos de trabajar en equipo con abogados en proyectos innovadores."
     },
-    "aiForEveryone": {
-      "title": "IA Transparente para Todos",
-      "paragraph1": "El conocimiento sobre el funcionamiento de los agentes de IA no puede permanecer concentrado en laboratorios exclusivos.",
-      "paragraph2": "La falta de transparencia frena la adopción en profesiones de alta responsabilidad, mientras que la ausencia de explicabilidad imposibilita el aseguramiento de procesos basados en IA.",
-      "paragraph3": "Para cerrar esta brecha, creamos N.O.G (Nested Orchestration & Governance) - una plataforma para comprender, auditar y certificar agentes de IA."
+    "categories": {
+      "foundations": "Fundamentos",
+      "promptEngineering": "Ingeniería de Prompts",
+      "caseStudies": "Estudios de Caso",
+      "securityGovernance": "Seguridad y Gobernanza"
     },
-    "principles": {
-      "title": "Pilares de Legitimidad Sólida",
-      "explicability": {
-        "title": "Explicabilidad Total",
-        "description": "Cada tarea ejecutada por un agente de IA debe ser comprensible y verificable. Los usuarios deben poder rastrear la cadena de razonamiento completa."
+    "courses": {
+      "foundations": {
+        "introIA": "Introducción a la IA en la Práctica Legal",
+        "limitesLLM": "Entendiendo las Limitaciones de los LLM",
+        "depasserLimites": "Superando las Limitaciones de la IA"
       },
-      "accessibility": {
-        "title": "Acceso Universal",
-        "description": "La explicabilidad solo tiene valor cuando se comparte. Resultados y evidencias deben ser accesibles para todos los afectados por decisiones automatizadas."
+      "promptEngineering": {
+        "promptsInitiation": "Fundamentos de Prompts para Abogados",
+        "promptsJuridiques": "Ingeniería de Prompts Legales",
+        "promptsSystemes": "Prompts de Sistema para Flujos de Trabajo Legales"
       },
-      "recall": {
-        "title": "Revocación Inmediata",
-        "description": "Ante detección de sesgos, errores o manipulaciones, el sistema debe permitir revocación inmediata - similar a retiradas de productos en industrias críticas. La IA gobernada nunca debe ser irreversible."
+      "caseStudies": {
+        "affaireWeber": "Análisis del Caso Weber"
       },
-      "speed": {
-        "title": "Velocidad Operativa",
-        "description": "El cumplimiento no debe ralentizar la innovación. La IA explicable debe ser tan rápida como potente, acelerando adopción mientras construye confianza."
+      "securityGovernance": {
+        "aiRiskManagement": "Gestión de Riesgos de IA en Práctica Legal",
+        "aiActCompliance": "AI Act y Cumplimiento para Firmas Legales",
+        "auditabilityExplainability": "Auditabilidad y Explicabilidad para Agentes IA Legales"
       }
     },
-    "growth": {
-      "title": "Crecimiento Iterativo",
-      "paragraph1": "El co-diseño de ingeniería y producto permite mejoras continuas mediante implementaciones reales, mientras el feedback de socios perfecciona nuestras soluciones. Los productos nos mantienen anclados en la realidad y guían la resolución de problemas críticos.",
-      "paragraph2": "Nuestro enfoque empírico para IA explicable combina desarrollo proactivo con pruebas rigurosas en entornos reales junto a profesionales experimentados.",
-      "paragraph3": "Contribuimos a la legitimidad de la IA mediante: (1) estándares de seguridad elevados, (2) compartición de mejores prácticas para sistemas seguros, y (3) aceleración de nuevas certificaciones mediante estándares de referencia abiertos.",
-      "paragraph4": "Las técnicas desarrolladas para sistemas actuales -como red-teaming efectivo y monitoreo post-implementación- proporcionan aprendizajes valiosos para futuros sistemas explicables."
-    },
-    "measure": {
-      "title": "Medición de Impacto Real",
-      "description": "Nos enfocamos en comprender cómo nuestros sistemas generan valor tangible en el mundo real. Los avances cruciales frecuentemente surgen de redefinir objetivos, no solo de optimizar métricas existentes."
-    },
-    "partners": {
-      "title": "Conviértete en Socio Estratégico",
-      "description": "Si perteneces a un bufete jurídico o equipo de cumplimiento interesado en co-diseñar el futuro de la IA regulada: ",
-      "link": "Solicitar Información"
+    "buttons": {
+      "completed": "Completado",
+      "catchUp": "Ponerse al día",
+      "ongoing": "En curso",
+      "enroll": "Inscribirse"
     }
   },
   "nog": {
