@@ -21,7 +21,7 @@
       "contractAnalysis": {
         "title": "Agente de Análisis de Riesgos Contractuales",
         "context": "Legal / Revisión de Riesgos",
-        "body": "Analiza contratos comerciales identificando cláusulas de riesgo potencial (indemnizaciones, terminación, ley aplicable). Genera resúmenes ejecutivos con explicaciones claras y recomendaciones prácticas para mitigar vulnerabilidades legales."
+        "body": "Analiza contratos comerciales identificando cláusulas de riesgo potencial (indemnizaciones, terminación, ley aplicable). Genera resúmenes ejecutivos con explicaciones claras và recomendaciones prácticas para mitigar vulnerabilidades legales."
       },
       "caseLawResearch": {
         "title": "Agente de Investigación Jurisprudencial",
@@ -161,6 +161,13 @@
       }
     ]
   },
+  "learn": {
+    "heroPhrase": "→ EggOn Learn —",
+    "heroTitle": "Domina la IA para fortalecer tu práctica legal",
+    "heroSubtitle": "Aprende a usar la IA para aumentar la eficiencia, asegurar tus análisis y crear nuevas oportunidades en tu profesión.",
+    "heroCta": "Comenzar a aprender",
+    "heroAcademyLink": "EggOn Academy — El programa que capacita a abogados en IA, desde los fundamentos hasta aplicaciones prácticas adaptadas a su práctica."
+  },
   "academie": {
     "sectionLabel": "IA ACADEMIA",
     "mainTitle": "SÉ PARTE DEL VIAJE DE APRENDIZAJE",
@@ -282,7 +289,7 @@
     "introduction": "Construida por pioneros en RAG, nuestra plataforma te permite integrar agentes de IA con el conocimiento empresarial de forma fluida, ofreciendo una solución completa para diseñar sistemas RAG de vanguardia."
   },
   "contact": {
-    "title": "Construyamos el Futuro Juntos",
+    "title": "Construyamos el Futury Juntos",
     "subtitle": "¿Listo para transformar tu organización con agentes de IA estratégicos? Nuestro equipo de expertos espera tu consulta.",
     "form": {
       "name": "Nombre completo",
