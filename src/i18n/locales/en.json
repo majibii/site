@@ -68,52 +68,12 @@
         "context": "Finance / Legal Accounting",
         "body": "Automatically generate invoices from time entries or flat fees, send personalized payment reminders, track payment status, and manage trust retainer balances. Integrates with Clio, Xero, or QuickBooks."
       },
-      "esgCompliance": {
-        "title": "Interactive Financial Reporting Agent",
-        "context": "Finance / Performance Management",
-        "body": "Produce a dynamic dashboard showing profitability by case, lawyer, or client, with natural language query capability (e.g., 'Show margin on litigation cases since January'). Integrates with Power BI or Tableau, conversational LLM interface."
-      },
-      "dataPrivacyAudit": {
-        "title": "Data Privacy Audit Agent",
-        "context": "Compliance / Data Protection",
-        "body": "Audit GDPR compliance and analyze personal data flows in your organization to identify risks and recommend improvements."
-      }
-    },
-    "deployment": {
-      "sectionLabel": "DEPLOYMENT OPTIONS",
-      "title": "Deploy in our cloud or yours",
-      "subtitle": "Choose the deployment model that best fits your security, compliance, and infrastructure needs.",
-      "cards": [
-        {
-          "title": "EggOn Cloud",
-          "description": "Leverage a fully managed, highly secure SaaS offering on EggOn infrastructure",
-          "icon": "cloud"
-        },
-        {
-          "title": "Azure Private Cloud",
-          "description": "Deploy within your virtual private cloud (Azure environment)",
-          "icon": "azure"
-        },
-        {
-          "title": "On-Premises",
-          "description": "Deploy within your on-prem environment",
-          "icon": "server"
-        }
-      ]
-    },
-    "benefits": {
-      "title": "Our Advantages",
-      "item1": "AI agents specialized in legal and defense domains, designed by experts who know your environment.",
-      "item2": "Integrated solutions that connect to your existing tools and respect your security constraints.",
-      "item3": "Guaranteed privacy: your data stays in your infrastructure, never exposed to third parties.",
-      "item4": "Optimized performance for complex legal tasks, from contract analysis to case law research.",
-      "item5": "Expert support and personalized guidance throughout your digital transformation."
-    },
-    "modal": {
-      "placeholder": "Modify this instruction according to your needs...",
-      "cancel": "Cancel", 
-      "submit": "Use this prompt"
-    }
+  "learn": {
+    "heroPhrase": "→ EggOn Learn —",
+    "heroTitle": "Master AI to strengthen your legal practice",
+    "heroSubtitle": "Learn how to use AI to increase efficiency, secure your analysis, and create new opportunities in your profession.",
+    "heroCta": "Start learning",
+    "heroAcademyLink": "EggOn Academy — The program that trains lawyers in AI, from the fundamentals to practical applications tailored to their practice."
   },
   "legalStack": {
     "subtitle": "WHY EGGON",
