@@ -1,9 +1,27 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { makeStyles } from '@material-ui/core/styles';
+import { LearnHero } from './LearnHero';
 import './learnsection.css';
+
+const useStyles = makeStyles((theme) => ({
+    heroSection: {
+        minHeight: 'calc(100vh - 80px)',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden',
+        '@media (max-width: 768px)': {
+            minHeight: 'calc(100vh - 70px)',
+        },
+    },
+}));
 
 const LearnSection = () => {
   const { t } = useTranslation();
+  const classes = useStyles();
 
   // Course data structure - liste simple comme la roadmap
   const coursesList = [
@@ -140,58 +158,66 @@ const LearnSection = () => {
   );
 
   return (
-    <div className="learn-section">
-      <div className="learn-container">
-        {/* Header Section */}
-        <div className="academie-header">
-          <div className="academie-small-title">
-            {t('academie.sectionLabel')}
-          </div>
-          <h1 className="academie-main-title">
-            {t('academie.mainTitle')}
-          </h1>
-        </div>
+    <>
+      {/* Hero Section - Nouveau composant LearnHero */}
+      <section className={classes.heroSection}>
+        <LearnHero />
+      </section>
 
-        {/* Two Column Introduction */}
-        <div className="academie-intro-container">
-          <div className="academie-intro-text">
-            {t('academie.intro.left')}
-          </div>
-          <div className="academie-intro-text">
-            {t('academie.intro.right')}
-          </div>
-        </div>
-
-        {/* Course Roadmap - Liste simple comme la copie d'écran */}
-        <div className="academie-roadmap">
-          {coursesList.map((course, index) => (
-            <div 
-              key={course.id} 
-              className="course-line"
-              style={{ animationDelay: `${(index + 1) * 0.05}s` }}
-            >
-              <div className="course-left">
-                <div className="course-category-label">
-                  {course.category}
-                </div>
-                <h3 className="course-title-main">
-                  {course.title}
-                </h3>
-              </div>
-              
-              <div className="course-right">
-                {renderCourseButtons(course.status)}
-              </div>
+      {/* Content Section - Section existante avec les cours */}
+      <div className="learn-section">
+        <div className="learn-container">
+          {/* Header Section */}
+          <div className="academie-header">
+            <div className="academie-small-title">
+              {t('academie.sectionLabel')}
             </div>
-          ))}
-        </div>
+            <h1 className="academie-main-title">
+              {t('academie.mainTitle')}
+            </h1>
+          </div>
 
-        {/* Social Media Section */}
-        <div className="academie-social-section">
-          {renderSocialIcons()}
+          {/* Two Column Introduction */}
+          <div className="academie-intro-container">
+            <div className="academie-intro-text">
+              {t('academie.intro.left')}
+            </div>
+            <div className="academie-intro-text">
+              {t('academie.intro.right')}
+            </div>
+          </div>
+
+          {/* Course Roadmap - Liste simple comme la copie d'écran */}
+          <div className="academie-roadmap">
+            {coursesList.map((course, index) => (
+              <div 
+                key={course.id} 
+                className="course-line"
+                style={{ animationDelay: `${(index + 1) * 0.05}s` }}
+              >
+                <div className="course-left">
+                  <div className="course-category-label">
+                    {course.category}
+                  </div>
+                  <h3 className="course-title-main">
+                    {course.title}
+                  </h3>
+                </div>
+                
+                <div className="course-right">
+                  {renderCourseButtons(course.status)}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Social Media Section */}
+          <div className="academie-social-section">
+            {renderSocialIcons()}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
