@@ -51,7 +51,7 @@
       "quotationAgent": {
         "title": "Agent de Génération de Devis",
         "context": "Ventes / Devis B2B",
-        "body": "Générer et envoyer des devis professionnels prêts à être transmiss au client, à partir de configurations produit, règles tarifaires et données client."
+        "body": "Générer et envoyer des devis professionnels prêts à être transmis au client, à partir de configurations produit, règles tarifaires et données client."
       },
       "clientOnboarding": {
         "title": "Agent de Veille Concurrentielle",
@@ -63,7 +63,7 @@
         "context": "R&D / Stratégie",
         "body": "Fournir chaque semaine un résumé des nouvelles et tendances clés dans un secteur technologique choisi, incluant sources clés, points saillants et mises à jour réglementaires."
       },
-      "rfpDrafting": {
+  "rfpDrafting": {
         "title": "Agent de Facturation et Suivi des Paiements",
         "context": "Finance / Comptabilité Juridique",
         "body": "Générer automatiquement les factures à partir des entrées de temps ou forfaits, envoyer des rappels personnalisés, suivre l'état des paiements et gérer les fonds en dépôt. Intégration avec Clio, Xero ou QuickBooks."
@@ -160,6 +160,13 @@
         "description": "Posez des questions en langage naturel et obtenez des réponses instantanées de tous vos fichiers. Analysez automatiquement les contrats, traitez les documents juridiques et assistez à la recherche juridique — entièrement intégré à vos bases de données existantes."
       }
     ]
+  },
+  "learn": {
+    "heroPhrase": "→ EggOn Learn —",
+    "heroTitle": "Maîtrisez l'IA pour renforcer votre pratique juridique",
+    "heroSubtitle": "Apprenez à utiliser l'IA pour accroître votre efficacité, sécuriser vos analyses et créer de nouvelles opportunités dans votre profession.",
+    "heroCta": "Commencer l'apprentissage",
+    "heroAcademyLink": "EggOn Academy — Le programme qui forme les avocats à l'IA, des fondamentaux aux applications pratiques adaptées à leur métier."
   },
   "academie": {
     "sectionLabel": "IA ACADÉMIE",
