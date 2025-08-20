@@ -346,7 +346,6 @@ export const LearnHero = () => {
     };
 
     const handleStartLearning = () => {
-        // Scroll vers la section des cours ou redirection
         const coursesSection = document.querySelector('.academie-roadmap');
         if (coursesSection) {
             coursesSection.scrollIntoView({ behavior: 'smooth' });
