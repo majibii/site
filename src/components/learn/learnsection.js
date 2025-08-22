@@ -6,30 +6,18 @@ import './learnsection.css';
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
-        minHeight: '100vh',
+        minHeight: 'calc(100vh - 80px)',
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'transparent',
         width: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden',
-        // Ajout padding pour compenser le header
-        paddingTop: '80px',
         '@media (max-width: 768px)': {
-            minHeight: '100vh',
-            paddingTop: '70px',
+            minHeight: 'calc(100vh - 70px)',
         },
     },
-    academySection: {
-        // IMPORTANT: S'assurer que la section est visible
-        minHeight: '100vh',
-        paddingTop: '80px',
-        paddingBottom: '80px',
-        '@media (max-width: 768px)': {
-            paddingTop: '60px',
-            paddingBottom: '60px',
-        },
-    },
+    // SUPPRIMÉ: academySection avec les paddings conflictuels
 }));
 
 const LearnSection = () => {
@@ -192,13 +180,13 @@ const LearnSection = () => {
 
   return (
     <>
-      {/* Hero Section - Votre Hero parfait conservé */}
+      {/* Hero Section */}
       <section className={classes.heroSection}>
         <LearnHero />
       </section>
 
-      {/* Content Section - Version d'hier EXACTE */}
-      <div className={`learn-section ${classes.academySection}`}>
+      {/* Content Section - SANS classe makeStyles conflictuelle */}
+      <div className="learn-section">
         <div className="learn-container">
           {/* Header Section */}
           <div className="academie-header">
@@ -220,7 +208,7 @@ const LearnSection = () => {
             </div>
           </div>
 
-          {/* Course Roadmap - Structure EXACTE de la version d'hier */}
+          {/* Course Roadmap */}
           <div className="academie-roadmap">
             {courseCategories.map((category) => (
               <div key={category.id} className="course-category">
