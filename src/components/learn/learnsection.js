@@ -6,20 +6,15 @@ import './learnsection.css';
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
-        height: '100vh',
-        width: '100%',
-        position: 'fixed',
-        top: '0',
-        left: '0',
+        minHeight: 'calc(100vh - 80px)',
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'transparent',
+        width: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden',
-        zIndex: 1,
-        paddingTop: '80px',
         '@media (max-width: 768px)': {
-            paddingTop: '70px',
+            minHeight: 'calc(100vh - 70px)',
         },
     },
 }));
