@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
             minHeight: 'calc(100vh - 70px)',
         },
     },
+    // AJOUT: Espacement entre les sections
+    academySection: {
+        paddingTop: '0', // Supprime le padding-top qui était dans .learn-section
+    },
 }));
 
 const LearnSection = () => {
@@ -165,7 +169,7 @@ const LearnSection = () => {
       </section>
 
       {/* Content Section - Section existante avec les cours */}
-      <div className="learn-section">
+      <div className={`learn-section ${classes.academySection}`}>
         <div className="learn-container">
           {/* Header Section */}
           <div className="academie-header">
