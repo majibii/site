@@ -5,13 +5,13 @@
   min-height: 100vh;
   z-index: 1;
   margin: 0;
-  padding: 80px 0;
+  padding: 40px 0 80px 0; /* MODIFIÉ : Réduit le padding-top de 80px à 40px */
   color: #ffffff;
 }
 
 @media (max-width: 768px) {
   .learn-section {
-    padding: 70px 0 60px 0;
+    padding: 30px 0 60px 0; /* MODIFIÉ : Réduit le padding-top de 70px à 30px */
   }
 }
 
