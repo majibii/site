@@ -5,15 +5,15 @@
   min-height: 100vh;
   z-index: 1;
   margin: 0;
-  /* CORRECTION: Ajout du padding-top comme NOGLab qui fonctionne */
-  padding: 80px 0 80px 0;
+  /* CORRECTION: Suppression du padding-top - c'est le Hero qui gère maintenant */
+  padding: 0 0 80px 0;
   color: #ffffff;
 }
 
 @media (max-width: 768px) {
   .learn-section {
-    /* CORRECTION: Ajout du padding-top mobile comme NOGLab */
-    padding: 70px 0 60px 0;
+    /* CORRECTION: Suppression du padding-top mobile aussi */
+    padding: 0 0 60px 0;
   }
 }
 
