@@ -6,17 +6,19 @@ import './learnsection.css';
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
-        minHeight: 'calc(100vh - 80px)',
+        height: '100vh',
+        width: '100%',
+        position: 'fixed',
+        top: '0',
+        left: '0',
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'transparent',
-        width: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden',
-        // CORRECTION: Ajout du padding-top pour compenser le header
+        zIndex: 1,
         paddingTop: '80px',
         '@media (max-width: 768px)': {
-            minHeight: 'calc(100vh - 70px)',
             paddingTop: '70px',
         },
     },
