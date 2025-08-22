@@ -6,19 +6,29 @@ import './learnsection.css';
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
-        minHeight: 'calc(100vh - 80px)',
+        minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'transparent',
         width: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden',
+        // Ajout padding pour compenser le header
+        paddingTop: '80px',
         '@media (max-width: 768px)': {
-            minHeight: 'calc(100vh - 70px)',
+            minHeight: '100vh',
+            paddingTop: '70px',
         },
     },
     academySection: {
-        paddingTop: '0',
+        // IMPORTANT: S'assurer que la section est visible
+        minHeight: '100vh',
+        paddingTop: '80px',
+        paddingBottom: '80px',
+        '@media (max-width: 768px)': {
+            paddingTop: '60px',
+            paddingBottom: '60px',
+        },
     },
 }));
 
@@ -26,7 +36,7 @@ const LearnSection = () => {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  // Course data structure - RESTAURÉE de la version d'hier
+  // Course data structure - Structure exacte de la version d'hier
   const courseCategories = [
     {
       id: 'foundations',
@@ -104,15 +114,15 @@ const LearnSection = () => {
     }
   ];
 
-  // Fonction pour les boutons - ADAPTÉE au CSS actuel
+  // Fonction identique à la version d'hier
   const renderCourseButtons = (status) => {
     if (status === 'completed') {
       return (
         <>
-          <button className="course-btn released">
+          <button className="course-btn completed">
             {t('academie.buttons.completed')}
           </button>
-          <button className="course-btn secondary">
+          <button className="course-btn catch-up">
             {t('academie.buttons.catchUp')}
           </button>
         </>
@@ -120,10 +130,10 @@ const LearnSection = () => {
     } else {
       return (
         <>
-          <button className="course-btn in-progress">
+          <button className="course-btn ongoing">
             {t('academie.buttons.ongoing')}
           </button>
-          <button className="course-btn secondary">
+          <button className="course-btn enroll">
             {t('academie.buttons.enroll')}
           </button>
         </>
@@ -150,7 +160,7 @@ const LearnSection = () => {
         </svg>
       </div>
 
-      {/* More options (central button with special styling) */}
+      {/* More options */}
       <div className="social-icon more">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="1"/>
@@ -175,8 +185,10 @@ const LearnSection = () => {
     </div>
   );
 
-  // Compteur de cours pour les animations
   let courseCounter = 0;
+
+  console.log('LearnSection rendering...'); // Debug
+  console.log('courseCategories:', courseCategories); // Debug
 
   return (
     <>
@@ -185,7 +197,7 @@ const LearnSection = () => {
         <LearnHero />
       </section>
 
-      {/* Content Section - Section IA Académie RESTAURÉE */}
+      {/* Content Section - Version d'hier EXACTE */}
       <div className={`learn-section ${classes.academySection}`}>
         <div className="learn-container">
           {/* Header Section */}
@@ -208,33 +220,39 @@ const LearnSection = () => {
             </div>
           </div>
 
-          {/* Course Roadmap - RESTAURÉ avec le style de votre CSS actuel */}
+          {/* Course Roadmap - Structure EXACTE de la version d'hier */}
           <div className="academie-roadmap">
-            {courseCategories.map((category) => 
-              category.courses.map((course) => {
-                courseCounter++;
-                return (
-                  <div 
-                    key={course.id} 
-                    className="course-line"
-                    style={{ animationDelay: `${courseCounter * 0.05}s` }}
-                  >
-                    <div className="course-left">
-                      <div className="course-category-label">
-                        {category.name}
+            {courseCategories.map((category) => (
+              <div key={category.id} className="course-category">
+                <h2 className="category-header">
+                  {category.name}
+                </h2>
+                
+                {category.courses.map((course) => {
+                  courseCounter++;
+                  return (
+                    <div 
+                      key={course.id} 
+                      className={`course-item ${course.status}`}
+                      style={{ animationDelay: `${courseCounter * 0.1}s` }}
+                    >
+                      <div className="course-content">
+                        <div className="course-number">
+                          {courseCounter.toString().padStart(2, '0')}
+                        </div>
+                        <h3 className="course-title">
+                          {course.title}
+                        </h3>
                       </div>
-                      <h3 className="course-title-main">
-                        {course.title}
-                      </h3>
+                      
+                      <div className="course-actions">
+                        {renderCourseButtons(course.status)}
+                      </div>
                     </div>
-                    
-                    <div className="course-right">
-                      {renderCourseButtons(course.status)}
-                    </div>
-                  </div>
-                );
-              })
-            )}
+                  );
+                })}
+              </div>
+            ))}
           </div>
 
           {/* Social Media Section */}
