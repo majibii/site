@@ -5,16 +5,17 @@
   min-height: 100vh;
   z-index: 1;
   margin: 0;
-  padding: 40px 0 80px 0; /* MODIFIÉ : Réduit le padding-top de 80px à 40px */
+  padding: 80px 0 80px 0; /* RESTAURÉ : Remet le padding-top à 80px pour bien séparer du hero */
   color: #ffffff;
 }
 
 @media (max-width: 768px) {
   .learn-section {
-    padding: 30px 0 60px 0; /* MODIFIÉ : Réduit le padding-top de 70px à 30px */
+    padding: 60px 0 60px 0; /* RESTAURÉ : Remet le padding-top à 60px pour mobile */
   }
 }
 
+/* Le reste du CSS reste identique */
 .learn-container {
   max-width: 1200px;
   margin: 0 auto;
