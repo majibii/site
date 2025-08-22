@@ -13,11 +13,13 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden',
+        // CORRECTION: Ajout du padding-top pour compenser le header
+        paddingTop: '80px',
         '@media (max-width: 768px)': {
             minHeight: 'calc(100vh - 70px)',
+            paddingTop: '70px',
         },
     },
-    // SUPPRIMÉ: academySection avec les paddings conflictuels
 }));
 
 const LearnSection = () => {
@@ -134,7 +136,7 @@ const LearnSection = () => {
       {/* Email */}
       <div className="social-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2 2V6c0-1.1.9-2 2-2z"/>
           <polyline points="22,6 12,13 2,6"/>
         </svg>
       </div>
@@ -180,12 +182,12 @@ const LearnSection = () => {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - AVEC paddingTop pour compenser le header */}
       <section className={classes.heroSection}>
         <LearnHero />
       </section>
 
-      {/* Content Section - SANS classe makeStyles conflictuelle */}
+      {/* Content Section - SANS padding-top car c'est le Hero qui gère maintenant */}
       <div className="learn-section">
         <div className="learn-container">
           {/* Header Section */}
