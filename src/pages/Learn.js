@@ -4,7 +4,7 @@ import LearnSection from '../components/learn/learnsection';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/footer/Footer';
 
-// CORRECTION : Suppression du paddingTop qui peut causer des conflits
+// CORRECTION : Suppression du paddingTop qui causait les conflits
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     margin: 0,
     padding: 0,
-    // SUPPRIMÉ: paddingTop pour éviter les conflits avec Hero
+    // SUPPRIMÉ: paddingTop car c'est le Hero qui gère maintenant
   }
 }));
 
