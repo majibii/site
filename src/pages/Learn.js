@@ -21,7 +21,10 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     margin: 0,
     padding: 0,
-    // SUPPRIMÉ: paddingTop car c'est le Hero qui gère maintenant
+    paddingTop: '80px',
+    '@media (max-width: 768px)': {
+      paddingTop: '70px',
+    },
   }
 }));
 
