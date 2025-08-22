@@ -5,13 +5,15 @@
   min-height: 100vh;
   z-index: 1;
   margin: 0;
-  padding: 0 0 80px 0;
+  /* CORRECTION: Ajout du padding-top comme NOGLab qui fonctionne */
+  padding: 80px 0 80px 0;
   color: #ffffff;
 }
 
 @media (max-width: 768px) {
   .learn-section {
-    padding: 0 0 60px 0;
+    /* CORRECTION: Ajout du padding-top mobile comme NOGLab */
+    padding: 70px 0 60px 0;
   }
 }
 
@@ -88,7 +90,7 @@
   margin: 0 auto;
 }
 
-/* STYLES MANQUANTS - Version d'hier */
+/* Styles pour la structure de la version d'hier */
 .course-category {
   margin-bottom: 3rem;
 }
