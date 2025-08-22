@@ -26,70 +26,85 @@ const LearnSection = () => {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  // Course data structure utilisant les VRAIES clés de vos fichiers JSON
-  const coursesList = [
+  // Course data structure - RESTAURÉE de la version d'hier
+  const courseCategories = [
     {
-      id: 'intro-ia',
-      category: t('academie.categories.foundations'),
-      title: t('academie.courses.foundations.introIA'),
-      status: 'completed'
+      id: 'foundations',
+      name: t('academie.categories.foundations'),
+      courses: [
+        {
+          id: 'intro-ia',
+          title: t('academie.courses.foundations.introIA'),
+          status: 'completed'
+        },
+        {
+          id: 'limites-llm',
+          title: t('academie.courses.foundations.limitesLLM'),
+          status: 'completed'
+        },
+        {
+          id: 'depasser-limites',
+          title: t('academie.courses.foundations.depasserLimites'),
+          status: 'completed'
+        }
+      ]
     },
     {
-      id: 'limites-llm',
-      category: t('academie.categories.foundations'),
-      title: t('academie.courses.foundations.limitesLLM'),
-      status: 'completed'
+      id: 'prompt-engineering',
+      name: t('academie.categories.promptEngineering'),
+      courses: [
+        {
+          id: 'prompts-initiation',
+          title: t('academie.courses.promptEngineering.promptsInitiation'),
+          status: 'completed'
+        },
+        {
+          id: 'prompts-juridiques',
+          title: t('academie.courses.promptEngineering.promptsJuridiques'),
+          status: 'completed'
+        },
+        {
+          id: 'prompts-systemes',
+          title: t('academie.courses.promptEngineering.promptsSystemes'),
+          status: 'completed'
+        }
+      ]
     },
     {
-      id: 'depasser-limites',
-      category: t('academie.categories.foundations'),
-      title: t('academie.courses.foundations.depasserLimites'),
-      status: 'completed'
+      id: 'case-studies',
+      name: t('academie.categories.caseStudies'),
+      courses: [
+        {
+          id: 'affaire-weber',
+          title: t('academie.courses.caseStudies.affaireWeber'),
+          status: 'completed'
+        }
+      ]
     },
     {
-      id: 'prompts-initiation',
-      category: t('academie.categories.promptEngineering'),
-      title: t('academie.courses.promptEngineering.promptsInitiation'),
-      status: 'completed'
-    },
-    {
-      id: 'prompts-juridiques',
-      category: t('academie.categories.promptEngineering'),
-      title: t('academie.courses.promptEngineering.promptsJuridiques'),
-      status: 'completed'
-    },
-    {
-      id: 'prompts-systemes',
-      category: t('academie.categories.promptEngineering'),
-      title: t('academie.courses.promptEngineering.promptsSystemes'),
-      status: 'completed'
-    },
-    {
-      id: 'affaire-weber',
-      category: t('academie.categories.caseStudies'),
-      title: t('academie.courses.caseStudies.affaireWeber'),
-      status: 'completed'
-    },
-    {
-      id: 'ai-risk-management',
-      category: t('academie.categories.securityGovernance'),
-      title: t('academie.courses.securityGovernance.aiRiskManagement'),
-      status: 'ongoing'
-    },
-    {
-      id: 'ai-act-compliance',
-      category: t('academie.categories.securityGovernance'),
-      title: t('academie.courses.securityGovernance.aiActCompliance'),
-      status: 'ongoing'
-    },
-    {
-      id: 'auditability-explainability',
-      category: t('academie.categories.securityGovernance'),
-      title: t('academie.courses.securityGovernance.auditabilityExplainability'),
-      status: 'ongoing'
+      id: 'security-governance',
+      name: t('academie.categories.securityGovernance'),
+      courses: [
+        {
+          id: 'ai-risk-management',
+          title: t('academie.courses.securityGovernance.aiRiskManagement'),
+          status: 'ongoing'
+        },
+        {
+          id: 'ai-act-compliance',
+          title: t('academie.courses.securityGovernance.aiActCompliance'),
+          status: 'ongoing'
+        },
+        {
+          id: 'auditability-explainability',
+          title: t('academie.courses.securityGovernance.auditabilityExplainability'),
+          status: 'ongoing'
+        }
+      ]
     }
   ];
 
+  // Fonction pour les boutons - ADAPTÉE au CSS actuel
   const renderCourseButtons = (status) => {
     if (status === 'completed') {
       return (
@@ -160,14 +175,17 @@ const LearnSection = () => {
     </div>
   );
 
+  // Compteur de cours pour les animations
+  let courseCounter = 0;
+
   return (
     <>
-      {/* Hero Section - Nouveau composant LearnHero */}
+      {/* Hero Section - Votre Hero parfait conservé */}
       <section className={classes.heroSection}>
         <LearnHero />
       </section>
 
-      {/* Content Section - Section existante avec les cours */}
+      {/* Content Section - Section IA Académie RESTAURÉE */}
       <div className={`learn-section ${classes.academySection}`}>
         <div className="learn-container">
           {/* Header Section */}
@@ -190,28 +208,33 @@ const LearnSection = () => {
             </div>
           </div>
 
-          {/* Course Roadmap - Liste simple comme la copie d'écran */}
+          {/* Course Roadmap - RESTAURÉ avec le style de votre CSS actuel */}
           <div className="academie-roadmap">
-            {coursesList.map((course, index) => (
-              <div 
-                key={course.id} 
-                className="course-line"
-                style={{ animationDelay: `${(index + 1) * 0.05}s` }}
-              >
-                <div className="course-left">
-                  <div className="course-category-label">
-                    {course.category}
+            {courseCategories.map((category) => 
+              category.courses.map((course) => {
+                courseCounter++;
+                return (
+                  <div 
+                    key={course.id} 
+                    className="course-line"
+                    style={{ animationDelay: `${courseCounter * 0.05}s` }}
+                  >
+                    <div className="course-left">
+                      <div className="course-category-label">
+                        {category.name}
+                      </div>
+                      <h3 className="course-title-main">
+                        {course.title}
+                      </h3>
+                    </div>
+                    
+                    <div className="course-right">
+                      {renderCourseButtons(course.status)}
+                    </div>
                   </div>
-                  <h3 className="course-title-main">
-                    {course.title}
-                  </h3>
-                </div>
-                
-                <div className="course-right">
-                  {renderCourseButtons(course.status)}
-                </div>
-              </div>
-            ))}
+                );
+              })
+            )}
           </div>
 
           {/* Social Media Section */}
