@@ -17,9 +17,8 @@ const useStyles = makeStyles((theme) => ({
             minHeight: 'calc(100vh - 70px)',
         },
     },
-    // AJOUT: Espacement entre les sections
     academySection: {
-        paddingTop: '0', // Supprime le padding-top qui était dans .learn-section
+        paddingTop: '0',
     },
 }));
 
@@ -27,7 +26,7 @@ const LearnSection = () => {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  // Course data structure - liste simple comme la roadmap
+  // Course data structure utilisant les VRAIES clés de vos fichiers JSON
   const coursesList = [
     {
       id: 'intro-ia',
