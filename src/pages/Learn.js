@@ -4,7 +4,7 @@ import LearnSection from '../components/learn/learnsection';
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/footer/Footer';
 
-// CORRECTION : Styles identiques à laa page Home pour uniformiser le header
+// CORRECTION : Suppression du paddingTop qui peut causer des conflits
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -21,11 +21,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     margin: 0,
     padding: 0,
-    // AJOUT : Padding top pour compenser la hauteur du header comme sur Home
-    paddingTop: '80px',
-    '@media (max-width: 768px)': {
-      paddingTop: '70px',
-    },
+    // SUPPRIMÉ: paddingTop pour éviter les conflits avec Hero
   }
 }));
 
