@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import './LegalStackSection.css';
 
 const RAGArchitectureDiagram = () => {
   const { t } = useTranslation();
@@ -489,21 +490,22 @@ const RAGArchitectureDiagram = () => {
                   marginBottom: '1.5rem',
                   width: '100%'
                 }}>
-                  <div style={{
-                    padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
-                    background: 'rgba(47, 47, 46, 0.18)',
-                    border: '1px solid rgba(47, 47, 46, 0.3)',
-                    borderRadius: '6px',
-                    textAlign: 'center',
-                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
-                    fontWeight: '600',
-                    color: '#2f2f2e',
-                    flex: '1',
-                    minWidth: '60px',
-                    lineHeight: '1.1',
-                    wordWrap: 'break-word',
-                    hyphens: 'auto'
-                  }}>
+                  <div 
+                    className="rag-technical-term rag-mixture-term"
+                    style={{
+                      padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
+                      background: 'rgba(47, 47, 46, 0.18)',
+                      border: '1px solid rgba(47, 47, 46, 0.3)',
+                      borderRadius: '6px',
+                      textAlign: 'center',
+                      fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
+                      fontWeight: '600',
+                      color: '#2f2f2e',
+                      flex: '1',
+                      minWidth: '60px',
+                      lineHeight: '1.1'
+                    }}
+                  >
                     Mixture of retrievers
                   </div>
 
@@ -531,20 +533,22 @@ const RAGArchitectureDiagram = () => {
                     </svg>
                   </div>
 
-                  <div style={{
-                    padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
-                    background: 'rgba(47, 47, 46, 0.18)',
-                    border: '1px solid rgba(47, 47, 46, 0.3)',
-                    borderRadius: '6px',
-                    textAlign: 'center',
-                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
-                    fontWeight: '600',
-                    color: '#2f2f2e',
-                    flex: '1',
-                    minWidth: '60px',
-                    lineHeight: '1.1',
-                    wordWrap: 'break-word'
-                  }}>
+                  <div 
+                    className="rag-technical-term rag-reranker-term"
+                    style={{
+                      padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
+                      background: 'rgba(47, 47, 46, 0.18)',
+                      border: '1px solid rgba(47, 47, 46, 0.3)',
+                      borderRadius: '6px',
+                      textAlign: 'center',
+                      fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
+                      fontWeight: '600',
+                      color: '#2f2f2e',
+                      flex: '1',
+                      minWidth: '60px',
+                      lineHeight: '1.1'
+                    }}
+                  >
                     Reranker
                   </div>
 
@@ -572,21 +576,22 @@ const RAGArchitectureDiagram = () => {
                     </svg>
                   </div>
 
-                  <div style={{
-                    padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
-                    background: 'rgba(47, 47, 46, 0.18)',
-                    border: '1px solid rgba(47, 47, 46, 0.3)',
-                    borderRadius: '6px',
-                    textAlign: 'center',
-                    fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
-                    fontWeight: '600',
-                    color: '#2f2f2e',
-                    flex: '1',
-                    minWidth: '60px',
-                    lineHeight: '1.1',
-                    wordWrap: 'break-word',
-                    hyphens: 'auto'
-                  }}>
+                  <div 
+                    className="rag-technical-term rag-grounded-term"
+                    style={{
+                      padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
+                      background: 'rgba(47, 47, 46, 0.18)',
+                      border: '1px solid rgba(47, 47, 46, 0.3)',
+                      borderRadius: '6px',
+                      textAlign: 'center',
+                      fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
+                      fontWeight: '600',
+                      color: '#2f2f2e',
+                      flex: '1',
+                      minWidth: '60px',
+                      lineHeight: '1.1'
+                    }}
+                  >
                     Grounded Language Model
                   </div>
                 </div>
