@@ -1,339 +1,382 @@
+/* Force l'affichage de la section */
 .learn-section {
-  width: 100%;
-  position: relative;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  min-height: 100vh;
-  z-index: 1;
-  margin: 0;
-  padding: 80px 0 80px 0;
-  color: #ffffff;
+  width: 100% !important;
+  position: relative !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+  min-height: 100vh !important;
+  z-index: 1 !important;
+  margin: 0 !important;
+  padding: 80px 0 80px 0 !important;
+  color: #ffffff !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 @media (max-width: 768px) {
   .learn-section {
-    padding: 70px 0 60px 0;
+    padding: 70px 0 60px 0 !important;
   }
 }
 
 .learn-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 @media (max-width: 768px) {
   .learn-container {
-    padding: 0 1rem;
+    padding: 0 1rem !important;
   }
 }
 
-/* Header Section */
+/* Header Section - Force l'affichage */
 .academie-header {
-  text-align: center;
-  margin-bottom: 4rem;
+  text-align: center !important;
+  margin-bottom: 4rem !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .academie-small-title {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #FFFF99;
-  margin-bottom: 1rem;
-  opacity: 0.9;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: #FFFF99 !important;
+  margin-bottom: 1rem !important;
+  opacity: 0.9 !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .academie-main-title {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 900;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  line-height: 1.1;
-  color: #ffffff;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 900 !important;
+  font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+  margin-bottom: 3rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
-/* Two Column Introduction */
+/* Two Column Introduction - Force l'affichage */
 .academie-intro-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 5rem;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3rem !important;
+  margin-bottom: 5rem !important;
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  visibility: visible !important;
 }
 
 @media (max-width: 768px) {
   .academie-intro-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    margin-bottom: 3rem !important;
   }
 }
 
 .academie-intro-text {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 400;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1rem, 1.8vw, 1.125rem) !important;
+  line-height: 1.7 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 400 !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
-/* Course Roadmap */
+/* Course Roadmap - Force l'affichage */
 .academie-roadmap {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
-/* Styles pour la structure de la version d'hier */
 .course-category {
-  margin-bottom: 3rem;
+  margin-bottom: 3rem !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .category-header {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-  font-weight: 700;
-  color: #FFFF99;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem) !important;
+  font-weight: 700 !important;
+  color: #FFFF99 !important;
+  margin-bottom: 1.5rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .course-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.2rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 1.2rem 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+  visibility: visible !important;
 }
 
 .course-item:hover {
-  background: rgba(255, 255, 255, 0.02);
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02) !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  border-radius: 8px !important;
 }
 
 .course-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  visibility: visible !important;
 }
 
 .course-number {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
-  min-width: 40px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  min-width: 40px !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .course-title {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0;
-  line-height: 1.3;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem) !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .course-actions {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  margin-left: 2rem;
+  display: flex !important;
+  gap: 0.75rem !important;
+  align-items: center !important;
+  margin-left: 2rem !important;
+  visibility: visible !important;
 }
 
-/* Boutons */
+/* Boutons - Force l'affichage */
 .course-btn {
-  padding: 0.5rem 1.2rem;
-  border: 1px solid;
-  border-radius: 20px;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 85px;
-  white-space: nowrap;
+  padding: 0.5rem 1.2rem !important;
+  border: 1px solid !important;
+  border-radius: 20px !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem) !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 85px !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
 }
 
 /* Bouton "Completed" - style jaune */
 .course-btn.completed {
-  background: #FFFF99;
-  color: #1a1a1a;
-  border-color: #FFFF99;
+  background: #FFFF99 !important;
+  color: #1a1a1a !important;
+  border-color: #FFFF99 !important;
 }
 
 .course-btn.completed:hover {
-  background: rgba(255, 255, 153, 0.9);
-  transform: translateY(-1px);
+  background: rgba(255, 255, 153, 0.9) !important;
+  transform: translateY(-1px) !important;
 }
 
 /* Bouton "Catch-up" */
 .course-btn.catch-up {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .course-btn.catch-up:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 /* Bouton "Ongoing" - style rouge/orange */
 .course-btn.ongoing {
-  background: #ff6b6b;
-  color: #ffffff;
-  border-color: #ff6b6b;
+  background: #ff6b6b !important;
+  color: #ffffff !important;
+  border-color: #ff6b6b !important;
 }
 
 .course-btn.ongoing:hover {
-  background: rgba(255, 107, 107, 0.9);
-  transform: translateY(-1px);
+  background: rgba(255, 107, 107, 0.9) !important;
+  transform: translateY(-1px) !important;
 }
 
 /* Bouton "Enroll" */
 .course-btn.enroll {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .course-btn.enroll:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
-/* Social Media Icons */
+/* Social Media Icons - Force l'affichage */
 .academie-social-section {
-  margin-top: 4rem;
-  text-align: center;
+  margin-top: 4rem !important;
+  text-align: center !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1.5rem !important;
+  margin-top: 2rem !important;
+  visibility: visible !important;
 }
 
 .social-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  visibility: visible !important;
 }
 
 .social-icon:hover {
-  background: rgba(255, 255, 153, 0.2);
-  border-color: #FFFF99;
-  transform: translateY(-2px);
+  background: rgba(255, 255, 153, 0.2) !important;
+  border-color: #FFFF99 !important;
+  transform: translateY(-2px) !important;
 }
 
 .social-icon svg {
-  width: 20px;
-  height: 20px;
-  color: #ffffff;
-  transition: color 0.3s ease;
+  width: 20px !important;
+  height: 20px !important;
+  color: #ffffff !important;
+  transition: color 0.3s ease !important;
+  visibility: visible !important;
 }
 
 .social-icon:hover svg {
-  color: #FFFF99;
+  color: #FFFF99 !important;
 }
 
 .social-icon.more {
-  background: rgba(255, 255, 153, 0.1);
-  border-color: #FFFF99;
+  background: rgba(255, 255, 153, 0.1) !important;
+  border-color: #FFFF99 !important;
 }
 
 .social-icon.more svg {
-  color: #FFFF99;
+  color: #FFFF99 !important;
 }
 
 .social-icon.more:hover {
-  background: rgba(255, 255, 153, 0.2);
-  transform: translateY(-2px) scale(1.1);
+  background: rgba(255, 255, 153, 0.2) !important;
+  transform: translateY(-2px) scale(1.1) !important;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .course-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.5rem 0;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    padding: 1.5rem 0 !important;
   }
 
   .course-content {
-    width: 100%;
+    width: 100% !important;
   }
 
   .course-actions {
-    margin-left: 0;
-    width: 100%;
-    justify-content: flex-end;
+    margin-left: 0 !important;
+    width: 100% !important;
+    justify-content: flex-end !important;
   }
 
   .course-btn {
-    min-width: 75px;
-    padding: 0.4rem 1rem;
-    font-size: 0.75rem;
+    min-width: 75px !important;
+    padding: 0.4rem 1rem !important;
+    font-size: 0.75rem !important;
   }
 
   .social-icons {
-    gap: 1rem;
+    gap: 1rem !important;
   }
 
   .social-icon {
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+    height: 40px !important;
   }
 
   .social-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 16px !important;
+    height: 16px !important;
   }
 }
 
 @media (max-width: 480px) {
   .course-actions {
-    gap: 0.5rem;
+    gap: 0.5rem !important;
   }
 
   .course-btn {
-    min-width: 70px;
-    padding: 0.35rem 0.8rem;
-    font-size: 0.7rem;
+    min-width: 70px !important;
+    padding: 0.35rem 0.8rem !important;
+    font-size: 0.7rem !important;
   }
 }
 
-/* Animations */
+/* Animations - Simplifiées pour éviter les conflits */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .course-item {
-  opacity: 0;
-  transform: translateX(-20px);
   animation: slideInLeft 0.6s ease forwards;
 }
 
+/* Stagger animation delays */
 .course-item:nth-child(1) { animation-delay: 0.1s; }
 .course-item:nth-child(2) { animation-delay: 0.15s; }
 .course-item:nth-child(3) { animation-delay: 0.2s; }
@@ -345,23 +388,17 @@
 .course-item:nth-child(9) { animation-delay: 0.5s; }
 .course-item:nth-child(10) { animation-delay: 0.55s; }
 
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
+/* Désactivation des animations si l'utilisateur préfère */
 @media (prefers-reduced-motion: reduce) {
   .course-item {
-    animation: none;
-    opacity: 1;
-    transform: none;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
   
   .course-item,
   .course-btn,
   .social-icon {
-    transition: none;
+    transition: none !important;
   }
 }
