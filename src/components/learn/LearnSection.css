@@ -1,6 +1,6 @@
-/* Force l'affichage de la section - Même fond que le hero */
+/* CORRECTION CRITIQUE : Reset complet des marges/paddings héritées */
 .learn-section {
-  width: 100% !important;
+  width: 100vw !important; /* Force la largeur complète */
   position: relative !important;
   background: transparent !important;
   min-height: 100vh !important;
@@ -11,6 +11,10 @@
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  left: 0 !important; /* Force le positionnement à gauche */
+  right: 0 !important; /* Force le positionnement à droite */
+  box-sizing: border-box !important;
+  overflow-x: hidden !important; /* Évite le débordement horizontal */
 }
 
 @media (max-width: 768px) {
@@ -19,29 +23,51 @@
   }
 }
 
-/* Container centré comme dans NOGLabSection */
+/* CORRECTION CRITIQUE : Container parfaitement centré comme NOGLabSection */
 .learn-container {
   max-width: 1200px !important;
+  width: 100% !important;
   margin: 0 auto !important;
   padding: 0 2rem !important;
-  width: 100% !important;
   box-sizing: border-box !important;
   visibility: visible !important;
+  position: relative !important;
+  left: auto !important; /* Reset toute position héritée */
+  right: auto !important; /* Reset toute position héritée */
+  transform: none !important; /* Reset tout transform hérité */
 }
 
 @media (max-width: 768px) {
   .learn-container {
     padding: 0 1rem !important;
+    max-width: 100% !important;
   }
 }
 
-/* Header Section - Centré */
+/* CORRECTION : Reset des styles Material-UI qui pourraient interférer */
+.learn-section .MuiContainer-root {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .learn-section .MuiContainer-root {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Header Section - Parfaitement centré */
 .academie-header {
   text-align: center !important;
   margin-bottom: 4rem !important;
   display: block !important;
   visibility: visible !important;
   width: 100% !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .academie-small-title {
@@ -55,6 +81,7 @@
   opacity: 0.9 !important;
   display: block !important;
   visibility: visible !important;
+  text-align: center !important;
 }
 
 .academie-main-title {
@@ -69,9 +96,10 @@
   display: block !important;
   visibility: visible !important;
   text-align: center !important;
+  padding: 0 !important;
 }
 
-/* Two Column Introduction - Centrée et responsive */
+/* Two Column Introduction - Parfaitement centrée */
 .academie-intro-container {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
@@ -82,6 +110,9 @@
   visibility: visible !important;
   padding: 0 !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
 }
 
 @media (max-width: 768px) {
@@ -89,6 +120,7 @@
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
     margin-bottom: 3rem !important;
+    padding: 0 1rem !important;
   }
 }
 
@@ -101,6 +133,8 @@
   display: block !important;
   visibility: visible !important;
   text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 @media (max-width: 768px) {
@@ -109,7 +143,7 @@
   }
 }
 
-/* Course Roadmap - Centrée */
+/* Course Roadmap - Parfaitement centrée */
 .academie-roadmap {
   max-width: 1000px !important;
   width: 100% !important;
@@ -118,12 +152,23 @@
   visibility: visible !important;
   padding: 0 !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+}
+
+@media (max-width: 768px) {
+  .academie-roadmap {
+    padding: 0 1rem !important;
+  }
 }
 
 .course-category {
   margin-bottom: 3rem !important;
   display: block !important;
   visibility: visible !important;
+  width: 100% !important;
+  padding: 0 !important;
 }
 
 .category-header {
@@ -137,6 +182,7 @@
   display: block !important;
   visibility: visible !important;
   text-align: left !important;
+  padding: 0 !important;
 }
 
 @media (max-width: 768px) {
@@ -153,6 +199,9 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   transition: all 0.3s ease !important;
   visibility: visible !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
 }
 
 .course-item:hover {
@@ -168,6 +217,8 @@
   align-items: center !important;
   gap: 1.5rem !important;
   visibility: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .course-number {
@@ -178,6 +229,8 @@
   min-width: 40px !important;
   display: block !important;
   visibility: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .course-title {
@@ -189,6 +242,7 @@
   line-height: 1.3 !important;
   display: block !important;
   visibility: visible !important;
+  padding: 0 !important;
 }
 
 .course-actions {
@@ -197,9 +251,10 @@
   align-items: center !important;
   margin-left: 2rem !important;
   visibility: visible !important;
+  padding: 0 !important;
 }
 
-/* Boutons - Force l'affichage */
+/* Boutons - Styles conservés */
 .course-btn {
   padding: 0.5rem 1.2rem !important;
   border: 1px solid !important;
@@ -218,7 +273,6 @@
   visibility: visible !important;
 }
 
-/* Bouton "Completed" - style jaune */
 .course-btn.completed {
   background: #FFFF99 !important;
   color: #1a1a1a !important;
@@ -230,7 +284,6 @@
   transform: translateY(-1px) !important;
 }
 
-/* Bouton "Catch-up" */
 .course-btn.catch-up {
   background: transparent !important;
   color: rgba(255, 255, 255, 0.8) !important;
@@ -243,7 +296,6 @@
   border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
-/* Bouton "Ongoing" - style rouge/orange */
 .course-btn.ongoing {
   background: #ff6b6b !important;
   color: #ffffff !important;
@@ -255,7 +307,6 @@
   transform: translateY(-1px) !important;
 }
 
-/* Bouton "Enroll" */
 .course-btn.enroll {
   background: transparent !important;
   color: rgba(255, 255, 255, 0.8) !important;
@@ -268,12 +319,14 @@
   border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
-/* Social Media Icons - Centrés */
+/* Social Media Icons - Parfaitement centrés */
 .academie-social-section {
   margin-top: 4rem !important;
   text-align: center !important;
   display: block !important;
   visibility: visible !important;
+  width: 100% !important;
+  padding: 0 !important;
 }
 
 .social-icons {
@@ -282,6 +335,7 @@
   gap: 1.5rem !important;
   margin-top: 2rem !important;
   visibility: visible !important;
+  padding: 0 !important;
 }
 
 .social-icon {
@@ -330,11 +384,11 @@
   transform: translateY(-2px) scale(1.1) !important;
 }
 
-/* Responsive Design - Amélioré */
+/* CORRECTION MOBILE - Responsive Design amélioré */
 @media (max-width: 768px) {
   .course-item {
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     gap: 1rem !important;
     padding: 1.5rem 0 !important;
     text-align: center !important;
@@ -344,6 +398,8 @@
     width: 100% !important;
     justify-content: center !important;
     text-align: center !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
   }
 
   .course-number {
@@ -352,6 +408,7 @@
 
   .course-title {
     text-align: center !important;
+    width: 100% !important;
   }
 
   .course-actions {
@@ -368,6 +425,8 @@
 
   .social-icons {
     gap: 1rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
   }
 
   .social-icon {
@@ -382,6 +441,18 @@
 }
 
 @media (max-width: 480px) {
+  .learn-container {
+    padding: 0 0.5rem !important;
+  }
+  
+  .academie-intro-container {
+    padding: 0 0.5rem !important;
+  }
+  
+  .academie-roadmap {
+    padding: 0 0.5rem !important;
+  }
+
   .course-actions {
     gap: 0.5rem !important;
   }
@@ -393,7 +464,19 @@
   }
 }
 
-/* Animations - Simplifiées pour éviter les conflits */
+/* CORRECTION CRITIQUE : Override des styles JSS de Material-UI */
+div[class*="jss"] .learn-container,
+div[class*="makeStyles"] .learn-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+}
+
+/* Animations conservées */
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -409,7 +492,6 @@
   animation: slideInLeft 0.6s ease forwards;
 }
 
-/* Stagger animation delays */
 .course-item:nth-child(1) { animation-delay: 0.1s; }
 .course-item:nth-child(2) { animation-delay: 0.15s; }
 .course-item:nth-child(3) { animation-delay: 0.2s; }
@@ -421,7 +503,6 @@
 .course-item:nth-child(9) { animation-delay: 0.5s; }
 .course-item:nth-child(10) { animation-delay: 0.55s; }
 
-/* Désactivation des animations si l'utilisateur préfère */
 @media (prefers-reduced-motion: reduce) {
   .course-item {
     animation: none !important;
