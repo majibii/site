@@ -1,8 +1,8 @@
-/* Force l'affichage de la section */
+/* Force l'affichage de la section - Même fond que le hero */
 .learn-section {
   width: 100% !important;
   position: relative !important;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
+  background: transparent !important;
   min-height: 100vh !important;
   z-index: 1 !important;
   margin: 0 !important;
@@ -20,9 +20,9 @@
 }
 
 .learn-container {
-  max-width: 1200px !important;
+  max-width: 1600px !important;
   margin: 0 auto !important;
-  padding: 0 2rem !important;
+  padding: 0 1rem !important;
   display: block !important;
   visibility: visible !important;
 }
@@ -33,12 +33,16 @@
   }
 }
 
-/* Header Section - Force l'affichage */
+/* Header Section - Force l'affichage et centrage parfait */
 .academie-header {
   text-align: center !important;
   margin-bottom: 4rem !important;
   display: block !important;
   visibility: visible !important;
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 1rem !important;
 }
 
 .academie-small-title {
@@ -67,7 +71,7 @@
   visibility: visible !important;
 }
 
-/* Two Column Introduction - Force l'affichage */
+/* Two Column Introduction - Force l'affichage et centrage */
 .academie-intro-container {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
@@ -77,6 +81,7 @@
   margin-left: auto !important;
   margin-right: auto !important;
   visibility: visible !important;
+  padding: 0 1rem !important;
 }
 
 @media (max-width: 768px) {
@@ -97,12 +102,13 @@
   visibility: visible !important;
 }
 
-/* Course Roadmap - Force l'affichage */
+/* Course Roadmap - Force l'affichage et centrage */
 .academie-roadmap {
   max-width: 1000px !important;
   margin: 0 auto !important;
   display: block !important;
   visibility: visible !important;
+  padding: 0 1rem !important;
 }
 
 .course-category {
