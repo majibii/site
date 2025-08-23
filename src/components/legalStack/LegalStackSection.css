@@ -116,7 +116,7 @@
   gap: clamp(0.8rem, 1.5vw, 1.5rem);
   margin-top: 2rem;
   flex-wrap: wrap;
-  width: '100%';
+  width: 100%;
   overflow: hidden;
 }
 
@@ -131,6 +131,8 @@
   transition: all 0.8s ease;
   opacity: 0;
   transform: translateY(30px);
+  position: relative;
+  overflow: visible;
 }
 
 .rag-flow-step.visible {
@@ -138,14 +140,35 @@
   transform: translateY(0);
 }
 
+/* Effet hover amélioré pour éviter les ombres coupées */
 .rag-flow-step:hover {
   transform: translateY(-8px) scale(1.02);
-  border-color: var(--rag-step-border-hover, rgba(47, 47, 46, 0.3));
+  border-color: var(--rag-step-border-hover, rgba(47, 47, 46, 0.35));
   background: var(--rag-step-bg-hover, rgba(47, 47, 46, 0.18));
-  box-shadow: 0 12px 40px rgba(47, 47, 46, 0.3);
+  box-shadow: 0 20px 50px rgba(47, 47, 46, 0.2);
+  z-index: 10;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Correction globale RENFORCÉE pour les couleurs RAG - IDENTIQUE à collection */
+/* Effet hover pour les sous-éléments */
+.rag-flow-step div[style*="background: rgba(47, 47, 46, 0.08)"]:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(47, 47, 46, 0.25);
+  background: rgba(47, 47, 46, 0.12);
+  box-shadow: 0 12px 30px rgba(47, 47, 46, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Effet hover pour les icônes circulaires */
+.rag-flow-step div[style*="border-radius: 50%"]:hover {
+  transform: scale(1.1);
+  background: rgba(47, 47, 46, 0.25);
+  border-color: rgba(47, 47, 46, 0.35);
+  transition: all 0.3s ease;
+}
+
+/* Correction globale RENFORCÉE pour les couleurs RAG */
 .rag-content-container,
 .rag-content-container *,
 .rag-content-container *::before,
@@ -161,7 +184,7 @@
   stroke: var(--rag-text-color, #2f2f2e) !important;
 }
 
-/* VARIABLES CSS POUR LES TRANSITIONS - IDENTIQUES à deployment */
+/* VARIABLES CSS POUR LES TRANSITIONS */
 .rag-bg-enhanced-start {
   --rag-bg-color: #2f2f2e;
   --rag-container-bg: rgba(255, 255, 255, 0.08);
@@ -216,7 +239,7 @@
   --rag-step-border-hover: rgba(47, 47, 46, 0.3);
 }
 
-/* Responsive Design - IDENTIQUE à deployment */
+/* Responsive Design */
 @media (max-width: 1200px) {
   .rag-flow-container > div {
     flex: 1 1 calc(50% - 1rem);
