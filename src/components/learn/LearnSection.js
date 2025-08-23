@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 import { LearnHero } from './LearnHero';
 // CORRECTION : Nom exact du fichier CSS
-import './learnsection.css';
+import './LearnSection.css';
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
