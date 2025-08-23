@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/header/Header';
 // Import corrigé - assurez-vous que le nom du fichier correspond
-import LearnSection from '../components/learn/LearnSection'; // Changé si vous renommez le fichier
+import LearnSection from '../components/learn/learnSection'; // Changé si vous renommez le fichier
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/footer/Footer';
 
