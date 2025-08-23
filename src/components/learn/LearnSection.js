@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 import { LearnHero } from './LearnHero';
-// CORRECTION : Nom exact du fichier CSS
 import './LearnSection.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,74 +25,67 @@ const useStyles = makeStyles((theme) => ({
 const LearnSection = () => {
   const { t } = useTranslation();
   const classes = useStyles();
-  
-  // Debug: Vérifier si les traductions se chargent
-  console.log('LearnSection - Traductions chargées:', {
-    sectionLabel: t('academie.sectionLabel'),
-    mainTitle: t('academie.mainTitle'),
-    introLeft: t('academie.intro.left')
-  });
 
   // Course data structure
   const coursesList = [
     {
       id: 'intro-ia',
-      category: t('academie.categories.foundations'),
-      title: t('academie.courses.foundations.introIA'),
+      category: t('academie.categories.foundations') || 'Fondamentaux',
+      title: t('academie.courses.foundations.introIA') || 'Introduction à l\'IA',
       status: 'completed'
     },
     {
       id: 'limites-llm',
-      category: t('academie.categories.foundations'),
-      title: t('academie.courses.foundations.limitesLLM'),
+      category: t('academie.categories.foundations') || 'Fondamentaux',
+      title: t('academie.courses.foundations.limitesLLM') || 'Limites des LLM',
       status: 'completed'
     },
     {
       id: 'depasser-limites',
-      category: t('academie.categories.foundations'),
-      title: t('academie.courses.foundations.depasserLimites'),
+      category: t('academie.categories.foundations') || 'Fondamentaux',
+      title: t('academie.courses.foundations.depasserLimites') || 'Dépasser les limites',
       status: 'completed'
     },
     {
       id: 'prompts-initiation',
-      category: t('academie.categories.promptEngineering'),
-      title: t('academie.courses.promptEngineering.promptsInitiation'),
+      category: t('academie.categories.promptEngineering') || 'Prompt Engineering',
+      title: t('academie.courses.promptEngineering.promptsInitiation') || 'Initiation aux prompts',
       status: 'completed'
     },
     {
       id: 'prompts-juridiques',
-      category: t('academie.categories.promptEngineering'),
-      title: t('academie.courses.promptEngineering.promptsJuridiques'),
+      category: t('academie.categories.promptEngineering') || 'Prompt Engineering',
+      title: t('academie.courses.promptEngineering.promptsJuridiques') || 'Prompts juridiques',
       status: 'completed'
     },
     {
       id: 'prompts-systemes',
-      category: t('academie.categories.promptEngineering'),
-      title: t('academie.courses.promptEngineering.promptsSystemes'),
+      category: t('academie.categories.promptEngineering') || 'Prompt Engineering',
+      title: t('academie.courses.promptEngineering.promptsSystemes') || 'Prompts systèmes',
       status: 'completed'
     },
     {
       id: 'affaire-weber',
-      category: t('academie.categories.caseStudies'),
-      title: t('academie.courses.caseStudies.affaireWeber'),
+      category: t('academie.categories.caseStudies') || 'Études de cas',
+      title: t('academie.courses.caseStudies.affaireWeber') || 'Affaire Weber',
       status: 'completed'
     },
     {
       id: 'ai-risk-management',
-      category: t('academie.categories.securityGovernance'),
-      title: t('academie.courses.securityGovernance.aiRiskManagement'),
+      category: t('academie.categories.securityGovernance') || 'Sécurité & Gouvernance',
+      title: t('academie.courses.securityGovernance.aiRiskManagement') || 'Gestion des risques IA',
       status: 'ongoing'
     },
     {
       id: 'ai-act-compliance',
-      category: t('academie.categories.securityGovernance'),
-      title: t('academie.courses.securityGovernance.aiActCompliance'),
+      category: t('academie.categories.securityGovernance') || 'Sécurité & Gouvernance',
+      title: t('academie.courses.securityGovernance.aiActCompliance') || 'Conformité AI Act',
       status: 'ongoing'
     },
     {
       id: 'auditability-explainability',
-      category: t('academie.categories.securityGovernance'),
-      title: t('academie.courses.securityGovernance.auditabilityExplainability'),
+      category: t('academie.categories.securityGovernance') || 'Sécurité & Gouvernance',
+      title: t('academie.courses.securityGovernance.auditabilityExplainability') || 'Auditabilité & Explicabilité',
       status: 'ongoing'
     }
   ];
@@ -103,10 +95,10 @@ const LearnSection = () => {
       return (
         <>
           <button className="course-btn completed">
-            {t('academie.buttons.completed')}
+            {t('academie.buttons.completed') || 'Terminé'}
           </button>
           <button className="course-btn catch-up">
-            {t('academie.buttons.catchUp')}
+            {t('academie.buttons.catchUp') || 'Rattrapage'}
           </button>
         </>
       );
@@ -114,10 +106,10 @@ const LearnSection = () => {
       return (
         <>
           <button className="course-btn ongoing">
-            {t('academie.buttons.ongoing')}
+            {t('academie.buttons.ongoing') || 'En cours'}
           </button>
           <button className="course-btn enroll">
-            {t('academie.buttons.enroll')}
+            {t('academie.buttons.enroll') || 'S\'inscrire'}
           </button>
         </>
       );
@@ -176,9 +168,6 @@ const LearnSection = () => {
     acc[course.category].push(course);
     return acc;
   }, {});
-  
-  // Debug: Vérifier le groupement des cours
-  console.log('LearnSection - Cours groupés:', groupedCourses);
 
   return (
     <>
@@ -190,141 +179,45 @@ const LearnSection = () => {
       {/* Content Section */}
       <div className={`learn-section ${classes.academySection}`}>
         <div className="learn-container">
-          {/* Debug: Section visible avec fallback CSS inline */}
-          <div style={{ 
-            background: 'red', 
-            color: 'white', 
-            padding: '10px', 
-            margin: '10px 0',
-            fontSize: '14px',
-            borderRadius: '4px',
-            textAlign: 'center'
-          }}>
-            DEBUG: Section IA Académie chargée - {Object.keys(groupedCourses).length} catégories - CSS: {document.styleSheets.length} stylesheets
-          </div>
           
           {/* Header Section */}
-          <div className="academie-header" style={{
-            textAlign: 'center',
-            marginBottom: '4rem'
-          }}>
-            <div className="academie-small-title" style={{
-              fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-              fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
-              fontWeight: 600,
-              letterSpacing: '0.3em',
-              textTransform: 'uppercase',
-              color: '#FFFF99',
-              marginBottom: '1rem',
-              opacity: 0.9
-            }}>
+          <div className="academie-header">
+            <div className="academie-small-title">
               {t('academie.sectionLabel') || 'ACADÉMIE'}
             </div>
-            <h1 className="academie-main-title" style={{
-              fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-              fontWeight: 900,
-              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-              lineHeight: 1.1,
-              color: '#ffffff',
-              marginBottom: '3rem',
-              textTransform: 'uppercase',
-              letterSpacing: '-0.02em'
-            }}>
+            <h1 className="academie-main-title">
               {t('academie.mainTitle') || 'IA ACADÉMIE'}
             </h1>
           </div>
 
           {/* Two Column Introduction */}
-          <div className="academie-intro-container" style={{
-            display: 'grid',
-            gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
-            gap: '3rem',
-            marginBottom: '5rem',
-            maxWidth: '1000px',
-            marginLeft: 'auto',
-            marginRight: 'auto'
-          }}>
-            <div className="academie-intro-text" style={{
-              fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-              fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
-              lineHeight: 1.7,
-              color: 'rgba(255, 255, 255, 0.85)',
-              fontWeight: 400
-            }}>
-              {t('academie.intro.left') || 'Description de l\'académie IA...'}
+          <div className="academie-intro-container">
+            <div className="academie-intro-text">
+              {t('academie.intro.left') || 'Découvrez notre programme complet de formation à l\'intelligence artificielle. Des fondamentaux aux applications avancées, maîtrisez les outils et concepts essentiels pour réussir dans le monde de l\'IA.'}
             </div>
-            <div className="academie-intro-text" style={{
-              fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-              fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
-              lineHeight: 1.7,
-              color: 'rgba(255, 255, 255, 0.85)',
-              fontWeight: 400
-            }}>
-              {t('academie.intro.right') || 'Suite de la description...'}
+            <div className="academie-intro-text">
+              {t('academie.intro.right') || 'Notre approche pédagogique combine théorie et pratique, avec des études de cas réels et des projets concrets. Rejoignez une communauté d\'apprenants passionnés et développez vos compétences IA.'}
             </div>
           </div>
 
           {/* Course Roadmap */}
-          <div className="academie-roadmap" style={{maxWidth: '1000px', margin: '0 auto'}}>
+          <div className="academie-roadmap">
             {Object.entries(groupedCourses).map(([category, courses]) => (
-              <div key={category} className="course-category" style={{marginBottom: '3rem'}}>
-                <h2 className="category-header" style={{
-                  fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-                  fontSize: 'clamp(1.3rem, 2.2vw, 1.6rem)',
-                  fontWeight: 700,
-                  color: '#FFFF99',
-                  marginBottom: '1.5rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em'
-                }}>
+              <div key={category} className="course-category">
+                <h2 className="category-header">
                   {category}
                 </h2>
                 {courses.map((course, index) => (
-                  <div key={course.id} className="course-item" style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '1.2rem 0',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                    flexDirection: window.innerWidth > 768 ? 'row' : 'column',
-                    alignItems: window.innerWidth > 768 ? 'center' : 'flex-start',
-                    gap: window.innerWidth > 768 ? '0' : '1rem'
-                  }}>
-                    <div className="course-content" style={{
-                      flex: 1,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '1.5rem',
-                      width: window.innerWidth > 768 ? 'auto' : '100%'
-                    }}>
-                      <span className="course-number" style={{
-                        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-                        fontSize: '1.1rem',
-                        fontWeight: 700,
-                        color: 'rgba(255, 255, 255, 0.6)',
-                        minWidth: '40px'
-                      }}>
+                  <div key={course.id} className="course-item">
+                    <div className="course-content">
+                      <span className="course-number">
                         {String(index + 1).padStart(2, '0')}
                       </span>
-                      <h3 className="course-title" style={{
-                        fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
-                        fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)',
-                        fontWeight: 600,
-                        color: '#ffffff',
-                        margin: 0,
-                        lineHeight: 1.3
-                      }}>
+                      <h3 className="course-title">
                         {course.title}
                       </h3>
                     </div>
-                    <div className="course-actions" style={{
-                      display: 'flex',
-                      gap: '0.75rem',
-                      alignItems: 'center',
-                      marginLeft: window.innerWidth > 768 ? '2rem' : '0',
-                      width: window.innerWidth > 768 ? 'auto' : '100%',
-                      justifyContent: window.innerWidth > 768 ? 'flex-start' : 'flex-end'
-                    }}>
+                    <div className="course-actions">
                       {renderCourseButtons(course.status)}
                     </div>
                   </div>
@@ -334,10 +227,7 @@ const LearnSection = () => {
           </div>
 
           {/* Social Media Section */}
-          <div className="academie-social-section" style={{
-            marginTop: '4rem',
-            textAlign: 'center'
-          }}>
+          <div className="academie-social-section">
             {renderSocialIcons()}
           </div>
         </div>
