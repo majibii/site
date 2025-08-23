@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../components/header/Header';
-import LearnSection from '../components/learn/learnsection';
+// Import corrigé - assurez-vous que le nom du fichier correspond
+import LearnSection from '../components/learn/LearnSection'; // Changé si vous renommez le fichier
 import { makeStyles } from '@material-ui/core/styles';
 import Footer from '../components/footer/Footer';
 
-// CORRECTION : Suppression du paddingTop qui causait les conflits
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
