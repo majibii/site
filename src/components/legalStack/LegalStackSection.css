@@ -371,3 +371,26 @@
     perspective: 1000px;
   }
 }
+
+/* RÈGLES POUR EMPÊCHER LE DÉCOUPAGE DES TERMES TECHNIQUES RAG */
+.rag-technical-term {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal !important;
+  hyphens: none !important;
+  word-break: keep-all !important;
+}
+
+/* Styles spécifiques pour chaque terme */
+.rag-mixture-term {
+  min-width: 85px !important;
+}
+
+.rag-reranker-term {
+  min-width: 70px !important;
+}
+
+.rag-grounded-term {
+  min-width: 90px !important;
+}
