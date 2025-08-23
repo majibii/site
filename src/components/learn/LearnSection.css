@@ -19,14 +19,19 @@
   }
 }
 
+/* Container exactement comme le hero */
 .learn-container {
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  gap: 4rem !important;
   width: 100% !important;
   max-width: 1600px !important;
-  margin: 0 auto !important;
   padding: 0 1rem !important;
-  display: block !important;
-  visibility: visible !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   box-sizing: border-box !important;
+  visibility: visible !important;
 }
 
 @media (max-width: 768px) {
@@ -35,10 +40,10 @@
   }
 }
 
-/* Header Section - Alignement parfait avec le hero */
+/* Header Section - Exactement comme un élément du hero */
 .academie-header {
   text-align: center !important;
-  margin-bottom: 4rem !important;
+  margin-bottom: 2rem !important;
   display: block !important;
   visibility: visible !important;
   width: 100% !important;
@@ -74,18 +79,16 @@
   visibility: visible !important;
 }
 
-/* Two Column Introduction - Alignement parfait */
+/* Two Column Introduction - Comme un bloc du hero */
 .academie-intro-container {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
   gap: 3rem !important;
-  margin-bottom: 5rem !important;
+  margin-bottom: 2rem !important;
   max-width: 1000px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  width: 100% !important;
   visibility: visible !important;
   padding: 0 !important;
-  width: 100% !important;
   box-sizing: border-box !important;
 }
 
@@ -107,14 +110,13 @@
   visibility: visible !important;
 }
 
-/* Course Roadmap - Alignement parfait */
+/* Course Roadmap - Comme un bloc du hero */
 .academie-roadmap {
   max-width: 1000px !important;
-  margin: 0 auto !important;
+  width: 100% !important;
   display: block !important;
   visibility: visible !important;
   padding: 0 !important;
-  width: 100% !important;
   box-sizing: border-box !important;
 }
 
