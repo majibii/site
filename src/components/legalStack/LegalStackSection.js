@@ -157,11 +157,10 @@ const RAGArchitectureDiagram = () => {
                     text: 'Unstructured Data',
                     iconPath: (
                       <>
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14,2 14,8 20,8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10,9 9,9 8,9"/>
+                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                        <path d="M8 8h8"/>
+                        <path d="M8 12h8"/>
+                        <path d="M8 16h4"/>
                       </>
                     )
                   },
@@ -170,9 +169,9 @@ const RAGArchitectureDiagram = () => {
                     text: 'Structured Data',
                     iconPath: (
                       <>
-                        <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                        <rect x="3" y="3" width="18" height="6" rx="2"/>
+                        <rect x="3" y="9" width="18" height="6" rx="2"/>
+                        <rect x="3" y="15" width="18" height="6" rx="2"/>
                       </>
                     )
                   },
@@ -180,7 +179,12 @@ const RAGArchitectureDiagram = () => {
                     icon: 'zap', 
                     text: 'Application APIs',
                     iconPath: (
-                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                      <>
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6"/>
+                        <path d="m21 12-6-3.5v7"/>
+                        <path d="m3 12 6-3.5v7"/>
+                      </>
                     )
                   }
                 ].map((item, index) => (
@@ -383,10 +387,11 @@ const RAGArchitectureDiagram = () => {
               <div style={{ 
                 display: 'flex', 
                 alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '0.5rem',
+                justifyContent: 'center',
+                gap: '0.4rem',
                 marginBottom: '1.5rem',
-                width: '100%'
+                width: '100%',
+                padding: '0 0.5rem'
               }}>
                 <div style={{
                   padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
@@ -398,7 +403,8 @@ const RAGArchitectureDiagram = () => {
                   fontWeight: '600',
                   color: 'var(--rag-text-color, #2f2f2e)',
                   flex: '1',
-                  minWidth: '60px',
+                  minWidth: '70px',
+                  maxWidth: '90px',
                   lineHeight: '1.1'
                 }}>
                   <span style={{ whiteSpace: 'nowrap' }}>Mixture</span>{' '}
@@ -407,18 +413,19 @@ const RAGArchitectureDiagram = () => {
                 </div>
 
                 <div style={{
-                  width: '20px',
-                  height: '20px',
+                  width: '16px',
+                  height: '16px',
                   borderRadius: '50%',
                   background: 'var(--rag-step-bg, rgba(47, 47, 46, 0.2))',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  flexShrink: 0
+                  flexShrink: 0,
+                  margin: '0 0.2rem'
                 }}>
                   <svg 
-                    width="8" 
-                    height="8" 
+                    width="6" 
+                    height="6" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -441,24 +448,26 @@ const RAGArchitectureDiagram = () => {
                   color: 'var(--rag-text-color, #2f2f2e)',
                   flex: '1',
                   minWidth: '60px',
+                  maxWidth: '80px',
                   lineHeight: '1.1'
                 }}>
                   <span style={{ whiteSpace: 'nowrap' }}>Reranker</span>
                 </div>
 
                 <div style={{
-                  width: '20px',
-                  height: '20px',
+                  width: '16px',
+                  height: '16px',
                   borderRadius: '50%',
                   background: 'var(--rag-step-bg, rgba(47, 47, 46, 0.2))',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  flexShrink: 0
+                  flexShrink: 0,
+                  margin: '0 0.2rem'
                 }}>
                   <svg 
-                    width="8" 
-                    height="8" 
+                    width="6" 
+                    height="6" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -480,7 +489,8 @@ const RAGArchitectureDiagram = () => {
                   fontWeight: '600',
                   color: 'var(--rag-text-color, #2f2f2e)',
                   flex: '1',
-                  minWidth: '60px',
+                  minWidth: '70px',
+                  maxWidth: '95px',
                   lineHeight: '1.1'
                 }}>
                   <span style={{ whiteSpace: 'nowrap' }}>Grounded</span>{' '}
@@ -538,7 +548,10 @@ const RAGArchitectureDiagram = () => {
                     name: 'Finance',
                     iconPath: (
                       <>
-                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M9 9h6v6H9z"/>
+                        <path d="M12 6v12"/>
+                        <path d="M6 12h12"/>
                       </>
                     )
                   },
@@ -546,9 +559,11 @@ const RAGArchitectureDiagram = () => {
                     name: 'Law',
                     iconPath: (
                       <>
-                        <path d="M9 12 6.5 9.5a2.5 2.5 0 0 1 0-3.5 2.5 2.5 0 0 1 3.5 0L12 8l2-2a2.5 2.5 0 0 1 3.5 0 2.5 2.5 0 0 1 0 3.5L15 12"/>
-                        <path d="M12 12v8"/>
-                        <path d="M8 21h8"/>
+                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                        <path d="M8 8h8"/>
+                        <path d="M8 12h8"/>
+                        <path d="M8 16h6"/>
+                        <circle cx="18" cy="18" r="2"/>
                       </>
                     )
                   },
@@ -556,10 +571,12 @@ const RAGArchitectureDiagram = () => {
                     name: 'Technology',
                     iconPath: (
                       <>
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                        <path d="M12 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-                        <path d="M8 12h8"/>
-                        <path d="M6 15h12"/>
+                        <circle cx="12" cy="12" r="9"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 3v2"/>
+                        <path d="M12 19v2"/>
+                        <path d="M3 12h2"/>
+                        <path d="M19 12h2"/>
                       </>
                     )
                   },
@@ -567,13 +584,11 @@ const RAGArchitectureDiagram = () => {
                     name: 'Your Enterprise',
                     iconPath: (
                       <>
-                        <path d="M3 21h18"/>
-                        <path d="M5 21V7l8-4v18"/>
-                        <path d="M19 21V11l-6-4"/>
-                        <path d="M9 9v.01"/>
-                        <path d="M9 12v.01"/>
-                        <path d="M9 15v.01"/>
-                        <path d="M9 18v.01"/>
+                        <rect x="2" y="6" width="20" height="12" rx="2"/>
+                        <path d="M6 10h12"/>
+                        <path d="M6 14h12"/>
+                        <circle cx="8" cy="10" r="1"/>
+                        <circle cx="8" cy="14" r="1"/>
                       </>
                     )
                   }
