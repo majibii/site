@@ -20,11 +20,13 @@
 }
 
 .learn-container {
+  width: 100% !important;
   max-width: 1600px !important;
   margin: 0 auto !important;
   padding: 0 1rem !important;
   display: block !important;
   visibility: visible !important;
+  box-sizing: border-box !important;
 }
 
 @media (max-width: 768px) {
@@ -33,16 +35,17 @@
   }
 }
 
-/* Header Section - Force l'affichage et centrage parfait */
+/* Header Section - Alignement parfait avec le hero */
 .academie-header {
   text-align: center !important;
   margin-bottom: 4rem !important;
   display: block !important;
   visibility: visible !important;
-  max-width: 1000px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0 1rem !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .academie-small-title {
@@ -71,7 +74,7 @@
   visibility: visible !important;
 }
 
-/* Two Column Introduction - Force l'affichage et centrage */
+/* Two Column Introduction - Alignement parfait */
 .academie-intro-container {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
@@ -81,7 +84,9 @@
   margin-left: auto !important;
   margin-right: auto !important;
   visibility: visible !important;
-  padding: 0 1rem !important;
+  padding: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 @media (max-width: 768px) {
@@ -102,13 +107,15 @@
   visibility: visible !important;
 }
 
-/* Course Roadmap - Force l'affichage et centrage */
+/* Course Roadmap - Alignement parfait */
 .academie-roadmap {
   max-width: 1000px !important;
   margin: 0 auto !important;
   display: block !important;
   visibility: visible !important;
-  padding: 0 1rem !important;
+  padding: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .course-category {
