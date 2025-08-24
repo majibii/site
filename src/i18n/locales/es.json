@@ -219,7 +219,9 @@
     ],
     "getExamples": "Ver Casos de Éxito",
     "useCasesAgent": "Agente de Casos de Uso",
-    "academyProgram": "Programa Academia IA"
+    "academyProgram": "Programa Academia IA",
+    "useCases": "Casos de uso",
+    "aiAcademy": "Academia de IA"
   },
   "noglab": {
     "heroPhrase": "→ EggOn Haz tus",
@@ -263,13 +265,13 @@
       },
       "speed": {
         "title": "Eficiencia Operacional",
-        "description": "Los requisitos de transparencia no deben comprometer el rendimiento. La IA confiable debe ser competitiva en velocidad y costo."
+        "description": "Los requisitos de transparencia ne deben comprometer el rendimiento. La IA confiable debe ser competitiva en velocidad y costo."
       }
     },
     "growth": {
       "title": "Camino a la Certificación Global",
       "paragraph1": "Adoptamos metodologías ágiles donde implementaciones piloto con socios estratégicos retroalimentan nuestro desarrollo continuo.",
-      "paragraph2": "Nuestro enfoque iterativo prioriza aprendizaje empírico mediante pruebas rigurosas en entornos operativos reales.",
+      "paragraph2": "Nuestro enfoque iterativo prioritiza aprendizaje empírico mediante pruebas rigurosas en entornos operativos reales.",
       "paragraph3": "Contribuimos al ecosistema mediante: (1) hardening de seguridad, (2) marcos de gobernanza abiertos, y (3) estándares de certificación pioneros.",
       "paragraph4": "Técnicas como red-teaming adversarial y monitoreo de deriva algorítmica generan aprendizajes para futuros sistemas autónomos."
     },
