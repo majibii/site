@@ -363,7 +363,7 @@ const NOGProjectSection = () => {
             }
           }
 
-          /* FIX: Assurer que le texte reste sur une ligne */
+          /* FIX: Assurer que le texte reste sur une ligne - CARD ADAPTATIVE */
           .text-content-wrapper {
             display: flex;
             flex-wrap: nowrap;
@@ -372,6 +372,8 @@ const NOGProjectSection = () => {
             white-space: nowrap;
             overflow-wrap: normal;
             word-break: keep-all;
+            width: auto;
+            min-width: max-content;
           }
 
           .intro-text {
@@ -379,7 +381,18 @@ const NOGProjectSection = () => {
             margin-right: 0.5em;
           }
 
-          @media (max-width: 600px) {
+          .dynamic-text {
+            white-space: nowrap;
+          }
+
+          /* Responsive : seulement sur très petits écrans */
+          @media (max-width: 480px) {
+            .premium-card {
+              width: 95% !important;
+              max-width: 95% !important;
+              padding: clamp(1rem, 3vw, 1.5rem) !important;
+            }
+            
             .text-content-wrapper {
               white-space: normal;
               flex-direction: column;
@@ -416,8 +429,11 @@ const NOGProjectSection = () => {
         <div style={{
           textAlign: 'center',
           width: '100%',
-          maxWidth: '1200px',
-          position: 'relative'
+          maxWidth: 'none',
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
           <motion.div 
             className="premium-card"
@@ -436,9 +452,11 @@ const NOGProjectSection = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: 'clamp(1.2rem, 3vw, 2rem)',
-              maxWidth: '95%',
+              width: 'auto',
+              minWidth: '90%',
+              maxWidth: 'none',
               minHeight: 'auto',
-              overflow: 'hidden'
+              overflow: 'visible'
             }}
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -451,9 +469,12 @@ const NOGProjectSection = () => {
               fontWeight: '400',
               textAlign: 'center',
               lineHeight: '1.7',
-              maxWidth: '100%',
-              wordWrap: 'break-word',
-              hyphens: 'auto'
+              width: 'auto',
+              minWidth: 'max-content',
+              wordWrap: 'normal',
+              hyphens: 'none',
+              whiteSpace: 'nowrap',
+              padding: '0 1rem'
             }}>
               <div className="text-content-wrapper">
                 <span className="intro-text">{t('nog.intro')}</span>
