@@ -380,19 +380,20 @@ const NOGProjectSection = () => {
 
           .intro-text {
             white-space: nowrap;
-            margin-right: 0.5em;
+            margin-right: 0;
           }
 
           .dynamic-text {
             white-space: nowrap;
           }
 
-          /* Responsive : seulement sur très petits écrans */
+          /* Responsive : ajustement pour texte long */
           @media (max-width: 480px) {
             .premium-card {
-              width: 95% !important;
-              max-width: 95% !important;
-              padding: clamp(1rem, 3vw, 1.5rem) !important;
+              width: 98% !important;
+              max-width: 98% !important;
+              padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.5rem) !important;
+              margin: 0 1% !important;
             }
             
             .text-content-wrapper {
@@ -409,7 +410,12 @@ const NOGProjectSection = () => {
             }
             
             .dynamic-text {
-              white-space: nowrap;
+              white-space: normal;
+              word-break: break-word;
+            }
+            
+            .nog-action-button-mobile {
+              min-width: 160px !important;
             }
           }
         `}
@@ -447,24 +453,25 @@ const NOGProjectSection = () => {
               fontWeight: '400',
               margin: '0 auto',
               textAlign: 'center',
-              padding: 'clamp(1.5rem, 4vw, 2.5rem)',
+              padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(2rem, 5vw, 3rem)',
               borderRadius: '16px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
               gap: 'clamp(1.2rem, 3vw, 2rem)',
-              width: 'fit-content',
-              minWidth: 'min(90%, 800px)',
-              maxWidth: 'min(95%, 1100px)',
+              width: 'auto',
+              minWidth: 'max-content',
+              maxWidth: '98vw',
               minHeight: 'auto',
-              overflow: 'visible'
+              overflow: 'visible',
+              boxSizing: 'border-box'
             }}
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            {/* Phrase principale avec texte dynamique animé - LAYOUT ÉQUILIBRÉ */}
+            {/* Phrase principale avec texte dynamique animé - RECTANGLE ADAPTATIF */}
             <div style={{
               fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
               fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -473,10 +480,13 @@ const NOGProjectSection = () => {
               lineHeight: '1.7',
               width: 'auto',
               whiteSpace: 'nowrap',
-              padding: '0 0.5rem'
+              padding: '0',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}>
               <div className="text-content-wrapper">
-                <span className="intro-text">{t('nog.intro')}</span>
+                <span className="intro-text">{t('nog.intro')}&nbsp;</span>
                 <span className="dynamic-text" key={currentLineIndex}>
                   {currentAction}
                 </span>
