@@ -268,14 +268,22 @@
       "title": "Devenez partenaires de conception",
       "description": "Si vous êtes un cabinet d'avocats ou un professionnel de la conformité intéressé à devenir un partenaire de conception, cliquez ici : ",
       "link": "Devenez partenaires de conception"
-    }
-  },
-  "nog": {
-    "intro": "Actuellement, nos clients demandent à l'équipe EggOn de:",
-    "actions": [],
-    "useCases": "Cas d'usage",
-    "aiAcademy": "IA Académie"
-  },
+    },
+    "nog": {
+      "intro": "Actuellement, les clients demandent à eggon de:",
+      "actions": [
+        "Construire des agents IA",
+        "Prompt engineering", 
+        "Conseils en sécurité IA",
+        "Connecter l'IA à leurs données",
+        "Former en IA"
+],
+    "useCases": "Cas Concrets",
+    "aiAcademy": "IA Académie",
+    "getExamples": "Exemples",
+    "useCasesAgent": "Agents IA", 
+    "academyProgram": "Programme IA Academie"
+},
   "ragArchitecture": {
     "subtitle": "LA PLATEFORME RAG CONTEXTUELLE",
     "title": "ARCHITECTURE DE NOUVELLE GÉNÉRATION POUR LES AGENTS",
