@@ -46,7 +46,7 @@
       "supplierCompliance": {
         "title": "Agent de Contrôle Qualité Contractuel",
         "context": "Juridique / Contrôle Qualité",
-        "body": "Vérifier la cohérence, la conformité et les termes clés dans des documents contractuels, avec annotations et suggestions d'amélioration."
+        "body": "Vérifier la cohérence, la conformité et les termes clés dans des documentos contractuels, avec annotations et suggestions d'amélioration."
       },
       "quotationAgent": {
         "title": "Agent de Génération de Devis",
@@ -63,7 +63,7 @@
         "context": "R&D / Stratégie",
         "body": "Fournir chaque semaine un résumé des nouvelles et tendances clés dans un secteur technologique choisi, incluant sources clés, points saillants et mises à jour réglementaires."
       },
-  "rfpDrafting": {
+      "rfpDrafting": {
         "title": "Agent de Facturation et Suivi des Paiements",
         "context": "Finance / Comptabilité Juridique",
         "body": "Générer automatiquement les factures à partir des entrées de temps ou forfaits, envoyer des rappels personnalisés, suivre l'état des paiements et gérer les fonds en dépôt. Intégration avec Clio, Xero ou QuickBooks."
@@ -225,7 +225,7 @@
       "paragraph1": "Les capacités de l'IA progressent à un rythme sans précédent, mais un problème majeur demeure : l'opacité.",
       "paragraph2": "Cette opacité est encore plus préoccupante lorsque l'IA entre dans des secteurs qui ne ressemblent à aucune autre industrie : la justice et la santé. Ce sont les fondements d'une société libre et équitable.",
       "paragraph3": "Chaque jour, les tribunaux prennent des décisions qui changent le cours de vies humaines. De telles décisions exigent de l'empathie, de l'expérience et du contexte — mais aussi un processus qui semble légitime à ceux qui sont affectés.",
-      "paragraph4": "Aucune famille ne devrait jamais se demander si elle a perdu la garde à cause d'un algorithme mal calibré. Aucun patient ne devrait jamais douter que son traitement a été décidé après une véritable évaluation humaine.",
+      "paragraph4": "Aucune famille ne devrait jamais se demander si elle has perdu la garde à cause d'un algorithme mal calibré. Aucun patient ne devrait jamais douter que son traitement a été décidé après une véritable évaluation humaine.",
       "paragraph5": "Le vrai problème n'est pas simplement de savoir si l'IA donne la bonne ou la mauvaise réponse — c'est le doute. Et une fois que le doute s'installe, il érode la confiance et mine la légitimité de nos systèmes."
     },
     "aiForEveryone": {
@@ -269,6 +269,12 @@
       "description": "Si vous êtes un cabinet d'avocats ou un professionnel de la conformité intéressé à devenir un partenaire de conception, cliquez ici : ",
       "link": "Devenez partenaires de conception"
     }
+  },
+  "nog": {
+    "intro": "Actuellement, nos clients demandent à l'équipe EggOn de:",
+    "actions": [],
+    "useCases": "Cas d'usage",
+    "aiAcademy": "IA Académie"
   },
   "ragArchitecture": {
     "subtitle": "LA PLATEFORME RAG CONTEXTUELLE",
