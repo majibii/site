@@ -43,12 +43,12 @@ const RAGArchitectureDiagram = () => {
       height="24" 
       viewBox="0 0 40 24" 
       fill="none"
-      style={{ color: '#2f2f2e' }}
+      style={{ color: '#ffffff' }}
     >
       <path 
         d="M2 12H38M38 12L30 4M38 12L30 20" 
         stroke="currentColor" 
-        strokeWidth="2" 
+        strokeWidth="3" 
         strokeLinecap="round" 
         strokeLinejoin="round"
       />
@@ -73,10 +73,10 @@ const RAGArchitectureDiagram = () => {
         ref={bentoRef}
         className="bento-container"
         style={{
-          background: '#faf2d7',
+          background: '#1a1a1a',
           borderRadius: '3rem',
-          border: '4px solid #2f2f2e',
-          boxShadow: '0 20px 60px rgba(47, 47, 46, 0.3)',
+          border: '4px solid #333',
+          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)',
           width: '95%',
           maxWidth: '1600px',
           position: 'relative',
@@ -104,7 +104,7 @@ const RAGArchitectureDiagram = () => {
               style={{
                 fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)',
                 fontWeight: '600',
-                color: '#2f2f2e',
+                color: '#ffffff',
                 letterSpacing: '0.2em',
                 textTransform: 'uppercase',
                 marginBottom: '1.5rem',
@@ -119,7 +119,7 @@ const RAGArchitectureDiagram = () => {
               style={{
                 fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                 fontWeight: '900',
-                color: '#2f2f2e',
+                color: '#ffffff',
                 lineHeight: '1.1',
                 marginBottom: '1.5rem',
                 textShadow: 'none',
@@ -133,14 +133,14 @@ const RAGArchitectureDiagram = () => {
               style={{
                 fontSize: 'clamp(1rem, 2vw, 1.3rem)',
                 fontWeight: '400',
-                color: '#2f2f2e',
+                color: '#e0e0e0',
                 lineHeight: '1.6',
                 marginBottom: '2rem',
                 maxWidth: '900px',
                 margin: '0 auto 2rem auto',
                 textAlign: 'center',
                 background: 'transparent',
-                opacity: 0.85
+                opacity: 0.9
               }}
             >
               {t('ragArchitecture.introduction', 'Built by pioneers in RAG, our platform empowers you to seamlessly integrate AI agents with your enterprise knowledge, providing a complete solution for designing cutting-edge RAG systems.')}
@@ -149,8 +149,8 @@ const RAGArchitectureDiagram = () => {
 
           <motion.div 
             style={{
-              background: 'rgba(47, 47, 46, 0.08)',
-              border: '3px solid rgba(47, 47, 46, 0.2)',
+              background: 'rgba(255, 255, 255, 0.08)',
+              border: '3px solid rgba(255, 255, 255, 0.2)',
               borderRadius: '24px',
               padding: 'clamp(2rem, 4vw, 3rem)',
               width: '100%',
@@ -167,13 +167,13 @@ const RAGArchitectureDiagram = () => {
               top: '-12px',
               left: '50%',
               transform: 'translateX(-50%)',
-              background: 'rgba(47, 47, 46, 0.15)',
-              border: '2px solid rgba(47, 47, 46, 0.3)',
+              background: 'rgba(255, 255, 255, 0.15)',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
               borderRadius: '12px',
               padding: '0.5rem 1.5rem',
               fontSize: 'clamp(0.8rem, 1.4vw, 1rem)',
               fontWeight: '700',
-              color: '#2f2f2e',
+              color: '#ffffff',
               textTransform: 'uppercase',
               letterSpacing: '0.1em'
             }}>
@@ -195,8 +195,8 @@ const RAGArchitectureDiagram = () => {
             >
               <motion.div 
                 style={{
-                  background: 'rgba(47, 47, 46, 0.08)',
-                  border: '2px solid rgba(47, 47, 46, 0.15)',
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  border: '2px solid rgba(255, 255, 255, 0.2)',
                   borderRadius: '16px',
                   padding: 'clamp(1.2rem, 2vw, 1.8rem)',
                   flex: '1',
@@ -209,7 +209,7 @@ const RAGArchitectureDiagram = () => {
                 <h3 style={{
                   fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)',
                   fontWeight: '700',
-                  color: '#2f2f2e',
+                  color: '#ffffff',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
                   textTransform: 'uppercase',
@@ -260,8 +260,8 @@ const RAGArchitectureDiagram = () => {
                         alignItems: 'center',
                         gap: '0.6rem',
                         padding: '0.8rem',
-                        background: 'rgba(47, 47, 46, 0.06)',
-                        border: '1px solid rgba(47, 47, 46, 0.12)',
+                        background: 'rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
                         borderRadius: '10px',
                         textAlign: 'center',
                         transition: 'all 0.3s ease',
@@ -272,9 +272,9 @@ const RAGArchitectureDiagram = () => {
                         width: '40px',
                         height: '40px',
                         borderRadius: '50%',
-                        background: 'rgba(47, 47, 46, 0.12)',
+                        background: 'rgba(255, 255, 255, 0.15)',
                         backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(47, 47, 46, 0.18)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -288,7 +288,7 @@ const RAGArchitectureDiagram = () => {
                           fill="none" 
                           stroke="currentColor" 
                           strokeWidth="2"
-                          style={{ color: '#2f2f2e' }}
+                          style={{ color: '#ffffff' }}
                         >
                           {item.iconPath}
                         </svg>
@@ -297,7 +297,7 @@ const RAGArchitectureDiagram = () => {
                       <span style={{
                         fontSize: 'clamp(0.8rem, 1.3vw, 0.9rem)',
                         fontWeight: '600',
-                        color: '#2f2f2e',
+                        color: '#ffffff',
                         lineHeight: '1.2'
                       }}>
                         {item.text}
@@ -317,8 +317,8 @@ const RAGArchitectureDiagram = () => {
 
               <motion.div 
                 style={{
-                  background: 'rgba(47, 47, 46, 0.08)',
-                  border: '2px solid rgba(47, 47, 46, 0.18)',
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  border: '2px solid rgba(255, 255, 255, 0.25)',
                   borderRadius: '16px',
                   padding: 'clamp(1.5rem, 2.5vw, 2rem)',
                   flex: '1',
@@ -331,7 +331,7 @@ const RAGArchitectureDiagram = () => {
                 <h3 style={{
                   fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
                   fontWeight: '700',
-                  color: '#2f2f2e',
+                  color: '#ffffff',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
                   textTransform: 'uppercase',
@@ -356,26 +356,26 @@ const RAGArchitectureDiagram = () => {
                   }}>
                     <div style={{
                       padding: '0.6rem',
-                      background: 'rgba(47, 47, 46, 0.12)',
-                      border: '1px solid rgba(47, 47, 46, 0.2)',
+                      background: 'rgba(255, 255, 255, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.25)',
                       borderRadius: '6px',
                       textAlign: 'center',
                       fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
                       fontWeight: '600',
-                      color: '#2f2f2e'
+                      color: '#ffffff'
                     }}>
                       Multimodal<br/>Extraction
                     </div>
                     
                     <div style={{
                       padding: '0.6rem',
-                      background: 'rgba(47, 47, 46, 0.12)',
-                      border: '1px solid rgba(47, 47, 46, 0.2)',
+                      background: 'rgba(255, 255, 255, 0.15)',
+                      border: '1px solid rgba(255, 255, 255, 0.25)',
                       borderRadius: '6px',
                       textAlign: 'center',
                       fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
                       fontWeight: '600',
-                      color: '#2f2f2e'
+                      color: '#ffffff'
                     }}>
                       Continuous<br/>Ingestion
                     </div>
@@ -392,7 +392,7 @@ const RAGArchitectureDiagram = () => {
                       height="80" 
                       viewBox="0 0 16 80" 
                       fill="none"
-                      style={{ color: 'rgba(47, 47, 46, 0.4)' }}
+                      style={{ color: 'rgba(255, 255, 255, 0.4)' }}
                     >
                       <path 
                         d="M2 8 Q2 2 6 2 Q12 2 12 8 L12 36 Q12 40 10 40 Q12 40 12 44 L12 72 Q12 78 6 78 Q2 78 2 72" 
@@ -407,9 +407,9 @@ const RAGArchitectureDiagram = () => {
                     width: '32px',
                     height: '32px',
                     borderRadius: '50%',
-                    background: 'rgba(47, 47, 46, 0.12)',
+                    background: 'rgba(255, 255, 255, 0.15)',
                     backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(47, 47, 46, 0.18)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -422,7 +422,7 @@ const RAGArchitectureDiagram = () => {
                       fill="none" 
                       stroke="currentColor" 
                       strokeWidth="2.5"
-                      style={{ color: '#2f2f2e' }}
+                      style={{ color: '#ffffff' }}
                     >
                       <path d="M5 12h14"/>
                       <path d="M12 5l7 7-7 7"/>
@@ -431,13 +431,13 @@ const RAGArchitectureDiagram = () => {
 
                   <div style={{
                     padding: '0.4rem 0.3rem',
-                    background: 'rgba(47, 47, 46, 0.12)',
-                    border: '1px solid rgba(47, 47, 46, 0.2)',
+                    background: 'rgba(255, 255, 255, 0.15)',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
                     borderRadius: '6px',
                     textAlign: 'center',
                     fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                     fontWeight: '600',
-                    color: '#2f2f2e',
+                    color: '#ffffff',
                     flex: '1',
                     alignSelf: 'center',
                     minWidth: '50px',
@@ -458,8 +458,8 @@ const RAGArchitectureDiagram = () => {
 
               <motion.div 
                 style={{
-                  background: 'rgba(47, 47, 46, 0.08)',
-                  border: '2px solid rgba(47, 47, 46, 0.18)',
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  border: '2px solid rgba(255, 255, 255, 0.25)',
                   borderRadius: '16px',
                   padding: 'clamp(1.5rem, 2.5vw, 2rem)',
                   flex: '1',
@@ -472,7 +472,7 @@ const RAGArchitectureDiagram = () => {
                 <h3 style={{
                   fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
                   fontWeight: '700',
-                  color: '#2f2f2e',
+                  color: '#ffffff',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
                   textTransform: 'uppercase',
@@ -492,13 +492,13 @@ const RAGArchitectureDiagram = () => {
                 }}>
                   <div style={{
                     padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
-                    background: 'rgba(47, 47, 46, 0.12)',
-                    border: '1px solid rgba(47, 47, 46, 0.2)',
+                    background: 'rgba(255, 255, 255, 0.18)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
                     fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                     fontWeight: '600',
-                    color: '#2f2f2e',
+                    color: '#ffffff',
                     flex: '1',
                     minWidth: '60px',
                     lineHeight: '1.1'
@@ -512,7 +512,7 @@ const RAGArchitectureDiagram = () => {
                     width: '20px',
                     height: '20px',
                     borderRadius: '50%',
-                    background: 'rgba(47, 47, 46, 0.15)',
+                    background: 'rgba(255, 255, 255, 0.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -524,8 +524,8 @@ const RAGArchitectureDiagram = () => {
                       viewBox="0 0 24 24" 
                       fill="none" 
                       stroke="currentColor" 
-                      strokeWidth="2.5"
-                      style={{ color: '#2f2f2e' }}
+                      strokeWidth="3"
+                      style={{ color: '#ffffff' }}
                     >
                       <path d="M5 12h14"/>
                       <path d="M12 5l7 7-7 7"/>
@@ -534,13 +534,13 @@ const RAGArchitectureDiagram = () => {
 
                   <div style={{
                     padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
-                    background: 'rgba(47, 47, 46, 0.12)',
-                    border: '1px solid rgba(47, 47, 46, 0.2)',
+                    background: 'rgba(255, 255, 255, 0.18)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
                     fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                     fontWeight: '600',
-                    color: '#2f2f2e',
+                    color: '#ffffff',
                     flex: '1',
                     minWidth: '60px',
                     lineHeight: '1.1'
@@ -552,7 +552,7 @@ const RAGArchitectureDiagram = () => {
                     width: '20px',
                     height: '20px',
                     borderRadius: '50%',
-                    background: 'rgba(47, 47, 46, 0.15)',
+                    background: 'rgba(255, 255, 255, 0.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -564,8 +564,8 @@ const RAGArchitectureDiagram = () => {
                       viewBox="0 0 24 24" 
                       fill="none" 
                       stroke="currentColor" 
-                      strokeWidth="2.5"
-                      style={{ color: '#2f2f2e' }}
+                      strokeWidth="3"
+                      style={{ color: '#ffffff' }}
                     >
                       <path d="M5 12h14"/>
                       <path d="M12 5l7 7-7 7"/>
@@ -574,13 +574,13 @@ const RAGArchitectureDiagram = () => {
 
                   <div style={{
                     padding: 'clamp(0.3rem, 0.8vw, 0.5rem)',
-                    background: 'rgba(47, 47, 46, 0.12)',
-                    border: '1px solid rgba(47, 47, 46, 0.2)',
+                    background: 'rgba(255, 255, 255, 0.18)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '6px',
                     textAlign: 'center',
                     fontSize: 'clamp(0.55rem, 0.9vw, 0.65rem)',
                     fontWeight: '600',
-                    color: '#2f2f2e',
+                    color: '#ffffff',
                     flex: '1',
                     minWidth: '60px',
                     lineHeight: '1.1'
@@ -592,10 +592,10 @@ const RAGArchitectureDiagram = () => {
                 </div>
 
                 <div style={{
-                  borderTop: '1px solid rgba(47, 47, 46, 0.15)',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.2)',
                   paddingTop: '1rem',
                   fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
-                  color: 'rgba(47, 47, 46, 0.8)'
+                  color: 'rgba(255, 255, 255, 0.9)'
                 }}>
                   <div style={{ 
                     display: 'flex', 
@@ -603,7 +603,7 @@ const RAGArchitectureDiagram = () => {
                     gap: '0.4rem',
                     marginBottom: '0.5rem'
                   }}>
-                    <span style={{ color: '#2f2f2e', flexShrink: 0 }}>✓</span>
+                    <span style={{ color: '#ffffff', flexShrink: 0 }}>✓</span>
                     <span>Components jointly optimized with RAG 2.0</span>
                   </div>
                   <div style={{ 
@@ -611,7 +611,7 @@ const RAGArchitectureDiagram = () => {
                     alignItems: 'flex-start', 
                     gap: '0.4rem'
                   }}>
-                    <span style={{ color: '#2f2f2e', flexShrink: 0 }}>✓</span>
+                    <span style={{ color: '#ffffff', flexShrink: 0 }}>✓</span>
                     <span>Tuning and alignment to specialize to use case</span>
                   </div>
                 </div>
@@ -627,8 +627,8 @@ const RAGArchitectureDiagram = () => {
 
               <motion.div 
                 style={{
-                  background: 'rgba(47, 47, 46, 0.08)',
-                  border: '2px solid rgba(47, 47, 46, 0.15)',
+                  background: 'rgba(255, 255, 255, 0.12)',
+                  border: '2px solid rgba(255, 255, 255, 0.2)',
                   borderRadius: '16px',
                   padding: 'clamp(1.2rem, 2vw, 1.8rem)',
                   flex: '1',
@@ -641,7 +641,7 @@ const RAGArchitectureDiagram = () => {
                 <h3 style={{
                   fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
                   fontWeight: '700',
-                  color: '#2f2f2e',
+                  color: '#ffffff',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
                   textTransform: 'uppercase',
@@ -705,8 +705,8 @@ const RAGArchitectureDiagram = () => {
                         alignItems: 'center',
                         gap: '0.6rem',
                         padding: '0.8rem',
-                        background: 'rgba(47, 47, 46, 0.06)',
-                        border: '1px solid rgba(47, 47, 46, 0.12)',
+                        background: 'rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
                         borderRadius: '10px',
                         textAlign: 'center',
                         transition: 'all 0.3s ease',
@@ -717,9 +717,9 @@ const RAGArchitectureDiagram = () => {
                         width: '40px',
                         height: '40px',
                         borderRadius: '50%',
-                        background: 'rgba(47, 47, 46, 0.12)',
+                        background: 'rgba(255, 255, 255, 0.15)',
                         backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(47, 47, 46, 0.18)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -733,7 +733,7 @@ const RAGArchitectureDiagram = () => {
                           fill="none" 
                           stroke="currentColor" 
                           strokeWidth="2"
-                          style={{ color: '#2f2f2e' }}
+                          style={{ color: '#ffffff' }}
                         >
                           {item.iconPath}
                         </svg>
@@ -742,7 +742,7 @@ const RAGArchitectureDiagram = () => {
                       <span style={{
                         fontSize: 'clamp(0.8rem, 1.3vw, 0.9rem)',
                         fontWeight: '600',
-                        color: '#2f2f2e',
+                        color: '#ffffff',
                         lineHeight: '1.2'
                       }}>
                         {item.name}
