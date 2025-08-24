@@ -1,326 +1,396 @@
-/* SECTION RAG - Style harmonisé avec deployment */
-.rag-section-enhanced {
+.legal-stack-section {
   position: relative;
   overflow: hidden;
   padding: 8rem 2rem;
-  min-height: 100vh;
-  width: 100%;
-  background: var(--rag-bg-color, transparent);
-  transition: background-color 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.rag-content-container {
-  background: var(--rag-container-bg, #faf2d7);
+/* Container bento avec effet scroll */
+.bento-container {
+  background: #1a1a1a;
   border-radius: 3rem;
-  border: var(--rag-container-border, 4px solid #2f2f2e);
-  box-shadow: var(--rag-container-shadow, 0 20px 60px rgba(47, 47, 46, 0.3));
+  border: 4px solid #333;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   width: 95%;
   max-width: 1600px;
   position: relative;
-  padding: clamp(3rem, 5vh, 4rem) clamp(2rem, 4vw, 3rem);
   transform: translateY(50px);
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.rag-content-container.visible {
-  opacity: 1;
+.bento-container.visible {
   transform: translateY(0);
+  opacity: 1;
 }
 
-.rag-content-container:hover {
+/* Effet de survol pour le container */
+.bento-container:hover {
   transform: translateY(-5px);
-  box-shadow: var(--rag-container-shadow-hover, 0 30px 80px rgba(47, 47, 46, 0.4));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
-.rag-header-enhanced {
-  text-align: center;
-  margin-bottom: clamp(4rem, 8vh, 6rem);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* Effets hover pour les rectangles dans le bento */
+.legal-stack-section div[style*="background: rgba(255, 255, 255, 0.12)"] {
+  cursor: pointer;
 }
 
-.rag-header-enhanced.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.rag-subtitle-enhanced {
-  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  text-decoration: underline;
-  color: var(--rag-text-color, #2f2f2e);
-  transition: color 0.8s ease;
-}
-
-.rag-title-enhanced {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  color: var(--rag-title-color, #2f2f2e);
-  transition: color 0.8s ease;
-}
-
-.rag-intro-enhanced {
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  font-weight: 400;
-  line-height: 1.6;
-  margin: 0 auto 2rem auto;
-  max-width: 900px;
-  text-align: center;
-  color: var(--rag-text-color, #2f2f2e);
-  transition: color 0.8s ease;
-  opacity: 0.9;
-}
-
-.rag-diagram-container {
-  background: var(--rag-diagram-bg, rgba(47, 47, 46, 0.08));
-  border: var(--rag-diagram-border, 3px solid rgba(47, 47, 46, 0.2));
-  border-radius: 24px;
-  padding: clamp(2rem, 4vw, 3rem);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.8s ease;
-}
-
-.rag-platform-label {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--rag-label-bg, rgba(47, 47, 46, 0.15));
-  border: var(--rag-label-border, 2px solid rgba(47, 47, 46, 0.3));
-  border-radius: 12px;
-  padding: 0.5rem 1.5rem;
-  font-size: clamp(0.8rem, 1.4vw, 1rem);
-  font-weight: 700;
-  color: var(--rag-text-color, #2f2f2e);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: all 0.8s ease;
-}
-
-.rag-flow-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(0.8rem, 1.5vw, 1.5rem);
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  width: 100%;
-  overflow: hidden;
-}
-
-.rag-flow-step {
-  background: var(--rag-step-bg, rgba(47, 47, 46, 0.12));
-  border: var(--rag-step-border, 2px solid rgba(47, 47, 46, 0.2));
-  border-radius: 16px;
-  padding: clamp(1.2rem, 2vw, 1.8rem);
-  flex: 1;
-  min-width: 180px;
-  max-width: 450px;
-  transition: all 0.8s ease;
-  opacity: 0;
-  transform: translateY(30px);
-  position: relative;
-  overflow: visible;
-}
-
-.rag-flow-step.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Effet hover amélioré pour éviter les ombres coupées */
-.rag-flow-step:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: var(--rag-step-border-hover, rgba(47, 47, 46, 0.35));
-  background: var(--rag-step-bg-hover, rgba(47, 47, 46, 0.18));
-  box-shadow: 0 20px 50px rgba(47, 47, 46, 0.2);
-  z-index: 10;
-  position: relative;
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.legal-stack-section div[style*="background: rgba(255, 255, 255, 0.12)"]:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 /* Effet hover pour les sous-éléments */
-.rag-flow-step div[style*="background: rgba(47, 47, 46, 0.08)"]:hover {
-  transform: translateY(-4px) scale(1.01);
-  border-color: rgba(47, 47, 46, 0.25);
-  background: rgba(47, 47, 46, 0.12);
-  box-shadow: 0 12px 30px rgba(47, 47, 46, 0.15);
-  transition: all 0.3s ease;
+.legal-stack-section div[style*="background: rgba(255, 255, 255, 0.08)"]:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s ease !important;
 }
 
 /* Effet hover pour les icônes circulaires */
-.rag-flow-step div[style*="border-radius: 50%"]:hover {
-  transform: scale(1.1);
-  background: rgba(47, 47, 46, 0.25);
-  border-color: rgba(47, 47, 46, 0.35);
-  transition: all 0.3s ease;
+.legal-stack-section div[style*="border-radius: 50%"]:hover {
+  transform: scale(1.1) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  transition: all 0.3s ease !important;
 }
 
-/* Correction globale RENFORCÉE pour les couleurs RAG */
-.rag-content-container,
-.rag-content-container *,
-.rag-content-container *::before,
-.rag-content-container *::after,
-.rag-content-container div,
-.rag-content-container span,
-.rag-content-container h3,
-.rag-content-container h2,
-.rag-content-container p,
-.rag-content-container svg {
-  color: var(--rag-text-color, #2f2f2e) !important;
-  fill: var(--rag-text-color, #2f2f2e) !important;
-  stroke: var(--rag-text-color, #2f2f2e) !important;
+/* Correction globale RENFORCÉE pour les couleurs bento */
+.bento-container,
+.bento-container *,
+.bento-container *::before,
+.bento-container *::after,
+.bento-container div,
+.bento-container span,
+.bento-container h3,
+.bento-container h2,
+.bento-container p,
+.bento-container svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
-/* VARIABLES CSS POUR LES TRANSITIONS */
-.rag-bg-enhanced-start {
-  --rag-bg-color: #2f2f2e;
-  --rag-container-bg: rgba(255, 255, 255, 0.08);
-  --rag-container-border: 4px solid rgba(255, 255, 255, 0.15);
-  --rag-container-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  --rag-container-shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.4);
-  --rag-text-color: #fafafa;
-  --rag-title-color: #fafafa;
-  --rag-diagram-bg: rgba(255, 255, 255, 0.08);
-  --rag-diagram-border: 3px solid rgba(255, 255, 255, 0.2);
-  --rag-label-bg: rgba(255, 255, 255, 0.15);
-  --rag-label-border: 2px solid rgba(255, 255, 255, 0.3);
-  --rag-step-bg: rgba(255, 255, 255, 0.12);
-  --rag-step-border: 2px solid rgba(255, 255, 255, 0.2);
-  --rag-step-bg-hover: rgba(255, 255, 255, 0.18);
-  --rag-step-border-hover: rgba(255, 255, 255, 0.3);
+/* Forcer tous les backgrounds transparents dans le bento */
+.bento-container .benefit-card,
+.bento-container .benefit-card *,
+.bento-container .benefit-card *::before,
+.bento-container .benefit-card *::after,
+.bento-container .benefit-card div,
+.bento-container .benefit-card span,
+.bento-container .benefit-card h3,
+.bento-container .benefit-card p,
+.bento-container .benefit-card svg,
+.bento-container .benefit-card button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
-.rag-bg-enhanced-middle {
-  --rag-bg-color: #2f2f2e;
-  --rag-container-bg: #faf2d7;
-  --rag-container-border: 4px solid #2f2f2e;
-  --rag-container-shadow: 0 20px 60px rgba(47, 47, 46, 0.3);
-  --rag-container-shadow-hover: 0 30px 80px rgba(47, 47, 46, 0.4);
-  --rag-text-color: #2f2f2e;
-  --rag-title-color: #2f2f2e;
-  --rag-diagram-bg: rgba(47, 47, 46, 0.12);
-  --rag-diagram-border: 3px solid rgba(47, 47, 46, 0.25);
-  --rag-label-bg: rgba(47, 47, 46, 0.18);
-  --rag-label-border: 2px solid rgba(47, 47, 46, 0.35);
-  --rag-step-bg: rgba(47, 47, 46, 0.15);
-  --rag-step-border: 2px solid rgba(47, 47, 46, 0.25);
-  --rag-step-bg-hover: rgba(47, 47, 46, 0.22);
-  --rag-step-border-hover: rgba(47, 47, 46, 0.35);
+/* États hover - couleurs bento */
+.bento-container .benefit-card:hover,
+.bento-container .benefit-card:hover *,
+.bento-container .benefit-card:hover *::before,
+.bento-container .benefit-card:hover *::after,
+.bento-container .benefit-card:hover div,
+.bento-container .benefit-card:hover span,
+.bento-container .benefit-card:hover h3,
+.bento-container .benefit-card:hover p,
+.bento-container .benefit-card:hover svg,
+.bento-container .benefit-card:hover button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
 }
 
-.rag-bg-enhanced-end {
-  --rag-bg-color: transparent;
-  --rag-container-bg: #faf2d7;
-  --rag-container-border: 4px solid #2f2f2e;
-  --rag-container-shadow: 0 20px 60px rgba(47, 47, 46, 0.3);
-  --rag-container-shadow-hover: 0 30px 80px rgba(47, 47, 46, 0.4);
-  --rag-text-color: #2f2f2e;
-  --rag-title-color: #2f2f2e;
-  --rag-diagram-bg: rgba(47, 47, 46, 0.08);
-  --rag-diagram-border: 3px solid rgba(47, 47, 46, 0.2);
-  --rag-label-bg: rgba(47, 47, 46, 0.15);
-  --rag-label-border: 2px solid rgba(47, 47, 46, 0.3);
-  --rag-step-bg: rgba(47, 47, 46, 0.12);
-  --rag-step-border: 2px solid rgba(47, 47, 46, 0.2);
-  --rag-step-bg-hover: rgba(47, 47, 46, 0.18);
-  --rag-step-border-hover: rgba(47, 47, 46, 0.3);
+/* États focus - couleurs bento */
+.bento-container .benefit-card:focus,
+.bento-container .benefit-card:focus *,
+.bento-container .benefit-card:focus *::before,
+.bento-container .benefit-card:focus *::after,
+.bento-container .benefit-card *:focus,
+.bento-container .benefit-card *:focus *,
+.bento-container .benefit-card *:focus::before,
+.bento-container .benefit-card *:focus::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .rag-flow-container > div {
-    flex: 1 1 calc(50% - 1rem);
-    min-width: 300px;
-  }
+/* États active - couleurs bento */
+.bento-container .benefit-card:active,
+.bento-container .benefit-card:active *,
+.bento-container .benefit-card:active *::before,
+.bento-container .benefit-card:active *::after,
+.bento-container .benefit-card *:active,
+.bento-container .benefit-card *:active * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
 }
 
-@media (max-width: 900px) {
-  .rag-flow-container {
-    gap: 1rem;
-  }
-  .rag-flow-container > div {
-    min-width: 250px;
-    max-width: none;
-  }
+/* Style spéciaux pour les composants dans le bento */
+.bento-container div[style*="background"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
 }
 
+.bento-container div[style*="background"]:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Correction spéciale pour les cercles d'icônes dans le bento */
+.bento-container div[style*="border-radius: 50%"],
+.bento-container div[style*="borderRadius"] {
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Sélection dans le bento */
+.bento-container ::selection {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.bento-container ::-moz-selection {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+/* STYLES ORIGINAUX PRÉSERVÉS POUR LA COMPATIBILITÉ */
+/* Correction globale RENFORCÉE pour éviter tous les rectangles noirs/colorés */
+.benefit-card,
+.benefit-card *,
+.benefit-card *::before,
+.benefit-card *::after,
+.benefit-card div,
+.benefit-card span,
+.benefit-card h3,
+.benefit-card p,
+.benefit-card svg,
+.benefit-card button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* États hover - FORCER la transparence */
+.benefit-card:hover,
+.benefit-card:hover *,
+.benefit-card:hover *::before,
+.benefit-card:hover *::after,
+.benefit-card:hover div,
+.benefit-card:hover span,
+.benefit-card:hover h3,
+.benefit-card:hover p,
+.benefit-card:hover svg,
+.benefit-card:hover button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* États focus - FORCER la transparence */
+.benefit-card:focus,
+.benefit-card:focus *,
+.benefit-card:focus *::before,
+.benefit-card:focus *::after,
+.benefit-card *:focus,
+.benefit-card *:focus *,
+.benefit-card *:focus::before,
+.benefit-card *:focus::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* États active - FORCER la transparence */
+.benefit-card:active,
+.benefit-card:active *,
+.benefit-card:active *::before,
+.benefit-card:active *::after,
+.benefit-card *:active,
+.benefit-card *:active * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Forcer TOUS les divs à être transparents */
+.benefit-card div[style],
+.benefit-card div,
+.legal-stack-section div[style*="background"],
+.legal-stack-section div {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Correction spéciale pour les composants stack */
+.legal-stack-section div[style*="background"]:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Empêcher TOUTE sélection de créer des backgrounds */
+.benefit-card ::selection,
+.legal-stack-section ::selection {
+  background: rgba(252, 233, 107, 0.3) !important;
+  color: #fafafa !important;
+}
+
+.benefit-card ::-moz-selection,
+.legal-stack-section ::-moz-selection {
+  background: rgba(252, 233, 107, 0.3) !important;
+  color: #fafafa !important;
+}
+
+/* Style pour les cercles d'icônes - SEUL élément autorisé à avoir un background */
+.benefit-card div[style*="border-radius: 50%"],
+.benefit-card div[style*="borderRadius"] {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* CORRECTION SPÉCIALE pour Material-UI et autres frameworks */
+.benefit-card .MuiPaper-root,
+.benefit-card .MuiCard-root,
+.benefit-card .MuiBox-root,
+.benefit-card [class*="makeStyles"],
+.benefit-card [class*="jss"],
+.legal-stack-section .MuiPaper-root,
+.legal-stack-section .MuiCard-root,
+.legal-stack-section .MuiBox-root,
+.legal-stack-section [class*="makeStyles"],
+.legal-stack-section [class*="jss"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Correction pour les pseudo-éléments qui peuvent créer des overlays */
+.benefit-card *::before,
+.benefit-card *::after,
+.legal-stack-section *::before,
+.legal-stack-section *::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  content: none !important;
+}
+
+/* Correction pour les éléments inline avec styles */
+.benefit-card [style*="background"],
+.legal-stack-section [style*="background"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Correction pour les gradients et linear-gradient */
+.benefit-card [style*="linear-gradient"],
+.benefit-card [style*="radial-gradient"],
+.legal-stack-section [style*="linear-gradient"],
+.legal-stack-section [style*="radial-gradient"] {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Responsive adjustments pour le bento */
 @media (max-width: 768px) {
-  .rag-section-enhanced {
+  .legal-stack-section {
     padding: clamp(3rem, 6vh, 4rem) clamp(0.5rem, 2vw, 1rem);
   }
-  
-  .rag-content-container {
+
+  .bento-container {
     width: 98%;
     border-radius: 2rem;
     padding: clamp(2rem, 4vh, 2.5rem) clamp(1rem, 3vw, 1.5rem);
   }
-  
-  .rag-flow-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .rag-flow-container > div {
-    max-width: 100% !important;
-    width: 100%;
-  }
-  
-  .rag-flow-step {
-    max-width: 100%;
-    width: 100%;
-  }
 }
 
 @media (max-width: 480px) {
-  .rag-section-enhanced {
+  .legal-stack-section {
     padding: clamp(2rem, 4vh, 3rem) 1rem;
   }
-  
-  .rag-content-container {
+
+  .bento-container {
     width: 100%;
     border-radius: 1.5rem;
     border-width: 3px;
     padding: 1.5rem 1rem;
   }
-  
-  .rag-flow-step {
-    padding: 1.2rem;
-  }
 }
 
-/* Animations réduites pour l'accessibilité */
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .rag-section-enhanced *,
-  .rag-section-enhanced *::before,
-  .rag-section-enhanced *::after {
+  .legal-stack-section *,
+  .legal-stack-section *::before,
+  .legal-stack-section *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
   
-  .rag-content-container {
+  .bento-container {
     transition: none !important;
   }
 }
 
-/* Optimisations de performance */
+/* Performance optimizations */
 @media (prefers-reduced-motion: no-preference) {
-  .rag-section-enhanced {
+  .legal-stack-section {
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
   }
+}
+
+/* RÈGLES POUR EMPÊCHER LE DÉCOUPAGE DES TERMES TECHNIQUES RAG */
+.rag-technical-term {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal !important;
+  hyphens: none !important;
+  word-break: keep-all !important;
+}
+
+/* Styles spécifiques pour chaque terme */
+.rag-mixture-term {
+  min-width: 85px !important;
+}
+
+.rag-reranker-term {
+  min-width: 70px !important;
+}
+
+.rag-grounded-term {
+  min-width: 90px !important;
 }
