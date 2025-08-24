@@ -9,10 +9,10 @@
 
 /* Container bento avec effet scroll */
 .bento-container {
-  background: #faf2d7;
+  background: #1a1a1a;
   border-radius: 3rem;
-  border: 4px solid #2f2f2e;
-  box-shadow: 0 20px 60px rgba(47, 47, 46, 0.3);
+  border: 4px solid #333;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   width: 95%;
   max-width: 1600px;
   position: relative;
@@ -29,36 +29,36 @@
 /* Effet de survol pour le container */
 .bento-container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 30px 80px rgba(47, 47, 46, 0.4);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 /* Effets hover pour les rectangles dans le bento */
-.legal-stack-section div[style*="background: rgba(47, 47, 46, 0.08)"] {
+.legal-stack-section div[style*="background: rgba(255, 255, 255, 0.12)"] {
   cursor: pointer;
 }
 
-.legal-stack-section div[style*="background: rgba(47, 47, 46, 0.08)"]:hover {
+.legal-stack-section div[style*="background: rgba(255, 255, 255, 0.12)"]:hover {
   transform: translateY(-8px) scale(1.02) !important;
-  border-color: rgba(47, 47, 46, 0.25) !important;
-  background: rgba(47, 47, 46, 0.12) !important;
-  box-shadow: 0 12px 40px rgba(47, 47, 46, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3) !important;
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 /* Effet hover pour les sous-éléments */
-.legal-stack-section div[style*="background: rgba(47, 47, 46, 0.06)"]:hover {
+.legal-stack-section div[style*="background: rgba(255, 255, 255, 0.08)"]:hover {
   transform: translateY(-4px) scale(1.01) !important;
-  border-color: rgba(47, 47, 46, 0.18) !important;
-  background: rgba(47, 47, 46, 0.08) !important;
-  box-shadow: 0 8px 24px rgba(47, 47, 46, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2) !important;
   transition: all 0.3s ease !important;
 }
 
 /* Effet hover pour les icônes circulaires */
 .legal-stack-section div[style*="border-radius: 50%"]:hover {
   transform: scale(1.1) !important;
-  background: rgba(47, 47, 46, 0.18) !important;
-  border-color: rgba(47, 47, 46, 0.25) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
   transition: all 0.3s ease !important;
 }
 
@@ -73,9 +73,9 @@
 .bento-container h2,
 .bento-container p,
 .bento-container svg {
-  color: #2f2f2e !important;
-  fill: #2f2f2e !important;
-  stroke: #2f2f2e !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 /* Forcer tous les backgrounds transparents dans le bento */
@@ -110,7 +110,7 @@
   background-color: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
-  color: #2f2f2e !important;
+  color: #ffffff !important;
 }
 
 /* États focus - couleurs bento */
@@ -127,7 +127,7 @@
   background-image: none !important;
   outline: none !important;
   box-shadow: none !important;
-  color: #2f2f2e !important;
+  color: #ffffff !important;
 }
 
 /* États active - couleurs bento */
@@ -141,39 +141,39 @@
   background-color: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
-  color: #2f2f2e !important;
+  color: #ffffff !important;
 }
 
 /* Style spéciaux pour les composants dans le bento */
 .bento-container div[style*="background"] {
-  background: rgba(47, 47, 46, 0.08) !important;
-  background-color: rgba(47, 47, 46, 0.08) !important;
-  border: 2px solid rgba(47, 47, 46, 0.15) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 .bento-container div[style*="background"]:hover {
-  background: rgba(47, 47, 46, 0.12) !important;
-  background-color: rgba(47, 47, 46, 0.12) !important;
-  border: 2px solid rgba(47, 47, 46, 0.25) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
 }
 
 /* Correction spéciale pour les cercles d'icônes dans le bento */
 .bento-container div[style*="border-radius: 50%"],
 .bento-container div[style*="borderRadius"] {
-  background: rgba(47, 47, 46, 0.12) !important;
-  background-color: rgba(47, 47, 46, 0.12) !important;
-  border: 2px solid rgba(47, 47, 46, 0.2) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 /* Sélection dans le bento */
 .bento-container ::selection {
-  background: rgba(196, 148, 10, 0.3) !important;
-  color: #2f2f2e !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
 }
 
 .bento-container ::-moz-selection {
-  background: rgba(196, 148, 10, 0.3) !important;
-  color: #2f2f2e !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
 }
 
 /* STYLES ORIGINAUX PRÉSERVÉS POUR LA COMPATIBILITÉ */
@@ -252,29 +252,29 @@
 
 /* Correction spéciale pour les composants stack */
 .legal-stack-section div[style*="background"]:hover {
-  background: rgba(47, 47, 46, 0.08) !important;
-  background-color: rgba(47, 47, 46, 0.08) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Empêcher TOUTE sélection de créer des backgrounds */
 .benefit-card ::selection,
 .legal-stack-section ::selection {
-  background: rgba(196, 148, 10, 0.3) !important;
-  color: #2f2f2e !important;
+  background: rgba(252, 233, 107, 0.3) !important;
+  color: #fafafa !important;
 }
 
 .benefit-card ::-moz-selection,
 .legal-stack-section ::-moz-selection {
-  background: rgba(196, 148, 10, 0.3) !important;
-  color: #2f2f2e !important;
+  background: rgba(252, 233, 107, 0.3) !important;
+  color: #fafafa !important;
 }
 
 /* Style pour les cercles d'icônes - SEUL élément autorisé à avoir un background */
 .benefit-card div[style*="border-radius: 50%"],
 .benefit-card div[style*="borderRadius"] {
-  background: rgba(47, 47, 46, 0.08) !important;
-  background-color: rgba(47, 47, 46, 0.08) !important;
-  border: 2px solid rgba(47, 47, 46, 0.15) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 /* CORRECTION SPÉCIALE pour Material-UI et autres frameworks */
@@ -370,4 +370,27 @@
     backface-visibility: hidden;
     perspective: 1000px;
   }
+}
+
+/* RÈGLES POUR EMPÊCHER LE DÉCOUPAGE DES TERMES TECHNIQUES RAG */
+.rag-technical-term {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal !important;
+  hyphens: none !important;
+  word-break: keep-all !important;
+}
+
+/* Styles spécifiques pour chaque terme */
+.rag-mixture-term {
+  min-width: 85px !important;
+}
+
+.rag-reranker-term {
+  min-width: 70px !important;
+}
+
+.rag-grounded-term {
+  min-width: 90px !important;
 }
