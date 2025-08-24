@@ -23,22 +23,6 @@ const NOGProjectSection = () => {
     return () => clearInterval(interval);
   }, [actions.length]);
 
-  const handleButtonMouseEnter = (e) => {
-    const button = e.currentTarget;
-    button.style.setProperty('transform', 'translateY(-2px)', 'important');
-    button.style.setProperty('border-color', '#fce96b', 'important');
-    button.style.setProperty('color', '#fce96b', 'important');
-    button.style.setProperty('background', 'rgba(252, 233, 107, 0.1)', 'important');
-  };
-
-  const handleButtonMouseLeave = (e) => {
-    const button = e.currentTarget;
-    button.style.setProperty('transform', 'translateY(0)', 'important');
-    button.style.setProperty('border-color', 'rgba(255, 255, 255, 0.3)', 'important');
-    button.style.setProperty('color', '#fafafa', 'important');
-    button.style.setProperty('background', 'transparent', 'important');
-  };
-
   const handleCasUsageClick = () => {
     const collectionSection = document.getElementById('collection');
     if (collectionSection) {
@@ -91,7 +75,6 @@ const NOGProjectSection = () => {
             transition: opacity 0.3s ease;
             position: relative;
             display: inline-block;
-            white-space: nowrap;
             padding-bottom: 4px;
           }
 
@@ -140,60 +123,200 @@ const NOGProjectSection = () => {
             border-color: rgba(252, 233, 107, 0.2) !important;
           }
 
+          /* Style uniforme pour tous les boutons - inspiré du bouton "Acceso Temprano" */
+          .nog-action-button {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: 0.1em;
+            text-transform: none;
+            background: transparent;
+            color: #fce96b;
+            border: 1px solid #fce96b;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+            height: 40px;
+            margin: 0 0.5rem;
+          }
+
+          .nog-action-button .button-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+          }
+
+          .nog-action-button .button-text {
+            position: relative;
+            transition: all 0.4s ease-out;
+            transform: translateX(0);
+            display: flex;
+            align-items: center;
+          }
+
+          .nog-action-button .arrow-right {
+            margin-left: 8px;
+            transition: all 0.4s ease-out;
+            opacity: 1;
+            transform: translateX(0);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+          }
+
+          .nog-action-button .arrow-left {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease-out;
+            opacity: 0;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+          }
+
+          .nog-action-button:hover {
+            background: #fce96b;
+            color: #2f2f2e;
+          }
+
+          .nog-action-button:hover .button-text {
+            transform: translateX(16px);
+          }
+
+          .nog-action-button:hover .arrow-right {
+            opacity: 0;
+            transform: translateX(8px);
+          }
+
+          .nog-action-button:hover .arrow-left {
+            opacity: 1;
+            transform: translate(-56px, -50%);
+          }
+
+          .nog-action-button:active {
+            transform: translateY(-1px);
+          }
+
+          /* Layout responsive pour les boutons */
           .button-container-desktop {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: clamp(2rem, 4vw, 3.5rem);
+            gap: 1rem;
             width: 100%;
             flex-wrap: wrap;
-            margin-top: clamp(0.5rem, 2vw, 1rem);
+            margin-top: clamp(1rem, 2vw, 1.5rem);
           }
 
           .button-container-mobile {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             width: 100%;
-            max-width: 300px;
-            margin-top: 1rem;
+            max-width: 280px;
+            margin-top: clamp(1rem, 2vw, 1.5rem);
           }
 
-          .action-button {
-            padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(1.5rem, 3vw, 2.2rem);
-            fontSize: clamp(0.85rem, 1.6vw, 1.1rem);
-            fontWeight: 600;
-            color: #fafafa;
-            backgroundColor: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            borderRadius: 50px;
+          .nog-action-button-mobile {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: 0.1em;
+            text-transform: none;
+            background: transparent;
+            color: #fce96b;
+            border: 1px solid #fce96b;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            fontFamily: "Inter", sans-serif;
-            textTransform: uppercase;
-            letterSpacing: 0.05em;
-            minWidth: max-content;
-            whiteSpace: nowrap;
-          }
-
-          .action-button-mobile {
-            padding: 0.7rem 1.4rem;
-            fontSize: 0.9rem;
-            fontWeight: 600;
-            color: #fafafa;
-            backgroundColor: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            borderRadius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            fontFamily: "Inter", sans-serif;
-            textTransform: uppercase;
-            letterSpacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            whiteSpace: nowrap;
+            height: 38px;
           }
 
+          .nog-action-button-mobile .button-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+          }
+
+          .nog-action-button-mobile .button-text {
+            position: relative;
+            transition: all 0.4s ease-out;
+            transform: translateX(0);
+            display: flex;
+            align-items: center;
+          }
+
+          .nog-action-button-mobile .arrow-right {
+            margin-left: 8px;
+            transition: all 0.4s ease-out;
+            opacity: 1;
+            transform: translateX(0);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+          }
+
+          .nog-action-button-mobile .arrow-left {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease-out;
+            opacity: 0;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+          }
+
+          .nog-action-button-mobile:hover {
+            background: #fce96b;
+            color: #2f2f2e;
+          }
+
+          .nog-action-button-mobile:hover .button-text {
+            transform: translateX(16px);
+          }
+
+          .nog-action-button-mobile:hover .arrow-right {
+            opacity: 0;
+            transform: translateX(8px);
+          }
+
+          .nog-action-button-mobile:hover .arrow-left {
+            opacity: 1;
+            transform: translate(-56px, -50%);
+          }
+
+          .nog-action-button-mobile:active {
+            transform: translateY(-1px);
+          }
+
+          /* Responsive breakpoints */
           @media (max-width: 768px) {
             .desktop-layout { 
               display: none !important; 
@@ -219,17 +342,17 @@ const NOGProjectSection = () => {
           }
 
           /* Animation d'apparition pour les boutons */
-          .action-button, .action-button-mobile {
+          .nog-action-button, .nog-action-button-mobile {
             animation: buttonFadeIn 0.6s ease-out forwards;
             opacity: 0;
             transform: translateY(10px);
           }
 
-          .action-button:nth-child(1) {
+          .nog-action-button:nth-child(1) {
             animation-delay: 0.1s;
           }
 
-          .action-button:nth-child(2) {
+          .nog-action-button:nth-child(2) {
             animation-delay: 0.2s;
           }
 
@@ -237,6 +360,41 @@ const NOGProjectSection = () => {
             to {
               opacity: 1;
               transform: translateY(0);
+            }
+          }
+
+          /* FIX: Assurer que le texte reste sur une ligne */
+          .text-content-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            justify-content: center;
+            white-space: nowrap;
+            overflow-wrap: normal;
+            word-break: keep-all;
+          }
+
+          .intro-text {
+            white-space: nowrap;
+            margin-right: 0.5em;
+          }
+
+          @media (max-width: 600px) {
+            .text-content-wrapper {
+              white-space: normal;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+            }
+            
+            .intro-text {
+              white-space: normal;
+              margin-right: 0;
+              margin-bottom: 0.5rem;
+            }
+            
+            .dynamic-text {
+              white-space: nowrap;
             }
           }
         `}
@@ -286,7 +444,7 @@ const NOGProjectSection = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            {/* Phrase principale avec texte dynamique animé */}
+            {/* Phrase principale avec texte dynamique animé - LAYOUT FIXÉ */}
             <div style={{
               fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
               fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -297,118 +455,72 @@ const NOGProjectSection = () => {
               wordWrap: 'break-word',
               hyphens: 'auto'
             }}>
-              {t('nog.intro')}{' '}
-              <span className="dynamic-text" key={currentLineIndex}>
-                {currentAction}
-              </span>
+              <div className="text-content-wrapper">
+                <span className="intro-text">{t('nog.intro')}</span>
+                <span className="dynamic-text" key={currentLineIndex}>
+                  {currentAction}
+                </span>
+              </div>
             </div>
 
-            {/* Version Desktop - Boutons côte à côte */}
+            {/* Version Desktop - Boutons côte à côte avec style uniforme */}
             <div className="desktop-layout">
               <div className="button-container-desktop">
                 <button
-                  className="action-button"
+                  className="nog-action-button"
                   onClick={handleCasUsageClick}
-                  onMouseEnter={handleButtonMouseEnter}
-                  onMouseLeave={handleButtonMouseLeave}
-                  style={{
-                    padding: 'clamp(0.6rem, 1.2vw, 0.8rem) clamp(1.5rem, 3vw, 2.2rem)',
-                    fontSize: 'clamp(0.85rem, 1.6vw, 1.1rem)',
-                    fontWeight: '600',
-                    color: '#fafafa',
-                    backgroundColor: 'transparent',
-                    border: '2px solid rgba(255, 255, 255, 0.3)',
-                    borderRadius: '50px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    fontFamily: '"Inter", sans-serif',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    minWidth: 'max-content',
-                    whiteSpace: 'nowrap'
-                  }}
                 >
-                  Cas d'usage
+                  <div className="button-content">
+                    <span className="arrow-left">→</span>
+                    <span className="button-text">
+                      {t('nog.useCases')}
+                      <span className="arrow-right">→</span>
+                    </span>
+                  </div>
                 </button>
 
                 <button
-                  className="action-button"
+                  className="nog-action-button"
                   onClick={handleAcademyClick}
-                  onMouseEnter={handleButtonMouseEnter}
-                  onMouseLeave={handleButtonMouseLeave}
-                  style={{
-                    padding: 'clamp(0.6rem, 1.2vw, 0.8rem) clamp(1.5rem, 3vw, 2.2rem)',
-                    fontSize: 'clamp(0.85rem, 1.6vw, 1.1rem)',
-                    fontWeight: '600',
-                    color: '#fafafa',
-                    backgroundColor: 'transparent',
-                    border: '2px solid rgba(255, 255, 255, 0.3)',
-                    borderRadius: '50px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    fontFamily: '"Inter", sans-serif',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    minWidth: 'max-content',
-                    whiteSpace: 'nowrap'
-                  }}
                 >
-                  IA Académie
+                  <div className="button-content">
+                    <span className="arrow-left">→</span>
+                    <span className="button-text">
+                      {t('nog.aiAcademy')}
+                      <span className="arrow-right">→</span>
+                    </span>
+                  </div>
                 </button>
               </div>
             </div>
 
-            {/* Version Mobile - Boutons empilés */}
+            {/* Version Mobile - Boutons empilés avec style uniforme */}
             <div className="mobile-layout">
               <div className="button-container-mobile">
                 <button
-                  className="action-button-mobile"
+                  className="nog-action-button-mobile"
                   onClick={handleCasUsageClick}
-                  onMouseEnter={handleButtonMouseEnter}
-                  onMouseLeave={handleButtonMouseLeave}
-                  style={{
-                    padding: '0.7rem 1.4rem',
-                    fontSize: '0.9rem',
-                    fontWeight: '600',
-                    color: '#fafafa',
-                    backgroundColor: 'transparent',
-                    border: '2px solid rgba(255, 255, 255, 0.3)',
-                    borderRadius: '50px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    fontFamily: '"Inter", sans-serif',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    width: '100%',
-                    whiteSpace: 'nowrap'
-                  }}
                 >
-                  Cas d'usage
+                  <div className="button-content">
+                    <span className="arrow-left">→</span>
+                    <span className="button-text">
+                      {t('nog.useCases')}
+                      <span className="arrow-right">→</span>
+                    </span>
+                  </div>
                 </button>
 
                 <button
-                  className="action-button-mobile"
+                  className="nog-action-button-mobile"
                   onClick={handleAcademyClick}
-                  onMouseEnter={handleButtonMouseEnter}
-                  onMouseLeave={handleButtonMouseLeave}
-                  style={{
-                    padding: '0.7rem 1.4rem',
-                    fontSize: '0.9rem',
-                    fontWeight: '600',
-                    color: '#fafafa',
-                    backgroundColor: 'transparent',
-                    border: '2px solid rgba(255, 255, 255, 0.3)',
-                    borderRadius: '50px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    fontFamily: '"Inter", sans-serif',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    width: '100%',
-                    whiteSpace: 'nowrap'
-                  }}
                 >
-                  IA Académie
+                  <div className="button-content">
+                    <span className="arrow-left">→</span>
+                    <span className="button-text">
+                      {t('nog.aiAcademy')}
+                      <span className="arrow-right">→</span>
+                    </span>
+                  </div>
                 </button>
               </div>
             </div>
