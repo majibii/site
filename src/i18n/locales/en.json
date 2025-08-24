@@ -209,7 +209,7 @@
     }
   },
   "nog": {
-    "intro": "Right now, clients are asking the eggon team to",
+    "intro": "Right now, clients are asking the eggon team to:",
     "actions": [
       "Build AI agents",
       "Prompt engineering",
@@ -217,6 +217,8 @@
       "Connect AI to data",
       "Deliver AI training"
     ],
+    "useCases": "Use case",
+    "aiAcademy": "AI Academy",
     "getExamples": "Get Examples",
     "useCasesAgent": "Use Cases Agent",
     "academyProgram": "IA Academy Program"
