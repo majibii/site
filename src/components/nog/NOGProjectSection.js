@@ -188,8 +188,9 @@ const NOGProjectSection = () => {
           }
 
           .nog-action-button:hover {
-            background: #fce96b;
-            color: #2f2f2e;
+            background: #fce96b !important;
+            color: #2f2f2e !important;
+            border-color: #fce96b !important;
           }
 
           .nog-action-button:hover .button-text {
@@ -294,8 +295,9 @@ const NOGProjectSection = () => {
           }
 
           .nog-action-button-mobile:hover {
-            background: #fce96b;
-            color: #2f2f2e;
+            background: #fce96b !important;
+            color: #2f2f2e !important;
+            border-color: #fce96b !important;
           }
 
           .nog-action-button-mobile:hover .button-text {
@@ -452,9 +454,9 @@ const NOGProjectSection = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: 'clamp(1.2rem, 3vw, 2rem)',
-              width: 'auto',
-              minWidth: '90%',
-              maxWidth: 'none',
+              width: 'fit-content',
+              minWidth: 'min(90%, 800px)',
+              maxWidth: 'min(95%, 1100px)',
               minHeight: 'auto',
               overflow: 'visible'
             }}
@@ -462,7 +464,7 @@ const NOGProjectSection = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            {/* Phrase principale avec texte dynamique animé - LAYOUT FIXÉ */}
+            {/* Phrase principale avec texte dynamique animé - LAYOUT ÉQUILIBRÉ */}
             <div style={{
               fontSize: 'clamp(0.9rem, 2.2vw, 1.6rem)',
               fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -470,11 +472,8 @@ const NOGProjectSection = () => {
               textAlign: 'center',
               lineHeight: '1.7',
               width: 'auto',
-              minWidth: 'max-content',
-              wordWrap: 'normal',
-              hyphens: 'none',
               whiteSpace: 'nowrap',
-              padding: '0 1rem'
+              padding: '0 0.5rem'
             }}>
               <div className="text-content-wrapper">
                 <span className="intro-text">{t('nog.intro')}</span>
